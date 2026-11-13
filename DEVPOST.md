@@ -67,7 +67,7 @@ Each design choice answers a finding from published research. Full sources are i
 
 ## How it is built
 
-- **One file, zero dependencies.** HTML, CSS and ES5 JavaScript in a single `index.html`: app, editor, 9 languages, 12 lessons and self-test. No framework, no build step, no backend, no analytics.
+- **One file, zero dependencies.** HTML, CSS and ES5 JavaScript in a single `index.html`: app, editor, 9 languages, 12 lessons and self-test. No framework, no build step, no analytics, and the offline app needs no server.
 - **The lesson file is the app.** A downloaded lesson carries the editor inside it, so any teacher who receives it can adapt it and pass it on.
 - **Old-phone JavaScript.** No arrow functions, `let`/`const`, classes or template strings, aiming at Android 4.4-era browsers. Phones make no outside network requests.
 - **Accessible by default.** Native buttons and labelled inputs; feedback as symbol + words + live region; focus moves to each new heading; lesson text keeps its own `lang`; Arabic runs right-to-left; works at 320 px wide; larger text and a high-contrast dark theme.
@@ -93,7 +93,7 @@ The class shown in *Results* and in the video is **made-up demonstration data**,
 
 ## Challenges
 
-- **Keeping it one file.** Nine languages, twelve lessons, an editor and diagrams in 199 KB meant hand-drawn SVG and no libraries.
+- **Keeping it one file.** Nine languages, twelve lessons, an editor and diagrams in 200 KB meant hand-drawn SVG and no libraries.
 - **Making the code worth sending.** A score alone does not help a teacher. The code had to hold every first answer, survive hand-copying, and still be short enough for one SMS.
 - **Desktop lies.** The real phone showed bugs no desktop check found: double borders on answers, an unreadable diagram in dark mode, and Arabic labels out of place.
 
@@ -107,7 +107,7 @@ The class shown in *Results* and in the video is **made-up demonstration data**,
 
 - **All code, text, lessons, icons and diagrams were made during AccessED Hacks** (17 October – 20 November 2026). No pre-existing code or template.
 - **AI assistance:** Claude (Anthropic) helped write and test the code and draft the text. Titip Go calls Google Gemini at run time. Translations beyond English and Indonesian were drafted with AI help.
-- **Demo video:** voice by the author, cleaned with DeepFilterNet and VoiceFixer (noise and echo removed, pauses trimmed; no words changed). Edited in Remotion with Claude's help. Music: "Upbeat Advertising Funk" by FASSounds (Pixabay Content License). App screens are real screenshots; the phone's "Flight mode" bar is drawn.
+- **Demo video:** voice by the author, cleaned with DeepFilterNet and VoiceFixer (noise and echo removed, pauses trimmed; no words changed). Edited in Remotion with Claude's help. Music: "Upbeat Advertising Funk" by FASSounds (Pixabay Content License). App screens are real screenshots; the phone's "Flight mode" bar is drawn. Titip Go was built after the video was recorded, so it is not in the video; try it with the one-click demo.
 - **Third-party material:** none bundled. Wide screens load Google Sans Flex from Google Fonts. Visual style follows Material Design 3; Titip is not a Google product.
 
 ## Try it
