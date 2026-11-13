@@ -551,6 +551,8 @@
 
 <body>
     <a class="skip" href="#main">Skip to content</a>
+    <p id="upd" role="status" hidden
+        style="margin:0;padding:.6rem 1rem;text-align:center;font-weight:500;background:#ffdf99;color:#421f00"></p>
     <header class="top">
         <div class="bar">
             <a class="brand" href="./" aria-label="Titip home"><svg viewBox="0 0 32 32" aria-hidden="true">
@@ -814,8 +816,31 @@
                 write and test the code and draft the text. All learner data shown is made up.</p>
             <p>Visual style follows Material Design 3. Titip is not a Google product. Fonts: Google Sans Flex via Google
                 Fonts. No tracking, no cookies, no accounts.</p>
+            <p id="ver"></p>
         </div>
     </footer>
+    <script>
+        // Deploy status written by the CI deploy (status.json next to this page). Shows a banner while an update is going live.
+        (function () {
+            var upd = document.getElementById('upd'), ver = document.getElementById('ver');
+            function check() {
+                var x = new XMLHttpRequest();
+                x.open('GET', 'status.json?t=' + Date.now());
+                x.onload = function () {
+                    var s; try { s = JSON.parse(x.responseText); } catch (e) { return; }
+                    var sha = String(s.sha || '').slice(0, 7);
+                    ver.textContent = sha ? 'Version ' + sha + (s.time ? ', ' + s.time.replace('T', ' ').replace('Z', ' UTC') : '') : '';
+                    upd.hidden = s.state == 'live';
+                    if (s.state == 'deploying') { upd.textContent = '⟳ Updating: a new version (' + sha + ') is going live. The current version keeps working.'; setTimeout(check, 10000); }
+                    else if (s.state == 'failed') upd.textContent = '⚠ The last update (' + sha + ') did not go live. The previous version is still running.';
+                    else if (s.state == 'live' && upd.getAttribute('data-was') == 'deploying') location.reload();
+                    upd.setAttribute('data-was', s.state);
+                };
+                x.send();
+            }
+            check();
+        })();
+    </script>
 </body>
 
 </html>

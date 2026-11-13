@@ -5,7 +5,7 @@ For the next agent or developer picking this up. Read this first, then README.md
 ## Status on 13 November 2026
 
 - Hackathon: AccessED Hacks, runs October 17 to November 20, 2026. Submission goes on Devpost.
-- App is upgraded with Interactive Learning Lab (`renderLab` manipulative SVG simulations for fractions, equal sharing/division, water cycle, plant parts, clean water hygiene), interactive Flashcard flip deck (`deckOf`), Overview lab sandbox, 9 UI languages + Arabic RTL, 12 lessons incl. TaRL Numeracy Diagnostic, language/topic filters, worked examples, typed short-answer questions with choice fallback, learner TaRL bands + teacher TaRL Group A/B/C placement, shared-phone queue + batch SMS, offline `TITIP1:` text codes, and 2-up paper-saver worksheets. Live at `https://titip.rofihosted.space/` and `/app/` (`196,970` bytes raw / `65,283` bytes gzipped).
+- App is upgraded with Interactive Learning Lab (`renderLab` manipulative SVG simulations for fractions, equal sharing/division, water cycle, plant parts, clean water hygiene), interactive Flashcard flip deck (`deckOf`), Overview lab sandbox, 9 UI languages + Arabic RTL, 12 lessons incl. TaRL Numeracy Diagnostic, language/topic filters, worked examples, typed short-answer questions with choice fallback, learner TaRL bands + teacher TaRL Group A/B/C placement, shared-phone queue + batch SMS, offline `TITIP1:` text codes, and 2-up paper-saver worksheets. Live at `https://titip.rofihosted.space/` and `/app/` (`198,771` bytes raw / `65,977` bytes gzipped).
 - Public GitHub repo `https://github.com/rofiperlungoding/titip` pushed on `master`.
 - Not done: verifying Interactive Lab, Flashcards, and Arabic RTL visuals in Chrome, real-user field test (protocol in TEST.md), recording demo video.
 
@@ -48,7 +48,7 @@ Routes: `#/` overview (with live interactive lab sandbox), `#/learn` (Lesson & L
 
 ## Open work, in priority order
 
-1. Chrome smoke check: verify Interactive Lab manipulatives, Flashcard flip deck, typed-input scaffold, shared-phone queue, TaRL groups, Arabic RTL layout, and offline SW cache (`skipWaiting`/`clients.claim`) on the live 196,970-byte build.
+1. Done 13 Nov in desktop Chrome (see TEST.md): Lab, Flashcards, quiz flow, 320 px, Arabic RTL, dark theme. Still open: deploy the polished build, then check Interactive Lab manipulatives, Flashcard flip deck, typed-input scaffold, shared-phone queue, TaRL groups, Arabic RTL layout, and offline SW cache (`skipWaiting`/`clients.claim`) on the live 198,771-byte build.
 3. Field test (TEST.md, 30 min, 3 learners, 1 old phone). Record results honestly in TEST.md, update README Limits.
 4. Record demo video (< 3 min using DEMO.md).
 5. Native-teacher review of `es`/`fr`/`pt`/`sw`/`hi`/`bn`/`ar` UI + sample lessons; TalkBack & physical printer check.

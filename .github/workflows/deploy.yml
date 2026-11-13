@@ -1,0 +1,74 @@
+name: Check and deploy
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-live
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: selfTest, ES5 syntax, language key parity, size
+        run: |
+          node - <<'JS'
+          var fs=require('fs'),vm=require('vm'),zlib=require('zlib');
+          var h=fs.readFileSync('index.html','utf8');
+          var js=h.match(/<script>([\s\S]*?)<\/script>/)[1];
+          var pure=js.split('/*DOM*/')[0];
+          var c={btoa:btoa,atob:atob,escape:escape,unescape:unescape,encodeURIComponent:encodeURIComponent,decodeURIComponent:decodeURIComponent};
+          vm.createContext(c);vm.runInContext(pure,c);
+          var r=c.selfTest();if(r!=='ok')throw new Error('selfTest: '+r);
+          var bad=[];
+          var Tm=js.match(/\nvar T=(\{[\s\S]*?\n\});/);if(!Tm)throw new Error('T not found');c.T=vm.runInNewContext('('+Tm[1]+')');
+          if(c.T){var en=Object.keys(c.T.en);Object.keys(c.T).forEach(function(l){var k=Object.keys(c.T[l]);en.forEach(function(x){if(k.indexOf(x)<0)bad.push(l+':'+x)})});}
+          if(bad.length)throw new Error('missing UI keys: '+bad.slice(0,20).join(', '));
+          var gz=zlib.gzipSync(h).length;
+          console.log('selfTest ok; keys ok'+(c.T?' ('+Object.keys(c.T).length+' languages)':' (T not in pure section, skipped)')+'; '+Buffer.byteLength(h)+' bytes, '+gz+' gzip');
+          if(gz>80*1024)throw new Error('gzip size over 80 KB');
+          JS
+      - name: ES5 only (no let/const/arrow/class/template/spread)
+        run: |
+          npx --yes acorn@8.14.0 --ecma5 --silent <(node -e "process.stdout.write(require('fs').readFileSync('index.html','utf8').match(/<script>([\s\S]*?)<\/script>/)[1])")
+          echo "ES5 parse ok"
+
+  deploy:
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install cloudflared
+        run: |
+          curl -fsSL -o cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+          sudo dpkg -i cloudflared.deb
+      - name: SSH setup
+        env:
+          DEPLOY_KEY: ${{ secrets.TITIP_DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy && chmod 600 ~/.ssh/deploy
+          echo '[ssh.rofihosted.space]:8022 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKzJdefUJgZxJca+zU1ECs5pCwT+CDudDRT7/9LxGUqL' > ~/.ssh/known_hosts
+          printf 'Host live\n  HostName ssh.rofihosted.space\n  Port 8022\n  User root\n  IdentityFile ~/.ssh/deploy\n  IdentitiesOnly yes\n  StrictHostKeyChecking yes\n  ProxyCommand cloudflared access ssh --hostname ssh.rofihosted.space\n' > ~/.ssh/config
+      - name: Mark live site as updating
+        run: ssh live "begin $GITHUB_SHA"
+      - name: Upload and swap in
+        run: |
+          mkdir -p web/app
+          cp site/index.html web/index.html
+          cp index.html sw.js web/app/
+          tar -cf - -C web . | ssh live "push $GITHUB_SHA"
+      - name: Check public URLs
+        run: |
+          for p in / /app/ /app/sw.js; do curl -fsS -o /dev/null -w "%{http_code} $p\n" "https://titip.rofihosted.space$p"; done
+          curl -fsS "https://titip.rofihosted.space/status.json?t=$(date +%s)"
+      - name: Mark failed
+        if: failure()
+        run: ssh live "fail $GITHUB_SHA" || true
