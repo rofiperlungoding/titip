@@ -43,6 +43,20 @@ None of these has been observed.
 | Listen works offline on most Android phones | Uses the phone's built-in speech engine | Depends on which voices the phone has installed |
 | Effect on learning is positive but of unknown size | Practice quizzing averages g = 0.499 and explanatory feedback 0.49 in published meta-analyses (P3, P5 in RESEARCH.md) | Those are averages for other tools in studied settings. Two comparable programmes found no effect (P9, P12). Our assumption is that Titip falls between zero and those figures, and near zero where the teacher does not follow up |
 
+### Field test, predicted step by step (not run)
+
+Nobody has run the field test below. This is the author's prediction of each step, made from the checks above, so the real run can be compared against it. It is not evidence about learners.
+
+| Step | Predicted outcome | Basis | Most likely way it goes wrong |
+|---|---|---|---|
+| 1. Send file by Bluetooth | Arrives, about 199 KB | File size checked above | Some phones block `.html` over Bluetooth; WhatsApp may rename it or open it in its own viewer |
+| 2. Open in flight mode | Opens in Chrome in a few seconds | Single file, no outside requests; offline reload checked on a Sharp R8 | Files app opens it in an HTML viewer without JavaScript, or a very old browser |
+| 3–4. Learner alone, then *Next learner* | Finishes; hesitates at the first typed-answer question | Full quiz run checked in Chrome and on a phone | Young readers stuck on English or long lesson text; not tested with any learner |
+| 5. Paper worksheet | Completed; the total is the step most often wrong | Paper code needs addition | Learner skips the total or misses the upside-down key |
+| 6. Type results | Question 1 or 4 flagged *Teach again* if any are | `tally` and `selfTest()` | Teacher mistypes a code; Titip rejects it as a typo, which is intended |
+| 10. Listen offline | Uncertain | Uses the phone's speech engine | No offline voice for the lesson language |
+| 11. TalkBack | Uncertain | Native controls and labels checked | Never tried with a screen reader |
+
 ## Made-up
 
 The *Fill in a made-up class* button in *Read results* loads 12 invented learners over two rounds. In it, question 1 goes from 4 of 12 right to 10 of 12 right after "teaching again". The author chose those numbers to show how the table reads. They are not a prediction and not a result. The screen labels them as made-up, and the label disappears once anything is typed.
