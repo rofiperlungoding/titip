@@ -31,15 +31,24 @@ main{max-width:64rem;margin:0 auto;padding:0 1rem 4rem}
 .hero h1 em{background:linear-gradient(90deg,#ffca28,#ff8f00 60%,#f4511e);-webkit-background-clip:text;background-clip:text;color:transparent}
 @view-transition{navigation:auto}
 [tabindex="-1"]:focus{outline:0}
-#intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:#0b57d0;color:#fff;pointer-events:none;font-weight:650;letter-spacing:-.03em}
-#intro .w{display:flex;align-items:center;gap:1rem;font-size:clamp(2.4rem,9vw,4.5rem)}
-#intro .ic{width:1.3em;height:1.3em;border-radius:.32em;background:#fff;display:grid;place-items:center}
-#intro .w>span:last-child{line-height:1.2}#intro .go{display:inline-block;vertical-align:top;line-height:1.2;white-space:nowrap;overflow:hidden;max-width:0;opacity:0;background:linear-gradient(90deg,#ffca28,#ff8f00);-webkit-background-clip:text;background-clip:text;color:transparent;animation:goIn .55s .35s cubic-bezier(.2,.8,.2,1) forwards}
-#intro{animation:introBg .5s .3s ease forwards,introOut .6s 1.05s cubic-bezier(.7,0,.3,1) forwards}
-@keyframes goIn{to{max-width:2.2em;opacity:1}}
-@keyframes introBg{to{background:#1b2a41}}
-@keyframes introOut{from{clip-path:circle(150% at 50% 50%)}to{clip-path:circle(0% at 50% 50%)}}
-@media (prefers-reduced-motion:reduce){#intro{display:none}}
+#intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;overflow:hidden;background:#0b57d0;pointer-events:none;animation:inBg .45s .55s cubic-bezier(.3,0,.2,1) forwards}
+#intro .stage{position:relative;display:flex;align-items:center;gap:1.1rem;font:650 clamp(2.6rem,10vw,5.2rem)/1 "Google Sans Flex",system-ui,sans-serif;letter-spacing:-.035em;color:#fff}
+#intro .ic{width:1.25em;height:1.25em;border-radius:.3em;background:#fff;display:grid;place-items:center;animation:icPop .9s cubic-bezier(.34,1.56,.64,1) both}
+#intro .ic svg{animation:arrow .5s .55s cubic-bezier(.34,1.8,.64,1) both}
+#intro .name{animation:nameIn .55s .1s cubic-bezier(.34,1.56,.64,1) both}
+#intro .go{display:inline-block;margin-left:.22em;padding:.08em .32em .12em;border-radius:.22em;background:#ffca28;color:#1b2a41;transform-origin:50% 100%;animation:goBounce .8s .62s cubic-bezier(.34,1.7,.5,1) both}
+#intro .ring{position:absolute;left:50%;top:50%;width:0;height:0;border-radius:50%;border:5px solid #ffca28;opacity:0;transform:translate(-50%,-50%);animation:ring .75s .7s cubic-bezier(.2,.8,.3,1) forwards}
+#intro .bit{position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px;border-radius:4px;opacity:0;animation:burst .9s .7s cubic-bezier(.2,.8,.3,1) forwards}
+#intro .sweep{position:absolute;inset:0;background:#f5f7fa;clip-path:circle(0% at 50% 50%);animation:sweep .65s 1.55s cubic-bezier(.7,0,.2,1) forwards}
+@keyframes inBg{to{background:#1b2a41}}
+@keyframes icPop{0%{transform:scale(0) rotate(-25deg)}55%{transform:scale(1.25,.85) rotate(6deg)}75%{transform:scale(.92,1.08)}100%{transform:none}}
+@keyframes arrow{0%{transform:translateX(-40%);opacity:0}100%{transform:none;opacity:1}}
+@keyframes nameIn{0%{transform:translateY(60%) scale(.6);opacity:0}100%{transform:none;opacity:1}}
+@keyframes goBounce{0%{transform:scale(0) translateY(40%);opacity:0}45%{transform:scale(1.35,.75) translateY(0);opacity:1}65%{transform:scale(.85,1.2) translateY(-18%)}82%{transform:scale(1.06,.95)}100%{transform:none}}
+@keyframes ring{0%{opacity:1;width:0;height:0;border-width:10px}100%{opacity:0;width:900px;height:900px;border-width:1px}}
+@keyframes burst{0%{opacity:1;transform:translate(0,0) rotate(0) scale(1)}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(var(--r)) scale(.6)}}
+@keyframes sweep{to{clip-path:circle(150% at 50% 50%)}}
+@media (prefers-reduced-motion:reduce){#intro,#intro *{animation-duration:.01s!important;animation-delay:0s!important}#intro{animation:fadeOut .4s .6s forwards!important}@keyframes fadeOut{to{opacity:0}}}
 .hero h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.08;letter-spacing:-.03em;font-weight:650}
 .hero h1 em{font-style:normal;color:var(--pri)}
 .lead{font-size:1.15rem;color:var(--sub);margin-top:.75rem;max-width:44rem}
@@ -97,7 +106,7 @@ ol.steps{padding-left:1.2rem;margin:.5rem 0}ol.steps li{margin:.3rem 0}
   <span class="sp"></span>
   <a class="btn o" href="/app/">Offline Titip</a>
 </div>
-<div id="intro" aria-hidden="true" hidden><div class="w"><span class="ic"><svg width="62%" height="62%" viewBox="0 0 24 24" fill="none" stroke="#1b2a41" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 7l5 5-5 5"/></svg></span><span>Titip<span class="go">&nbsp;Go</span></span></div></div>
+<div id="intro" aria-hidden="true" hidden><div class="stage"><span class="ring"></span><span class="ic"><svg width="62%" height="62%" viewBox="0 0 24 24" fill="none" stroke="#1b2a41" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 7l5 5-5 5"/></svg></span><span class="name">Titip</span><span class="go">Go</span></div><div class="sweep"></div></div>
 <main id="main" tabindex="-1"></main>
 <p class="foot">Titip Go needs a connection; <a href="/app/">Titip</a> never does. Learners join with a class code and a nickname: no account, no email. Please do not type full names. AI by Google Gemini; answers are checked by the teacher.</p>
 <div id="live" role="status" aria-live="polite" class="sm" style="position:absolute;left:-9999px"></div>
@@ -351,8 +360,23 @@ function route() {
   else home();
 }
 addEventListener('hashchange', route); route();
-// Brand intro once per visit: blue Titip turns into violet Titip Go.
-try { if (!sessionStorage.getItem('goIntro')) { sessionStorage.setItem('goIntro', '1'); const i = $('#intro'); i.hidden = false; setTimeout(() => i.remove(), 1800); } } catch (e) {}
+// Brand intro: blue Titip pops, turns navy, "Go" bounces in with a burst, then the page sweeps open.
+// Plays when arriving from the Titip landing page or app, or with #/?intro; not on every reload.
+(function () {
+  let fromTitip = false;
+  try { const r = new URL(document.referrer); fromTitip = r.host === location.host && !r.pathname.startsWith('/go/'); } catch (e) {}
+  let seen = false; try { seen = !!sessionStorage.getItem('goIntro'); sessionStorage.setItem('goIntro', '1'); } catch (e) {}
+  if (!(fromTitip || !seen || /intro/.test(location.search))) return;
+  const i = $('#intro'), st = i.querySelector('.stage'), cols = ['#ffca28', '#ff8f00', '#f4511e', '#039be5', '#fff'];
+  for (let k = 0; k < 26; k++) {
+    const b = document.createElement('span'), a = (k / 26) * Math.PI * 2 + Math.random() * 0.3, d = 180 + Math.random() * 260;
+    b.className = 'bit';
+    b.style.cssText = `background:${cols[k % cols.length]};--x:${Math.cos(a) * d}px;--y:${Math.sin(a) * d}px;--r:${Math.random() * 540 - 270}deg;border-radius:${k % 3 ? '4px' : '50%'}`;
+    st.appendChild(b);
+  }
+  i.hidden = false;
+  setTimeout(() => i.remove(), 2300);
+})();
 </script>
 </body>
 </html>
