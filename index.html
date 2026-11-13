@@ -305,6 +305,7 @@ nav button span{display:block;overflow:hidden;text-overflow:ellipsis;white-space
 <p data-t="gAbout"></p>
 <button class="dk" data-act="view" data-v="why"><i data-i="bulb"></i><span data-t="nWhy"></span></button>
 <button class="dk" data-act="view" data-v="help"><i data-i="help"></i><span data-t="nHelp"></span></button>
+<button class="dk" data-act="golink"><i data-i="bulb"></i><span data-t="nGo"></span></button>
 </nav>
 <main>
 <section id="home"></section>
@@ -530,7 +531,7 @@ function selfTest(){
 /*DOM*/
 var SRC=document.documentElement.outerHTML; // taken before any change: becomes the downloadable lesson file
 var T={
-en:{nWhy:'Evidence',nHelp:'Help',gAbout:'About',dark:'Dark, high-contrast colours',off:'Offline: still works',
+en:{nGo:'Titip Go (online, AI)',nWhy:'Evidence',nHelp:'Help',gAbout:'About',dark:'Dark, high-contrast colours',off:'Offline: still works',
 whyS:'Every design choice traces to a number someone else measured. The full list, 29 papers and 59 global and national sources, is in RESEARCH.md.',
 w1:'people live under mobile coverage without using mobile internet (38% usage gap), plus ~300 million outside any coverage (~3.4 billion offline).',
 w2:'of school-age children in Sub-Saharan Africa (95% W/C, 88% E/S) and South Asia (88%), plus 49% in Latin America & the Caribbean, had no home internet (2020).',
@@ -589,7 +590,7 @@ grpT:'Practice groups (TaRL-style, by quiz score)',grpA:'Group A (<50% · Concre
 cpCode:'Copy text code',cpOk:'TITIP1: code copied. Paste in SMS or chat.',impB:'Import code',impP:'Paste TITIP1:... code',impBad:'Not a valid TITIP1: lesson code.',print2:'Print 2-up slips (half paper)',
 mRead:'Lesson & Lab',mCards:'Flashcards',mQuiz:'Practice Quiz',labT:'Interactive Lab \u2014 tap controls below to explore',fCut:'Cut cake into:',fTake:'Pieces taken:',fEq2:'= 1/2 (one half!)',fEq4:'= 1/4 (one quarter!)',dTot:'Total items:',dGrp:'Equal groups:',dEach:'each',cFlip:'Flip card',cPrev:'Previous',cNext:'Next card',cKnow:'Got it \u2713',cFront:'Tap card or button to flip'},
 
-id:{nWhy:'Bukti',nHelp:'Bantuan',gAbout:'Tentang',dark:'Warna gelap kontras tinggi',off:'Offline: tetap jalan',
+id:{nGo:'Titip Go (online, AI)',nWhy:'Bukti',nHelp:'Bantuan',gAbout:'Tentang',dark:'Warna gelap kontras tinggi',off:'Offline: tetap jalan',
 whyS:'Tiap pilihan rancangan berpijak pada angka yang diukur orang lain. Daftar lengkap, 29 paper dan 59 sumber global maupun nasional, ada di RESEARCH.md.',
 w1:'orang berada di wilayah sinyal seluler tetapi belum memakai internet (38% kesenjangan pakai), ditambah ~300 juta tanpa sinyal (~3,4 miliar offline).',
 w2:'anak usia sekolah di Afrika Sub-Sahara (95% Barat/Tengah, 88% Timur/Selatan) dan Asia Selatan (88%), serta 49% di Amerika Latin & Karibia, tanpa internet rumah (2020).',
@@ -648,7 +649,7 @@ grpT:'Kelompok latihan (gaya TaRL, dari skor kuis)',grpA:'Kelompok A (<50% · Pe
 cpCode:'Salin kode teks',cpOk:'Kode TITIP1: tersalin. Tempel di SMS atau chat.',impB:'Impor kode',impP:'Tempel kode TITIP1:...',impBad:'Kode pelajaran TITIP1: tidak valid.',print2:'Cetak 2-per-halaman (hemat kertas)',
 mRead:'Materi & Lab',mCards:'Kartu Hafalan',mQuiz:'Latihan Soal',labT:'Lab Interaktif \u2014 ketuk tombol di bawah untuk mencoba',fCut:'Potong kue jadi:',fTake:'Bagian diambil:',fEq2:'= 1/2 (setengah!)',fEq4:'= 1/4 (seperempat!)',dTot:'Total benda:',dGrp:'Kelompok sama:',dEach:'per kelompok',cFlip:'Balik kartu',cPrev:'Sebelumnya',cNext:'Kartu berikutnya',cKnow:'Sudah paham \u2713',cFront:'Ketuk kartu atau tombol untuk membalik'},
 
-es:{nHome:'Inicio',nLearn:'Aprender',nLib:'Lecciones',nMake:'Crear una lección',nMakeS:'Crear',nRes:'Resultados',gLearner:'Estudiante',gTeacher:'Docente',gAbout:'Acerca de',nWhy:'Evidencia',nHelp:'Ayuda',
+es:{nGo:'Titip Go (en línea, IA)',nHome:'Inicio',nLearn:'Aprender',nLib:'Lecciones',nMake:'Crear una lección',nMakeS:'Crear',nRes:'Resultados',gLearner:'Estudiante',gTeacher:'Docente',gAbout:'Acerca de',nWhy:'Evidencia',nHelp:'Ayuda',
 big:'Texto más grande',menu:'Mostrar u ocultar los nombres del menú',dark:'Colores oscuros de alto contraste',off:'Sin conexión: sigue funcionando',
 whyS:'Cada decisión de diseño responde a una cifra medida por otros. La lista completa (29 estudios y 59 fuentes) está en RESEARCH.md.',
 w1:'personas viven bajo cobertura móvil sin usar internet móvil (38% de brecha de uso), más ~300 millones sin cobertura (~3,4 mil millones sin conexión).',
@@ -706,7 +707,7 @@ grpT:'Grupos de práctica (estilo TaRL, por puntaje)',grpA:'Grupo A (<50% · Apo
 cpCode:'Copiar código texto',cpOk:'Código TITIP1: copiado para SMS o chat.',impB:'Importar código',impP:'Pega código TITIP1:...',impBad:'No es un código TITIP1: válido.',print2:'Imprimir 2 por hoja',
 mRead:'Lección y Lab',mCards:'Tarjetas',mQuiz:'Práctica',labT:'Laboratorio interactivo \u2014 toca los controles',fCut:'Cortar pastel en:',fTake:'Partes tomadas:',fEq2:'= 1/2 (\u00a1un medio!)',fEq4:'= 1/4 (\u00a1un cuarto!)',dTot:'Total objetos:',dGrp:'Grupos iguales:',dEach:'cada uno',cFlip:'Voltear tarjeta',cPrev:'Anterior',cNext:'Siguiente',cKnow:'Lo s\u00e9 \u2713',cFront:'Toca para voltear'},
 
-fr:{nHome:'Accueil',nLearn:'Apprendre',nLib:'Leçons',nMake:'Créer une leçon',nMakeS:'Créer',nRes:'Résultats',gLearner:'Élève',gTeacher:'Enseignant',gAbout:'À propos',nWhy:'Preuves',nHelp:'Aide',
+fr:{nGo:'Titip Go (en ligne, IA)',nHome:'Accueil',nLearn:'Apprendre',nLib:'Leçons',nMake:'Créer une leçon',nMakeS:'Créer',nRes:'Résultats',gLearner:'Élève',gTeacher:'Enseignant',gAbout:'À propos',nWhy:'Preuves',nHelp:'Aide',
 big:'Texte plus grand',menu:'Afficher ou masquer les noms du menu',dark:'Couleurs sombres à fort contraste',off:'Hors ligne : ça marche quand même',
 whyS:'Chaque choix vient d’un chiffre mesuré ailleurs. La liste complète (29 articles et 59 sources) figure dans RESEARCH.md.',
 w1:'personnes vivent sous couverture mobile sans utiliser l’internet mobile (38 % d’écart d’usage), plus ~300 millions hors couverture (~3,4 milliards hors ligne).',
@@ -764,7 +765,7 @@ grpT:'Groupes de pratique (style TaRL, selon le score)',grpA:'Groupe A (<50% · 
 cpCode:'Copier code texte',cpOk:'Code TITIP1: copié pour SMS ou chat.',impB:'Importer un code',impP:'Coller un code TITIP1:...',impBad:'Code TITIP1: invalide.',print2:'Imprimer 2 par page',
 mRead:'Leçon & Labo',mCards:'Cartes mémoire',mQuiz:'Quiz pratique',labT:'Labo interactif \u2014 touche les boutons pour explorer',fCut:'Couper le gâteau en :',fTake:'Parts prises :',fEq2:'= 1/2 (une moitié !)',fEq4:'= 1/4 (un quart !)',dTot:'Total objets :',dGrp:'Groupes égaux :',dEach:'chacun',cFlip:'Retourner la carte',cPrev:'Précédent',cNext:'Suivant',cKnow:'Compris \u2713',cFront:'Touche pour retourner'},
 
-pt:{nHome:'Início',nLearn:'Aprender',nLib:'Lições',nMake:'Criar lição',nMakeS:'Criar',nRes:'Resultados',gLearner:'Estudante',gTeacher:'Docente',gAbout:'Sobre',nWhy:'Evidências',nHelp:'Ajuda',
+pt:{nGo:'Titip Go (online, IA)',nHome:'Início',nLearn:'Aprender',nLib:'Lições',nMake:'Criar lição',nMakeS:'Criar',nRes:'Resultados',gLearner:'Estudante',gTeacher:'Docente',gAbout:'Sobre',nWhy:'Evidências',nHelp:'Ajuda',
 big:'Texto maior',menu:'Mostrar ou ocultar rótulos do menu',dark:'Cores escuras de alto contraste',off:'Sem internet: continua funcionando',
 whyS:'Cada escolha de design parte de um número medido por outros. A lista completa (29 artigos e 59 fontes) está em RESEARCH.md.',
 w1:'pessoas vivem sob cobertura móvel sem usar internet móvel (38% de lacuna de uso), mais ~300 milhões sem cobertura (~3,4 bilhões offline).',
@@ -822,7 +823,7 @@ grpT:'Grupos de prática (estilo TaRL, pela pontuação)',grpA:'Grupo A (<50% ·
 cpCode:'Copiar código texto',cpOk:'Código TITIP1: copiado para SMS ou chat.',impB:'Importar código',impP:'Cole código TITIP1:...',impBad:'Código TITIP1: inválido.',print2:'Imprimir 2 por página',
 mRead:'Lição e Lab',mCards:'Cartões',mQuiz:'Prática',labT:'Lab interativo \u2014 toque nos controles abaixo',fCut:'Cortar bolo em:',fTake:'Partes pegas:',fEq2:'= 1/2 (metade!)',fEq4:'= 1/4 (um quarto!)',dTot:'Total itens:',dGrp:'Grupos iguais:',dEach:'cada',cFlip:'Virar cartão',cPrev:'Anterior',cNext:'Próximo',cKnow:'Entendi \u2713',cFront:'Toque para virar'},
 
-sw:{nHome:'Muhtasari',nLearn:'Jifunze',nLib:'Masomo',nMake:'Tengeneza somo',nMakeS:'Tengeneza',nRes:'Matokeo',gLearner:'Mwanafunzi',gTeacher:'Mwalimu',gAbout:'Kuhusu',nWhy:'Ushahidi',nHelp:'Msaada',
+sw:{nGo:'Titip Go (mtandaoni, AI)',nHome:'Muhtasari',nLearn:'Jifunze',nLib:'Masomo',nMake:'Tengeneza somo',nMakeS:'Tengeneza',nRes:'Matokeo',gLearner:'Mwanafunzi',gTeacher:'Mwalimu',gAbout:'Kuhusu',nWhy:'Ushahidi',nHelp:'Msaada',
 big:'Maandishi makubwa',menu:'Onyesha au ficha majina ya menyu',dark:'Rangi nyeusi yenye utofauti mkubwa',off:'Nje ya mtandao: linafanya kazi',
 whyS:'Kila uamuzi wa muundo unatokana na takwimu zilizopimwa na watafiti. Orodha kamili (tafiti 29 na ripoti 59) iko kwenye RESEARCH.md.',
 w1:'watu wanaishi chini ya mtandao wa simu bila kutumia intaneti (pengo la 38%), pamoja na ~milioni 300 wasio na mtandao wowote (~bilioni 3.4 nje ya mtandao).',
@@ -880,7 +881,7 @@ grpT:'Makundi ya mazoezi (mtindo wa TaRL, kwa alama)',grpA:'Kundi A (<50% · Msa
 cpCode:'Nakili msimbo wa maandishi',cpOk:'Msimbo wa TITIP1: umenakiliwa kwa SMS/chat.',impB:'Ingiza msimbo',impP:'Bandika msimbo wa TITIP1:...',impBad:'Msimbo wa TITIP1: si sahihi.',print2:'Chapisha 2 kwa ukurasa',
 mRead:'Somo na Maabara',mCards:'Kadi za Kumbukumbu',mQuiz:'Maswali ya Mazoezi',labT:'Maabara shirikishi \u2014 gusa vitufe kujaribu',fCut:'Kata keki vipande:',fTake:'Vipande vilivyochukuliwa:',fEq2:'= 1/2 (nusu!)',fEq4:'= 1/4 (robo!)',dTot:'Jumla ya vitu:',dGrp:'Mafungu sawa:',dEach:'kila fungu',cFlip:'Geuza kadi',cPrev:'Iliyopita',cNext:'Inayofuata',cKnow:'Nimeelewa \u2713',cFront:'Gusa kugeuza'},
 
-hi:{nHome:'अवलोकन',nLearn:'सीखें',nLib:'पाठ',nMake:'पाठ बनाएँ',nMakeS:'बनाएँ',nRes:'परिणाम',gLearner:'विद्यार्थी',gTeacher:'शिक्षक',gAbout:'परिचय',nWhy:'साक्ष्य',nHelp:'मदद',
+hi:{nGo:'Titip Go (ऑनलाइन, AI)',nHome:'अवलोकन',nLearn:'सीखें',nLib:'पाठ',nMake:'पाठ बनाएँ',nMakeS:'बनाएँ',nRes:'परिणाम',gLearner:'विद्यार्थी',gTeacher:'शिक्षक',gAbout:'परिचय',nWhy:'साक्ष्य',nHelp:'मदद',
 big:'बड़ा टेक्स्ट',menu:'मेनू लेबल दिखाएँ या छिपाएँ',dark:'गहरे उच्च-कंट्रास्ट रंग',off:'ऑफ़लाइन: अभी भी चलता है',
 whyS:'हर डिज़ाइन निर्णय किसी मापे गए आँकड़े पर आधारित है। पूरी सूची (29 शोध पत्र, 59 स्रोत) RESEARCH.md में है।',
 w1:'लोग मोबाइल नेटवर्क क्षेत्र में रहकर भी मोबाइल इंटरनेट उपयोग नहीं करते (38% उपयोग अंतराल), और ~30 करोड़ लोग बिना किसी नेटवर्क के (~3.4 अरब ऑफ़लाइन)।',
@@ -938,7 +939,7 @@ grpT:'अभ्यास समूह (TaRL जैसा, क्विज़ अ
 cpCode:'टेक्स्ट कोड कॉपी करें',cpOk:'TITIP1: कोड कॉपी हुआ। SMS या चैट में चिपकाएँ।',impB:'कोड आयात करें',impP:'TITIP1:... कोड चिपकाएँ',impBad:'यह मान्य TITIP1: पाठ कोड नहीं है।',print2:'प्रति पृष्ठ 2 पर्चियाँ प्रिंट करें',
 mRead:'पाठ और प्रयोगशाला',mCards:'फ़्लैशकार्ड',mQuiz:'अभ्यास प्रश्न',labT:'इंटरैक्टिव लैब — नीचे बटन दबाकर देखें',fCut:'केक के टुकड़े:',fTake:'लिए गए टुकड़े:',fEq2:'= 1/2 (आधा!)',fEq4:'= 1/4 (चौथाई!)',dTot:'कुल वस्तुएँ:',dGrp:'बराबर समूह:',dEach:'प्रत्येक',cFlip:'कार्ड पलटें',cPrev:'पिछला',cNext:'अगला कार्ड',cKnow:'समझ गया ✓',cFront:'पलटने के लिए दबाएँ'},
 
-bn:{nHome:'সংক্ষিপ্তসার',nLearn:'শিখুন',nLib:'পাঠ',nMake:'পাঠ তৈরি',nMakeS:'তৈরি',nRes:'ফলাফল',gLearner:'শিক্ষার্থী',gTeacher:'শিক্ষক',gAbout:'সম্পর্কে',nWhy:'প্রমাণ',nHelp:'সহায়তা',
+bn:{nGo:'Titip Go (অনলাইন, AI)',nHome:'সংক্ষিপ্তসার',nLearn:'শিখুন',nLib:'পাঠ',nMake:'পাঠ তৈরি',nMakeS:'তৈরি',nRes:'ফলাফল',gLearner:'শিক্ষার্থী',gTeacher:'শিক্ষক',gAbout:'সম্পর্কে',nWhy:'প্রমাণ',nHelp:'সহায়তা',
 big:'বড় লেখা',menu:'মেনু লেবেল দেখান বা লুকান',dark:'গাঢ় উচ্চ-কনট্রাস্ট রঙ',off:'অফলাইন: তবুও কাজ করে',
 whyS:'প্রতিটি নকশা-সিদ্ধান্ত অন্যদের মাপা তথ্যের ওপর ভিত্তি করে নেওয়া। সম্পূর্ণ তালিকা (২৯টি গবেষণা ও ৫৯টি উৎস) RESEARCH.md-এ রয়েছে।',
 w1:'মানুষ মোবাইল নেটওয়ার্ক এলাকায় থেকেও মোবাইল ইন্টারনেট ব্যবহার করেন না (৩৮% ব্যবহার-ব্যবধান), এবং ~৩০ কোটি নেটওয়ার্কের বাইরে (~৩.৪ বিলিয়ন অফলাইন)।',
@@ -996,7 +997,7 @@ grpT:'অনুশীলন দল (TaRL ধাঁচে, কুইজ নম্
 cpCode:'টেক্সট কোড কপি করো',cpOk:'TITIP1: কোড কপি হয়েছে। SMS বা চ্যাটে পেস্ট করো।',impB:'কোড আনো',impP:'TITIP1:... কোড পেস্ট করো',impBad:'এটি সঠিক TITIP1: পাঠ কোড নয়।',print2:'পৃষ্ঠায় ২টি করে প্রিন্ট করো',
 mRead:'পাঠ ও ল্যাব',mCards:'ফ্ল্যাশকার্ড',mQuiz:'অনুশীলন কুইজ',labT:'ইন্টারঅ্যাক্টিভ ল্যাব — নিচের বোতাম চেপে দেখো',fCut:'কেক ভাগ করো:',fTake:'নেওয়া টুকরো:',fEq2:'= ১/২ (অর্ধেক!)',fEq4:'= ১/৪ (এক-চতুর্থাংশ!)',dTot:'মোট জিনিস:',dGrp:'সমান দল:',dEach:'প্রতি দলে',cFlip:'কার্ড উল্টাও',cPrev:'আগেরটি',cNext:'পরের কার্ড',cKnow:'বুঝেছি ✓',cFront:'উল্টাতে ট্যাপ করো'},
 
-ar:{nHome:'نظرة عامة',nLearn:'تعلّم',nLib:'الدروس',nMake:'إنشاء درس',nMakeS:'إنشاء',nRes:'النتائج',gLearner:'المتعلم',gTeacher:'المعلم',gAbout:'حول',nWhy:'الأدلة',nHelp:'مساعدة',
+ar:{nGo:'Titip Go (عبر الإنترنت، ذكاء اصطناعي)',nHome:'نظرة عامة',nLearn:'تعلّم',nLib:'الدروس',nMake:'إنشاء درس',nMakeS:'إنشاء',nRes:'النتائج',gLearner:'المتعلم',gTeacher:'المعلم',gAbout:'حول',nWhy:'الأدلة',nHelp:'مساعدة',
 big:'تكبير النص',menu:'إظهار أو إخفاء أسماء القائمة',dark:'ألوان داكنة عالية التباين',off:'دون اتصال: يعمل دائماً',
 whyS:'كل خيار تصميمي يستند إلى رقم قاسه آخرون. القائمة الكاملة (29 دراسة و59 مصدراً) في RESEARCH.md.',
 w1:'نسمة يعيشون ضمن تغطية الهاتف دون استخدام إنترنت الجوال (فجوة استخدام 38%)، إضافة إلى ~300 مليون بلا تغطية (~3.4 مليار بلا اتصال).',
@@ -1574,6 +1575,7 @@ document.addEventListener('click',function(e){
   var act=a.getAttribute('data-act'),qi=+a.getAttribute('data-q'),ci=+a.getAttribute('data-c'),L,q;
   if(act=='view')view(a.getAttribute('data-v'));
   else if(act=='menu')document.body.className=document.body.className?'':'mini';
+  else if(act=='golink')window.open('https://titip.rofihosted.space/go/','_blank','noopener');
   else if(act=='big')setPref('big',!prefs.big);
   else if(act=='dark')setPref('dark',!prefs.dark);
   else if(act=='term'){L=lesson.g[+a.getAttribute('data-n')];$('def').innerHTML='<strong>'+c(L[0])+'</strong>: '+c(L[1]);}

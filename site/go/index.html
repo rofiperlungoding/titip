@@ -5,35 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Titip Go</title>
 <meta name="description" content="Titip Go: the online companion to Titip. AI drafts lessons and reads class results for the teacher; learners get hints that answer their own mistake.">
-<meta name="theme-color" content="#6236d9">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%236236d9'/%3E%3Cpath d='M5 12h13M13 7l5 5-5 5' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#1b2a41">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23ff8f00'/%3E%3Cpath d='M5 12h13M13 7l5 5-5 5' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&family=Google+Sans+Code:wght@400;600&display=swap">
 <style>
-:root{--bg:#f6f2ff;--card:#fff;--ink:#1d1b20;--sub:#49454f;--line:#cac4d0;--pri:#6236d9;--pri2:#e9ddff;--onpri2:#22005d;--ok:#146c2e;--okbg:#c4eed0;--bad:#b3261e;--badbg:#f9dedc;--warn:#ffdf99;--onwarn:#3a2a00;--r:1.25rem}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141218;--card:#211f26;--ink:#e6e0e9;--sub:#cac4d0;--line:#49454f;--pri:#cfbcff;--pri2:#4a2a9e;--onpri2:#e9ddff;--ok:#6dd58c;--okbg:#0f5223;--bad:#f2b8b5;--badbg:#601410;--warn:#5c4300;--onwarn:#ffdf99}}
+:root{--bg:#f5f7fa;--card:#fff;--ink:#1b2a41;--sub:#4a5568;--line:#dfe3e8;--pri:#b45309;--pri2:#fff3d6;--onpri2:#5a3300;--navy:#1b2a41;--amber:#ffca28;--orange:#ff8f00;--ok:#146c2e;--okbg:#c4eed0;--bad:#b3261e;--badbg:#f9dedc;--warn:#ffdf99;--onwarn:#3a2a00;--r:1.25rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1825;--card:#18243a;--ink:#e8edf4;--sub:#aab6c6;--line:#2c3b55;--pri:#ffca28;--pri2:#3a2c0a;--onpri2:#ffe08a;--ok:#6dd58c;--okbg:#0f5223;--bad:#f2b8b5;--badbg:#601410;--warn:#5c4300;--onwarn:#ffdf99}}
 *{box-sizing:border-box}[hidden]{display:none!important}
 body{margin:0;font:1rem/1.5 "Google Sans Flex","Google Sans",Roboto,"Segoe UI",system-ui,sans-serif;color:var(--ink);background:var(--bg)}
 h1,h2,h3,p{margin:0}
 a{color:var(--pri)}
-.top{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;max-width:64rem;margin:0 auto}
-.logo{display:flex;align-items:center;gap:.6rem;font-size:1.35rem;font-weight:600;text-decoration:none;color:var(--ink)}
-.logo i{width:2rem;height:2rem;border-radius:.6rem;background:linear-gradient(135deg,#0b57d0,#6236d9 60%,#b04fd8);display:grid;place-items:center}
-.logo b{font-weight:600;color:var(--pri)}
+.top{position:sticky;top:0;z-index:5;background:var(--navy);color:#fff;max-width:none;padding-inline:max(1rem,calc(50vw - 31rem));
+display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;max-width:64rem;margin:0 auto}
+.logo{display:flex;align-items:center;gap:.6rem;font-size:1.35rem;font-weight:600;text-decoration:none;color:#fff}
+.logo i{width:2rem;height:2rem;border-radius:.6rem;background:linear-gradient(135deg,#ffca28,#ff8f00 55%,#f4511e);display:grid;place-items:center}
+.logo b{font-weight:600;color:#ffca28}
+.top .btn.o{color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
 .top .sp{flex:1}
+.top{max-width:none;margin:0}
 main{max-width:64rem;margin:0 auto;padding:0 1rem 4rem}
 .card{background:var(--card);border-radius:var(--r);padding:1.25rem;margin-top:1rem}
-.hero{padding:2rem 1.25rem;background:radial-gradient(120% 140% at 100% 0%,rgba(176,79,216,.16),transparent 55%),radial-gradient(100% 120% at 0% 100%,rgba(11,87,208,.12),transparent 60%),var(--card)}
-.hero h1 em{background:linear-gradient(90deg,#0b57d0,#6236d9 55%,#b04fd8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero{padding:2.5rem 1.5rem;color:#fff;background:radial-gradient(90% 120% at 100% 0%,rgba(255,143,0,.35),transparent 60%),radial-gradient(70% 90% at 0% 100%,rgba(3,155,229,.25),transparent 60%),#1b2a41}
+.hero .lead{color:#c9d3e0}.hero .k{color:#ffca28}
+.hero h1 em{background:linear-gradient(90deg,#ffca28,#ff8f00 60%,#f4511e);-webkit-background-clip:text;background-clip:text;color:transparent}
 @view-transition{navigation:auto}
 [tabindex="-1"]:focus{outline:0}
 #intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:#0b57d0;color:#fff;pointer-events:none;font-weight:650;letter-spacing:-.03em}
 #intro .w{display:flex;align-items:center;gap:1rem;font-size:clamp(2.4rem,9vw,4.5rem)}
 #intro .ic{width:1.3em;height:1.3em;border-radius:.32em;background:#fff;display:grid;place-items:center}
-#intro .w>span:last-child{line-height:1.2}#intro .go{display:inline-block;vertical-align:top;line-height:1.2;white-space:nowrap;overflow:hidden;max-width:0;opacity:0;background:linear-gradient(90deg,#e9ddff,#fff);-webkit-background-clip:text;background-clip:text;color:transparent;animation:goIn .55s .35s cubic-bezier(.2,.8,.2,1) forwards}
+#intro .w>span:last-child{line-height:1.2}#intro .go{display:inline-block;vertical-align:top;line-height:1.2;white-space:nowrap;overflow:hidden;max-width:0;opacity:0;background:linear-gradient(90deg,#ffca28,#ff8f00);-webkit-background-clip:text;background-clip:text;color:transparent;animation:goIn .55s .35s cubic-bezier(.2,.8,.2,1) forwards}
 #intro{animation:introBg .5s .3s ease forwards,introOut .6s 1.05s cubic-bezier(.7,0,.3,1) forwards}
 @keyframes goIn{to{max-width:2.2em;opacity:1}}
-@keyframes introBg{to{background:#6236d9}}
+@keyframes introBg{to{background:#1b2a41}}
 @keyframes introOut{from{clip-path:circle(150% at 50% 50%)}to{clip-path:circle(0% at 50% 50%)}}
 @media (prefers-reduced-motion:reduce){#intro{display:none}}
 .hero h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.08;letter-spacing:-.03em;font-weight:650}
@@ -42,6 +46,8 @@ main{max-width:64rem;margin:0 auto;padding:0 1rem 4rem}
 .grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));margin-top:1rem}
 .grid .card{margin:0}
 .k{font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--pri)}
+.card{box-shadow:0 1px 2px rgba(27,42,65,.08),0 1px 3px rgba(27,42,65,.06)}
+.card{border-radius:.75rem}
 h2{font-size:1.6rem;letter-spacing:-.01em;font-weight:600;margin:.25rem 0 .5rem}
 h3{font-size:1.15rem;font-weight:600;margin:1.25rem 0 .5rem}
 .sm{font-size:.9rem;color:var(--sub)}
@@ -51,8 +57,8 @@ textarea{resize:vertical;min-height:5rem}
 input:focus,select:focus,textarea:focus{outline:0;border-color:var(--pri);box-shadow:inset 0 0 0 1px var(--pri)}
 .row{display:flex;gap:.75rem;flex-wrap:wrap;align-items:end}.row>*{flex:1;min-width:9rem}
 .btns{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
-button,.btn{font:inherit;font-weight:500;border:0;border-radius:999px;padding:.65rem 1.3rem;cursor:pointer;background:var(--pri);color:#fff;text-decoration:none;display:inline-flex;gap:.45rem;align-items:center;min-height:2.75rem}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]) button:not(.t):not(.o):not(.x),:root:not([data-theme=light]) .btn:not(.t):not(.o){color:#381e72}}
+button,.btn{font:inherit;font-weight:500;border:0;border-radius:.5rem;padding:.65rem 1.3rem;cursor:pointer;background:var(--amber);color:#1b2a41;text-decoration:none;display:inline-flex;gap:.45rem;align-items:center;min-height:2.75rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) button:not(.t):not(.o):not(.x),:root:not([data-theme=light]) .btn:not(.t):not(.o){color:#1b2a41}}
 button.t,.btn.t{background:var(--pri2);color:var(--onpri2)}
 button.o,.btn.o{background:transparent;color:var(--pri);box-shadow:inset 0 0 0 1px #747775}
 button.x{background:transparent;color:var(--pri);padding-inline:.6rem}
@@ -80,7 +86,7 @@ table{width:100%;border-collapse:collapse;font-size:.95rem}td,th{text-align:left
 .spin{display:inline-block;width:1rem;height:1rem;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:s .8s linear infinite}
 @keyframes s{to{transform:rotate(1turn)}}
 @media (prefers-reduced-motion:reduce){.spin{animation:none}}
-.judge{border:2px solid var(--pri);}
+.judge{border-top:4px solid var(--orange)}
 ol.steps{padding-left:1.2rem;margin:.5rem 0}ol.steps li{margin:.3rem 0}
 .foot{max-width:64rem;margin:0 auto;padding:1rem;color:var(--sub);font-size:.85rem}
 </style>
@@ -91,7 +97,7 @@ ol.steps{padding-left:1.2rem;margin:.5rem 0}ol.steps li{margin:.3rem 0}
   <span class="sp"></span>
   <a class="btn o" href="/app/">Offline Titip</a>
 </div>
-<div id="intro" aria-hidden="true" hidden><div class="w"><span class="ic"><svg width="62%" height="62%" viewBox="0 0 24 24" fill="none" stroke="#6236d9" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 7l5 5-5 5"/></svg></span><span>Titip<span class="go">&nbsp;Go</span></span></div></div>
+<div id="intro" aria-hidden="true" hidden><div class="w"><span class="ic"><svg width="62%" height="62%" viewBox="0 0 24 24" fill="none" stroke="#1b2a41" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 7l5 5-5 5"/></svg></span><span>Titip<span class="go">&nbsp;Go</span></span></div></div>
 <main id="main" tabindex="-1"></main>
 <p class="foot">Titip Go needs a connection; <a href="/app/">Titip</a> never does. Learners join with a class code and a nickname: no account, no email. Please do not type full names. AI by Google Gemini; answers are checked by the teacher.</p>
 <div id="live" role="status" aria-live="polite" class="sm" style="position:absolute;left:-9999px"></div>
