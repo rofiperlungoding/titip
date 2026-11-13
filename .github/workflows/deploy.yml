@@ -35,6 +35,8 @@ jobs:
           console.log('selfTest ok; keys ok'+(c.T?' ('+Object.keys(c.T).length+' languages)':' (T not in pure section, skipped)')+'; '+Buffer.byteLength(h)+' bytes, '+gz+' gzip');
           if(gz>80*1024)throw new Error('gzip size over 80 KB');
           JS
+      - name: Titip Go server checks
+        run: node go/test.js
       - name: ES5 only (no let/const/arrow/class/template/spread)
         run: |
           npx --yes acorn@8.14.0 --ecma5 --silent <(node -e "process.stdout.write(require('fs').readFileSync('index.html','utf8').match(/<script>([\s\S]*?)<\/script>/)[1])")
@@ -64,10 +66,11 @@ jobs:
           mkdir -p web/app
           cp site/index.html web/index.html
           cp index.html sw.js web/app/
+          cp -r site/go web/go
           tar -cf - -C web . | ssh live "push $GITHUB_SHA"
       - name: Check public URLs
         run: |
-          for p in / /app/ /app/sw.js; do curl -fsS -o /dev/null -w "%{http_code} $p\n" "https://titip.rofihosted.space$p"; done
+          for p in / /app/ /app/sw.js /go/; do curl -fsS -o /dev/null -w "%{http_code} $p\n" "https://titip.rofihosted.space$p"; done
           s=$(curl -fsS "https://titip.rofihosted.space/status.json?t=$(date +%s)"); echo "$s"
           echo "$s" | grep -q "\"state\":\"live\",\"sha\":\"$GITHUB_SHA\"" || { echo "public site is not serving $GITHUB_SHA"; exit 1; }
           curl -fsS "https://titip.rofihosted.space/app/?t=$(date +%s)" | cmp -s - index.html || { echo "public /app/ differs from this commit"; exit 1; }

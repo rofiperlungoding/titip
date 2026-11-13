@@ -1,72 +1,98 @@
-# Titip
+## The barrier
 
-## Inspiration
+A pupil wants to practise today's lesson at home. The practice is behind a link, and the family phone has no data.
 
-A primary pupil wants to practise today's lesson at home, but the practice lives behind an online link and the family phone is not connected.
+This is the normal case, not the edge case. In West and Central Africa 95% of school-age children have no internet at home; in South Asia, 88% (UNICEF and ITU, 2020). About 3.4 billion people worldwide do not use mobile internet (GSMA, 2024). Where a home does have a phone, it is often one phone shared by the whole family.
 
-This is a global constraint across Sub-Saharan Africa, South Asia, Latin America, and Southeast Asia. Globally, ~3.1 billion people live under mobile broadband coverage without using mobile internet (a 38% usage gap in 2024), alongside ~300 million outside any coverage (~3.4 billion offline worldwide [N52]). School-age children without home internet reach 95% in West and Central Africa, 88% in East and Southern Africa, 88% in South Asia, and 49% in Latin America and the Caribbean [N53]. Meanwhile, only ~10.8% of primary pupils across sampled African countries meet minimum reading and maths proficiency [N54], and only 23.4% of Class 3 rural government-school pupils in India can read a Class 2 text [N55].
+Most learning apps assume a connection, an account and a personal device. Titip assumes none of them.
 
-Even where connectivity exists on paper, households share devices and schools hit bottlenecks: in rural India ~90% of 14–16-year-olds have a smartphone in the home yet only 27–38% own one [N55]; in rural Peru only 20.5%–23.6% of households have internet vs 58.9%–60.1% nationally [N56, N57]; in Brazil youth internet access in schools dropped from 51% to 37% after classroom mobile-phone restrictions [N58]; and in Indonesia—where Titip was built—27.74% of primary pupils do not use the internet [N44] while individual mobile ownership (70.75%) lags household presence (93.50%) [N47]. *Titip* is Indonesian for handing something to someone so they can carry it to someone else.
+> *Titip* is Indonesian for handing something to someone so they can carry it on to someone else.
 
-## What it does
+## What Titip does
 
-- **Teacher writes once, shares as one file or text code:** In *Make*, a teacher sets title, language, topic, TaRL level tag, optional interactive SVG lab (`frac`, `water`, `plant`, `wash`, `div`), worked example, paragraphs, word meanings (`word = meaning`), and questions (2–9 choices each, plus an optional *typed answer first* mode that reveals choices as scaffolding after a first wrong try)—or filters and copies from 12 ready-made lessons across 9 languages (`en`, `id`, `es`, `fr`, `pt`, `sw`, `hi`, `bn`, `ar`), including a **TaRL Numeracy Diagnostic**. Clicking *Download lesson file* exports one self-contained `.html` file (~199 KB raw, ~66 KB gzipped), or *Copy text code* packs the lesson into an offline `TITIP1:...` string to paste into WhatsApp or any chat without sending a file. The sample lesson packs to 1,443 characters, which is about ten text messages, so the code suits chat better than SMS; the short result code is what goes by SMS.
-- **Travels without internet:** The file passes phone-to-phone via Bluetooth, WhatsApp, or memory card (or via `TITIP1:` import in **Lessons**) and runs offline. Titip is also hosted at `https://titip.rofihosted.space/` and `/app/` with a service worker (`sw.js` with `skipWaiting` + `clients.claim`) for offline caching after one visit [P10, P25].
-- **Learner explores Interactive Lab, Flashcards, hints, typed scaffold, and audio:** Learners manipulate interactive SVG simulations (fraction cake/bar slicer, TaRL equal-sharing dot counter, clickable water cycle, plant anatomy explorer, boiling/soap germ tracker), flip glossary + Q&A flashcards (`Flashcards` tab), view worked examples, read (tapping underlined words in Latin, Devanagari, Bengali, or Arabic script), or tap *Listen* [P7, P8]. Wrong answers show a one-sentence hint [P5, P6, P11] and disable picked choices (or reveal choices after a wrong typed answer); missed questions return once at the end under *One more try* [P3].
-- **Anonymous code, TaRL band, and shared-phone queue:** At the end, the learner gets an estimated level band (`L1–L4`) and a short result code such as `HI-1132-0`. *Send by SMS* pre-fills one code, while *Save to phone queue* lets siblings sharing one household phone save consecutive scores locally and send them together in one SMS [N55, N47, P27].
-- **Printable full or 2-up paper-saver worksheets:** Where there is no phone [N52, N31], *Print worksheet* prints one full worksheet with an upside-down answer key, while *Print 2-up slips* puts two compact copies on one page to cut apart and halve paper cost. Learners write answer numbers and their sum (`2 1 3 2 = 8`).
-- **Teacher results, TaRL grouping, and follow-up loop:** In *Results*, the teacher pastes phone codes and paper numbers, sees per-question first-try accuracy, the top wrong answer, per-choice distractor chips, and **practice groups** (TaRL-style, by quiz score: Group A `<50%`, Group B `50–79%`, Group C `80–100%`; real TaRL groups by skill level from a one-to-one assessment, which this does not replace), spots questions below 50% flagged *Teach again*, builds a follow-up lesson in one tap, and compares two rounds side by side across `---` [P1, P2, P19, P20]. Teachers can save rounds locally, export CSV, or print a 25-row class record sheet.
+**1. The teacher makes a lesson once.**
+Pick one of 12 ready lessons in 9 languages, or write a new one: short text, word meanings, a worked example, a small interactive diagram, and 2–9 choice or typed-answer questions. Titip saves it as **one 199 KB HTML file** (66 KB compressed), or as a text code to paste into a chat.
 
-## How we built it
+**2. The file travels without internet.**
+Bluetooth, WhatsApp, a memory card. It opens in any phone browser in flight mode. No install, no account, no server.
 
-- **Single-file architecture, zero dependencies:** Everything—HTML, CSS, interactive SVG manipulative labs and icons, UI strings in 9 languages (`en`, `id`, `es`, `fr`, `pt`, `sw`, `hi`, `bn`, `ar`, with `dir="rtl"` for Arabic), 12 sample lessons, flashcard deck, editor, `TITIP1:` packer, worksheet/2-up generator, TaRL grouping + results analyser, and `selfTest()`—lives inside `index.html` (199,088 bytes raw; 66,105 bytes gzip-compressed). No framework, no bundler, no external images, no backend, no accounts, and no analytics.
-- **Self-replicating export:** On startup, `index.html` captures its own markup (`SRC = document.documentElement.outerHTML`). When a teacher downloads a lesson, `download()` slices `<script id="lesson">`, injects the new lesson JSON with `"handout": true`, and writes a new standalone `.html` file. Because the editor travels inside every handout, any receiving teacher can adapt and pass the lesson on.
-- **Old-browser ES5 JavaScript:** Written without arrow functions, `let`/`const`, classes, template literals, or spread syntax to target Android 4.4-era browsers.
-- **Zero phone network requests:** Phones use system fonts only and make zero external requests. A Google Fonts stylesheet loads only on screens `>= 56em` wide when `navigator.connection.saveData` is off.
-- **Accessibility built in:** All controls are native `<button>`, `<input type="radio">`, `<select>`, and labelled inputs; feedback uses symbols (`✓` / `✗`), text, and a `role="status"` live region; focus moves to each new `<h2>` on navigation; lesson text carries its own `lang` attribute for screen-reader pronunciation; *Larger text* (`125%`) and a dark high-contrast theme persist in `localStorage`; layout fits 320 px without horizontal scrolling; and colour contrast meets WCAG formulas (body text 15.76:1, primary buttons 6.39:1, field borders 4.53:1).
+**3. The learner practises with help.**
+- A wrong answer shows a **one-sentence hint** and locks that choice.
+- Typed-answer questions remove guessing; after a wrong try, choices appear as support.
+- Missed questions come back once at the end.
+- Tap an underlined word for its meaning, make the text bigger, or have it read aloud.
 
-## Challenges we ran into
+**4. The result goes back as a short code.**
+The learner gets a code like `HI-1130-2`: no name, no account. It records the first answer to each question and carries a check digit. Siblings sharing one phone each take a turn and send all their codes in **one SMS**.
 
-- **Avoiding hardware and training bottlenecks:** Access to technology alone does not raise learning [P4], and a randomized evaluation of the offline Kolibri platform on tablets across 102 schools in Honduras found no impact on test scores, pointing to late hardware delivery and insufficient teacher training [P12]. We constrained Titip to one file on phones already in the household, with one form and no installation.
-- **Preventing empty SMS loops:** In Botswana, SMS messages to parents alone had no detectable effect, whereas phone calls targeted to each child's level raised learning by 0.12 SD [P1]—replicated across 16,936 students in India, Kenya, Nepal, the Philippines, and Uganda (`0.30–0.35 SD` [P2]) and across ~7,000 students in 7 Latin American countries (`+0.20 SD` [P20], plus Paraguay `+0.113 SD` ITT [P19]); conversely, phone tutoring failed where call take-up/engagement lagged [P9]. Simply returning a total score was not enough, so we designed the result code to capture the exact first answer picked on each question—revealing the most common wrong answer and per-choice error chips—and let teachers count returned codes directly.
-- **Keeping feedback short:** A 2025 classroom experiment found simpler immediate feedback outperformed more elaborate feedback and took less time, even though 85.71% of surveyed instructors expected the opposite [P11]. We limited hints to one short sentence and disabled wrong options in place rather than showing long explanations.
-- **Paper feedback and copying errors:** Paper worksheets give no immediate feedback and can be miscopied [N31]. Printing the answer key and hints upside down at the foot gives offline self-checking, and adding the answer numbers into a sum (`2 1 3 2 = 8`) catches single miscopied digits when entered into *Results*.
+**5. No phone at home? Paper works too.**
+Print the worksheet (answer key upside down at the bottom) or two copies per sheet to save paper. The learner writes their answers and their sum, `2 1 3 2 = 8`, so one miscopied digit is caught.
 
-## Accomplishments we're proud of
+**6. The teacher sees what to reteach.**
+Paste the codes from SMS and paper together. Titip shows, per question:
+- how many got it right on the first try;
+- the most common wrong answer;
+- a **Teach again** flag when fewer than half got it right;
+- three practice groups by score, in the spirit of Teaching at the Right Level.
 
-- Packing Interactive Learning Lab manipulatives (`renderLab`), interactive Flashcards (`deckOf`), worked examples, typed-answer scaffolding, audio, TaRL placement bands, a shared-phone sibling queue, a 12-lesson filterable library across 9 languages (Arabic RTL + Unicode glossary matching across Latin, Devanagari, Bengali, and Arabic), a lesson authoring tool, `TITIP1:` text-code packing, 1-up and 2-up paper-saver worksheets, a two-round TaRL classroom grouping and misconception analyser, CSV export, dark high-contrast mode, and unit self-tests into 199,088 bytes raw (~66 KB gzipped) with zero build tools.
-- Maintaining strict epistemic honesty in both the app and `TEST.md`: **Checked** facts (measured file size, Node `selfTest()` with 9-language/Unicode/RTL/TaRL/`TITIP1:` assertions, desktop Chrome runs and a USB-debugged real phone, including an offline reload), **Predicted / assumed** behaviour (Android 4.4 support, 3–6 minute completion, TalkBack usability, learning effect), and **Made-up** demo data (labelled visibly on screen until edited) are never mixed.
-- Handling phone codes (`HI-1132-0`) and paper answers (`2 1 3 2 = 8`) in the exact same teacher results pipeline.
+One tap turns the flagged questions into a follow-up lesson. After reteaching, paste the new codes below `---` to compare both rounds side by side.
 
-## What we learned
+## Why it is built this way
 
-- Research supports the individual ingredients—practice quizzing (`g = 0.499` across 222 studies [P3]), explanatory feedback (`0.49` vs `0.05` [P5, P6]), read-aloud support for students with reading disabilities (`d = 0.35` [P7, P8]), offline-first service-worker architectures [P10, P25], and targeted re-teaching [P1, P2, P19, P20]—but combining them does not prove Titip improves learning without real-learner testing [P4, P9, P12].
-- Aggregate household statistics hide shared-device reality: ~90% household smartphone presence in rural India vs 27–38% personal youth ownership [N55], 91.66% household internet in Indonesia vs 70.75% individual mobile ownership [N46, N47], and school internet access dropping under classroom device restrictions in Brazil [N58] show why shared-phone queues, `Next learner` resets, and 2-up worksheets belong together.
-- Known technical limits must stay explicit: iPhones do not open local HTML files in Safari easily (mitigated by `sw.js` offline cache and `TITIP1:` text import), the paper sum check catches one wrong digit but not two swapped digits, *Listen* depends on voices installed on the device, expanded UI translations/sample lessons (`es`, `fr`, `pt`, `sw`, `hi`, `bn`, `ar`) need native-teacher review, and the build has been checked in desktop Chrome and on one modern Android phone (Sharp R8, Android 16) but not yet on an old phone, a printer, a screen reader, or with any real learner. Testing on the real phone found five layout bugs that desktop checks missed; all are fixed and listed in `TEST.md`.
+Each design choice answers a finding from published research. Full sources are in [`RESEARCH.md`](https://github.com/rofiperlungoding/titip/blob/master/RESEARCH.md).
+
+| Finding | What Titip does |
+|---|---|
+| Giving devices alone does not raise learning; an offline tablet platform in 102 Honduran schools had no effect on test scores | Runs on phones families already have. No new hardware, no training course |
+| In Botswana, SMS to parents alone had no effect; calls targeted to each child's level did | The code tells the teacher *which* question and *which* wrong answer, so follow-up is targeted |
+| Practice testing has a large average effect on learning (g ≈ 0.5) | Practice quiz with one more try at the end |
+| In a 2025 trial, short simple feedback was faster and at least as effective as long explanations | One-sentence hints |
+
+## How it is built
+
+- **One file, zero dependencies.** HTML, CSS and ES5 JavaScript in a single `index.html`: app, editor, 9 languages, 12 lessons and self-test. No framework, no build step, no backend, no analytics.
+- **The lesson file is the app.** A downloaded lesson carries the editor inside it, so any teacher who receives it can adapt it and pass it on.
+- **Old-phone JavaScript.** No arrow functions, `let`/`const`, classes or template strings, aiming at Android 4.4-era browsers. Phones make no outside network requests.
+- **Accessible by default.** Native buttons and labelled inputs; feedback as symbol + words + live region; focus moves to each new heading; lesson text keeps its own `lang`; Arabic runs right-to-left; works at 320 px wide; larger text and a high-contrast dark theme.
+- **Checked on every push.** GitHub Actions runs `selfTest()`, a language-key check, an ES5 parse and a size limit, then deploys and confirms the live site serves that exact commit.
+
+## What we tested, and what we have not
+
+We keep three lists apart in [`TEST.md`](https://github.com/rofiperlungoding/titip/blob/master/TEST.md): **checked**, **predicted**, and **made-up**.
+
+**Checked**
+- Full learner and teacher flow in desktop Chrome, in English, Arabic and Hindi, at 320 px.
+- On a real Android phone over USB: every page, both directions of text, and an **offline reload with the network cut**. This found five layout bugs desktop testing missed; all are fixed.
+- `selfTest()` passes; all 12 lessons validate and survive the text-code round trip.
+
+**Not yet tested**
+- With real learners or teachers. **We make no claim that Titip improves learning.** Comparable programmes have shown no effect where teachers did not follow up.
+- On an Android 4.4-era phone, with a screen reader, or on a printer.
+- Translations beyond English and Indonesian have not been reviewed by native-speaking teachers.
+
+The class shown in *Results* and in the video is **made-up demonstration data**, and the app labels it on screen.
+
+## Challenges
+
+- **Keeping it one file.** Nine languages, twelve lessons, an editor and diagrams in 199 KB meant hand-drawn SVG and no libraries.
+- **Making the code worth sending.** A score alone does not help a teacher. The code had to hold every first answer, survive hand-copying, and still be short enough for one SMS.
+- **Desktop lies.** The real phone showed bugs no desktop check found: double borders on answers, an unreadable diagram in dark mode, and Arabic labels out of place.
 
 ## What's next
 
-1. Run the 30-minute, 3-learner, 1-old-phone field test protocol in `TEST.md`—including Bluetooth/memory-card transfer, flight-mode opening, worksheet pencil run, two-round re-teaching, and TalkBack check—and publish both successes and failures in `TEST.md` and `README.md`.
-2. Have native-speaking teachers review the expanded UI translations and sample lessons (`es`, `fr`, `pt`, `sw`, `hi`, `bn`, `ar`).
-3. Verify the printable worksheet and class record sheet on a physical printer and run classroom before-and-after cycles using the built-in `---` two-round comparison.
-
+1. A 30-minute field test with three learners on the oldest phone we can borrow. The protocol is ready in `TEST.md`, and we will publish what fails as well as what works.
+2. Native-teacher review of the seven newer languages.
+3. Screen-reader and printer checks.
 
 ## Built during the event, and credits
 
-- **Made during AccessED Hacks (October 17 to November 20, 2026):** all code, text, sample lessons, icons and SVG labs. No pre-existing code, template or starter kit.
-- **AI assistance:** Claude (Anthropic) helped write and test the code and draft the documentation. Translations beyond English and Indonesian were drafted with AI help and have not been reviewed by native-speaking teachers.
-- **Third-party material:** none bundled. Visual style follows Google's Material Design 3 guidelines (not a Google product, no Google logo). On wide screens only, the Google Sans Flex and Google Sans Code fonts load from Google Fonts. Every statistic is cited by ID to a public source in `RESEARCH.md`.
-- **Demo video:** voice-over recorded by the author, then cleaned with the open-source tools DeepFilterNet and VoiceFixer (noise and room echo removed, pauses trimmed; no words added or removed). Edited in Remotion with Claude's help. Music: "Upbeat Advertising Funk" by FASSounds, from Pixabay, under the Pixabay Content License. Sound effects were generated for this project. Every app screen in the video is a screenshot of the real app; the "Flight mode" status bar on the phone frame is drawn, and the offline behaviour it illustrates is the check recorded in `TEST.md`.
-- **Learner data:** none real. The *Fill in a made-up class* demo uses 12 invented learners and is labelled as made-up on screen.
+- **All code, text, lessons, icons and diagrams were made during AccessED Hacks** (17 October – 20 November 2026). No pre-existing code or template.
+- **AI assistance:** Claude (Anthropic) helped write and test the code and draft the text. Translations beyond English and Indonesian were drafted with AI help.
+- **Demo video:** voice by the author, cleaned with DeepFilterNet and VoiceFixer (noise and echo removed, pauses trimmed; no words changed). Edited in Remotion with Claude's help. Music: "Upbeat Advertising Funk" by FASSounds (Pixabay Content License). App screens are real screenshots; the phone's "Flight mode" bar is drawn.
+- **Third-party material:** none bundled. Wide screens load Google Sans Flex from Google Fonts. Visual style follows Material Design 3; Titip is not a Google product.
 
 ## Try it
 
-- Live app, no sign-in, no personal data asked: https://titip.rofihosted.space/app/
-- Landing page: https://titip.rofihosted.space/
-- Source code: https://github.com/rofiperlungoding/titip
-- To test offline: open the app once, turn on flight mode, reload.
-- Testing status (what was checked, what is only predicted, what is made-up): `TEST.md`.
-
-## Built with
-
-HTML, CSS, ES5 JavaScript, inline SVG, Web Speech API (speechSynthesis), Service Worker, GitHub Actions.
+- **App:** https://titip.rofihosted.space/app/ (no sign-in, no personal data)
+- **Offline test:** open it once, turn on flight mode, reload.
+- **Code:** https://github.com/rofiperlungoding/titip

@@ -10,3 +10,4 @@ Read HANDOFF.md first. It holds status, code map and priorities.
 6. After any logic change, run `selfTest()` (browser console or Node). It must return `ok`. Then update TEST.md's Checked table with date and method.
 7. Smallest working change wins. No new abstractions, frameworks, backend, accounts or analytics.
 8. Ask before anything irreversible or public: push, deploy, publish.
+9. Exception: Titip Go (`site/go/` and `go/server.js`) is the online companion. It may use the network, a small Node server and teacher class codes with a PIN. Never let the offline app (`index.html`) depend on it. Learners never need an account.

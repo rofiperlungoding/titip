@@ -546,7 +546,8 @@
                 scroll-behavior: auto
             }
         }
-    </style>
+    @view-transition{navigation:auto}
+</style>
 </head>
 
 <body>
@@ -561,7 +562,7 @@
                         stroke-linejoin="round" />
                 </svg>Titip</a>
             <nav class="links" aria-label="Page sections"><a href="#problem">Problem</a><a href="#how">How it
-                    works</a><a href="#evidence">Evidence</a><a href="#status">Status</a></nav>
+                    works</a><a href="#go">Titip Go</a><a href="#evidence">Evidence</a><a href="#status">Status</a></nav>
             <span class="sp"></span>
             <a class="b f" href="app/">Open the app</a>
         </div>
@@ -761,6 +762,28 @@
             </div>
         </section>
 
+        <section id="go">
+            <div class="wrap">
+                <span class="ov">Titip Go · online companion</span>
+                <h2>AI where the teacher has signal. Zero internet where the learner is.</h2>
+                <p class="lead">The learner side of Titip never needs a connection. When the teacher does have one,
+                    Titip Go adds an AI assistant (Google Gemini) on top, and everything it makes can still travel
+                    offline as a Titip text code.</p>
+                <ul>
+                    <li><strong>For the teacher:</strong> draft a lesson with AI and edit every line before publishing;
+                        read class results with an AI summary of likely misconceptions, a short reteach plan, and new
+                        follow-up questions.</li>
+                    <li><strong>For an online learner:</strong> a hint written for the exact wrong answer they gave,
+                        without giving the answer away; short open answers graded with feedback; a plain explanation
+                        of each missed question at the end.</li>
+                    <li><strong>Privacy:</strong> the teacher has a class code and PIN. Learners join with the code and a
+                        nickname: no account, no email.</li>
+                </ul>
+                <div class="row"><a class="b f" href="go/" style="background:linear-gradient(90deg,#0b57d0,#6236d9)">Open Titip Go</a><a class="b t" href="go/">Judges: one-click
+                        demo</a></div>
+            </div>
+        </section>
+
         <section id="status" class="alt">
             <div class="wrap">
                 <span class="ov">Honest status</span>
@@ -775,8 +798,8 @@
                         <td><code>selfTest()</code> returns <code>ok</code> (including interactive lab fraction helper,
                             flashcard deck builder, typed-answer fallback, TaRL bands, <code>TITIP1:</code> code packing,
                             and Hindi/Bengali/Arabic RTL glossary tests), all 12 sample lessons validate cleanly, all 9
-                            UI languages share all 207 keys, and pure-ES5 checks pass. Desktop Chrome checks ran on the
-                            prior build; new interactive labs and RTL visuals wait for fresh browser/device verification.</td>
+                            UI languages share all 207 keys, and pure-ES5 checks pass. The full learner and teacher flow was checked in desktop Chrome
+                            and on a real Android phone, including an offline reload with the network cut.</td>
                     </tr>
                     <tr>
                         <td><span class="tag p">Predicted</span></td>

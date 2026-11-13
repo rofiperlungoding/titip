@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Titip Go</title>
+<meta name="description" content="Titip Go: the online companion to Titip. AI drafts lessons and reads class results for the teacher; learners get hints that answer their own mistake.">
+<meta name="theme-color" content="#6236d9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%236236d9'/%3E%3Cpath d='M5 12h13M13 7l5 5-5 5' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&family=Google+Sans+Code:wght@400;600&display=swap">
+<style>
+:root{--bg:#f6f2ff;--card:#fff;--ink:#1d1b20;--sub:#49454f;--line:#cac4d0;--pri:#6236d9;--pri2:#e9ddff;--onpri2:#22005d;--ok:#146c2e;--okbg:#c4eed0;--bad:#b3261e;--badbg:#f9dedc;--warn:#ffdf99;--onwarn:#3a2a00;--r:1.25rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141218;--card:#211f26;--ink:#e6e0e9;--sub:#cac4d0;--line:#49454f;--pri:#cfbcff;--pri2:#4a2a9e;--onpri2:#e9ddff;--ok:#6dd58c;--okbg:#0f5223;--bad:#f2b8b5;--badbg:#601410;--warn:#5c4300;--onwarn:#ffdf99}}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;font:1rem/1.5 "Google Sans Flex","Google Sans",Roboto,"Segoe UI",system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+h1,h2,h3,p{margin:0}
+a{color:var(--pri)}
+.top{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;max-width:64rem;margin:0 auto}
+.logo{display:flex;align-items:center;gap:.6rem;font-size:1.35rem;font-weight:600;text-decoration:none;color:var(--ink)}
+.logo i{width:2rem;height:2rem;border-radius:.6rem;background:linear-gradient(135deg,#0b57d0,#6236d9 60%,#b04fd8);display:grid;place-items:center}
+.logo b{font-weight:600;color:var(--pri)}
+.top .sp{flex:1}
+main{max-width:64rem;margin:0 auto;padding:0 1rem 4rem}
+.card{background:var(--card);border-radius:var(--r);padding:1.25rem;margin-top:1rem}
+.hero{padding:2rem 1.25rem;background:radial-gradient(120% 140% at 100% 0%,rgba(176,79,216,.16),transparent 55%),radial-gradient(100% 120% at 0% 100%,rgba(11,87,208,.12),transparent 60%),var(--card)}
+.hero h1 em{background:linear-gradient(90deg,#0b57d0,#6236d9 55%,#b04fd8);-webkit-background-clip:text;background-clip:text;color:transparent}
+@view-transition{navigation:auto}
+[tabindex="-1"]:focus{outline:0}
+#intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:#0b57d0;color:#fff;pointer-events:none;font-weight:650;letter-spacing:-.03em}
+#intro .w{display:flex;align-items:center;gap:1rem;font-size:clamp(2.4rem,9vw,4.5rem)}
+#intro .ic{width:1.3em;height:1.3em;border-radius:.32em;background:#fff;display:grid;place-items:center}
+#intro .w>span:last-child{line-height:1.2}#intro .go{display:inline-block;vertical-align:top;line-height:1.2;white-space:nowrap;overflow:hidden;max-width:0;opacity:0;background:linear-gradient(90deg,#e9ddff,#fff);-webkit-background-clip:text;background-clip:text;color:transparent;animation:goIn .55s .35s cubic-bezier(.2,.8,.2,1) forwards}
+#intro{animation:introBg .5s .3s ease forwards,introOut .6s 1.05s cubic-bezier(.7,0,.3,1) forwards}
+@keyframes goIn{to{max-width:2.2em;opacity:1}}
+@keyframes introBg{to{background:#6236d9}}
+@keyframes introOut{from{clip-path:circle(150% at 50% 50%)}to{clip-path:circle(0% at 50% 50%)}}
+@media (prefers-reduced-motion:reduce){#intro{display:none}}
+.hero h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.08;letter-spacing:-.03em;font-weight:650}
+.hero h1 em{font-style:normal;color:var(--pri)}
+.lead{font-size:1.15rem;color:var(--sub);margin-top:.75rem;max-width:44rem}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));margin-top:1rem}
+.grid .card{margin:0}
+.k{font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--pri)}
+h2{font-size:1.6rem;letter-spacing:-.01em;font-weight:600;margin:.25rem 0 .5rem}
+h3{font-size:1.15rem;font-weight:600;margin:1.25rem 0 .5rem}
+.sm{font-size:.9rem;color:var(--sub)}
+label{display:block;font-weight:500;margin:.9rem 0 .3rem}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--card);border:1px solid #747775;border-radius:.5rem;padding:.65rem .8rem}
+textarea{resize:vertical;min-height:5rem}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--pri);box-shadow:inset 0 0 0 1px var(--pri)}
+.row{display:flex;gap:.75rem;flex-wrap:wrap;align-items:end}.row>*{flex:1;min-width:9rem}
+.btns{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+button,.btn{font:inherit;font-weight:500;border:0;border-radius:999px;padding:.65rem 1.3rem;cursor:pointer;background:var(--pri);color:#fff;text-decoration:none;display:inline-flex;gap:.45rem;align-items:center;min-height:2.75rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) button:not(.t):not(.o):not(.x),:root:not([data-theme=light]) .btn:not(.t):not(.o){color:#381e72}}
+button.t,.btn.t{background:var(--pri2);color:var(--onpri2)}
+button.o,.btn.o{background:transparent;color:var(--pri);box-shadow:inset 0 0 0 1px #747775}
+button.x{background:transparent;color:var(--pri);padding-inline:.6rem}
+button:disabled{opacity:.55;cursor:progress}
+button:focus-visible,.btn:focus-visible,a:focus-visible{outline:3px solid var(--pri);outline-offset:2px}
+.pill{display:inline-block;font-size:.85rem;font-weight:500;padding:.2rem .7rem;border-radius:.5rem;background:var(--bg)}
+.pill.ok{background:var(--okbg);color:var(--ok)}.pill.bad{background:var(--badbg);color:var(--bad)}.pill.ai{background:var(--pri2);color:var(--onpri2)}
+.demo{background:var(--warn);color:var(--onwarn);border-radius:.75rem;padding:.75rem 1rem;margin-top:1rem;font-weight:500}
+.code{font-family:"Google Sans Code",Consolas,monospace;font-weight:600;letter-spacing:.08em}
+.big{font-size:2.4rem}
+.fb{border-radius:.75rem;padding:.8rem 1rem;margin-top:1rem}
+.fb.ok{background:var(--okbg);color:var(--ok)}.fb.bad{background:var(--badbg);color:var(--bad)}.fb.ai{background:var(--pri2);color:var(--onpri2)}
+.opt{display:block;position:relative;margin:.5rem 0}
+.opt input{position:absolute;left:1rem;top:50%;transform:translateY(-50%);width:1.2rem;height:1.2rem;margin:0}
+.opt span{display:block;border:1px solid #747775;border-radius:.75rem;padding:.85rem 1rem .85rem 3rem}
+.opt input:checked+span{border-color:var(--pri);box-shadow:inset 0 0 0 1px var(--pri);background:var(--pri2);color:var(--onpri2)}
+.opt input:disabled+span{opacity:.55;text-decoration:line-through}
+.q{border-top:1px solid var(--line);padding:1rem 0}.q:first-child{border-top:0}
+.bar{height:.5rem;border-radius:.25rem;background:var(--bg);overflow:hidden;margin:.35rem 0}.bar i{display:block;height:100%;background:var(--pri)}.bar i.low{background:var(--bad)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(8rem,1fr));gap:.75rem;margin-top:1rem}
+.stats div{background:var(--bg);border-radius:.75rem;padding:.75rem 1rem}.stats b{display:block;font-size:1.8rem;color:var(--pri);font-weight:500}
+table{width:100%;border-collapse:collapse;font-size:.95rem}td,th{text-align:left;padding:.45rem .4rem;border-bottom:1px solid var(--line)}
+.ed{border:1px solid var(--line);border-radius:.75rem;padding:.75rem 1rem;margin:.6rem 0}
+.ed input{margin:.2rem 0}
+.spin{display:inline-block;width:1rem;height:1rem;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:s .8s linear infinite}
+@keyframes s{to{transform:rotate(1turn)}}
+@media (prefers-reduced-motion:reduce){.spin{animation:none}}
+.judge{border:2px solid var(--pri);}
+ol.steps{padding-left:1.2rem;margin:.5rem 0}ol.steps li{margin:.3rem 0}
+.foot{max-width:64rem;margin:0 auto;padding:1rem;color:var(--sub);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="top">
+  <a class="logo" href="#/" aria-label="Titip Go home"><i aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 7l5 5-5 5"/></svg></i>Titip <b>Go</b></a>
+  <span class="sp"></span>
+  <a class="btn o" href="/app/">Offline Titip</a>
+</div>
+<div id="intro" aria-hidden="true" hidden><div class="w"><span class="ic"><svg width="62%" height="62%" viewBox="0 0 24 24" fill="none" stroke="#6236d9" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 7l5 5-5 5"/></svg></span><span>Titip<span class="go">&nbsp;Go</span></span></div></div>
+<main id="main" tabindex="-1"></main>
+<p class="foot">Titip Go needs a connection; <a href="/app/">Titip</a> never does. Learners join with a class code and a nickname: no account, no email. Please do not type full names. AI by Google Gemini; answers are checked by the teacher.</p>
+<div id="live" role="status" aria-live="polite" class="sm" style="position:absolute;left:-9999px"></div>
+<script>
+'use strict';
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const say = (m) => { $('#live').textContent = ''; setTimeout(() => ($('#live').textContent = m), 30); };
+const LANGS = { en: 'English', id: 'Bahasa Indonesia', es: 'Español', fr: 'Français', pt: 'Português', sw: 'Kiswahili', hi: 'हिन्दी', bn: 'বাংলা', ar: 'العربية' };
+const store = { get(k) { try { return JSON.parse(localStorage.getItem('go.' + k)); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem('go.' + k, JSON.stringify(v)); } catch (e) {} }, del(k) { try { localStorage.removeItem('go.' + k); } catch (e) {} } };
+
+async function call(path, body, auth) {
+  const h = { 'content-type': 'application/json' };
+  const s = store.get('teacher');
+  if (auth && s) { h.authorization = 'Bearer ' + s.token; h['x-class'] = s.code; }
+  let r;
+  try { r = await fetch('/go/api/' + path, { method: body ? 'POST' : 'GET', headers: h, body: body ? JSON.stringify(body) : undefined }); }
+  catch (e) { throw new Error('No connection. Titip Go needs internet; the offline Titip app does not.'); }
+  const j = await r.json().catch(() => ({ error: 'Unexpected reply from the server.' }));
+  if (r.status === 401 && auth) { store.del('teacher'); }
+  if (!r.ok) throw new Error(j.error || 'Something went wrong.');
+  return j;
+}
+function render(html, focusSel) {
+  $('#main').innerHTML = html;
+  const f = $(focusSel || '#main h1, #main h2');
+  if (f) { f.setAttribute('tabindex', '-1'); f.focus(); }
+  window.scrollTo(0, 0);
+}
+async function busy(btn, fn) {
+  const old = btn.innerHTML; btn.disabled = true; btn.innerHTML = '<span class="spin" aria-hidden="true"></span> ' + (btn.dataset.busy || 'Working…');
+  try { return await fn(); } catch (e) { alert(e.message); say(e.message); } finally { if (btn.isConnected) { btn.disabled = false; btn.innerHTML = old; } }
+}
+const lessonPack = (L) => 'TITIP1:' + btoa(unescape(encodeURIComponent(JSON.stringify({ title: L.title, lang: L.lang, text: L.text, ex: L.ex, g: L.g, q: L.q.filter((q) => q.type !== 'open').map((q) => { const o = { q: q.q, c: q.c, a: q.a, h: q.h }; if (q.type === 'inp') o.type = 'inp'; return o; }) }))));
+
+// ---------------- home ----------------
+function home() {
+  render(`
+  <section class="card hero">
+    <p class="k">Titip Go · online companion</p>
+    <h1>AI where the teacher has signal.<br><em>Zero internet where the learner is.</em></h1>
+    <p class="lead">Titip Go helps the teacher write a lesson, read the class results and plan what to reteach. Learners who are online get a hint that answers <strong>their own</strong> mistake. Anything made here can be sent on to the offline Titip app as a text code.</p>
+  </section>
+  <section class="card judge" aria-labelledby="jh">
+    <p class="k">For judges</p>
+    <h2 id="jh">Try it in one click</h2>
+    <p>No sign-up and no personal data. Each demo makes a fresh class with <strong>made-up</strong> results, deleted after a day.</p>
+    <ol class="steps">
+      <li><strong>Teacher demo</strong>: see the class results, press <em>Analyse with AI</em>, then draft a new lesson with AI.</li>
+      <li><strong>Learner demo</strong>: answer questions. Pick a wrong answer to get a hint written for that mistake; the last question is graded by AI.</li>
+    </ol>
+    <div class="btns"><button id="dT" data-busy="Making a demo class…">Teacher demo</button><button class="t" id="dL" data-busy="Opening…">Learner demo</button></div>
+  </section>
+  <div class="grid">
+    <section class="card"><p class="k">Teacher</p><h2>Your class</h2>
+      <p class="sm">Create a class with a PIN. You get a 6-letter class code to give your learners.</p>
+      <label for="cn">Class name</label><input id="cn" maxlength="60" placeholder="Class 4B, mathematics">
+      <label for="cp">PIN (4–12 digits)</label><input id="cp" inputmode="numeric" maxlength="12" autocomplete="new-password">
+      <div class="btns"><button id="mk" data-busy="Creating…">Create class</button></div>
+      <h3>Already have a class?</h3>
+      <div class="row"><div><label for="lc">Class code</label><input id="lc" maxlength="6" autocapitalize="characters" class="code"></div><div><label for="lp">PIN</label><input id="lp" inputmode="numeric" maxlength="12" autocomplete="current-password"></div></div>
+      <div class="btns"><button class="o" id="li" data-busy="Logging in…">Log in</button></div>
+    </section>
+    <section class="card"><p class="k">Learner</p><h2>Join a lesson</h2>
+      <p class="sm">Type the code your teacher gave you and a nickname. No account needed.</p>
+      <label for="jc">Class code</label><input id="jc" maxlength="6" autocapitalize="characters" class="code">
+      <label for="jn">Nickname (not your full name)</label><input id="jn" maxlength="24">
+      <div class="btns"><button id="jb" data-busy="Opening…">Start</button></div>
+    </section>
+  </div>`, 'h1');
+  $('#dT').onclick = (e) => busy(e.currentTarget, async () => { const r = await call('demo', {}); store.set('teacher', { token: r.token, code: r.code }); location.hash = '#/teacher'; });
+  $('#dL').onclick = (e) => busy(e.currentTarget, async () => { const r = await call('demo', {}); location.hash = '#/learn/' + r.code + '/Judge'; });
+  $('#mk').onclick = (e) => busy(e.currentTarget, async () => { const r = await call('class', { name: $('#cn').value, pin: $('#cp').value }); store.set('teacher', { token: r.token, code: r.code }); location.hash = '#/teacher'; });
+  $('#li').onclick = (e) => busy(e.currentTarget, async () => { const r = await call('login', { code: $('#lc').value, pin: $('#lp').value }); store.set('teacher', { token: r.token, code: r.code }); location.hash = '#/teacher'; });
+  $('#jb').onclick = () => { const c = $('#jc').value.trim().toUpperCase(); if (!/^[A-Z2-9]{6}$/.test(c)) return alert('A class code has 6 letters and numbers.'); location.hash = '#/learn/' + c + '/' + encodeURIComponent($('#jn').value.trim() || 'Learner'); };
+}
+
+// ---------------- teacher ----------------
+let T = null, draft = null, analysis = null;
+async function teacher() {
+  if (!store.get('teacher')) return (location.hash = '#/');
+  render('<section class="card"><p><span class="spin"></span> Loading your class…</p></section>');
+  try { T = await call('teacher', null, true); } catch (e) { alert(e.message); return (location.hash = '#/'); }
+  analysis = null; draw();
+}
+function draw() {
+  const st = T.stats, L = T.lesson;
+  const avg = st.learners.length ? Math.round(st.learners.reduce((s, l) => s + l.pct, 0) / st.learners.length) : 0;
+  const groups = { A: 0, B: 0, C: 0 }; st.learners.forEach((l) => groups[l.group]++);
+  const join = location.origin + '/go/#/learn/' + T.code;
+  render(`
+  <section class="card">
+    <p class="k">Teacher · ${esc(T.name)}</p>
+    <h1 style="font-size:2rem;font-weight:600">Class code <span class="code" style="color:var(--pri)">${esc(T.code)}</span></h1>
+    <p class="sm">Learners open <a href="${esc(join)}">${esc(join.replace(/^https?:\/\//, ''))}</a> or type the code on the Titip Go page.</p>
+    ${T.demo ? '<p class="demo">Demo class. The learners and answers here are made up for demonstration. PIN: 0000.</p>' : ''}
+    <div class="btns"><button class="o" id="out">Log out</button>${T.demo ? '' : '<button class="x" id="clr">Clear answers</button>'}</div>
+  </section>
+  <section class="card" aria-labelledby="rh">
+    <p class="k">Results</p><h2 id="rh">${L ? esc(L.title) : 'No lesson yet'}</h2>
+    ${!L ? '<p>Draft a lesson below and publish it to start.</p>' : !st.n ? '<p>No answers yet. Share the class code.</p>' : `
+    <div class="stats"><div><b>${st.n}</b>learners</div><div><b>${avg}%</b>average score</div><div><b>${groups.A} · ${groups.B} · ${groups.C}</b>groups A · B · C</div></div>
+    <p class="sm" style="margin-top:.5rem">Practice groups by score: A under 50%, B 50–79%, C 80% and above. A quick sort for practice, not a placement test.</p>
+    ${st.per.map((p, i) => `<div class="q"><strong>${i + 1}. ${esc(p.q)}</strong>
+      ${p.type === 'open' ? `<p class="sm">Open answer, graded by AI (0–2): average ${p.open.length ? (p.open.reduce((t, o) => t + (o.score || 0), 0) / p.open.length).toFixed(1) : '–'}.</p><details><summary>Read the answers (${p.open.length})</summary><table><tr><th>Learner</th><th>Answer</th><th>Score</th></tr>${p.open.map((o) => `<tr><td>${esc(o.nick)}</td><td>${esc(o.text)}<br><span class="sm">${esc(o.feedback)}</span></td><td>${o.score == null ? 'to mark' : o.score + '/2'}</td></tr>`).join('')}</table></details>` : `
+      <div class="bar" role="img" aria-label="${p.first} of ${p.n} right on first try"><i class="${p.reteach ? 'low' : ''}" style="width:${p.pct}%"></i></div>
+      <p class="sm">${p.first} / ${p.n} right on the first try ${p.reteach ? '<span class="pill bad">Teach again</span>' : '<span class="pill ok">✓ OK</span>'}</p>
+      ${p.top.length ? `<p class="sm">Wrong answers: ${p.top.map((t) => `<span class="pill">${esc(t[0])}: ${t[1]}</span>`).join(' ')}</p>` : ''}`}
+    </div>`).join('')}
+    <details style="margin-top:1rem"><summary>Learners (${st.learners.length})</summary><table><tr><th>Nickname</th><th>Score</th><th>Group</th></tr>${st.learners.map((l) => `<tr><td>${esc(l.nick)}</td><td>${l.pct}%</td><td>${l.group}</td></tr>`).join('')}</table></details>
+    <div class="btns"><button id="an" data-busy="Reading the results…"><span aria-hidden="true">✦</span> Analyse with AI</button></div>
+    <div id="anOut">${analysis ? anHtml() : ''}</div>`}
+  </section>
+  <section class="card" aria-labelledby="dh">
+    <p class="k">Lesson</p><h2 id="dh">Draft a lesson with AI</h2>
+    <p class="sm">AI writes a first draft. You check and edit every line before learners see it.</p>
+    <label for="tp">Topic</label><input id="tp" maxlength="200" placeholder="e.g. Comparing fractions with pictures of cake">
+    <div class="row"><div><label for="lg">Language</label><select id="lg">${Object.entries(LANGS).map(([k, v]) => `<option value="${k}"${L && L.lang === k ? ' selected' : ''}>${v}</option>`).join('')}</select></div>
+    <div><label for="gr">Level</label><input id="gr" maxlength="60" value="Grade 3–4"></div>
+    <div><label for="nq">Questions</label><select id="nq">${[3, 4, 5, 6].map((n) => `<option${n === 4 ? ' selected' : ''}>${n}</option>`).join('')}</select></div></div>
+    <label for="nt">Your notes or textbook text (optional)</label><textarea id="nt" maxlength="3000"></textarea>
+    <label style="display:flex;gap:.5rem;align-items:center;font-weight:400"><input type="checkbox" id="op" style="width:auto" checked> Add one open question graded by AI</label>
+    <div class="btns"><button id="gen" data-busy="Writing a draft… (about 10 s)"><span aria-hidden="true">✦</span> Draft with AI</button>${L ? '<button class="o" id="edc">Edit the current lesson</button>' : ''}</div>
+    <div id="dr"></div>
+  </section>`, 'h1');
+  $('#out').onclick = () => { store.del('teacher'); location.hash = '#/'; };
+  if ($('#clr')) $('#clr').onclick = (e) => confirm('Delete all answers for this lesson?') && busy(e.currentTarget, async () => { T = await call('teacher/clear', {}, true); draw(); });
+  if ($('#an')) $('#an').onclick = (e) => busy(e.currentTarget, async () => { analysis = await call('ai/analyse', {}, true); $('#anOut').innerHTML = anHtml(); bindAn(); $('#anOut h3').focus(); });
+  $('#gen').onclick = (e) => busy(e.currentTarget, async () => { const r = await call('ai/lesson', { topic: $('#tp').value, lang: $('#lg').value, grade: $('#gr').value, n: +$('#nq').value, notes: $('#nt').value, open: $('#op').checked }, true); draft = r.lesson; editor(); });
+  if ($('#edc')) $('#edc').onclick = () => { draft = JSON.parse(JSON.stringify(T.lesson)); editor(); };
+  bindAn();
+}
+function anHtml() {
+  const a = analysis;
+  return `<h3 tabindex="-1"><span class="pill ai">✦ AI reading</span> What the results suggest</h3>
+  <p>${esc(a.summary)}</p>
+  ${a.misconceptions.length ? '<h3>Likely misconceptions</h3><ul>' + a.misconceptions.map((m) => `<li>${esc(m.belief)}${m.question ? ` <span class="sm">(question ${m.question})</span>` : ''}</li>`).join('') + '</ul>' : ''}
+  ${a.plan.length ? '<h3>Reteach plan</h3><ol class="steps">' + a.plan.map((p) => `<li>${esc(p)}</li>`).join('') + '</ol>' : ''}
+  ${a.followup ? `<h3>Follow-up questions</h3><ol class="steps">${a.followup.q.map((q) => `<li>${esc(q.q)} <span class="sm">(${q.c.map(esc).join(' / ')})</span></li>`).join('')}</ol><div class="btns"><button class="t" id="useF">Edit and publish as follow-up lesson</button></div>` : ''}
+  <p class="sm">Written by AI from the numbers above. Check it against what you know about your class.</p>`;
+}
+function bindAn() { if ($('#useF')) $('#useF').onclick = () => { draft = JSON.parse(JSON.stringify(analysis.followup)); editor(); }; }
+
+function editor() {
+  const L = draft;
+  $('#dr').innerHTML = `
+  <h3 tabindex="-1" id="edh">Check the draft</h3>
+  <label for="eT">Title</label><input id="eT" value="${esc(L.title)}">
+  <label for="eX">Lesson text (one sentence per line)</label><textarea id="eX" rows="5">${esc(L.text.join('\n'))}</textarea>
+  <label for="eE">Worked example</label><input id="eE" value="${esc(L.ex || '')}">
+  <label for="eG">Word meanings (word = meaning, one per line)</label><textarea id="eG" rows="3">${esc(L.g.map((g) => g[0] + ' = ' + g[1]).join('\n'))}</textarea>
+  ${L.q.map((q, i) => `<div class="ed" data-i="${i}"><label for="q${i}">Question ${i + 1}${q.type === 'open' ? ' (open, AI-graded)' : q.type === 'inp' ? ' (typed number)' : ''}</label><input id="q${i}" value="${esc(q.q)}">
+    ${q.type === 'open' ? `<label for="r${i}">What a full answer must contain</label><input id="r${i}" value="${esc(q.r)}">` :
+      q.c.map((c, k) => `<div class="row" style="align-items:center"><label style="flex:0 0 auto;margin:0;font-weight:400"><input type="radio" name="a${i}" value="${k}"${k === q.a ? ' checked' : ''} style="width:auto"> right</label><input aria-label="Answer ${k + 1}" data-c="${k}" value="${esc(c)}"></div>`).join('') + `<label for="h${i}">Hint</label><input id="h${i}" value="${esc(q.h)}">`}
+    <button class="x" data-del="${i}">Remove question</button></div>`).join('')}
+  <div class="btns"><button id="pub" data-busy="Publishing…">Publish to class</button><button class="o" id="pk">Copy as offline Titip code</button></div>
+  <p class="sm">The offline code works in the <a href="/app/#/lib">Titip app</a> (Lessons → Import code), so the lesson can travel to learners with no internet. Open questions stay online only.</p>`;
+  const read = () => ({
+    title: $('#eT').value, lang: L.lang, ex: $('#eE').value,
+    text: $('#eX').value.split('\n').map((s) => s.trim()).filter(Boolean),
+    g: $('#eG').value.split('\n').map((s) => s.split('=')).filter((p) => p.length > 1).map((p) => [p[0].trim(), p.slice(1).join('=').trim()]),
+    q: L.q.map((q, i) => q.type === 'open' ? { q: $('#q' + i).value, type: 'open', r: $('#r' + i).value, h: '' } : { q: $('#q' + i).value, type: q.type, h: $('#h' + i).value, c: [...document.querySelectorAll(`.ed[data-i="${i}"] [data-c]`)].map((x) => x.value), a: +(document.querySelector(`input[name="a${i}"]:checked`) || { value: 0 }).value }),
+  });
+  document.querySelectorAll('[data-del]').forEach((b) => (b.onclick = () => { draft = read(); draft.q.splice(+b.dataset.del, 1); editor(); }));
+  $('#pub').onclick = (e) => busy(e.currentTarget, async () => { if (!T.demo || confirm('Publishing replaces the lesson. Answers to the old lesson will be cleared. Continue?')) { T = await call('teacher/lesson', { lesson: read() }, true); draft = null; analysis = null; draw(); say('Lesson published.'); } });
+  $('#pk').onclick = async () => { const code = lessonPack(read()); try { await navigator.clipboard.writeText(code); say('Code copied.'); alert('Copied. Paste it into Titip → Lessons → Import code, or send it by chat.'); } catch (e) { prompt('Copy this code:', code); } };
+  $('#edh').focus();
+}
+
+// ---------------- learner ----------------
+let S = null;
+async function learn(code, nick) {
+  render('<section class="card"><p><span class="spin"></span> Opening the lesson…</p></section>');
+  let r; try { r = await call('join/' + code); } catch (e) { render(`<section class="card"><h2>Could not open</h2><p>${esc(e.message)}</p><div class="btns"><a class="btn" href="#/">Back</a></div></section>`); return; }
+  S = { code: r.code, nick: decodeURIComponent(nick || 'Learner').slice(0, 24), L: r.lesson, demo: r.demo, i: -1, ans: r.lesson.q.map(() => ({ first: null, tries: 0 })) };
+  const L = S.L;
+  render(`<section class="card" lang="${esc(L.lang)}" dir="${L.lang === 'ar' ? 'rtl' : 'ltr'}">
+    <p class="k">Lesson · ${esc(r.name)}</p><h1 style="font-size:2rem;font-weight:600">${esc(L.title)}</h1>
+    ${S.demo ? '<p class="demo">Demo lesson. Your answers join a made-up class.</p>' : ''}
+    ${L.text.map((t) => `<p style="margin-top:.6rem;font-size:1.1rem">${esc(t)}</p>`).join('')}
+    ${L.ex ? `<p class="fb ai" style="font-weight:500">${esc(L.ex)}</p>` : ''}
+    ${L.g.length ? '<h3>Words</h3><ul>' + L.g.map((g) => `<li><strong>${esc(g[0])}</strong>: ${esc(g[1])}</li>`).join('') + '</ul>' : ''}
+    <div class="btns"><button id="go1">Start practice (${L.q.length})</button></div></section>`, 'h1');
+  $('#go1').onclick = () => { S.i = 0; ask(); };
+}
+function ask() {
+  const L = S.L, q = L.q[S.i], a = S.ans[S.i];
+  const dir = L.lang === 'ar' ? 'rtl' : 'ltr';
+  const typed = q.type === 'inp' && !a.showChoices;
+  render(`<section class="card" lang="${esc(L.lang)}" dir="${dir}">
+    <p class="k">Question ${S.i + 1} of ${L.q.length}</p>
+    <h2>${esc(q.q)}</h2>
+    ${q.type === 'open' ? `<label for="ot">Your answer</label><textarea id="ot" maxlength="400"></textarea>` :
+      typed ? `<label for="ti">Type the number</label><input id="ti" inputmode="decimal" maxlength="20" style="max-width:10rem">` :
+      `<fieldset style="border:0;padding:0;margin:0"><legend class="sm">Choose one</legend>${q.c.map((c, k) => `<label class="opt"><input type="radio" name="o" value="${k}"${(a.off || []).includes(k) ? ' disabled' : ''}><span>${esc(c)}</span></label>`).join('')}</fieldset>`}
+    <div id="fb" aria-live="polite"></div>
+    <div class="btns"><button id="ck" data-busy="Checking…">${q.type === 'open' ? 'Send answer' : 'Check answer'}</button></div>
+  </section>`, 'h2');
+  $('#ck').onclick = (e) => busy(e.currentTarget, () => (q.type === 'open' ? checkOpen(e.currentTarget) : check(e.currentTarget)));
+}
+async function check(btn) {
+  const q = S.L.q[S.i], a = S.ans[S.i];
+  const ti = $('#ti'), sel = document.querySelector('input[name=o]:checked');
+  if (ti && !ti.value.trim()) return alert('Type a number first.');
+  if (!ti && !sel) return alert('Choose an answer first.');
+  const body = ti ? { qi: S.i, typed: ti.value } : { qi: S.i, pick: +sel.value };
+  const r = await call(`learn/${S.code}/check`, body);
+  a.tries++;
+  if (a.first === null) { a.first = r.pick; if (ti) a.typed = ti.value.trim(); }
+  if (r.right) {
+    $('#fb').innerHTML = '<p class="fb ok"><strong>✓ Correct.</strong></p>';
+    btn.outerHTML = `<button id="nx">${S.i + 1 < S.L.q.length ? 'Next question' : 'See my result'}</button>`;
+    $('#nx').onclick = () => { S.i++; S.i < S.L.q.length ? ask() : finish(); };
+    $('#nx').focus(); say('Correct.');
+    return;
+  }
+  $('#fb').innerHTML = '<p class="fb bad"><strong>✗ Not yet.</strong> <span class="spin" aria-hidden="true"></span> Finding a hint for your answer…</p>';
+  const h = await call(`learn/${S.code}/hint`, { ...body, tries: a.tries }).catch(() => ({ hint: '', ai: false }));
+  if (!ti) { a.off = (a.off || []).concat([+sel.value]); document.querySelector(`input[name=o][value="${sel.value}"]`).disabled = true; sel.checked = false; }
+  $('#fb').innerHTML = `<p class="fb bad"><strong>✗ Not yet.</strong> Try again.</p>${h.hint ? `<p class="fb ai">${h.ai ? '<span class="pill ai">✦ Hint for your answer</span><br>' : '<strong>Hint:</strong> '}${esc(h.hint)}</p>` : ''}`;
+  say('Not yet. ' + (h.hint || ''));
+  if (ti) { a.showChoices = true; setTimeout(ask, 2600); }
+}
+async function checkOpen() {
+  const t = $('#ot').value.trim(); if (t.length < 2) return alert('Write your answer first.');
+  let r; try { r = await call(`learn/${S.code}/open`, { qi: S.i, text: t }); } catch (e) { r = { score: null, feedback: 'Saved. Your teacher will read and mark it.' }; }
+  S.ans[S.i] = { text: t, score: r.score, feedback: r.feedback, tries: 1 };
+  $('#fb').innerHTML = `<p class="fb ai"><span class="pill ai">✦ Feedback</span><br>${esc(r.feedback)}</p><p class="sm">${r.score == null ? 'Not marked yet.' : 'Score ' + r.score + ' of 2.'} Your teacher will see your answer.</p>`;
+  $('#ck').outerHTML = `<button id="nx">${S.i + 1 < S.L.q.length ? 'Next question' : 'See my result'}</button>`;
+  $('#nx').onclick = () => { S.i++; S.i < S.L.q.length ? ask() : finish(); };
+  $('#nx').focus(); say(r.feedback);
+}
+async function finish() {
+  render('<section class="card"><p><span class="spin"></span> Saving and writing your feedback…</p></section>');
+  const ans = S.ans.map((a) => (a.text != null ? { text: a.text, score: a.score, feedback: a.feedback } : { first: a.first == null ? -1 : a.first, typed: a.typed || '', tries: a.tries }));
+  let r; try { r = await call(`learn/${S.code}/finish`, { nick: S.nick, ans }); } catch (e) { r = { missed: [], error: e.message }; }
+  const mc = S.L.q.filter((q) => q.type !== 'open').length, right = mc - (r.missed || []).length;
+  render(`<section class="card" lang="${esc(S.L.lang)}">
+    <p class="k">Lesson finished</p><h1 style="font-size:2rem;font-weight:600">You got ${right} of ${mc} right on the first try.</h1>
+    ${r.error ? `<p class="fb bad">${esc(r.error)}</p>` : '<p class="sm">Your teacher can see your answers under your nickname.</p>'}
+    ${(r.missed || []).length ? '<h3>Read these again</h3>' + r.missed.map((m) => `<div class="q"><strong>${esc(m.q)}</strong><p>Right answer: <strong>${esc(m.right)}</strong></p>${m.why ? `<p class="fb ai"><span class="pill ai">✦ Why</span><br>${esc(m.why)}</p>` : ''}</div>`).join('') : '<p class="fb ok">✓ All right on the first try.</p>'}
+    <div class="btns"><button id="again">Do it again</button><a class="btn o" href="#/">Done</a></div></section>`, 'h1');
+  $('#again').onclick = () => learn(S.code, encodeURIComponent(S.nick));
+}
+
+// ---------------- router ----------------
+function route() {
+  const h = location.hash.replace(/^#\/?/, '').split('/');
+  if (h[0] === 'teacher') teacher();
+  else if (h[0] === 'learn' && h[1]) learn(h[1].toUpperCase(), h[2]);
+  else home();
+}
+addEventListener('hashchange', route); route();
+// Brand intro once per visit: blue Titip turns into violet Titip Go.
+try { if (!sessionStorage.getItem('goIntro')) { sessionStorage.setItem('goIntro', '1'); const i = $('#intro'); i.hidden = false; setTimeout(() => i.remove(), 1800); } } catch (e) {}
+</script>
+</body>
+</html>
