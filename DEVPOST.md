@@ -11,7 +11,7 @@ Most learning apps assume a connection, an account and a personal device. Titip 
 ## What Titip does
 
 **1. The teacher makes a lesson once.**
-Pick one of 12 ready lessons in 9 languages, or write a new one: short text, word meanings, a worked example, a small interactive diagram, and 2–9 choice or typed-answer questions. Titip saves it as **one 199 KB HTML file** (66 KB compressed), or as a text code to paste into a chat.
+Pick one of 12 ready lessons in 9 languages, or write a new one: short text, word meanings, a worked example, a small interactive diagram, and 2–9 choice or typed-answer questions. Titip saves it as **one 200 KB HTML file** (67 KB compressed), or as a text code to paste into a chat.
 
 **2. The file travels without internet.**
 Bluetooth, WhatsApp, a memory card. It opens in any phone browser in flight mode. No install, no account, no server.

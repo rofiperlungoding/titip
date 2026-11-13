@@ -6,7 +6,7 @@
 <title>Titip Go</title>
 <meta name="description" content="Titip Go: the online companion to Titip. AI drafts lessons and reads class results for the teacher; learners get hints that answer their own mistake.">
 <meta name="theme-color" content="#1b1b1b">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23ff8f00'/%3E%3Cpath d='M5 12h13M13 7l5 5-5 5' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='58' fill='%231b1b1b'/%3E%3Cg transform='translate(128 126) scale(.74) translate(-136 -123)' fill='none' stroke-width='34' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='%23fff' d='M86 50V160A36 36 0 0 0 122 196H128M174 50V160A36 36 0 0 0 210 196H216'/%3E%3Cpath stroke='%23ffca28' d='M48 102H224'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&family=Google+Sans+Code:wght@400;600&display=swap">
 <style>
@@ -19,7 +19,7 @@ a{color:var(--pri)}
 .top{position:sticky;top:0;z-index:5;background:var(--navy);color:#fff;max-width:none;padding-inline:max(1rem,calc(50vw - 31rem));
 display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;max-width:64rem;margin:0 auto}
 .logo{display:flex;align-items:center;gap:.6rem;font-size:1.35rem;font-weight:600;text-decoration:none;color:#fff}
-.logo i{width:2rem;height:2rem;border-radius:.6rem;background:linear-gradient(135deg,#ffca28,#ff8f00 55%,#f4511e);display:grid;place-items:center}
+.logo i{width:2rem;height:2rem;display:block;line-height:0}.logo i rect{stroke:#4a4a4a;stroke-width:8}
 .logo b{font-weight:600;color:#ffca28}
 .top .btn.o{color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
 .top .sp{flex:1}
@@ -33,8 +33,8 @@ main{max-width:64rem;margin:0 auto;padding:0 1rem 4rem}
 [tabindex="-1"]:focus{outline:0}
 #intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;overflow:hidden;background:#0b57d0;pointer-events:none;animation:inBg .45s .55s cubic-bezier(.3,0,.2,1) forwards}
 #intro .stage{position:relative;display:flex;align-items:center;gap:1.1rem;font:650 clamp(2.6rem,10vw,5.2rem)/1 "Google Sans Flex",system-ui,sans-serif;letter-spacing:-.035em;color:#fff}
-#intro .ic{width:1.25em;height:1.25em;border-radius:.3em;background:#fff;display:grid;place-items:center;animation:icPop .9s cubic-bezier(.34,1.56,.64,1) both}
-#intro .ic svg{animation:arrow .5s .55s cubic-bezier(.34,1.8,.64,1) both}
+#intro .ic{width:1.25em;height:1.25em;display:block;line-height:0;animation:icPop .9s cubic-bezier(.34,1.56,.64,1) both}
+#intro .ic svg path:last-child{animation:arrow .5s .55s cubic-bezier(.34,1.8,.64,1) both}
 #intro .name{animation:nameIn .55s .1s cubic-bezier(.34,1.56,.64,1) both}
 #intro .go{display:inline-block;margin-left:.22em;padding:.08em .32em .12em;border-radius:.22em;background:#ffca28;color:#1b2a41;transform-origin:50% 100%;animation:goBounce .8s .62s cubic-bezier(.34,1.7,.5,1) both}
 #intro .ring{position:absolute;left:50%;top:50%;width:0;height:0;border-radius:50%;border:5px solid #ffca28;opacity:0;transform:translate(-50%,-50%);animation:ring .75s .7s cubic-bezier(.2,.8,.3,1) forwards}
@@ -120,7 +120,7 @@ button.t::after,.btn.t::after{content:"\2192";margin-left:.1rem}
 .opt input:checked+span{background:#3b2a12;color:#ffe2b0;border-color:var(--orange);box-shadow:inset 0 0 0 1px var(--orange)}
 /* launch banner */
 .promo{display:flex;gap:1rem;align-items:center;max-width:46rem;margin:2rem auto 0;padding:1rem 1.1rem;border-radius:1rem;color:#1b1b1b;background:linear-gradient(100deg,#ffd54f 0%,#ffb300 45%,#ff8f00 100%);box-shadow:0 10px 40px rgba(255,143,0,.25)}
-.promo .pi{flex:0 0 3rem;height:3rem;border-radius:.8rem;background:#1b1b1b;display:grid;place-items:center}
+.promo .pi{flex:0 0 3rem;height:3rem;line-height:0}
 .promo h2{font-size:1.05rem;margin:0;font-weight:600}
 .promo p{font-size:.85rem;line-height:1.35;margin-top:.15rem;color:#3a2a00}
 .promo .pb{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:flex-end}
@@ -142,11 +142,11 @@ button.t::after,.btn.t::after{content:"\2192";margin-left:.1rem}
 </head>
 <body>
 <div class="top">
-  <a class="logo" href="#/" aria-label="Titip Go home"><i aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 7l5 5-5 5"/></svg></i>Titip <b>Go</b></a>
+  <a class="logo" href="#/" aria-label="Titip Go home"><i aria-hidden="true"><svg viewBox="0 0 256 256" width="32" height="32"><rect width="256" height="256" rx="58" fill="#1b1b1b"/><g transform="translate(128 126) scale(.74) translate(-136 -123)" fill="none" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"><path stroke="#fff" d="M86 50V160A36 36 0 0 0 122 196H128M174 50V160A36 36 0 0 0 210 196H216"/><path stroke="#ffca28" d="M48 102H224"/></g></svg></i>Titip <b>Go</b></a>
   <span class="sp"></span>
   <a class="btn o" href="/app/">Offline Titip</a>
 </div>
-<div id="intro" aria-hidden="true" hidden><div class="stage"><span class="ring"></span><span class="ic"><svg width="62%" height="62%" viewBox="0 0 24 24" fill="none" stroke="#1b2a41" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 7l5 5-5 5"/></svg></span><span class="name">Titip</span><span class="go">Go</span></div><div class="sweep"></div></div>
+<div id="intro" aria-hidden="true" hidden><div class="stage"><span class="ring"></span><span class="ic"><svg viewBox="0 0 256 256" width="100%" height="100%"><rect width="256" height="256" rx="58" fill="#fff"/><g transform="translate(128 126) scale(.74) translate(-136 -123)" fill="none" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"><path stroke="#1b2a41" d="M86 50V160A36 36 0 0 0 122 196H128M174 50V160A36 36 0 0 0 210 196H216"/><path stroke="#ffca28" d="M48 102H224"/></g></svg></span><span class="name">Titip</span><span class="go">Go</span></div><div class="sweep"></div></div>
 <main id="main" tabindex="-1"></main>
 <p class="foot">Titip Go needs a connection; <a href="/app/">Titip</a> never does. Learners join with a class code and a nickname: no account, no email. Please do not type full names. AI by Google Gemini; answers are checked by the teacher.</p>
 <div id="live" role="status" aria-live="polite" class="sm" style="position:absolute;left:-9999px"></div>
@@ -186,7 +186,7 @@ const lessonPack = (L) => 'TITIP1:' + btoa(unescape(encodeURIComponent(JSON.stri
 function home() {
   render(`
   <aside class="promo" aria-labelledby="jh">
-    <span class="pi" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffca28" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 7l5 5-5 5"/></svg></span>
+    <span class="pi" aria-hidden="true"><svg viewBox="0 0 256 256" width="48" height="48"><rect width="256" height="256" rx="58" fill="#1b1b1b"/><g transform="translate(128 126) scale(.74) translate(-136 -123)" fill="none" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"><path stroke="#fff" d="M86 50V160A36 36 0 0 0 122 196H128M174 50V160A36 36 0 0 0 210 196H216"/><path stroke="#ffca28" d="M48 102H224"/></g></svg></span>
     <div style="flex:1"><h2 id="jh">For judges: try Titip Go in one click</h2>
       <p>No sign-up, no personal data. Each demo makes a fresh class with made-up results, deleted after a day. Teacher: press <em>Analyse with AI</em>. Learner: pick a wrong answer to get a hint for that mistake.</p></div>
     <div class="pb"><button id="dT" data-busy="Making a demo…">Teacher demo</button><button class="t" id="dL" data-busy="Opening…">Learner demo</button></div>
