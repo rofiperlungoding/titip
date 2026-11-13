@@ -22,7 +22,7 @@ For the next agent or developer picking this up. Read this first, then README.md
 | `TEST.md` | What was checked vs predicted vs made-up, plus the field-test protocol |
 | `RESEARCH.md` | Evidence base. Source IDs `P1`..`P29` (papers), `N1`..`N59` (global/regional/national surveys & reports). Cite by ID |
 
-Deploy: `scripts/deploy_titip.sh` lives in the author's separate server repository, not here.
+Deploy: automatic. Every push to `master` runs `.github/workflows/deploy.yml`: `selfTest()`, ES5 parse, 9-language key parity and size check, then upload over cloudflared SSH with the `TITIP_DEPLOY_KEY` secret. That key is locked on the server to `/root/apps/titip/deploy.sh` (`begin`, `push` or `fail`; the script and its server setup live in the author's `gtawifi-vps` repo). While a deploy runs, the landing page reads `/status.json` and shows an "Updating" banner. The job fails unless the public site serves the exact commit. Manual fallback: `scripts/deploy_titip.sh` in the same server repo.
 
 ## Code map (`index.html`)
 
