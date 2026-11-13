@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Titip Go</title>
 <meta name="description" content="Titip Go: the online companion to Titip. AI drafts lessons and reads class results for the teacher; learners get hints that answer their own mistake.">
-<meta name="theme-color" content="#1b2a41">
+<meta name="theme-color" content="#1b1b1b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23ff8f00'/%3E%3Cpath d='M5 12h13M13 7l5 5-5 5' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&family=Google+Sans+Code:wght@400;600&display=swap">
@@ -98,6 +98,46 @@ table{width:100%;border-collapse:collapse;font-size:.95rem}td,th{text-align:left
 .judge{border-top:4px solid var(--orange)}
 ol.steps{padding-left:1.2rem;margin:.5rem 0}ol.steps li{margin:.3rem 0}
 .foot{max-width:64rem;margin:0 auto;padding:1rem;color:var(--sub);font-size:.85rem}
+
+/* Dark product-launch look: near-black page, white display type, amber-to-orange accents, pill buttons. */
+:root,:root:not([data-theme=light]){color-scheme:dark;--bg:#1b1b1b;--card:#262626;--ink:#f1f1f1;--sub:#b9b9b9;--line:#3a3a3a;--pri:#ffb74d;--pri2:#3b2a12;--onpri2:#ffd28a;--navy:#1b1b1b;--amber:#ffca28;--orange:#ff8f00;--ok:#81c995;--okbg:#17321f;--bad:#f28b82;--badbg:#3c1c1a;--warn:#4a3608;--onwarn:#ffd98a;--r:1rem}
+body{background:var(--bg)}
+.top{background:rgba(27,27,27,.85);backdrop-filter:blur(12px);border-bottom:1px solid #2c2c2c}
+.card{background:var(--card);border:1px solid #333;box-shadow:none;border-radius:1rem}
+input,select,textarea{background:#1f1f1f;border-color:#4a4a4a}
+button,.btn{border-radius:999px;font-weight:500}
+button:not(.t):not(.o):not(.x),.btn:not(.t):not(.o){background:#fff;color:#1b1b1b}
+button.o,.btn.o{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px var(--orange)}
+button.t,.btn.t{background:transparent;color:#fff;box-shadow:none;padding-inline:.6rem}
+button.t::after,.btn.t::after{content:"\2192";margin-left:.1rem}
+.k{color:var(--pri)}
+.bar i{background:linear-gradient(90deg,#ffca28,#ff8f00)}
+.stats div{background:#1f1f1f;border:1px solid #333}.stats b{color:#ffca28}
+.pill{background:#333;color:#eee}
+.demo{background:var(--warn);color:var(--onwarn)}
+.fb.ai{background:#2e2414;color:#ffd28a;border:1px solid #5a4116}
+.opt span{border-color:#4a4a4a}
+.opt input:checked+span{background:#3b2a12;color:#ffe2b0;border-color:var(--orange);box-shadow:inset 0 0 0 1px var(--orange)}
+/* launch banner */
+.promo{display:flex;gap:1rem;align-items:center;max-width:46rem;margin:2rem auto 0;padding:1rem 1.1rem;border-radius:1rem;color:#1b1b1b;background:linear-gradient(100deg,#ffd54f 0%,#ffb300 45%,#ff8f00 100%);box-shadow:0 10px 40px rgba(255,143,0,.25)}
+.promo .pi{flex:0 0 3rem;height:3rem;border-radius:.8rem;background:#1b1b1b;display:grid;place-items:center}
+.promo h2{font-size:1.05rem;margin:0;font-weight:600}
+.promo p{font-size:.85rem;line-height:1.35;margin-top:.15rem;color:#3a2a00}
+.promo .pb{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:flex-end}
+.promo button{background:#ff6d00!important;color:#1b1b1b!important;box-shadow:none!important;padding:.45rem 1rem;min-height:2.3rem;font-size:.9rem}
+.promo button.t{background:rgba(27,27,27,.12)!important}
+.promo button.t::after{content:none}
+@media (max-width:40rem){.promo{flex-wrap:wrap}.promo .pb{justify-content:flex-start}}
+.launch{text-align:center;padding:4.5rem 1rem 3.5rem}
+.launch h1{font-size:clamp(2.2rem,6.4vw,4rem);line-height:1.12;letter-spacing:-.035em;font-weight:600;color:#fff;max-width:20ch;margin:0 auto}
+.launch h1 .chip{display:inline-flex;vertical-align:middle;gap:.15em;margin:0 .1em;transform:translateY(-.08em)}
+.launch h1 .chip i{width:.95em;height:.95em;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:.5em}
+.launch h1 .chip i:first-child{background:linear-gradient(135deg,#ff8a65,#f4511e)}
+.launch h1 .chip i:last-child{background:radial-gradient(circle,#ffe082,#ffb300 60%,#ff8f00);box-shadow:0 0 .4em rgba(255,179,0,.8);margin-left:-.3em}
+.launch .lead{color:#c4c4c4;max-width:38rem;margin:1.6rem auto 0;font-size:1.15rem}
+.launch .btns{justify-content:center;margin-top:2rem}
+.launch .grad{background:linear-gradient(90deg,#ffca28,#ff8f00);-webkit-background-clip:text;background-clip:text;color:transparent}
+#intro .sweep{background:#1b1b1b}
 </style>
 </head>
 <body>
@@ -145,23 +185,20 @@ const lessonPack = (L) => 'TITIP1:' + btoa(unescape(encodeURIComponent(JSON.stri
 // ---------------- home ----------------
 function home() {
   render(`
-  <section class="card hero">
-    <p class="k">Titip Go · online companion</p>
-    <h1>AI where the teacher has signal.<br><em>Zero internet where the learner is.</em></h1>
-    <p class="lead">Titip Go helps the teacher write a lesson, read the class results and plan what to reteach. Learners who are online get a hint that answers <strong>their own</strong> mistake. Anything made here can be sent on to the offline Titip app as a text code.</p>
-  </section>
-  <section class="card judge" aria-labelledby="jh">
-    <p class="k">For judges</p>
-    <h2 id="jh">Try it in one click</h2>
-    <p>No sign-up and no personal data. Each demo makes a fresh class with <strong>made-up</strong> results, deleted after a day.</p>
-    <ol class="steps">
-      <li><strong>Teacher demo</strong>: see the class results, press <em>Analyse with AI</em>, then draft a new lesson with AI.</li>
-      <li><strong>Learner demo</strong>: answer questions. Pick a wrong answer to get a hint written for that mistake; the last question is graded by AI.</li>
-    </ol>
-    <div class="btns"><button id="dT" data-busy="Making a demo class…">Teacher demo</button><button class="t" id="dL" data-busy="Opening…">Learner demo</button></div>
+  <aside class="promo" aria-labelledby="jh">
+    <span class="pi" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffca28" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 7l5 5-5 5"/></svg></span>
+    <div style="flex:1"><h2 id="jh">For judges: try Titip Go in one click</h2>
+      <p>No sign-up, no personal data. Each demo makes a fresh class with made-up results, deleted after a day. Teacher: press <em>Analyse with AI</em>. Learner: pick a wrong answer to get a hint for that mistake.</p></div>
+    <div class="pb"><button id="dT" data-busy="Making a demo…">Teacher demo</button><button class="t" id="dL" data-busy="Opening…">Learner demo</button></div>
+  </aside>
+  <section class="launch">
+    <h1>Make every lesson <span class="chip" aria-hidden="true"><i>✏️</i><i>✦</i></span> reach every learner with <span class="grad">Titip and AI</span></h1>
+    <p class="lead">Titip Go drafts lessons, reads your class results and plans what to reteach. Learners who are online get a hint written for their own mistake.</p>
+    <p class="lead" style="margin-top:1rem">Everything made here still travels offline to the Titip app as a text code.</p>
+    <div class="btns"><a class="btn o" href="#teach">Start your class</a><a class="btn t" href="/app/">Open offline Titip</a></div>
   </section>
   <div class="grid">
-    <section class="card"><p class="k">Teacher</p><h2>Your class</h2>
+    <section class="card" id="teach"><p class="k">Teacher</p><h2>Your class</h2>
       <p class="sm">Create a class with a PIN. You get a 6-letter class code to give your learners.</p>
       <label for="cn">Class name</label><input id="cn" maxlength="60" placeholder="Class 4B, mathematics">
       <label for="cp">PIN (4–12 digits)</label><input id="cp" inputmode="numeric" maxlength="12" autocomplete="new-password">
