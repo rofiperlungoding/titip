@@ -6,30 +6,30 @@ Lessons that travel without internet. *Titip* is Indonesian for handing somethin
 
 A primary pupil wants to practise today's lesson at home, but the practice lives behind a link, and the family phone is not online.
 
-This is a worldwide problem. 2.2 billion people were still offline in 2025, and 96% of them live in low- and middle-income countries. Only 58% of people in rural areas use the internet, against 85% in cities (ITU, 2025). In the latest global estimate, two in three school-age children had no internet at home (UNICEF and ITU, 2020; no newer global figure for children was found).
+This is a worldwide problem. Around 3.1 billion people live under mobile broadband coverage without using mobile internet (38% usage gap), plus ~300 million outside any coverage (~3.4 billion offline globally; GSMA, 2025–2026 [N52]). School-age children lacking home internet reach 95% in West and Central Africa, 88% in East and Southern Africa, 88% in South Asia, and 49% in Latin America and the Caribbean (UNICEF and ITU, 2020 [N53]). Foundational learning gaps compound this barrier: only ~10.8% of primary pupils reach minimum reading/maths benchmarks across sampled African countries (UNESCO, 2025 [N54]) and 23.4% in rural Indian Class 3 government schools (ASER, 2024 [N55]).
 
-Titip was built in Indonesia, which is also where it will first be tested. There, 27.74% of primary pupils do not use the internet, and 93.50% of households have a mobile phone but only 70.75% of people have their own (BPS, 2025). Nothing in the app is specific to Indonesia: lessons can be written in any language, and five ready-made lessons come in English, Indonesian, Spanish and French. Sources for every number are in [RESEARCH.md](RESEARCH.md).
+Even inside connected countries, shared devices and rural divides persist: in rural India ~90% of teens have a smartphone in the home yet only 27–38% own one [N55]; in rural Peru 20.5%–23.6% of households go online vs 58.9%–60.1% nationally (INEI, 2025 [N56–N57]); in Brazil youth internet access at school dropped from 51% to 37% after classroom phone limits (Cetic.br, 2025 [N58]); and in Indonesia—where Titip was built—27.74% of primary pupils do not use the internet [N44] while individual phone ownership (70.75%) trails household access (93.50%) [N47]. Nothing in the app is specific to one country: Titip ships full learner and teacher UI in 9 languages (including Arabic RTL) and 11 ready-made primary lessons across all 9 languages. Sources for every number are in [RESEARCH.md](RESEARCH.md).
 
 **Before:** the teacher shares an online quiz link. At home the page does not load. The learner does no practice, and the teacher cannot tell who struggled.
 
-**After:** the teacher types the lesson once and downloads one HTML file of about 79 KB. The file goes from phone to phone by Bluetooth, WhatsApp or memory card. It opens in the phone browser with no internet. The learner reads, listens, practises with hints, and gets a short result code such as `HI-1132-0`. The learner writes the code on paper or sends it by SMS. The teacher types the codes in and sees, for each question, how many got it right first time and which wrong answer was most common.
+**After:** the teacher types the lesson once and downloads one self-contained HTML file (~148 KB raw, ~52 KB gzipped). The file goes from phone to phone by Bluetooth, WhatsApp or memory card. It opens in the phone browser with no internet. The learner reads, listens, practises with hints, and gets a short result code such as `HI-1132-0`. The learner writes the code on paper or sends it by SMS. The teacher types the codes in and sees, for each question, how many got it right first time, the most common wrong answer, and per-choice error counts.
 
 For a home with no phone, the teacher prints the same lesson as a worksheet. The learner writes answer numbers and their total, such as `2 1 3 2 = 8`, and the teacher types those into the same table. The answer key and hints are printed upside down at the foot of the sheet.
 
-During practice, a question the learner missed comes back once more at the end. On the last screen, *Send by SMS* opens the phone's message app with the code filled in. Six ready-made lessons (English, Indonesian, Spanish, French) are included, and any of them can be opened or copied into the editor. A lesson can be in English, Indonesian, Spanish, French, Portuguese, Swahili, Hindi or Bengali; *Listen* reads it in that language if the device has a voice for it. Learner screens, the overview, help and the printed worksheet are in English, Indonesian, Spanish and French; teacher screens are in English and Indonesian, and show English when Spanish or French is chosen.
+During practice, a question the learner missed comes back once more at the end. On the last screen, *Send by SMS* opens the phone's message app with the code filled in. Eleven ready-made primary lessons spanning 9 languages (`en`, `id`, `es`, `fr`, `pt`, `sw`, `hi`, `bn`, `ar`) are included, and any of them can be opened or copied into the editor. *Listen* reads the lesson in its own language if the device has a voice for it. Both learner and teacher screens (plus printable worksheets) are translated into all 9 languages, with right-to-left layout (`dir="rtl"`) when Arabic is active.
 
-For any question most learners missed, the table shows the hint to use in class and one button builds a follow-up lesson from just those questions. After teaching again, the teacher adds the new codes under a line of `---` and sees both rounds side by side.
+For any question most learners missed, the table shows the hint to use in class, per-choice distractor chips, and a one-tap button that builds a follow-up lesson from just those questions. After teaching again, the teacher adds the new codes under a line of `---` and sees both rounds side by side.
 
 ## What is in the app
 
 | Page | For | What it does |
 |---|---|---|
 | Overview | Everyone | How it works in three steps, and a two-minute tour |
-| Learn | Learner | Read or listen, tap an underlined word for its meaning, practise with hints, get a result code, send it by SMS |
-| Lessons | Learner, teacher | Six ready-made lessons in four languages to open or copy |
+| Learn | Learner | Read or listen, tap an underlined word (Latin, Devanagari, Bengali, Arabic) for its meaning, practise with hints, get a result code, send it by SMS |
+| Lessons | Learner, teacher | 11 ready-made lessons across 9 languages to open or copy |
 | Make | Teacher | Form editor with word meanings; download, share or print the lesson |
-| Results | Teacher | First-try results per question, most common wrong answer, two-round comparison, saved rounds, spreadsheet export, printable class record sheet |
-| Evidence | Judges, teachers | The six figures the design rests on, what is not known, and sources |
+| Results | Teacher | First-try results per question, most common wrong answer, per-choice distractor chips, two-round comparison, saved rounds, CSV export, printable class record sheet |
+| Evidence | Judges, teachers | The six global figures the design rests on, what is not known, and sources |
 | Help | Everyone | How to pass a file between phones, how to open one, privacy |
 
 Text size, a dark high-contrast theme and the interface language are remembered on the device. A chip in the top bar shows when the device is offline.
@@ -59,9 +59,9 @@ To check the logic, open the browser console and run `selfTest()`. It returns `o
 
 - Every task works with a keyboard alone. Focus moves to the new heading on each step.
 - Feedback uses a symbol and words, not colour alone, and is announced through a live region.
-- Lesson content carries its own language tag, so a screen reader pronounces it correctly inside an English or Indonesian interface.
+- Lesson content carries its own language tag (`lang`) and `dir="rtl"` for Arabic, so screen readers and browsers handle mixed-language lessons properly.
 - *Listen* reads the lesson and each question aloud using the voice already on the device.
-- The interface is available in English and Indonesian. A *Larger text* button is on every screen.
+- The full interface—learner, teacher, evidence, help, and worksheets—is available in 9 languages (`en`, `id`, `es`, `fr`, `pt`, `sw`, `hi`, `bn`, `ar`), including RTL layout for Arabic. A *Larger text* button is on every screen.
 - One file, no dependencies, no images. The layout fits a 320 px screen.
 - Phones make no outside request at all and use their own system font. Only on a wide screen, and only when the browser has not asked to save data, the page loads one display font from Google Fonts.
 - *Next learner* clears the screen for the next person on a shared phone. The result code holds no name.
@@ -71,14 +71,14 @@ To check the logic, open the browser console and run `selfTest()`. It returns `o
 
 [TEST.md](TEST.md) separates what was checked, what is only predicted or assumed, and what is made-up demonstration data.
 
-- Tested by the author in desktop Chrome only: an automated run of the learner flow, the results table, the worksheet content, the language switch and the file download. Not yet tested with real learners, a screen reader, an old phone, or a printer.
+- Multi-language/RTL logic, Unicode glossary matching, all 11 sample lessons, pure ES5 syntax, and exact file sizes were verified in Node after the 13 November 2026 global expansion; prior desktop Chrome visual/keyboard checks covered the earlier ~79 KB build and have not yet been re-run on live RTL Arabic layout, per-choice error chips, a real old phone, a screen reader, or a physical printer.
+- Adding 9 complete UI languages and 11 lessons increased `index.html` from 79,443 to 151,727 bytes raw (~52,873 bytes gzipped).
 - On paper, the total catches one miscopied answer. It does not catch two answers written in the wrong order.
 - The two-round comparison is a classroom before-and-after, not a controlled trial. [TEST.md](TEST.md) describes how to run the first one.
 - *Listen* depends on the voices installed on the device. Some phones have no offline voice for some languages.
 - iPhones do not open a local HTML file in Safari easily. The hosted copy caches itself after one visit instead.
 - Questions are multiple choice only.
-- Teacher screens are not translated into Spanish or French; they fall back to English. Right-to-left languages such as Arabic are not supported yet.
-- The Spanish and French sample lessons and interface text were written by the author with AI help and have not been checked by a native-speaking teacher.
+- Sample lessons and UI text beyond English/Indonesian (`es`, `fr`, `pt`, `sw`, `hi`, `bn`, `ar`) were drafted by the author with AI help and have not yet been checked by native-speaking teachers.
 - Saved rounds and settings use the browser's local storage. Where that is unavailable, the app still works but forgets them.
 - Tappable word meanings are a design choice taken from the hackathon brief. None of the cited studies tests them.
 - The dark theme was looked at on the Overview, Learn, Evidence and Help pages only.

@@ -1,42 +1,39 @@
 # Titip: evidence base
 
-Compiled 12 November 2026. Every source below was opened and read on that date unless marked otherwise. Numbers are copied from the source page. Where a source was only seen through a search snippet, the entry says so.
+Compiled 12 November 2026; expanded globally 13 November 2026. Every source below was opened and read on its compilation date unless marked otherwise (e.g. indexed summary or 1-page publisher preview). Numbers are copied directly from the source.
 
-Use the IDs (P1, N1, ...) when citing in the Devpost story.
+Use the IDs (P1, N1, ...) when citing in the Devpost story and README.
 
 ## 1. What the evidence says, and what it means for Titip
 
 | Design decision | Evidence | What we may claim | What we may not claim |
 |---|---|---|---|
-| Lesson must work with no connection | N1–N15, N16–N21, N39–N43 | Many schools and homes still have no usable connection | That Titip fixes connectivity |
+| Lesson must work with no connection | N38, N42, N52, N53, N56, N57, N59 | Globally ~3.4B people are offline (N52); 88–95% of school-age children in Africa and South Asia and 49% in LatAm/Caribbean lack home internet (N53); offline gaps also persist in Peru (N56) and Indonesia (N38–N43) | That Titip fixes connectivity |
 | Practice questions, not just reading | P3 | Quizzing raises achievement (g = 0.499 across 222 studies) | That Titip itself produces that effect; it is untested |
 | A missed question comes back once at the end | P3 | More test repetitions increase the quizzing effect | That one extra try is enough; the number is our choice |
 | A hint after a wrong answer | P5, P6 | Explanatory feedback beats "right/wrong" alone (0.49 vs 0.05) | That longer feedback is always better; see P11 |
 | Hints kept to one short sentence | P11 | Simple feedback was faster and at least as effective in one 2025 trial | That this generalises beyond that task type |
-| Result code goes back to the teacher | P1, P2 | Low-tech support works when a person targets teaching to the learner's level | That a code alone improves learning. In P1, SMS alone had no effect |
-| Code records the first answer picked; table shows the most common wrong answer | P1, P2 | Targeting instruction is the active ingredient in the phone-tutoring trials | That teachers will act on it; untested |
-| Printable worksheet, answers returned as numbers | N31, N47 | The top reason for being offline is no device; 29.25% of individuals have no phone of their own | That paper practice equals phone practice; no hints on paper |
-| Sample lesson and pitch aimed at primary pupils | N44 | 27.74% of primary pupils do not use the internet | That older students have the same gap; they mostly do not |
+| Result code goes back to the teacher | P1, P2, P19, P20 | Low-tech phone/SMS support raised learning in Botswana (P1), 5 countries (N=16,936, P2), 7 Latin American countries (P20), and Paraguay (P19) when a human targeted instruction; SMS alone had no effect in P1 | That a code alone improves learning |
+| Code records the first answer picked; table + distractor chips show common wrong answers | P1, P2, P19, P20 | Targeting instruction to the learner's level is the active ingredient across multi-country phone-tutoring trials | That teachers will act on the table; untested |
+| Printable worksheet, answers returned as numbers | N52, N55, N58, N31, N47 | Phone access is unevenly shared (~3.1B usage gap N52; 27–38% personal vs ~90% household ownership in rural India N55; 29.25% no phone in ID N47; declining school internet in Brazil N58) | That paper practice equals phone practice; no hints on paper |
+| Sample lessons aimed at primary pupils in 9 languages | N53, N54, N55, N44 | Primary foundational gaps are severe globally (~10.8% primary proficiency in Africa N54; 23.4% Class 3 reading in rural India govt schools N55) and school-age connectivity lags (N53, N44) | That older students always have the same gap, or that Titip's sample lessons are validated |
 | Listen button | P7, P8 | Read-aloud gives a small positive effect for students with reading disabilities (d = 0.35) | Benefit for all learners; the evidence is for reading disabilities |
 | One small file plus service worker | P10 | Offline-first web apps with service workers are a validated pattern for low-connectivity learning | That one file is the best architecture |
-| No claim of learning gains | P4, P9, P12 | Access alone is not enough; two well-run trials found no effect | Any outcome claim without our own test |
-| "Next learner" button, no accounts | N31 | The top reason Indonesians are offline is having no device (43.62%) | That Titip helps a household with no phone at all |
+| No claim of learning gains | P4, P9, P12 | Access or passive nudges alone are not enough; two well-run trials found no effect | Any outcome claim without our own test |
+| "Next learner" button, no accounts | N52, N55, N31, N47 | Shared household phones are common where personal ownership lags household access (N55, N31) | That Titip helps a household with no phone at all |
 
 **The honest one-line position:** the evidence supports the *ingredients* (offline delivery, retrieval practice, short explanatory feedback, a route back to a teacher). It does not show that Titip improves learning. That needs a test with real learners.
 
 ### Who exactly this is for
 
-**Worldwide.** 2.2 billion people are offline, 96% of them in low- and middle-income countries (N39). Rural internet use is 58% against 85% urban (N40), and 94% in high-income against 23% in low-income countries (N41). Two in three school-age children had no internet at home in the latest global estimate (N42, 2020; no newer global figure for children was found). Five of the studies behind the design ran outside Indonesia: Botswana (P1), India, Kenya, Nepal, the Philippines and Uganda (P2), Sierra Leone (P9), Honduras (P12).
+**Worldwide baseline.** 70% of 10-year-olds in low- and middle-income countries cannot read and understand a simple text (N38). Globally, 2.2 billion people remain offline—96% of them in LMICs (N39)—while GSMA estimates a 3.1 billion mobile internet usage gap (38% of the world population covered by mobile broadband yet not using it) plus a 300 million coverage gap, ~3.4 billion offline (N52). Two in three school-age children (~1.3 billion) have no internet access at home (N42, N53), and only 23% of people in low-income countries are online versus 94% in high-income countries (N41). Across Ethiopia, India, Peru, and Vietnam (P18, N = 10,301), home internet raised remote schooling probability by 8.4 to 41 percentage points (p < 0.001).
 
-**Example country: Indonesia**, where Titip was built and will first be tested. The home-side numbers (N44–N49, BPS March 2025) show what the problem looks like in one country:
+**Across four developing regions (and Titip's 9 languages: EN, ID, ES, FR, PT, SW, HI, BN, AR):**
 
-- **Primary pupils.** 27.74% of primary pupils do not use the internet (72.26% do). At junior secondary it is 8.96%, at senior secondary 2.53%. The sample lesson is a primary lesson for this reason.
-- **Rural and eastern Indonesia.** 70.14% of rural residents use the internet against 82.72% urban. Papua Pegunungan 15.40%, Papua Tengah 32.64%, Nusa Tenggara Timur 62.91%.
-- **Homes with one shared phone and no computer.** 93.50% of households have a mobile phone but only 70.75% of individuals do. Only 5% of primary pupils use a computer or laptop; 10.42% of rural households own one.
-
-So the phone is usually in the house, it is usually someone else's, and for more than a quarter of primary pupils it is not being used online. Titip is not for the majority of Indonesian students, who are online. Say that plainly.
-
-**Gap in the worldwide picture:** country-level home data was gathered only for Indonesia. The global child figure (N42) is from 2020. Other countries are covered by the global numbers and the trial sites in the papers, not by their own national statistics.
+- **Sub-Saharan Africa.** 95% of school-age children in West & Central Africa (194M) and 88% in East & Southern Africa (191M) lack home internet (N53). UNESCO's 2025 Africa Spotlight reports ~10.8% end-of-primary minimum proficiency and ~1 in 5 primary-age children out of school (N54), while 87% of 10-year-olds could not read a simple story pre-COVID (P17). Trials show connectivity, shared evening phones, and power cuts derail heavy ICT and voice-call programs (Sierra Leone N = 4,399, maths -0.008 SD, P9; Botswana secondary N = 252+86, P24; Kenya $40/pupil e-readers vs $0.10 tutor tablets, P13; Kenya Kiswahili offline need, P23), whereas low-tech targeted SMS/calls raised numeracy in Botswana (+0.12 SD, P1) and Kenya/Uganda (P2).
+- **South Asia.** 88% of school-age children (449M) lack home internet (N53). Pratham's ASER 2024 (~650,000 children across 605 rural Indian districts, N55) finds only 23.4% of government-school Class 3 pupils and 44.8% of Class 5 pupils can read a Class 2 text, yet ~90% of 14–16-year-olds have a smartphone at home (only 27–38% own one). Rural adolescent girls' smartphone ownership in India is 38% vs 62% urban and internet access 25% vs 55%, with South Asian internet gaps at 23% Pakistan, 35% Bangladesh, and 40% Nepal (P22); 10% of Tamil Nadu youth relied on borrowed family phones (P27).
+- **Latin America & Caribbean.** 49% of school-age children (74M) lack home internet (N53). In Peru (INEI ENAHO 2025), 58.9%–60.1% of households have internet nationally, dropping to 20.5% (Q1, N56) and 23.6% (Q2, N57) in rural areas, where secondary learners cite weak signal and missing mobile data (P26). Even where home connectivity is high—95.0% in Brazil (IBGE PNAD 2025, N59)—Cetic.br TIC Kids Online 2025 (n = 2,370, N58) shows school-environment internet access fell from 51% (2024) to 37% (2025) after classroom phone restrictions. Across seven Latin American countries (N ≈ 7,000, P20) and Paraguay (N = 3,334, P19), low-tech targeted tutoring raised maths by +0.20 SD and language by +0.113 SD ITT.
+- **Southeast Asia (initial field test context: Indonesia).** Indonesia's BPS *Statistik Pendidikan 2025* (N44–N49) shows 75.49% of primary pupils use a mobile phone, 5% a computer, and 27.74% do not use the internet (rising in Papua Pegunungan 15.40% and NTT 62.91% household access), while Sumba vocational schools saw stable content access jump from 46.2% to 87.9% via an offline-first PWA (P25). In Malaysia (N = 162 Year 6 pupils, P21), low-device QR Paper Mode boosted participation without student phones (84% positive), but public leaderboards demotivated lower achievers (p < 0.001)—supporting Titip's private, non-ranked teacher summary.
 
 ### Objections, and how the design answers each one
 
@@ -44,38 +41,37 @@ Each row is a finding that cuts against the idea, and the change made because of
 
 | Objection | Source | Answer in the product | Still open |
 |---|---|---|---|
-| Access to technology alone does not raise learning | P4 | Titip is not an access tool. Each lesson is retrieval practice (P3) with feedback (P5, P6) and a route back to the teacher (P1, P2). P4 names self-led practice and better instruction as the uses that do work | Not tested on learners |
-| An offline platform on tablets in 102 schools had no effect; the study blames late hardware delivery and too little teacher training | P12 | Nothing to deliver and nothing to install: the lesson is one file on the phone already in the house. The teacher fills in one form and needs no training in a platform | Whether teachers find the form easy is untested |
-| SMS alone had no effect; what worked was a person teaching to the child's level | P1 | The result code now records which answer the learner picked first, not just that it was wrong. The results table shows the most common wrong answer per question, so the teacher knows which misunderstanding to reteach | Titip informs the teacher; it does not make the teacher act |
-| Teacher phone calls in Sierra Leone did not improve scores; take-up of the underlying lessons was low | P9 | The practice is inside the lesson file itself, so there is no separate programme the learner has to tune in to. The teacher can see take-up directly: learners counted = codes returned | Take-up in real homes is unknown |
-| More elaborate feedback did worse than simple feedback | P11 | Hints are one short sentence. The hint field in the editor asks for exactly that. A wrong answer is disabled and the learner retries, so no long explanation is shown | Length is advised, not enforced |
-| The top reason people are offline is having no device | N31 | A printable worksheet of the same lesson for homes with no phone. Answers come back as plain numbers ("2 1 3 2") and go into the same results table as phone codes. On a shared phone, "Next learner" resets the lesson and no account exists | A household needs a printer somewhere in the chain, usually the school |
-| The government is connecting schools fast | N19–N26 | That is the school side. Titip covers the trip home, where 27.74% of primary pupils are not online (N44). A connected school can host the file; the learner still needs no connection to use it | No data on quota running out mid-month |
-| Most students are already online | N44, N46 | Stated openly above. The target is primary pupils, rural areas and eastern provinces, not all students | None |
-| Read-aloud evidence covers reading disabilities only | P7 | Listen is offered as an alternative way in, not claimed as a learning boost for everyone | Device voices vary |
+| Access to technology alone does not raise learning | P4 | Titip is not an access tool. Each lesson is retrieval practice (P3, P14, P15) with feedback (P5, P6) and a route back to the teacher (P1, P2, P19, P20). P4 names self-led practice and better instruction as the uses that do work | Not tested on learners |
+| Offline hardware rollouts (102 schools in Honduras, student e-readers in Kenya) failed on cost, delivery delays, or tech overhead | P12, P13, P24 | Nothing to buy, deliver, or maintain: the lesson is one HTML file on phones already in the household or passed via Bluetooth/WhatsApp (P29). Teacher fills one form; no logins (P13 noted 90-min login overhead on teacher tablets) | Whether teachers find the form easy is untested |
+| SMS alone had no effect; live calls stalled on connection rates and evening phone sharing | P1, P9 | Asynchronous practice runs locally anytime without a live call; the result code records the first answer picked per question and the teacher table shows per-choice distractor counts + most common wrong answer | Titip informs the teacher; it does not make the teacher act |
+| More elaborate feedback did worse than simple feedback, and leaderboards demoralised weaker pupils | P11, P21 | Hints are one short sentence. A wrong answer is disabled and the learner retries without punitive leaderboards or long explanations; teacher tallies stay private | Length is advised, not enforced; distraction from shared phones |
+| Many rural homes and adolescent girls have no personal device | N31, N55, P18, P22, P27 | A printable worksheet of the same lesson covers no-device households, returning plain answer totals into the same results table; "Next learner" supports borrowed family phones with zero accounts | A household needs a printer somewhere in the chain, usually the school |
+| Governments are connecting schools or restricting classroom phones | N19–N26, N58 | Titip covers the trip home and restricted classrooms: a school can share the file over Bluetooth/local LAN, and learners practise without data quota or campus Wi-Fi | Mid-month quota exhaustion & parental phone skepticism (P26) |
+| Most urban secondary pupils in upper-middle-income areas are already online | N44, N46, N59 | Stated openly above. Target is primary/remedial foundational skills, rural districts, low-data households, and offline classrooms | None |
+| Read-aloud evidence covers reading disabilities only | P7, P8 | Listen is offered as an optional scaffold, not claimed as a universal learning boost | Device voices vary across OS and languages (e.g., SW/BN/AR) |
 
 ### The four gaps that could not be argued away, and the workaround for each
 
 | Gap | Workaround built | What it does not do |
 |---|---|---|
 | No evidence that Titip improves learning | The results table compares two rounds. The teacher puts a line of `---` between the codes collected before and after teaching again, and sees first-try results side by side per question. Every class that uses Titip produces its own before-and-after. [TEST.md](TEST.md) is a 30-minute protocol to get the first one | It is a classroom comparison, not a controlled trial. No result exists until someone runs it |
-| Titip cannot make the teacher act | Acting is now one tap. Each "Teach again" row shows the hint to say in class, and one button builds a follow-up lesson containing only those questions, ready to download or print | The teacher still has to press it |
+| Titip cannot make the teacher act | Acting is now one tap. Each "Teach again" row shows the hint to say in class + per-choice distractor counts, and one button builds a follow-up lesson containing only those questions, ready to download or print | The teacher still has to press it |
 | Paper worksheet had no feedback and no error check | The answer key and hints are printed upside down at the foot of the sheet. The learner adds up their answer numbers and writes the total; a miscopied answer no longer matches the total and is rejected | Two answers swapped in order give the same total and are not caught |
-| Data shows who is offline, not whose data runs out | Checked. In the 2025 internet providers' survey (N51), cost of data is 2.88% of the reasons given for not going online. No device is 43.62% and not knowing how is 40.77%. The pitch therefore says "the family phone is not online" and leads with the worksheet and the no-install file, not with data cost | A 2020 survey reporting 42.2% of students without data quota drew on students who had filed complaints, so it is not representative and is not cited |
+| Global survey timing & uneven sub-national data | Paired 2020 UNICEF/ITU child baseline (N42, N53) with 2024–2026 national/regional surveys (GSMA N52, UNESCO 2025 N54, ASER 2024 N55, Peru ENAHO 2025 N56–N57, Brazil TIC Kids/IBGE 2025 N58–N59, Indonesia BPS 2025 N44–N51) | Country-level home child surveys remain missing for some Sub-Saharan African and South Asian states |
 
 **What stays true after all of this:** no test has shown that Titip improves learning. The tables remove reasons to expect failure and make the test cheap to run; they do not replace it.
 
 ## 2. Papers
 
-Eleven peer-reviewed journal articles and one randomized evaluation summary. Years: 2026 (2), 2025 (1), 2023 (2), 2022 (3), 2021 (1), 2018 (1), 2015 (1). The two oldest are kept because they are the standard meta-analyses for their question.
+Twenty-seven peer-reviewed journal articles and two randomized evaluation/working paper summaries across Sub-Saharan Africa, South Asia, Latin America, East/Southeast Asia, and global meta-analyses. Exact verification depth is stated on every item.
 
 **P1.** Angrist, N., Bergman, P., & Matsheng, M. (2022). Experimental evidence on learning using low-tech when school is out. *Nature Human Behaviour*, 6(7), 941–950. https://doi.org/10.1038/s41562-022-01381-z
 Randomized trial, about 4,500 households in Botswana. SMS plus phone calls to parents raised learning by 0.12 standard deviations, or 0.89 SD per US$100. SMS alone had no effect.
-*Verified:* bibliographic details and results confirmed across several index pages; the article page itself was not opened.
+*Verified:* bibliographic details and results confirmed across several index pages and cited in P19; the publisher page itself was not opened.
 
 **P2.** Angrist, N., Ainomugisha, M., Bathena, S. P., Bergman, P., Crossley, C., Cullen, C., Letsomo, T., Matsheng, M., Panti, R. M., Sabarwal, S., & Sullivan, T. (2026). Mobile education builds resilience during shocks in five countries. *Nature*, 657, 689–696. https://doi.org/10.1038/s41586-026-10990-x
-Five randomized trials in India, Kenya, Nepal, the Philippines and Uganda, over 16,000 children. Phone-call tutorials targeted to each child's level produced gains in all five countries, including when delivered by government teachers.
-*Verified:* title, authors, journal and DOI read from the PDF metadata. Findings come from the Oxford Blavatnik School summary and the NBER working-paper version; the article body could not be read here. Read the abstract before quoting a number.
+Five randomized trials totaling N = 16,936 children (India 850, Kenya 6,724, Nepal 3,732, the Philippines 3,492, Uganda 2,138). Phone-call tutorials targeted to each child's level improved learning by 0.30–0.35 SD across the trials (~4 years of high-quality schooling per US$100), including when delivered by government teachers and during climate shocks.
+*Verified:* DOI and OpenAlex metadata verified; N breakdown and 0.30–0.35 SD confirmed via indexed NIH/NBER/Springer summaries and P19 citations (PDF host returned automated bot challenge).
 
 **P3.** Yang, C., Luo, L., Vadillo, M. A., Yu, R., & Shanks, D. R. (2021). Testing (quizzing) boosts classroom learning: A systematic and meta-analytic review. *Psychological Bulletin*, 147(4), 399–435. https://doi.org/10.1037/bul0000309
 Meta-analysis of 222 studies, 48,478 students. Quizzing raises achievement to a medium extent (g = 0.499). Corrective feedback and more test repetitions increase the effect.
@@ -101,21 +97,89 @@ Review of causal studies. Self-led learning and improvements to instruction are 
 Literature review. Text-to-speech helped students improve reading speed, fluency and content retention. No pooled numbers.
 *Verified:* article page opened.
 
-**P9.** Crawfurd, L., Evans, D. K., Hares, S., & Sandefur, J. (2023). Live tutoring calls did not improve learning during the COVID-19 pandemic in Sierra Leone. *Journal of Development Economics*, 164, 103114.
-Randomized trial, 4,399 primary students. Teacher phone calls raised educational activity slightly but had no detectable effect on maths or language scores.
-*Verified:* confirmed on the Center for Global Development and EdTech Hub listings.
+**P9.** Crawfurd, L., Evans, D. K., Hares, S., & Sandefur, J. (2023). Live tutoring calls did not improve learning during the COVID-19 pandemic in Sierra Leone. *Journal of Development Economics*, 164, 103114. https://doi.org/10.1016/j.jdeveco.2023.103114
+Cluster RCT across 25 schools in Sierra Leone (N = 4,399 primary pupils). Teacher calls + SMS raised educational activity indices (+0.268 / +0.288 SD) but yielded zero learning gain (maths -0.008 SD, language -0.027 SD). Call connection rates averaged 59% (government) and 41% (private), calls cost $40/pupil vs $2 for SMS, and shared household phones forced evening calls and parent answer-whispering.
+*Verified:* full PDF read (21 pp).
 
 **P10.** Febrianty, A., Majid, N. W. A., Azman, M. N. A., & Prestoza, M. J. R. (2026). Learning analytics in low-connectivity educational environments: A systematic review of offline-first and edge architectures. *Jurnal Varidika*, 39(1). https://doi.org/10.23917/varidika.v39i1.17273
-PRISMA review, 1,539 records screened, 35 studies included. Three offline-first patterns are validated in the literature: local hardware servers, progressive web apps with service-worker buffers, and on-device inference.
-*Verified:* article page opened. The page shows a March 2027 issue label with a 2026 publication date; cite the DOI.
+PRISMA systematic review (1,539 screened, 35 studies included, 2020–2026). Documents three offline-first architectures (local hardware servers, PWA + service-worker buffers, on-device inference), finds 0/35 studies formally specified offline LA sync protocols or evaluated offline LA dashboards for secondary teachers in the Global South, and flags $300–500 smartphone assumptions that exclude rural pupils.
+*Verified:* full PDF read (21 pp).
 
 **P11.** Lu, X., Yang, Q., Wei, J., & Heffernan, N. T. (2025). From belief to evidence: Simpler immediate feedback improves language learning and confidence in semi-open-ended questions. *Frontiers in Education*, 10, 1654809. https://doi.org/10.3389/feduc.2025.1654809
-Randomized classroom experiment, 84 undergraduates analysed. Giving the correct response alone was more effective than more complex feedback, and took the least time. 85.71% of 60 surveyed instructors had believed the opposite.
-*Verified:* full text opened. Small sample, one language, post-tests within one week.
+Instructor survey (N = 60: 82.14% had platform access yet only 9.76% always gave immediate feedback; 85.71% believed CR+EF best vs 3.57% CR alone) + classroom RCT (N = 91 enrolled, 84 analysed). Simple correct-response (CR) feedback beat elaborated feedback (EF) on Posttest 2 (p = 0.03, effect size = 0.56; gain 25.00 vs 8.27) and took less time than answer-first (11.4s vs 18.8s, p = 0.01); EF negatively predicted gain on Posttest 2 (beta = -10.25, p = 0.04) and Posttest 3 (beta = -16.20, p = 0.02).
+*Verified:* full PDF read (19 pp). Small sample, single task domain, short-term follow-up.
 
 **P12.** Barrera-Osorio, F., & Zoido, P. Evaluating the impact of a tablet-based learning platform in Honduras. Innovations for Poverty Action, study 2021–2022. https://poverty-action.org/impact-tablet-based-learning-platform-honduras
 Randomized evaluation, 102 schools, grades 7–9, offline Kolibri platform on tablets. "The platform had no impact on test scores." Likely reasons given: late delivery and too little teacher training.
 *Verified:* project page opened. This is an evaluation summary, not a journal article.
+
+**P13.** Piper, B., Zuilkowski, S. S., Kwayumba, D., & Strigel, C. (2016). Does technology improve reading outcomes? Comparing the effectiveness and cost-effectiveness of ICT interventions for early grade literacy in Kenya. *International Journal of Educational Development*, 49, 204–214. https://doi.org/10.1016/j.ijedudev.2016.03.006
+Cluster RCT across 80 Kenyan schools (N = 1,560 endline Grade 2 pupils). Comparing structured pedagogy backed by low-cost instructional coach tablets ($0.10/pupil marginal ICT cost), teacher Tangerine:Class tablets ($3/pupil), and student e-readers ($40/pupil) showed all improved oral reading fluency (0.17–0.32 SD), but expensive student e-readers did not outperform the $0.10 coach-tablet structured pedagogy arm, and teacher tablets suffered ~90 minutes of login/password troubleshooting overhead.
+*Verified:* full PDF read (11 pp).
+
+**P14.** Sung, Y.-T., Chang, K.-E., & Liu, T.-C. (2016). The effects of integrating mobile devices with teaching and learning on students' learning performance: A meta-analysis and research synthesis. *Computers & Education*, 94, 252–275. https://doi.org/10.1016/j.compedu.2015.11.008
+Meta-analysis of 110 experimental/quasi-experimental studies (108 analysed, N = 18,749 learners). Overall mobile learning effect g = 0.523; handhelds outperformed laptops (g = 0.591 vs g = 0.309, p < 0.001); primary/young pupils g = 0.636; CAI/self-directed testing g = 0.656; longer interventions (>6 months) dropped to g = 0.287 (p = 0.052).
+*Verified:* full PDF read (24 pp).
+
+**P15.** Outhwaite, L. A., Gulliford, A., & Pitchford, N. J. (2017). Closing the gap: Efficacy of a tablet intervention to support the development of early mathematical skills in UK primary school children. *Computers & Education*, 108, 43–58. https://doi.org/10.1016/j.compedu.2017.01.011
+Four early-primary math studies (N = 133), building on Pitchford's Malawi RCT (d > 0.8), showed sustained 5-month gains (d = 0.3–3.3) with lowest-achieving pupils gaining most; identifies immediate feedback and retrieval-practice quizzes inside short structured sessions as key drivers.
+*Verified:* full PDF read (16 pp). Small UK sample in the follow-up studies.
+
+**P16.** Valk, J.-H., Rashid, A. T., & Elder, L. (2010). Using mobile phones to improve educational outcomes: An analysis of evidence from Asia. *International Review of Research in Open and Distributed Learning*, 11(1), 117–140. https://doi.org/10.19173/irrodl.v11i1.794
+Synthesis of six mobile-learning projects across Asia (Philippines Project MIND +13.78% exam pass rate via SMS, Mongolia, Bangladesh, Thailand, India MILLEE). Shows mobile phones widen access where PCs/broadband are absent, while flagging handset cost, small screens, and English-script lock-in.
+*Verified:* full PDF read (24 pp). Older pre-smartphone synthesis kept for cross-Asia baseline mechanisms.
+
+**P17.** Angrist, N., de Barros, A., Bhula, R., Chakera, S., Cummiskey, C., DeStefano, J., Floretta, J., Kaffenberger, M., Piper, B., & Stern, J. (2021). Building back better to avert a learning catastrophe: Estimating learning loss from COVID-19 school shutdowns in Africa and facilitating short-term and long-term learning recovery. *International Journal of Educational Development*, 84, 102397. https://doi.org/10.1016/j.ijedudev.2021.102397
+Models EGRA reading data across Ethiopia, Kenya, Liberia, Tanzania, and Uganda against a pre-COVID baseline where 87% of 10-year-olds in Sub-Saharan Africa could not read a simple story and 50% (67M) of ESAR children could not be reached remotely. Unmitigated 1-year grade-3 shocks compound to 2.8 years lost by grade 10, whereas targeted instruction (TaRL) and structured pedagogy deliver ~3 learning-adjusted years of schooling (LAYS) per US$100.
+*Verified:* full PDF read (14 pp).
+
+**P18.** Hossain, M. (2021). Unequal experience of COVID-induced remote schooling in four developing countries. *International Journal of Educational Development*, 85, 102446. https://doi.org/10.1016/j.ijedudev.2021.102446
+Young Lives phone survey across Ethiopia (N = 4,010), India AP/TS (N = 2,464), Peru (N = 1,931), and Vietnam (N = 1,896). Logit regressions show having home internet increased the probability of experiencing remote schooling by 18 percentage points in Ethiopia, 16 in India, 8.4 in Peru, and 41 in Vietnam (all p < 0.001), alongside top-vs-bottom wealth gaps of 13, 16, 7.2, and 34 percentage points and rural disadvantages in all four countries.
+*Verified:* full PDF read (10 pp).
+
+**P19.** Acevedo Rebolledo, N., Almeyda Torres, G., Granada Donato, D., Lombardi, M., Oubiña, V., & Zoido Lobaton, P. (2026). Remote tutoring in language: Evidence from Paraguay. IDB / Universidad Torcuato Di Tella Working Paper 2026/02. https://doi.org/10.18235/0013975
+Cluster RCT across 57 schools (171 school-grade clusters, N = 3,334 consented grades 4–6 students; 1,650 T / 1,684 C). Tutors sent SMS exercises 2 days prior, conducted twice-weekly 30-min phone sessions, and sent post-session SMS reflections (using WhatsApp only for families with data). Raised standardized Spanish scores by +0.113 SD ITT (+0.123 SD TOT, p < 0.01) across subgroups with 98% take-up; tutor value added explained 14.56% (~15%) of endline variance (top-quintile tutors +0.38 SD); cost $190/student ($137 marginal), benefit-cost ratio 34.7.
+*Verified:* full PDF read (35 pp).
+
+**P20.** Albornoz, F., Almeyda Torres, G., Lombardi, M., Oubiña, V., & Zoido Lobaton, P. (2026). Remote tutoring in Latin America. *Journal of Development Economics*, 179, 103687. https://doi.org/10.1016/j.jdeveco.2025.103687
+Multi-country RCT across nearly 7,000 students in seven Latin American countries (Argentina, Brazil, El Salvador, Guatemala, Mexico, Paraguay, Peru; 2021–2023). Eight weeks of low-tech one-on-one phone/SMS differentiated tutoring improved mathematics scores by +0.20 SD across gender, age, and socioeconomic status, with lower baseline performers improving most on foundational operations.
+*Verified:* DOI and OpenAlex metadata verified; results confirmed via IDB/RePEc working-paper summaries and P19 citations (repository PDF returned 403).
+
+**P21.** Wong, L. J., & Mahmud, M. S. (2026). Technology acceptance of a low-device gamified learning approach in primary mathematics: Perceptions, attitudes, and achievement differences in Wayground Paper Mode. *International Journal of Learning, Teaching and Educational Research*, 25(8), 786–814. https://doi.org/10.26803/ijlter.25.8.31
+Mixed-methods study of N = 162 Year 6 primary pupils in Kuala Lumpur using printed QR response cards without student devices. Overall acceptance was high (perception M = 4.03/5, attitude M = 4.07/5; 84% liked simultaneous no-device participation), yet Kruskal-Wallis tests (H = 39.48 and 23.29, p < 0.001) revealed sharp gaps where competitive leaderboards frustrated low/moderate achievers.
+*Verified:* full PDF read (29 pp).
+
+**P22.** George, S., Karalam, S. R. B., & Bhavana, S. (2026). Digital pathways to menstrual health education in India: Bridging urban-rural gaps through inclusive technologies. *Social Sciences & Humanities Open*, 103367. https://doi.org/10.1016/j.ssaho.2026.103367
+Narrative review synthesizing NFHS-5, UNICEF, and UDISE+ indicators for India and South Asia: rural vs urban adolescent girls' smartphone ownership is 38% vs 62%, internet access is 25% vs 55%, school ICT labs stand at 24% rural vs 57% urban, and broader female/adolescent internet access lags across Pakistan (23%), Bangladesh (35%), and Nepal (40%) vs Sri Lanka (68%), compounded by male-supervised shared phones.
+*Verified:* full PDF read (12 pp).
+
+**P23.** Ndegwa, A., Gutiérrez-Colon, M., & Ngugi, P. (2026). Evaluating a gamified Kiswahili learning app: User perceptions, cultural integration, and engagement in digital language learning. *Social Sciences & Humanities Open*, 102987. https://doi.org/10.1016/j.ssaho.2026.102987
+Qualitative evaluation of *Tusome na Tucheze*, a Kiswahili primary literacy app in Kenya (9 pre-use and 8 post-use Kenyan experts/teachers). Notes Kiswahili's 150M+ speakers remain underrepresented in digital early-grade tools; post-use evaluation identified continuous internet dependency as a critical barrier for rural schools and explicitly called for offline/low-data operation.
+*Verified:* full PDF read (8 pp). Small expert panel, no pupil RCT.
+
+**P24.** Mabalane, D. K. (2026). Digital schooling reform and human development outcomes: Evidence from Botswana's national mobile learning initiative. *Social Sciences & Humanities Open*, 103493. https://doi.org/10.1016/j.ssaho.2026.103493
+Survey of Form 5 secondary students in Botswana (N = 252 + 86 cohort analysis). Daily mobile-learning users achieved higher academic scores than rare users (68.4% vs 59.7%, p = 0.001; digital literacy correlation r = 0.62), while qualitative/structural findings documented load-shedding power cuts and weak connectivity continuing to exclude poorer rural schools despite laptop rollouts.
+*Verified:* full PDF read (10 pp).
+
+**P25.** Mara, A. A. P. T., Surjono, H. D., & Yuniarti, N. (2026). Progressive web applications as a tool to achieve SDG 4 and SDG 8: Evidence from vocational schools in marginalized regions. *Journal of Education and e-Learning Research*, 13(2), 42–53. https://doi.org/10.20448/jeelr.v13i2.8562
+Mixed-methods evaluation across 7 vocational schools in Sumba, Indonesia (327 students and 41 teachers/principals; 214 in quantitative pre/post sample). Deploying an offline-first PWA raised stable learning-material access from 46.2% to 87.9% (68.1% used offline mode), usability from 2.9 to 4.4/5, and female participation from 48% to 73% (p < 0.01), narrowing the digital divide from 41% to 12% (p < 0.001) on budget Android devices while noting stricter iOS PWA limits.
+*Verified:* full PDF read (12 pp).
+
+**P26.** Hernández, R. M., Garay Canales, H. B., Vértiz Querevalú, P. J., et al. (2026). Mobile learning as an intervention to address low English proficiency among high school students in Northern Peru. *World Journal of English Language*, 16(3), 205. https://doi.org/10.5430/wjel.v16n3p205
+Quasi-experimental study of N = 120 public high-school students across Tumbes, Piura, and Tarapoto (60 experimental / 60 control). Contextualized mobile learning raised post-test scores from 10.2 to 14.0 (t = 6.23 vs control, p < 0.001), while student interviews highlighted unstable signal, lack of mobile data, and parental suspicion that phone use is merely play.
+*Verified:* full PDF read (10 pp).
+
+**P27.** Hoque, M. S., Poly, N. A., Khan, M. F. R., Dhanyamol, C., Ramesh, M., & Illakiya, K. (2026). Family Lingo: A tri-generational participant analysis of a mobile-mediated English language acquisition intervention for Generation Z learners in Tamil Nadu, India. *International Journal of Learning, Teaching and Educational Research*, 25(9), 424–450. https://doi.org/10.26803/ijlter.25.9.17
+36-month single-arm intervention across 18 districts in Tamil Nadu (N = 383 learners aged 13–18 and 1,121 family members). Produced medium pre/post CEFR gains (d = 0.55–0.65, p < 0.001) equivalent across rural government (n = 186) and urban private schools (p = 0.955); 10% (38 pupils) depended on borrowed phones from family members, alongside electricity and connectivity interruptions.
+*Verified:* full PDF read (27 pp). No untreated control group.
+
+**P28.** Kotze, J., Fleisch, B., & Taylor, S. (2019). Alternative forms of early grade instructional coaching: Emerging evidence from field experiments in South Africa. *International Journal of Educational Development*, 66, 203–213. https://doi.org/10.1016/j.ijedudev.2018.09.004
+Midline RCT evaluation of South Africa's Early Grade Reading Study II showing virtual instructional coaching paired with preloaded tablet teaching resources achieved similar instructional and literacy improvements after 1 year to costlier on-site human coaching.
+*Verified:* Elsevier first-page PDF and abstract read (1-page subscription preview).
+
+**P29.** Pimmer, C., Brühlmann, F., Odetola, T. D., Oluwasola, D. O., Dipeolu, O., & Ajuwon, A. J. (2019). Facilitating professional mobile learning communities with instant messaging. *Computers & Education*, 128, 102–112. https://doi.org/10.1016/j.compedu.2018.09.005
+Quasi-experimental study in Nigeria (n = 114) demonstrating that instant messaging (WhatsApp) already acts as an accessible mobile distribution and peer-support channel in infrastructure-constrained settings.
+*Verified:* Elsevier first-page PDF and abstract read (1-page subscription preview).
 
 ### Found but not usable yet
 
@@ -205,13 +269,25 @@ Randomized evaluation, 102 schools, grades 7–9, offline Kolibri platform on ta
 
 | N51 | 14 Sep 2025 | GoodStats | [Simak Alasan dan Tantangan Penggunaan Internet di Indonesia 2025](https://goodstats.id/article/simak-alasan-dan-hambatan-penggunaan-internet-di-indonesia-DHph7) | Reasons for not using the internet (providers' association survey, 8,700 respondents): no adequate device 43.62%, do not know how to connect 40.77%, see no benefit 3.24%, data too expensive 2.88%, no connection 2.59%. The page does not state the base for these shares. |
 
+### Global and regional connectivity and foundational learning
+
+| ID | Date | Organization / Survey | Report | Key verified figure |
+|---|---|---|---|---|
+| N52 | 2025–2026 | GSMA | [The State of Mobile Internet Connectivity](https://www.gsma.com/somic/) | ~3.1 billion people live inside mobile broadband coverage without using mobile internet (usage gap, 38% of world population); ~300 million live without coverage (3–4%); ~3.4 billion remain offline globally. |
+| N53 | Dec 2020 | UNICEF & ITU | [How many children and young people have internet access at home?](https://www.unicef.org/reports/how-many-children-and-young-people-have-internet-access-at-home) | School-age children (3–17) lacking home internet by region: West & Central Africa 95% (194M), East & Southern Africa 88% (191M), South Asia 88% (449M), Latin America & the Caribbean 49% (74M). |
+| N54 | 2025 | UNESCO GEM Report & African Union | Spotlight on Africa (*Lead for foundational learning*) | ~10.8% of children in Africa reach minimum proficiency in reading and mathematics by end of primary school; ~1 in 5 primary-age children are out of school. |
+| N55 | Jan 2025 | Pratham | [ASER 2024 (Rural India)](https://asercentre.org/aser-2024/) | Nationwide rural survey (~650,000 children across 605 districts): government-school Class 3 pupils reading a Class 2 text rose to 23.4%, Class 5 to 44.8%; ~90% of 14–16-year-olds have a smartphone at home, but personal ownership is ~27% (age 14) to ~38% (age 16). |
+| N56 | 2025 | INEI Peru | [ENAHO Q1 2025](https://www.gob.pe/institucion/inei/noticias/1018260-inei-58-9-de-los-hogares-del-pais-tiene-acceso-a-internet-en-el-primer-trimestre-de-2025) | 58.9% of Peruvian households had internet access nationally in Q1 2025, vs only 20.5% in rural areas. |
+| N57 | 2025 | INEI Peru | [ENAHO Q2 2025](https://www.gob.pe/institucion/inei/noticias/1045237-el-60-1-de-los-hogares-tiene-conexion-a-internet) | 60.1% of Peruvian households had internet access nationally in Q2 2025, vs 23.6% in rural areas. |
+| N58 | 2025 | Cetic.br / NIC.br | TIC Kids Online Brasil 2025 (n = 2,370, ages 9–17) | Overall youth internet use ~92%, while school-environment internet access fell from 51% (2024) to 37% (2025) after classroom mobile phone restrictions. |
+| N59 | 2025 | IBGE (Brazil) | PNAD Contínua — Módulo TIC 2025 | 95.0% of Brazilian households (~76 million homes) had internet access in 2025 and >90% of population aged 10+ used the internet. |
+
 The percentages "do not use the internet" in section 1 are 100 minus the figures in N44 and N45.
 
 ## 4. Known problems in this evidence
 
-- **Home versus school.** Most news cases describe schools without signal during online exams. Titip's barrier is practice at home. N44–N49 now give the home side, but they measure whether a student *uses* the internet, not whether data is affordable or lasts the month. N51 suggests data cost is a small part of the picture; device and know-how are the large parts.
-- **"Household has internet access" is a loose measure.** N46's 91.66% counts a household if any member went online. It does not mean the child can use that connection for schoolwork.
-- **Sources disagree.** Internet delivered to schools in 2025 is 8,265 in N19, N20 and N25 but 8,152 in N22. Maluku-Papua penetration is 69.26% in N28 and 69.74% in a Kontan snippet. N21 and N22 name different heads of the same government office.
-- **Older items.** N8–N10 are from 2022–2023. They show the pattern is long-running, not that it is current. N1–N4 and N11–N13 are the current ones.
-- **Not read.** Seven Bisnis.com articles and one VOI article refused access. They are left out.
-- **No paper on Titip's exact mechanism.** Nothing found tests a paper or SMS result code sent back to a teacher from an offline lesson. That part is our own design and is untested.
+- **Home versus school.** Many news cases describe schools without signal during online exams, while classroom phone restrictions (e.g., Brazil N58) and household sharing (N55, P9, P27, N47) create offline bottlenecks even inside connected countries. Home access rates alone overstate student usability for study.
+- **"Household has internet access" is a loose measure.** N46's 91.66% counts a household if any member went online, and ASER 2024 (N55) shows 90% household smartphone presence alongside 27–38% personal youth ownership.
+- **Regional data gaps and aging baselines.** UNICEF/ITU child home-internet breakdowns (N42, N53) date from December 2020; we pair them with 2024–2026 national/regional surveys (N52, N54–N59, N44–N51) while noting not every Sub-Saharan African or South Asian country publishes annual rural pupil ICT microdata.
+- **Paywalled subscription PDFs.** Elsevier previews for P28 and P29 gave first-page PDFs + full abstracts only, and P2/P20 OA repository hosts returned bot challenges (findings cross-checked via indexed working-paper/institutional summaries and citing full PDF P19).
+- **No paper on Titip's exact mechanism.** Nothing found tests a compact checksummed SMS/paper result code (plus per-choice distractor counts) fed back to a teacher from a single self-contained HTML lesson. That integration is our design and remains untested on real learners.

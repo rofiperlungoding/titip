@@ -2,7 +2,7 @@
 
 Three kinds of statement appear in this project. They are kept apart on purpose.
 
-- **Checked**: measured or run on 12 November 2026. Repeatable.
+- **Checked**: measured or run on 12–13 November 2026. Repeatable.
 - **Predicted / assumed**: reasoned from the code or from published research. Not observed. Each one names its assumption.
 - **Made-up**: demonstration data invented by the author. Says nothing about real learners.
 
@@ -10,22 +10,19 @@ Three kinds of statement appear in this project. They are kept apart on purpose.
 
 | What | Result | How |
 |---|---|---|
-| File size | 79,443 bytes; 29,114 bytes gzip-compressed | Measured on `index.html` |
-| Live hosting | Landing page, app and service worker return 200 at titip.rofihosted.space; every relative link on the landing page resolves; after one reload the service worker controls the app and holds a cached copy of it | Fetched from desktop Chrome on 13 November 2026. Offline use of the hosted copy was not tried with the network actually switched off |
-| Word meanings, saved rounds, spreadsheet export, record sheet, dark theme, Evidence and Help pages | Tapping a word shows its meaning; a round saves, reloads as the earlier round and deletes; the export has one row per question; settings persist | Scripted run in desktop Chrome |
-| JavaScript syntax level | No arrow functions, `let`/`const`, classes, template strings or spread | Token scan of the script |
-| Logic | `selfTest()` returns `ok`: lesson parser, result codes, paper totals, tallies | Run in Node and in Chrome |
-| Learner flow by keyboard only | Start practice and answer question 1 with Tab, arrow, Enter; focus lands on each new heading | Real key presses in desktop Chrome |
-| Controls | Every control is a native button, radio or text box; every text box has a label | DOM scan |
-| Colour contrast | Body text 15.76:1, secondary text 9.39:1, primary buttons 6.39:1, status banners above 10:1, text-field borders 4.53:1, chart bars 4.95:1 and 5.07:1 | WCAG contrast formula on the colours in the stylesheet |
-| Narrow screen | No sideways scrolling at 360 px and 320 px, including with Larger text on; navigation sits at the bottom edge | Page loaded in a 360 px and 320 px frame inside desktop Chrome, not on a phone |
-| Lesson editor | Add and remove questions and answers, right-answer mark stays on the same answer, focus moves to the new field, incomplete lesson is blocked with a message | Scripted run in desktop Chrome |
-| Results, two rounds, follow-up lesson, worksheet content, downloaded file content | Behave as described in the README | Scripted run in desktop Chrome |
+| File size (13 Nov 2026 build) | 151,727 bytes raw; 52,873 bytes gzip-compressed | Measured via Node `Buffer.byteLength` and `zlib.gzipSync` on `index.html` after 9-language / 11-lesson expansion |
+| Multi-language, RTL & Unicode logic (13 Nov 2026) | `selfTest()` returns `ok` (incl. Hindi boundary, Bengali, Arabic `dir="rtl"`, and HTML-entity skip); all 11 sample lessons validate cleanly and match their glossary terms; all 9 UI languages (`en`, `id`, `es`, `fr`, `pt`, `sw`, `hi`, `bn`, `ar`) contain all 150 keys | Node verification run against `index.html` on 13 November 2026 |
+| JavaScript syntax level (13 Nov 2026) | Compiles cleanly via `vm.Script`; no arrow functions, `let`/`const`, classes, template strings or spread outside string literals | Node syntax + token scan on `index.html` on 13 November 2026 |
+| Live hosting (prior ~79 KB build) | Landing page, app and service worker return 200 at titip.rofihosted.space; after one reload the service worker controls the app | Fetched from desktop Chrome on 13 November 2026 before the 9-language expansion |
+| Word meanings, saved rounds, CSV export, record sheet, dark theme, Evidence and Help pages (prior build) | Tapping a word shows its meaning; a round saves, reloads and deletes; CSV has one row per question; settings persist | Scripted run in desktop Chrome on 12 November 2026 (needs re-run for per-choice error chips & Arabic RTL layout) |
+| Learner flow by keyboard only (prior build) | Start practice and answer question 1 with Tab, arrow, Enter; focus lands on each new heading | Real key presses in desktop Chrome on 12 November 2026 |
+| Controls | Every control is a native button, radio or text box; every text box has a label | DOM scan on prior build |
+| Colour contrast | Body text 15.76:1, secondary text 9.39:1, primary buttons 6.39:1, status banners above 10:1, text-field borders 4.53:1, chart bars 4.95:1 and 5.07:1 | WCAG contrast formula on stylesheet colours |
+| Narrow screen (prior build) | No sideways scrolling at 360 px and 320 px, including with Larger text on; navigation sits at the bottom edge | Loaded in 360 px and 320 px desktop Chrome frame on 12 November 2026 |
+| Lesson editor, results, follow-up lesson, worksheet content, downloaded file content (prior build) | Behave as described in README | Scripted run in desktop Chrome on 12 November 2026 |
+| Rendered design (prior build) | Overview, Learn, Lessons, Make and Results pages inspected as screenshots | Headless Chrome at 1440 px and 500 px wide on 12 November 2026 (RTL layout not yet screenshotted) |
 
-| Practice loop, library, hand-out file | A missed question returns once at the end; a library lesson opens or copies into the editor; a downloaded file opens straight into its lesson | Scripted run in desktop Chrome |
-| Rendered design | Overview, Learn, Lessons, Make and Results pages looked at as images | Headless Chrome at 1440 px and 500 px wide. 360 px and 320 px were checked by measurement only |
-
-Not checked by anyone: a real old phone, a printer, a screen reader, an offline file transfer, a real learner, a real teacher.
+Not checked by anyone: a real old phone, a printer, a screen reader, an offline file transfer, a real learner, a real teacher, live Arabic RTL rendering in a browser, or native-teacher review of the 7 newly expanded UI languages.
 
 ## Predicted / assumed
 
@@ -33,7 +30,7 @@ None of these has been observed.
 
 | Prediction | Basis | Assumption that could be wrong |
 |---|---|---|
-| First load takes about 4 seconds of transfer on a slow mobile connection, about 11 seconds if the server does not compress | 24,590 or 68,451 bytes divided by the speed | Assumes 50 kbit/s and ignores connection set-up time |
+| First load takes ~8.5 seconds of transfer on a slow mobile connection if gzip-compressed (~24 seconds uncompressed) | 52,873 or 151,727 bytes divided by 50 kbit/s | Assumes 50 kbit/s steady throughput and ignores connection set-up time |
 | The learner flow runs on Android 4.4-era browsers and later | The script uses only old syntax (checked above) and long-standing browser features | Assumed from general knowledge of browser support, not from a device. Download, Listen and offline caching need newer browsers and are optional for the learner |
 | A learner finishes the sample lesson in 3 to 6 minutes | 49 words of lesson text and 56 words of questions and answers, four questions | Assumes an early reader at 60 to 100 words a minute and under a minute per question. The reading speed is the author's assumption, not a sourced figure |
 | A screen reader user can complete a lesson | Native controls, labels, a live region for feedback, language tags on lesson content (structure checked above) | Structure does not guarantee a usable experience. Not tried with TalkBack or any screen reader |

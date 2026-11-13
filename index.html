@@ -208,6 +208,18 @@ nav .dk{display:flex}
 .mini main{margin-left:4.5rem}
 }
 @media print{.top,nav,main{display:none}#sheet{display:block}body{background:#fff}}
+[dir=rtl] nav button{text-align:right}
+[dir=rtl] .opt input{left:auto;right:1rem}
+[dir=rtl] .opt span{padding:.9rem 3.1rem .9rem 1rem}
+[dir=rtl] .honest{border-left:0;border-right:.25rem solid #c4c7c5}
+[dir=rtl] .b .i{margin:0 -.25rem 0 .5rem}
+[dir=rtl] .qt{padding:0 0 .5rem 1.5rem}
+[dir=rtl] .ans input[type=text]{margin:0 .75rem 0 .25rem}
+[dir=rtl] .num{right:auto;left:1rem}
+[dir=rtl] .rec td,[dir=rtl] .rec th{text-align:right}
+[dir=rtl] .steps,[dir=rtl] .tour,[dir=rtl] .src,[dir=rtl] .rev ul{padding-left:0;padding-right:1.4rem}
+[dir=rtl] [lang]:not([lang=ar]){direction:ltr;unicode-bidi:isolate}
+@media (min-width:56em){[dir=rtl] nav{left:auto;right:0}[dir=rtl] nav i{margin:0 0 0 .85rem}[dir=rtl] main{margin:0 16rem 1rem 1rem}[dir=rtl] .mini main{margin-left:1rem;margin-right:4.5rem}}
 </style>
 </head>
 <body>
@@ -221,7 +233,7 @@ nav .dk{display:flex}
 <button class="ib" id="bBig" data-act="big" aria-pressed="false" data-al="big">A+</button>
 <button class="ib" id="bDark" data-act="dark" aria-pressed="false" data-al="dark"><i data-i="dark"></i></button>
 <button class="ib dk" data-act="view" data-v="help" data-al="nHelp"><i data-i="help"></i></button>
-<span class="ib lang"><i data-i="globe"></i><select id="uiLang" aria-label="Language / Bahasa / Idioma / Langue"><option value="en">English</option><option value="id">Bahasa Indonesia</option><option value="es">Espa&ntilde;ol</option><option value="fr">Fran&ccedil;ais</option></select></span>
+<span class="ib lang"><i data-i="globe"></i><select id="uiLang" aria-label="Language"><option value="en">English</option><option value="id">Bahasa Indonesia</option><option value="es">Espa&ntilde;ol</option><option value="fr">Fran&ccedil;ais</option><option value="pt">Portugu&ecirc;s</option><option value="sw">Kiswahili</option><option value="hi">&#2361;&#2367;&#2344;&#2381;&#2342;&#2368;</option><option value="bn">&#2476;&#2494;&#2434;&#2482;&#2494;</option><option value="ar">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</option></select></span>
 </header>
 <nav aria-label="Titip">
 <p data-t="gLearner"></p>
@@ -247,7 +259,7 @@ nav .dk{display:flex}
 <div id="sheet"></div>
 
 <script id="lesson" type="application/json">{"title":"Fractions: half and quarter","lang":"en","text":["A fraction is a part of a whole thing.","Cut one cake into 2 equal parts. Each part is one half. We write it 1/2.","Cut one cake into 4 equal parts. Each part is one quarter. We write it 1/4.","Two quarters are the same as one half."],"q":[{"q":"You cut a cake into 2 equal parts. What is one part called?","c":["One quarter","One half","One whole"],"a":1,"h":"Half means 2 equal parts."},{"q":"Which piece of cake is bigger?","c":["1/2","1/4","They are the same"],"a":0,"h":"A cake cut into 4 parts has smaller pieces than a cake cut into 2 parts."},{"q":"How many quarters make one half?","c":["1","4","2"],"a":2,"h":"A quarter is 1 of 4 parts. A half is 2 of those 4 parts."},{"q":"There are 8 mangoes. You take half. How many mangoes do you take?","c":["2","4","6"],"a":1,"h":"Half means 2 equal groups. 8 mangoes make 2 groups of 4."}],"g":[["equal","the same size"],["whole","complete, with no part missing"]]}</script>
-<script id="library" type="application/json">[{"title":"Pecahan: setengah dan seperempat","lang":"id","text":["Pecahan adalah bagian dari satu benda utuh.","Potong satu kue menjadi 2 bagian sama besar. Tiap bagian disebut setengah. Kita menulisnya 1/2.","Potong satu kue menjadi 4 bagian sama besar. Tiap bagian disebut seperempat. Kita menulisnya 1/4.","Dua seperempat sama dengan satu setengah."],"q":[{"q":"Kamu memotong kue menjadi 2 bagian sama besar. Satu bagian disebut apa?","c":["Seperempat","Setengah","Satu utuh"],"a":1,"h":"Setengah berarti 2 bagian sama besar."},{"q":"Potongan kue mana yang lebih besar?","c":["1/2","1/4","Sama besar"],"a":0,"h":"Kue yang dipotong 4 punya potongan lebih kecil daripada kue yang dipotong 2."},{"q":"Berapa seperempat yang sama dengan setengah?","c":["1","4","2"],"a":2,"h":"Seperempat adalah 1 dari 4 bagian. Setengah adalah 2 dari 4 bagian itu."},{"q":"Ada 8 mangga. Kamu mengambil setengahnya. Berapa mangga yang kamu ambil?","c":["2","4","6"],"a":1,"h":"Setengah berarti 2 kelompok sama banyak. 8 mangga menjadi 2 kelompok berisi 4."}],"g":[["utuh","lengkap, tidak ada bagian yang hilang"],["sama besar","ukurannya sama"]]},{"title":"The water cycle","lang":"en","text":["Water moves around the Earth again and again. This is called the water cycle.","The sun heats water in the sea, rivers and lakes. The water turns into a gas called water vapour and rises into the air. This is evaporation.","High in the sky the air is cold. The vapour cools and turns into tiny drops of water. The drops make clouds. This is condensation.","When the drops get heavy, they fall as rain. The rain runs into rivers and back to the sea."],"q":[{"q":"What turns water into water vapour?","c":["The heat of the sun","The wind","The clouds"],"a":0,"h":"The sun heats the water, and the water rises as vapour."},{"q":"Water vapour cools and turns into tiny drops. What is this called?","c":["Evaporation","Condensation","Rain"],"a":1,"h":"Condensation makes clouds. Evaporation is when water rises as vapour."},{"q":"Why does rain fall from a cloud?","c":["The cloud gets hot","The sun pulls the water down","The drops of water get heavy"],"a":2,"h":"Small drops join together. Heavy drops fall."}]},{"title":"Bagian tumbuhan","lang":"id","text":["Tumbuhan punya beberapa bagian. Tiap bagian punya tugas sendiri.","Akar ada di dalam tanah. Akar menyerap air dari tanah.","Batang membawa air dari akar ke daun.","Daun membuat makanan untuk tumbuhan. Daun memakai cahaya matahari untuk membuat makanan itu."],"q":[{"q":"Bagian mana yang menyerap air dari tanah?","c":["Daun","Batang","Akar"],"a":2,"h":"Akar ada di dalam tanah, dekat dengan air."},{"q":"Apa tugas batang?","c":["Membawa air dari akar ke daun","Membuat makanan","Menyerap air dari tanah"],"a":0,"h":"Batang menghubungkan akar dengan daun."},{"q":"Apa yang dipakai daun untuk membuat makanan?","c":["Tanah","Cahaya matahari","Angin"],"a":1,"h":"Daun membuat makanan saat terkena cahaya matahari."}]},{"title":"El ciclo del agua","lang":"es","text":["El agua se mueve por la Tierra una y otra vez. Esto se llama el ciclo del agua.","El sol calienta el agua del mar, de los ríos y de los lagos. El agua se convierte en vapor y sube al aire. Esto es la evaporación.","Arriba en el cielo el aire está frío. El vapor se enfría y forma gotas muy pequeñas. Las gotas forman las nubes. Esto es la condensación.","Cuando las gotas pesan mucho, caen como lluvia. La lluvia vuelve a los ríos y al mar."],"q":[{"q":"¿Qué convierte el agua en vapor?","c":["El calor del sol","El viento","Las nubes"],"a":0,"h":"El sol calienta el agua y el agua sube como vapor."},{"q":"El vapor se enfría y forma gotas pequeñas. ¿Cómo se llama esto?","c":["La evaporación","La condensación","La lluvia"],"a":1,"h":"La condensación forma las nubes."},{"q":"¿Por qué cae la lluvia de una nube?","c":["La nube se calienta","El sol empuja el agua","Las gotas pesan mucho"],"a":2,"h":"Las gotas pequeñas se juntan. Las gotas pesadas caen."}],"g":[["vapor","agua en forma de gas"]]},{"title":"Les parties d'une plante","lang":"fr","text":["Une plante a plusieurs parties. Chaque partie a un rôle.","Les racines sont dans la terre. Elles prennent l'eau du sol.","La tige transporte l'eau des racines jusqu'aux feuilles.","Les feuilles fabriquent la nourriture de la plante. Elles utilisent la lumière du soleil."],"q":[{"q":"Quelle partie prend l'eau du sol ?","c":["Les feuilles","La tige","Les racines"],"a":2,"h":"Les racines sont dans la terre, près de l'eau."},{"q":"À quoi sert la tige ?","c":["Elle transporte l'eau vers les feuilles","Elle fabrique la nourriture","Elle prend l'eau du sol"],"a":0,"h":"La tige relie les racines aux feuilles."},{"q":"De quoi les feuilles ont-elles besoin pour fabriquer la nourriture ?","c":["De terre","De lumière du soleil","De vent"],"a":1,"h":"Les feuilles fabriquent la nourriture à la lumière du soleil."}],"g":[["tige","la partie entre les racines et les feuilles"]]}]</script>
+<script id="library" type="application/json">[{"title":"Pecahan: setengah dan seperempat","lang":"id","text":["Pecahan adalah bagian dari satu benda utuh.","Potong satu kue menjadi 2 bagian sama besar. Tiap bagian disebut setengah. Kita menulisnya 1/2.","Potong satu kue menjadi 4 bagian sama besar. Tiap bagian disebut seperempat. Kita menulisnya 1/4.","Dua seperempat sama dengan satu setengah."],"q":[{"q":"Kamu memotong kue menjadi 2 bagian sama besar. Satu bagian disebut apa?","c":["Seperempat","Setengah","Satu utuh"],"a":1,"h":"Setengah berarti 2 bagian sama besar."},{"q":"Potongan kue mana yang lebih besar?","c":["1/2","1/4","Sama besar"],"a":0,"h":"Kue yang dipotong 4 punya potongan lebih kecil daripada kue yang dipotong 2."},{"q":"Berapa seperempat yang sama dengan setengah?","c":["1","4","2"],"a":2,"h":"Seperempat adalah 1 dari 4 bagian. Setengah adalah 2 dari 4 bagian itu."},{"q":"Ada 8 mangga. Kamu mengambil setengahnya. Berapa mangga yang kamu ambil?","c":["2","4","6"],"a":1,"h":"Setengah berarti 2 kelompok sama banyak. 8 mangga menjadi 2 kelompok berisi 4."}],"g":[["utuh","lengkap, tidak ada bagian yang hilang"],["sama besar","ukurannya sama"]]},{"title":"The water cycle","lang":"en","text":["Water moves around the Earth again and again. This is called the water cycle.","The sun heats water in the sea, rivers and lakes. The water turns into a gas called water vapour and rises into the air. This is evaporation.","High in the sky the air is cold. The vapour cools and turns into tiny drops of water. The drops make clouds. This is condensation.","When the drops get heavy, they fall as rain. The rain runs into rivers and back to the sea."],"q":[{"q":"What turns water into water vapour?","c":["The heat of the sun","The wind","The clouds"],"a":0,"h":"The sun heats the water, and the water rises as vapour."},{"q":"Water vapour cools and turns into tiny drops. What is this called?","c":["Evaporation","Condensation","Rain"],"a":1,"h":"Condensation makes clouds. Evaporation is when water rises as vapour."},{"q":"Why does rain fall from a cloud?","c":["The cloud gets hot","The sun pulls the water down","The drops of water get heavy"],"a":2,"h":"Small drops join together. Heavy drops fall."}]},{"title":"Bagian tumbuhan","lang":"id","text":["Tumbuhan punya beberapa bagian. Tiap bagian punya tugas sendiri.","Akar ada di dalam tanah. Akar menyerap air dari tanah.","Batang membawa air dari akar ke daun.","Daun membuat makanan untuk tumbuhan. Daun memakai cahaya matahari untuk membuat makanan itu."],"q":[{"q":"Bagian mana yang menyerap air dari tanah?","c":["Daun","Batang","Akar"],"a":2,"h":"Akar ada di dalam tanah, dekat dengan air."},{"q":"Apa tugas batang?","c":["Membawa air dari akar ke daun","Membuat makanan","Menyerap air dari tanah"],"a":0,"h":"Batang menghubungkan akar dengan daun."},{"q":"Apa yang dipakai daun untuk membuat makanan?","c":["Tanah","Cahaya matahari","Angin"],"a":1,"h":"Daun membuat makanan saat terkena cahaya matahari."}]},{"title":"El ciclo del agua","lang":"es","text":["El agua se mueve por la Tierra una y otra vez. Esto se llama el ciclo del agua.","El sol calienta el agua del mar, de los ríos y de los lagos. El agua se convierte en vapor y sube al aire. Esto es la evaporación.","Arriba en el cielo el aire está frío. El vapor se enfría y forma gotas muy pequeñas. Las gotas forman las nubes. Esto es la condensación.","Cuando las gotas pesan mucho, caen como lluvia. La lluvia vuelve a los ríos y al mar."],"q":[{"q":"¿Qué convierte el agua en vapor?","c":["El calor del sol","El viento","Las nubes"],"a":0,"h":"El sol calienta el agua y el agua sube como vapor."},{"q":"El vapor se enfría y forma gotas pequeñas. ¿Cómo se llama esto?","c":["La evaporación","La condensación","La lluvia"],"a":1,"h":"La condensación forma las nubes."},{"q":"¿Por qué cae la lluvia de una nube?","c":["La nube se calienta","El sol empuja el agua","Las gotas pesan mucho"],"a":2,"h":"Las gotas pequeñas se juntan. Las gotas pesadas caen."}],"g":[["vapor","agua en forma de gas"]]},{"title":"Les parties d'une plante","lang":"fr","text":["Une plante a plusieurs parties. Chaque partie a un rôle.","Les racines sont dans la terre. Elles prennent l'eau du sol.","La tige transporte l'eau des racines jusqu'aux feuilles.","Les feuilles fabriquent la nourriture de la plante. Elles utilisent la lumière du soleil."],"q":[{"q":"Quelle partie prend l'eau du sol ?","c":["Les feuilles","La tige","Les racines"],"a":2,"h":"Les racines sont dans la terre, près de l'eau."},{"q":"À quoi sert la tige ?","c":["Elle transporte l'eau vers les feuilles","Elle fabrique la nourriture","Elle prend l'eau du sol"],"a":0,"h":"La tige relie les racines aux feuilles."},{"q":"De quoi les feuilles ont-elles besoin pour fabriquer la nourriture ?","c":["De terre","De lumière du soleil","De vent"],"a":1,"h":"Les feuilles fabriquent la nourriture à la lumière du soleil."}],"g":[["tige","la partie entre les racines et les feuilles"]]},{"title":"Água limpa para beber","lang":"pt","text":["Nosso corpo precisa de água limpa todos os dias para ficar saudável.","A água suja pode carregar germes pequenos que causam dor de barriga e diarreia.","Podemos deixar a água mais segura ao filtrar e depois ferver até formar bolhas.","Guarde a água limpa em um recipiente tampado e lave as mãos com sabão antes de comer."],"q":[{"q":"Por que a água suja pode causar doenças?","c":["Porque é fria demais","Porque pode carregar germes pequenos","Porque não tem cor"],"a":1,"h":"Germes invisíveis na água suja causam dor de barriga."},{"q":"O que ajuda a matar os germes da água?","c":["Ferver a água até formar bolhas","Deixar o balde aberto no quintal","Misturar com areia"],"a":0,"h":"O calor da fervura elimina os germes."},{"q":"Como devemos guardar a água limpa em casa?","c":["Em um recipiente bem tampado","Em um prato raso","Perto do lixo"],"a":0,"h":"Tampar o recipiente evita que poeira e insetos entrem na água."}],"g":[["germes","seres minúsculos que podem causar doenças"],["ferver","aquecer um líquido até formar bolhas"]]},{"title":"Kugawanya sawa","lang":"sw","text":["Kugawanya maana yake ni kushiriki kitu katika mafungu yaliyo sawa.","Ukiwa na maembe 6 na watoto 2, kila mtoto anapata maembe 3. Tunaandika 6 ÷ 2 = 3.","Ukiwa na maembe 12 na watoto 3, kila mtoto anapata maembe 4.","Kushiriki kwa usawa kunasaidia kila mtu apate sehemu sawa."],"q":[{"q":"Kugawanya kunamaanisha nini?","c":["Kuchukua vyote wewe mwenyewe","Kushiriki katika mafungu yaliyo sawa","Kuficha vitu"],"a":1,"h":"Katika kugawanya, kila fungu linakuwa na idadi sawa."},{"q":"Una maembe 6 kwa watoto 2. Kila mtoto anapata mangapi?","c":["2","3","4"],"a":1,"h":"Gawa 6 katika mafungu 2 sawa: 3 na 3."},{"q":"Una penseli 12 kwa watoto 3. Kila mtoto anapata ngapi?","c":["3","4","6"],"a":1,"h":"Fungu 3 la 4 hufanya 12."}],"g":[["mafungu","vikundi vilivyo na idadi sawa"]]},{"title":"साफ़ पानी और साफ़ हाथ","lang":"hi","text":["स्वस्थ रहने के लिए हमें रोज़ साफ़ पानी पीना चाहिए।","गंदे पानी में छोटे कीटाणु हो सकते हैं जो पेट खराब कर सकते हैं।","पानी को उबालने से कीटाणु मर जाते हैं। पानी को ढके हुए बर्तन में रखें।","खाने से पहले और शौच के बाद साबुन से हाथ धोना ज़रूरी है।"],"q":[{"q":"गंदा पानी पीने से पेट क्यों खराब हो सकता है?","c":["उसमें कीटाणु हो सकते हैं","वह बहुत मीठा होता है","उसका रंग नीला होता है"],"a":0,"h":"कीटाणु बहुत छोटे होते हैं और बीमारी फैलाते हैं।"},{"q":"पीने के पानी से कीटाणु कैसे खत्म किए जा सकते हैं?","c":["पानी को उबालकर","पानी को खुला छोड़कर","पानी में मिट्टी मिलाकर"],"a":0,"h":"तेज़ गरम करने से कीटाणु मर जाते हैं।"},{"q":"साबुन से हाथ कब धोना चाहिए?","c":["सिर्फ़ रात को","खाने से पहले और शौच के बाद","कभी नहीं"],"a":1,"h":"खाने से पहले हाथ साफ़ रखने से कीटाणु अंदर नहीं जाते।"}],"g":[["कीटाणु","बहुत छोटे जीव जो बीमारी फैलाते हैं"],["उबालने","पानी को तेज़ गरम करके भाप बनाना"]]},{"title":"ভগ্নাংশ: অর্ধেক ও এক-চতুর্থাংশ","lang":"bn","text":["ভগ্নাংশ হলো একটি সম্পূর্ণ জিনিসের সমান অংশ।","একটি রুটি সমান ২ ভাগ করলে প্রতিটি ভাগকে অর্ধেক বলে। আমরা লিখি ১/২।","একটি রুটি সমান ৪ ভাগ করলে প্রতিটি ভাগকে এক-চতুর্থাংশ বলে। আমরা লিখি ১/৪।","দুটি এক-চতুর্থাংশ একসাথে করলে একটি অর্ধেক হয়।"],"q":[{"q":"একটি রুটি সমান ২ ভাগ করলে প্রতিটি ভাগ কী?","c":["এক-চতুর্থাংশ","অর্ধেক","সম্পূর্ণ"],"a":1,"h":"অর্ধেক মানে সমান ২ ভাগের ১ ভাগ।"},{"q":"কোন টুকরোটি বড়?","c":["১/২","১/৪","সমান"],"a":0,"h":"২ ভাগের টুকরো ৪ ভাগের টুকরোর চেয়ে বড় হয়।"},{"q":"কয়টি এক-চতুর্থাংশ মিলে একটি অর্ধেক হয়?","c":["১টি","৪টি","২টি"],"a":2,"h":"৪ ভাগের ২ ভাগ মানে অর্ধেক।"}],"g":[["ভগ্নাংশ","কোনো সম্পূর্ণ জিনিসের সমান অংশ"],["সম্পূর্ণ","পুরো জিনিস, কোনো অংশ কম নয়"]]},{"title":"أجزاء النبات","lang":"ar","text":["للنبات أجزاء مختلفة، ولكل جزء عمل مهم.","تعيش الجذور تحت التربة وتمتص الماء والغذاء من الأرض.","يحمل الساق الماء من الجذور إلى الأوراق.","تصنع الأوراق الغذاء للنبات باستخدام ضوء الشمس والماء والهواء."],"q":[{"q":"أي جزء من النبات يمتص الماء من التربة؟","c":["الأوراق","الساق","الجذور"],"a":2,"h":"الجذور توجد تحت الأرض قريباً من الماء."},{"q":"ما وظيفة الساق؟","c":["نقل الماء إلى الأوراق","صنع البذور","تثبيت النبات فقط"],"a":0,"h":"الساق يصل بين الجذور والأوراق."},{"q":"ماذا تحتاج الأوراق لصنع غذاء النبات؟","c":["الظلام","ضوء الشمس","الرمل"],"a":1,"h":"الأوراق تستخدم ضوء الشمس لصنع الغذاء."}],"g":[["الجذور","الجزء الموجود تحت التربة لامتصاص الماء"],["الساق","الجزء الذي ينقل الماء إلى الأوراق"]]}]</script>
 
 <script>
 // Plain ES5 on purpose: must run on old phone browsers. No dependencies.
@@ -274,11 +286,11 @@ function toLesson(D){
 }
 // Paragraph as HTML, with the first use of each glossary word turned into a button.
 function rich(s,L){
-  var h=esc(s),g=L.g||[],i;
+  var h=String(s),g=L.g||[],i,w='A-Za-z\\u00C0-\\u024F\\u0600-\\u06FF\\u0900-\\u097F\\u0980-\\u09FF';
   for(i=0;i<g.length;i++)h=h.replace(
-    new RegExp('(^|[^A-Za-z\u00C0-\u024F])('+esc(g[i][0]).replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')(?![A-Za-z\u00C0-\u024F])','i'),
-    '$1\u0001'+i+'\u0002$2\u0003'); // markers first, tags last: a later word must not match inside a tag
-  return '<span lang="'+esc(L.lang)+'">'+h.replace(/\u0001(\d+)\u0002/g,'<button type="button" class="term" data-act="term" data-n="$1">').replace(/\u0003/g,'</button>')+'</span>';
+    new RegExp('(^|[^'+w+'])('+g[i][0].replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')(?!['+w+'])','i'),
+    '$1\u0001'+i+'\u0002$2\u0003'); // match raw text before esc() so HTML entities are never matched; tags inserted last
+  return '<span lang="'+esc(L.lang)+'"'+(L.lang=='ar'?' dir="rtl"':'')+'>'+esc(h).replace(/\u0001(\d+)\u0002/g,'<button type="button" class="term" data-act="term" data-n="$1">').replace(/\u0003/g,'</button>')+'</span>';
 }
 function topWrong(r,i){ // index of the most common wrong first pick for question i, or -1
   var w=r.wrong[i],top=-1,k;
@@ -398,6 +410,13 @@ function selfTest(){
   var G=toLesson({title:'T',lang:'en',body:'x',gloss:'half = one of two\nbad line\n = no word\nequal parts=same size',q:[]});
   ok(JSON.stringify(G.g)=='[["half","one of two"],["equal parts","same size"]]'&&fromLesson(G).gloss=='half = one of two\nequal parts = same size','glossary round trip');
   ok(rich('Half of a <b>, halfway, 2 equal parts.',G)=='<span lang="en"><button type="button" class="term" data-act="term" data-n="0">Half</button> of a &lt;b&gt;, halfway, 2 <button type="button" class="term" data-act="term" data-n="1">equal parts</button>.</span>','glossary words become buttons');
+  var GH=toLesson({title:'H',lang:'hi',body:'x',gloss:'पानी = जल',q:[]});
+  ok(rich('साफ़ पानी पीना पानीदार नहीं',GH).indexOf('data-n="0">पानी</button> पीना पानीदार')>0,'hindi glossary boundary');
+  var GB=toLesson({title:'B',lang:'bn',body:'x',gloss:'ভগ্নাংশ = অংশ',q:[]});
+  ok(rich('ভগ্নাংশ কী',GB).indexOf('data-n="0">ভগ্নাংশ</button>')>0,'bengali glossary');
+  var GA=toLesson({title:'A',lang:'ar',body:'x',gloss:'الجذور = الجزء',q:[]});
+  ok(rich('تمتص الجذور الماء',GA)=='<span lang="ar" dir="rtl">تمتص <button type="button" class="term" data-act="term" data-n="0">الجذور</button> الماء</span>','arabic rtl glossary');
+  ok(rich('a & b',{lang:'en',g:[['amp','x']]})=='<span lang="en">a &amp; b</span>','glossary skips HTML entities');
   ok(withRetries(L,[2,2]).join()=='0,1,1'&&withRetries(L,[2,1]).join()=='0,1','missed questions come back once');
   return 'ok';
 }
@@ -406,16 +425,16 @@ function selfTest(){
 var SRC=document.documentElement.outerHTML; // taken before any change: becomes the downloadable lesson file
 var T={
 en:{nWhy:'Evidence',nHelp:'Help',gAbout:'About',dark:'Dark, high-contrast colours',off:'Offline: still works',
-whyS:'Every design choice traces to a number someone else measured. The full list, 12 papers and 51 reports, is in RESEARCH.md.',
-w1:'people are still offline in 2025. 96% of them live in low- and middle-income countries.',
-w2:'of people in rural areas use the internet, against 85% in cities. Learners far from a city are the most likely to be offline.',
-w3:'school-age children had no internet at home in the latest global estimate (2020). Hence a lesson file that needs none, and a printed worksheet.',
-wEx:'Example country: in Indonesia, where Titip was built and will first be tested, 27.74% of primary pupils do not use the internet [N44].',
+whyS:'Every design choice traces to a number someone else measured. The full list, 29 papers and 59 global and national sources, is in RESEARCH.md.',
+w1:'people live under mobile coverage without using mobile internet (38% usage gap), plus ~300 million outside any coverage (~3.4 billion offline).',
+w2:'of school-age children in Sub-Saharan Africa (95% W/C, 88% E/S) and South Asia (88%), plus 49% in Latin America & the Caribbean, had no home internet (2020).',
+w3:'learning gain across 16,936 students in India, Kenya, Nepal, the Philippines and Uganda from targeted phone/SMS tutoring; SMS alone had no effect [P1].',
 w4:'average gain from practice quizzes across 222 classroom studies. Hence questions in every lesson.',
 w5:'effect of feedback that explains, against feedback that only says right or wrong. Hence a hint after a wrong answer.',
-w6:'gain when teachers taught by phone at each child’s level in Botswana. SMS alone did nothing. Hence the code goes back to a teacher.',
+w6:'of primary pupils in sampled African countries reach minimum proficiency benchmarks, alongside 23.4% in Class 3 rural India government schools [N55].',
+wEx:'Country gaps persist: in rural Peru only 20.5%–23.6% of children aged 6–17 go online vs 58.9%–60.1% nationally [N56], in Indonesia 27.74% of primary pupils do not use the internet [N44], and in Brazil school internet access fell from 51% to 37% [N58].',
 wNot:'What is not known',wn1:'No one has tested Titip with real learners yet. The numbers above come from other tools and settings.',
-wn2:'An offline learning platform on tablets in 102 schools in Honduras did not raise test scores [P12]. Access alone is not enough.',
+wn2:'An offline tablet platform in 102 schools in Honduras did not raise test scores [P12], and passive nudges failed in [P4]. Targeted phone tutoring in Latin America helped when paired with a human teacher [P20].',
 wn3:'Titip tells a teacher what to teach again. It cannot make that happen.',wSrc:'Sources',
 hp1:'Pass a lesson to another phone',b1:'Bluetooth: open the Files app, press and hold the lesson file, tap Share, choose Bluetooth, then pick the other phone.',
 b2:'WhatsApp: attach the file as a Document, not as a photo. It is sent once and opens later with no internet.',
@@ -456,17 +475,18 @@ follow:'Make a follow-up lesson from the "Teach again" questions',rBad:'Not coun
 wbad:'not a result code',wother:'code is from a different lesson',wtypo:'code has a typing mistake',
 pHow:'Circle one answer for each question. Then write your answer numbers in order on the line below, for example: 2 1 3.',pAns:'My answers:',
 pSum:'Add your answer numbers together. Total:',pKey:'Finished? Turn the page upside down to check your answers.'},
+
 id:{nWhy:'Bukti',nHelp:'Bantuan',gAbout:'Tentang',dark:'Warna gelap kontras tinggi',off:'Offline: tetap jalan',
-whyS:'Tiap pilihan rancangan berpijak pada angka yang diukur orang lain. Daftar lengkap, 12 paper dan 51 laporan, ada di RESEARCH.md.',
-w1:'orang masih offline pada 2025. 96% di antaranya tinggal di negara berpendapatan rendah dan menengah.',
-w2:'penduduk desa memakai internet, dibanding 85% di kota. Murid yang jauh dari kota paling mungkin offline.',
-w3:'anak usia sekolah tidak punya internet di rumah menurut perkiraan global terakhir (2020). Karena itu berkas pelajaran tanpa internet, dan lembar kerja cetak.',
-wEx:'Contoh negara: di Indonesia, tempat Titip dibuat dan akan diuji pertama kali, 27,74% murid SD tidak memakai internet [N44].',
+whyS:'Tiap pilihan rancangan berpijak pada angka yang diukur orang lain. Daftar lengkap, 29 paper dan 59 sumber global maupun nasional, ada di RESEARCH.md.',
+w1:'orang berada di wilayah sinyal seluler tetapi belum memakai internet (38% kesenjangan pakai), ditambah ~300 juta tanpa sinyal (~3,4 miliar offline).',
+w2:'anak usia sekolah di Afrika Sub-Sahara (95% Barat/Tengah, 88% Timur/Selatan) dan Asia Selatan (88%), serta 49% di Amerika Latin & Karibia, tanpa internet rumah (2020).',
+w3:'kenaikan belajar pada 16.936 murid di India, Kenya, Nepal, Filipina, dan Uganda lewat bimbingan telepon/SMS terarah; SMS saja tidak berdampak [P1].',
 w4:'rata-rata kenaikan dari latihan soal pada 222 studi di kelas. Karena itu tiap pelajaran berisi soal.',
 w5:'efek umpan balik yang menjelaskan, dibanding yang hanya bilang benar atau salah. Karena itu ada petunjuk setelah jawaban salah.',
-w6:'kenaikan saat guru mengajar lewat telepon sesuai tingkat tiap anak di Botswana. SMS saja tidak berdampak. Karena itu kode kembali ke guru.',
+w6:'murid SD di negara Afrika tersampel mencapai batas minimum membaca/hitung, dan 23,4% murid kelas 3 SD negeri pedesaan India bisa membaca teks kelas 2 [N55].',
+wEx:'Kesenjangan di dalam negara bertahan: di pedesaan Peru hanya 20,5%–23,6% anak usia 6–17 online dibanding 58,9%–60,1% nasional [N56], di Indonesia 27,74% murid SD tidak memakai internet [N44], dan di Brasil akses internet murid di sekolah turun dari 51% ke 37% [N58].',
 wNot:'Yang belum diketahui',wn1:'Titip belum pernah diuji dengan murid sungguhan. Angka di atas berasal dari alat dan tempat lain.',
-wn2:'Platform belajar offline di tablet pada 102 sekolah di Honduras tidak menaikkan nilai ujian [P12]. Akses saja tidak cukup.',
+wn2:'Platform tablet offline di 102 sekolah Honduras tidak menaikkan nilai ujian [P12], dan pengingat pasif gagal di [P4]. Bimbingan telepon di Amerika Latin berhasil saat dipandu guru manusia [P20].',
 wn3:'Titip memberi tahu guru apa yang perlu diajarkan lagi. Titip tidak bisa memastikan itu dilakukan.',wSrc:'Sumber',
 hp1:'Menitipkan pelajaran ke HP lain',b1:'Bluetooth: buka aplikasi File, tekan lama berkas pelajaran, ketuk Bagikan, pilih Bluetooth, lalu pilih HP tujuan.',
 b2:'WhatsApp: lampirkan berkas sebagai Dokumen, bukan foto. Cukup dikirim sekali, lalu bisa dibuka tanpa internet.',
@@ -507,9 +527,20 @@ follow:'Buat pelajaran lanjutan dari soal "Ajarkan lagi"',rBad:'Tidak terhitung'
 wbad:'bukan kode hasil',wother:'kode dari pelajaran lain',wtypo:'kode salah ketik',
 pHow:'Lingkari satu jawaban untuk tiap soal. Lalu tulis nomor jawabanmu berurutan di garis di bawah, contoh: 2 1 3.',pAns:'Jawaban saya:',
 pSum:'Jumlahkan semua nomor jawabanmu. Total:',pKey:'Sudah selesai? Balik kertas ini untuk memeriksa jawabanmu.'},
-// Spanish and French: learner screens, overview, help and the printed worksheet. Teacher screens fall back to English (see t()).
+
 es:{nHome:'Inicio',nLearn:'Aprender',nLib:'Lecciones',nMake:'Crear una lección',nMakeS:'Crear',nRes:'Resultados',gLearner:'Estudiante',gTeacher:'Docente',gAbout:'Acerca de',nWhy:'Evidencia',nHelp:'Ayuda',
 big:'Texto más grande',menu:'Mostrar u ocultar los nombres del menú',dark:'Colores oscuros de alto contraste',off:'Sin conexión: sigue funcionando',
+whyS:'Cada decisión de diseño responde a una cifra medida por otros. La lista completa (29 estudios y 59 fuentes) está en RESEARCH.md.',
+w1:'personas viven bajo cobertura móvil sin usar internet móvil (38% de brecha de uso), más ~300 millones sin cobertura (~3,4 mil millones sin conexión).',
+w2:'de niñas y niños en edad escolar en África Subsahariana (95% O/C, 88% E/S) y Asia del Sur (88%), más 49% en América Latina y el Caribe, no tenían internet en casa (2020).',
+w3:'ganancia de aprendizaje entre 16.936 estudiantes en India, Kenia, Nepal, Filipinas y Uganda con tutoría dirigida por teléfono/SMS; el SMS solo no tuvo efecto [P1].',
+w4:'mejora media con cuestionarios de práctica en 222 estudios escolares. Por eso cada lección incluye preguntas.',
+w5:'efecto de la retroalimentación que explica frente a decir solo bien o mal. Por eso hay una pista tras un error.',
+w6:'del alumnado de primaria en países africanos muestreados alcanza lectura mínima, junto con 23,4% en escuelas públicas rurales de 3.º en India [N55].',
+wEx:'Persisten brechas internas: en Perú rural solo 20,5%–23,6% de menores de 6–17 años usa internet frente a 58,9%–60,1% nacional [N56]; en Indonesia el 27,74% de primaria no lo usa [N44]; en Brasil el acceso escolar bajó de 51% a 37% [N58].',
+wNot:'Lo que aún no se sabe',wn1:'Nadie ha probado Titip todavía con estudiantes reales. Estas cifras provienen de otras herramientas y contextos.',
+wn2:'Una plataforma offline en tabletas en 102 escuelas de Honduras no subió las notas [P12], ni bastaron los avisos pasivos [P4]. La tutoría telefónica en América Latina funcionó con un docente humano [P20].',
+wn3:'Titip indica al docente qué volver a enseñar, pero no puede garantizar que ocurra.',wSrc:'Fuentes',
 hero:'Lecciones que viajan sin internet',heroS:'Quien estudia en casa sin conexión igual puede practicar. El docente igual sabe qué volver a enseñar.',hTry:'Probar una lección',how:'Cómo funciona',
 h1t:'Escribir',h1:'El docente completa un solo formulario: el texto de la lección, las preguntas y una pista corta para cada una.',
 h2t:'Pasarla',h2:'Un archivo pequeño pasa de teléfono a teléfono por Bluetooth, WhatsApp o tarjeta de memoria. ¿No hay teléfono en casa? Se imprime la hoja de trabajo.',
@@ -522,17 +553,45 @@ right:'Correcto.',wrong:'Todavía no. Prueba otra respuesta.',hint:'Pista:',done
 review:'Vuelve a leer esto',codeIs:'Tu código de resultado',codeHelp:'Envía este código a tu docente por SMS o escríbelo en papel. No contiene tu nombre y no necesita internet.',
 sms:'Enviar por SMS',again:'Siguiente estudiante',words:'Significado de las palabras',
 libS:'Lecciones listas para usar. Abre una para aprender o edita una copia para crear la tuya.',open:'Abrir',copy:'Editar una copia',now:'Abierta ahora',
-hp1:'Pasar una lección a otro teléfono',b1:'Bluetooth: abre la aplicación de archivos, mantén pulsado el archivo de la lección, toca Compartir, elige Bluetooth y luego el otro teléfono.',
+mHelp:'Escribe la lección una vez. Descarga un archivo pequeño y compártelo por Bluetooth, WhatsApp o tarjeta. Se abre sin internet.',
+fTitle:'Título de la lección',fLang:'Idioma de la lección',fBody:'Texto de la lección',fBodyH:'Deja una línea vacía entre párrafos.',
+fGloss:'Significado de palabras (opcional)',fGlossH:'Uno por línea: palabra = significado. El estudiante puede tocarla en el texto.',
+qN:'Pregunta {0}',fQ:'Pregunta',fAns:'Respuestas. Selecciona la correcta.',ansN:'Respuesta {0}',ansR:'La respuesta {0} es la correcta',delA:'Quitar respuesta {0}',delQ:'Borrar pregunta {0}',
+addA:'Añadir respuesta',addQ:'Añadir pregunta',fHint:'Pista tras una respuesta incorrecta',fHintH:'Una frase corta.',
+use:'Probar como estudiante',dl:'Descargar archivo de lección',share:'Compartir archivo de lección',print:'Imprimir hoja de trabajo',printH:'La hoja es para hogares sin teléfono.',
+ok:'Lista: {0} preguntas.',saved:'Guardado {0} ({1} KB).',
+eTitle:'Añade un título a la lección.',eNoQ:'Añade al menos una pregunta.',eQ:'Pregunta {0}: escribe la pregunta.',eCh:'Pregunta {0}: pon de 2 a 9 respuestas y complétalas.',eOne:'Pregunta {0}: selecciona la respuesta correcta.',
+rHelp:'Escribe los códigos de tus estudiantes, uno por línea. Para hoja de papel, escribe los números de respuesta y el total, p. ej. 2132 8. Usa una línea con --- para comparar dos rondas.',
+rFor:'Los resultados se leen para esta lección:',rLab:'Códigos de resultado',tally:'Mostrar resultados',demoB:'Rellenar una clase inventada',fake:'Datos inventados para demostración. No son estudiantes reales.',
+sN:'Estudiantes',sPct:'Aciertos al primer intento',sUp:'Cambio tras volver a enseñar',pts:'{0} puntos',
+r1:'Primera ronda:',r2:'Segunda ronda:',thF:'aciertos al primer intento',thW:'Error más común',reteach:'Enseñar de nuevo',fine:'OK',
+follow:'Crear lección de repaso con las preguntas de "Enseñar de nuevo"',rBad:'No contados',
+wbad:'no es un código de resultado',wother:'código de otra lección',wtypo:'error al copiar el código',
+saveR:'Guardar esta ronda',recS:'Imprimir hoja de registro',recH:'Anota cada código o los números y total del papel. No hace falta nombre.',
+savedT:'Rondas guardadas de esta lección',addR:'Cargar en el cuadro',delR:'Borrar',csv:'Descargar como hoja (CSV)',nL:'{0} estudiantes',
+hp1:'Pasar una lección a otro teléfono',b1:'Bluetooth: abre la aplicación de archivos, mantén pulsado el archivo, toca Compartir, elige Bluetooth y luego el otro teléfono.',
 b2:'WhatsApp: adjunta el archivo como Documento, no como foto. Se envía una vez y luego se abre sin internet.',b3:'Tarjeta de memoria o cable: copia el archivo como cualquier foto o canción.',
-b4:'Sin teléfono en casa: el docente imprime la hoja de trabajo de la lección.',bN:'Los nombres de los menús cambian según el teléfono.',
+b4:'Sin teléfono en casa: en Crear, pulsa Imprimir hoja de trabajo.',bN:'Los nombres de los menús cambian según el teléfono.',
 hp2:'Abrir una lección recibida',c1:'Toca el archivo. Si el teléfono pregunta con qué aplicación, elige un navegador como Chrome.',
 c2:'Lee la lección y luego pulsa Empezar a practicar. Toca una palabra subrayada para ver qué significa.',c3:'Al final, envía el código a tu docente por SMS o escríbelo en papel.',
-hp3:'Privacidad',p1:'Sin cuenta, sin nombre, sin rastreo.',p2:'Un código de resultado solo contiene un identificador de la lección y la primera respuesta a cada pregunta.',
+hp3:'Privacidad',p1:'Sin cuenta, sin nombre, sin rastreo.',p2:'Un código de resultado solo contiene un identificador de lección y la primera respuesta a cada pregunta.',
 p3:'Las rondas que guarda un docente se quedan en ese dispositivo.',p4:'En una pantalla ancha la página carga una fuente de Google Fonts. En un teléfono no contacta a nadie.',
 pHow:'Rodea con un círculo una respuesta en cada pregunta. Luego escribe los números de tus respuestas en orden en la línea de abajo, por ejemplo: 2 1 3.',pAns:'Mis respuestas:',
 pSum:'Suma los números de tus respuestas. Total:',pKey:'¿Terminaste? Da la vuelta a la hoja para comprobar tus respuestas.'},
+
 fr:{nHome:'Accueil',nLearn:'Apprendre',nLib:'Leçons',nMake:'Créer une leçon',nMakeS:'Créer',nRes:'Résultats',gLearner:'Élève',gTeacher:'Enseignant',gAbout:'À propos',nWhy:'Preuves',nHelp:'Aide',
 big:'Texte plus grand',menu:'Afficher ou masquer les noms du menu',dark:'Couleurs sombres à fort contraste',off:'Hors ligne : ça marche quand même',
+whyS:'Chaque choix vient d’un chiffre mesuré ailleurs. La liste complète (29 articles et 59 sources) figure dans RESEARCH.md.',
+w1:'personnes vivent sous couverture mobile sans utiliser l’internet mobile (38 % d’écart d’usage), plus ~300 millions hors couverture (~3,4 milliards hors ligne).',
+w2:'des enfants d’âge scolaire en Afrique subsaharienne (95 % O/C, 88 % E/S) et en Asie du Sud (88 %), et 49 % en Amérique latine/Caraïbes, n’avaient pas internet à la maison (2020).',
+w3:'gain moyen parmi 16 936 élèves en Inde, au Kenya, au Népal, aux Philippines et en Ouganda grâce au tutorat ciblé par téléphone/SMS ; le SMS seul n’a eu aucun effet [P1].',
+w4:'gain moyen des quiz d’entraînement dans 222 études en classe. D’où des questions dans chaque leçon.',
+w5:'effet d’un retour explicatif comparé à un simple vrai/faux. D’où un indice après une erreur.',
+w6:'des élèves du primaire dans les pays africains étudiés atteignent le seuil minimal, contre 23,4 % en 3e année publique rurale en Inde [N55].',
+wEx:'Des écarts nationaux persistent : au Pérou rural, seuls 20,5 %–23,6 % des 6–17 ans utilisent internet contre 58,9 %–60,1 % au niveau national [N56] ; en Indonésie 27,74 % du primaire n’utilise pas internet [N44] ; au Brésil l’accès à l’école a reculé de 51 % à 37 % [N58].',
+wNot:'Ce qu’on ignore encore',wn1:'Personne n’a encore testé Titip avec de vrais élèves. Ces chiffres viennent d’autres outils et contextes.',
+wn2:'Une plateforme hors ligne sur tablettes dans 102 écoles du Honduras n’a pas amélioré les notes [P12], ni les simples rappels [P4]. En Amérique latine, le tutorat téléphonique a fonctionné avec un enseignant humain [P20].',
+wn3:'Titip montre à l’enseignant quoi réexpliquer, sans pouvoir garantir la suite.',wSrc:'Sources',
 hero:'Des leçons qui voyagent sans internet',heroS:'Un élève à la maison sans connexion peut quand même s’entraîner. L’enseignant sait quand même quoi réexpliquer.',hTry:'Essayer une leçon',how:'Comment ça marche',
 h1t:'Écrire',h1:'L’enseignant remplit un seul formulaire : le texte de la leçon, les questions et un indice court pour chacune.',
 h2t:'Faire passer',h2:'Un petit fichier passe de téléphone en téléphone par Bluetooth, WhatsApp ou carte mémoire. Pas de téléphone à la maison ? On imprime la fiche d’exercices.',
@@ -545,15 +604,286 @@ right:'Correct.',wrong:'Pas encore. Essaie une autre réponse.',hint:'Indice :',
 review:'Relis ceci',codeIs:'Ton code de résultat',codeHelp:'Envoie ce code à ton enseignant par SMS ou écris-le sur papier. Il ne contient pas ton nom et n’a pas besoin d’internet.',
 sms:'Envoyer par SMS',again:'Élève suivant',words:'Sens des mots',
 libS:'Des leçons prêtes à l’emploi. Ouvre-en une pour apprendre, ou modifie une copie pour créer la tienne.',open:'Ouvrir',copy:'Modifier une copie',now:'Ouverte',
-hp1:'Faire passer une leçon à un autre téléphone',b1:'Bluetooth : ouvre l’application Fichiers, appuie longuement sur le fichier de la leçon, touche Partager, choisis Bluetooth puis l’autre téléphone.',
+mHelp:'Écris la leçon une fois. Télécharge un petit fichier et partage-le par Bluetooth, WhatsApp ou carte mémoire. Il s’ouvre sans internet.',
+fTitle:'Titre de la leçon',fLang:'Langue de la leçon',fBody:'Texte de la leçon',fBodyH:'Laisse une ligne vide entre les paragraphes.',
+fGloss:'Sens des mots (facultatif)',fGlossH:'Un par ligne : mot = sens. L’élève peut toucher le mot dans le texte.',
+qN:'Question {0}',fQ:'Question',fAns:'Réponses. Choisis la bonne.',ansN:'Réponse {0}',ansR:'La réponse {0} est la bonne réponse',delA:'Supprimer réponse {0}',delQ:'Supprimer question {0}',
+addA:'Ajouter une réponse',addQ:'Ajouter une question',fHint:'Indice affiché après une erreur',fHintH:'Une phrase courte.',
+use:'Tester comme élève',dl:'Télécharger la leçon',share:'Partager la leçon',print:'Imprimer la fiche',printH:'La fiche sert aux foyers sans téléphone.',
+ok:'Prête : {0} questions.',saved:'Enregistré {0} ({1} Ko).',
+eTitle:'Ajoute un titre de leçon.',eNoQ:'Ajoute au moins une question.',eQ:'Question {0} : écris la question.',eCh:'Question {0} : donne 2 à 9 réponses remplies.',eOne:'Question {0} : sélectionne la bonne réponse.',
+rHelp:'Saisis les codes reçus, un par ligne. Pour la fiche papier, saisis les numéros puis le total, ex. 2132 8. Mets --- entre deux séries pour comparer.',
+rFor:'Résultats lus pour cette leçon :',rLab:'Codes de résultat',tally:'Afficher les résultats',demoB:'Remplir une classe fictive',fake:'Données fictives de démonstration. Ce ne sont pas de vrais élèves.',
+sN:'Élèves',sPct:'Justes au premier essai',sUp:'Évolution après révision',pts:'{0} points',
+r1:'Première série :',r2:'Deuxième série :',thF:'justes au premier essai',thW:'Erreur la plus fréquente',reteach:'À revoir',fine:'OK',
+follow:'Créer une leçon de révision avec les questions « À revoir »',rBad:'Non comptés',
+wbad:'n’est pas un code valide',wother:'code d’une autre leçon',wtypo:'erreur de saisie dans le code',
+saveR:'Enregistrer cette série',recS:'Imprimer la feuille de relevé',recH:'Note chaque code élève ou les chiffres et total de sa fiche papier. Aucun nom requis.',
+savedT:'Séries enregistrées pour cette leçon',addR:'Charger dans la boîte',delR:'Supprimer',csv:'Télécharger en tableur (CSV)',nL:'{0} élèves',
+hp1:'Faire passer une leçon à un autre téléphone',b1:'Bluetooth : ouvre l’application Fichiers, appuie longuement sur le fichier, touche Partager, choisis Bluetooth puis l’autre téléphone.',
 b2:'WhatsApp : joins le fichier comme Document, pas comme photo. Il est envoyé une fois et s’ouvre ensuite sans internet.',b3:'Carte mémoire ou câble : copie le fichier comme une photo ou une chanson.',
-b4:'Pas de téléphone à la maison : l’enseignant imprime la fiche d’exercices de la leçon.',bN:'Les noms des menus varient selon les téléphones.',
+b4:'Pas de téléphone à la maison : dans Créer, appuie sur Imprimer la fiche.',bN:'Les noms des menus varient selon les téléphones.',
 hp2:'Ouvrir une leçon reçue',c1:'Touche le fichier. Si le téléphone demande quelle application utiliser, choisis un navigateur comme Chrome.',
 c2:'Lis la leçon, puis appuie sur Commencer l’exercice. Touche un mot souligné pour voir ce qu’il veut dire.',c3:'À la fin, envoie le code à ton enseignant par SMS ou écris-le sur papier.',
 hp3:'Confidentialité',p1:'Pas de compte, pas de nom, pas de suivi.',p2:'Un code de résultat contient seulement un identifiant de leçon et la première réponse à chaque question.',
 p3:'Les séries qu’un enseignant enregistre restent sur cet appareil.',p4:'Sur un grand écran, la page charge une police depuis Google Fonts. Sur un téléphone, elle ne contacte personne.',
 pHow:'Entoure une réponse pour chaque question. Puis écris les numéros de tes réponses dans l’ordre sur la ligne ci-dessous, par exemple : 2 1 3.',pAns:'Mes réponses :',
-pSum:'Additionne les numéros de tes réponses. Total :',pKey:'Fini ? Retourne la feuille pour vérifier tes réponses.'}
+pSum:'Additionne les numéros de tes réponses. Total :',pKey:'Fini ? Retourne la feuille pour vérifier tes réponses.'},
+
+pt:{nHome:'Início',nLearn:'Aprender',nLib:'Lições',nMake:'Criar lição',nMakeS:'Criar',nRes:'Resultados',gLearner:'Estudante',gTeacher:'Docente',gAbout:'Sobre',nWhy:'Evidências',nHelp:'Ajuda',
+big:'Texto maior',menu:'Mostrar ou ocultar rótulos do menu',dark:'Cores escuras de alto contraste',off:'Sem internet: continua funcionando',
+whyS:'Cada escolha de design parte de um número medido por outros. A lista completa (29 artigos e 59 fontes) está em RESEARCH.md.',
+w1:'pessoas vivem sob cobertura móvel sem usar internet móvel (38% de lacuna de uso), mais ~300 milhões sem cobertura (~3,4 bilhões offline).',
+w2:'das crianças em idade escolar na África Subsaariana (95% O/C, 88% L/S) e Sul da Ásia (88%), e 49% na América Latina e Caribe, não tinham internet em casa (2020).',
+w3:'ganho de aprendizagem entre 16.936 estudantes na Índia, Quênia, Nepal, Filipinas e Uganda com tutoria guiada por telefone/SMS; SMS sozinho não teve efeito [P1].',
+w4:'ganho médio com testes práticos em 222 estudos em sala de aula. Por isso há perguntas em toda lição.',
+w5:'efeito de explicações curtas diante de apenas certo ou errado. Por isso há uma dica após o erro.',
+w6:'dos alunos do ensino fundamental em países africanos amostrados atingem o mínimo de leitura/matemática, e 23,4% no 3º ano rural público da Índia [N55].',
+wEx:'Desigualdades locais continuam: no Peru rural só 20,5%–23,6% dos jovens de 6–17 usam internet contra 58,9%–60,1% no país [N56]; na Indonésia 27,74% do primário não usa internet [N44]; no Brasil o acesso escolar caiu de 51% para 37% [N58].',
+wNot:'O que ainda não sabemos',wn1:'Ninguém testou o Titip com estudantes reais ainda. Os números acima vêm de outras ferramentas.',
+wn2:'Tablets offline em 102 escolas de Honduras não elevaram as notas [P12], nem avisos passivos [P4]. Tutoria por telefone na América Latina funcionou com docente humano [P20].',
+wn3:'O Titip mostra ao docente o que ensinar de novo, mas não garante que isso ocorra.',wSrc:'Fontes',
+hero:'Lições que viajam sem internet',heroS:'Quem estuda em casa sem conexão ainda pratica. O docente ainda sabe o que ensinar de novo.',hTry:'Testar uma lição',how:'Como funciona',
+h1t:'Escrever',h1:'O docente preenche um formulário: texto da lição, perguntas e uma dica curta para cada uma.',
+h2t:'Repassar',h2:'Um arquivo pequeno vai de celular em celular por Bluetooth, WhatsApp ou cartão de memória. Sem celular em casa? Imprima a folha.',
+h3t:'Receber retorno',h3:'O estudante envia um código curto por SMS ou no papel. O docente vê qual erro ensinar de novo.',
+facts:'O que o estudante precisa',kb:'{0} KB',f1:'Todo o aplicativo e a lição em um único arquivo',f2:'Megabytes de dados para abrir e concluir uma lição',f3:'Contas, nomes ou rastreamento',
+tour:'Visita de dois minutos',t1:'Fazer a lição de exemplo como estudante',t2:'Ver os resultados de uma turma fictícia',t3:'Mudar uma pergunta e baixar o arquivo da lição',
+honest:'Ainda não testado com estudantes reais. O README lista o que foi checado, o que é previsto e a pesquisa por trás.',
+lesson:'Lição',nq:'{0} perguntas',listen:'Ouvir',start:'Começar prática',qOf:'Pergunta {0} de {1}',retry:'Mais uma tentativa',check:'Verificar resposta',next:'Próxima',pick:'Escolha uma resposta antes.',
+right:'Correto.',wrong:'Ainda não. Tente outra resposta.',hint:'Dica:',done:'Lição concluída',score:'Você acertou {0} de {1} na primeira tentativa.',
+review:'Leia isto novamente',codeIs:'Seu código de resultado',codeHelp:'Envie este código ao docente por SMS ou anote no papel. Não tem nome nem precisa de internet.',
+sms:'Enviar por SMS',again:'Próximo estudante',words:'Significado das palavras',
+libS:'Lições prontas. Abra uma para estudar ou edite uma cópia para criar a sua.',open:'Abrir',copy:'Editar uma cópia',now:'Aberta agora',
+mHelp:'Escreva a lição uma vez. Baixe um arquivo pequeno e envie por Bluetooth, WhatsApp ou cartão. Abre no navegador sem internet.',
+fTitle:'Título da lição',fLang:'Idioma da lição',fBody:'Texto da lição',fBodyH:'Deixe uma linha vazia entre os parágrafos.',
+fGloss:'Significados (opcional)',fGlossH:'Um por linha: palavra = significado. O estudante toca a palavra no texto.',
+qN:'Pergunta {0}',fQ:'Pergunta',fAns:'Respostas. Marque a correta.',ansN:'Resposta {0}',ansR:'Resposta {0} é a correta',delA:'Remover resposta {0}',delQ:'Apagar pergunta {0}',
+addA:'Adicionar resposta',addQ:'Adicionar pergunta',fHint:'Dica após resposta errada',fHintH:'Uma frase curta.',
+use:'Testar como estudante',dl:'Baixar arquivo da lição',share:'Compartilhar arquivo',print:'Imprimir folha',printH:'A folha é para casas sem celular.',
+ok:'Pronta: {0} perguntas.',saved:'Salvo {0} ({1} KB).',
+eTitle:'Adicione um título à lição.',eNoQ:'Adicione pelo menos uma pergunta.',eQ:'Pergunta {0}: escreva a pergunta.',eCh:'Pergunta {0}: dê de 2 a 9 respostas preenchidas.',eOne:'Pergunta {0}: selecione a resposta certa.',
+rHelp:'Digite os códigos recebidos, um por linha. Para folha impressa, digite os números e o total, ex. 2132 8. Use --- em uma linha para comparar duas rodadas.',
+rFor:'Resultados lidos para esta lição:',rLab:'Códigos de resultado',tally:'Mostrar resultados',demoB:'Preencher turma fictícia',fake:'Dados fictícios para demonstração. Não são estudantes reais.',
+sN:'Estudantes',sPct:'Acertos na primeira tentativa',sUp:'Mudança após revisar',pts:'{0} pontos',
+r1:'Primeira rodada:',r2:'Segunda rodada:',thF:'certos na primeira',thW:'Erro mais comum',reteach:'Ensinar de novo',fine:'OK',
+follow:'Criar lição de reforço das perguntas "Ensinar de novo"',rBad:'Não contados',
+wbad:'não é código de resultado',wother:'código de outra lição',wtypo:'erro de digitação no código',
+saveR:'Salvar esta rodada',recS:'Imprimir folha de registro',recH:'Anote o código ou os números e total do papel. Sem nomes.',
+savedT:'Rodadas salvas desta lição',addR:'Carregar na caixa',delR:'Apagar',csv:'Baixar planilha (CSV)',nL:'{0} estudantes',
+hp1:'Passar uma lição para outro celular',b1:'Bluetooth: abra Arquivos, segure o arquivo da lição, toque Compartilhar, escolha Bluetooth e o outro celular.',
+b2:'WhatsApp: envie como Documento, não foto. Envia uma vez e abre depois sem internet.',b3:'Cartão ou cabo: copie o arquivo como qualquer foto.',
+b4:'Sem celular em casa: em Criar, toque Imprimir folha.',bN:'Os nomes dos menus variam conforme o aparelho.',
+hp2:'Abrir uma lição recebida',c1:'Toque no arquivo. Se pedir aplicativo, escolha um navegador como Chrome.',
+c2:'Leia a lição e toque Começar prática. Toque em palavras sublinhadas para ver o sentido.',c3:'Ao fim, envie o código por SMS ao docente ou escreva no papel.',
+hp3:'Privacidade',p1:'Sem conta, sem nome, sem rastreio.',p2:'O código guarda apenas o id da lição e a primeira resposta de cada pergunta.',
+p3:'As rodadas salvas pelo docente ficam apenas naquele aparelho.',p4:'Em tela grande carrega uma fonte do Google Fonts. No celular não contata ninguém.',
+pHow:'Circule uma resposta por pergunta. Depois escreva os números em ordem na linha abaixo, ex.: 2 1 3.',pAns:'Minhas respostas:',
+pSum:'Some os números das respostas. Total:',pKey:'Terminou? Vire a folha de cabeça para baixo para conferir.'},
+
+sw:{nHome:'Muhtasari',nLearn:'Jifunze',nLib:'Masomo',nMake:'Tengeneza somo',nMakeS:'Tengeneza',nRes:'Matokeo',gLearner:'Mwanafunzi',gTeacher:'Mwalimu',gAbout:'Kuhusu',nWhy:'Ushahidi',nHelp:'Msaada',
+big:'Maandishi makubwa',menu:'Onyesha au ficha majina ya menyu',dark:'Rangi nyeusi yenye utofauti mkubwa',off:'Nje ya mtandao: linafanya kazi',
+whyS:'Kila uamuzi wa muundo unatokana na takwimu zilizopimwa na watafiti. Orodha kamili (tafiti 29 na ripoti 59) iko kwenye RESEARCH.md.',
+w1:'watu wanaishi chini ya mtandao wa simu bila kutumia intaneti (pengo la 38%), pamoja na ~milioni 300 wasio na mtandao wowote (~bilioni 3.4 nje ya mtandao).',
+w2:'ya watoto wa umri wa shule Afrika Kusini mwa Sahara (95% Magharibi/Kati, 88% Mashariki/Kusini) na Asia Kusini (88%), na 49% Amerika Kusini, hawakuwa na intaneti nyumbani (2020).',
+w3:'ongezeko la ufaulu kwa wanafunzi 16,936 huko India, Kenya, Nepal, Ufilipino na Uganda kupitia mafunzo lengwa ya simu/SMS; SMS pekee haikuwa na athari [P1].',
+w4:'wastani wa faida ya maswali ya mazoezi katika tafiti 222 za darasani. Ndiyo maana kila somo lina maswali.',
+w5:'athari ya maelezo yanayofafanua ukilinganisha na kusema sawa/kosa tu. Ndiyo maana kuna dokezo baada ya kosa.',
+w6:'ya wanafunzi wa shule za msingi katika nchi za Afrika zilizochunguzwa hufikia kiwango cha chini cha kusoma/hisabati, na 23.4% darasa la 3 shule za umma vijijini India [N55].',
+wEx:'Mapengo ya ndani yanaendelea: vijijini Peru 20.5%–23.6% tu ya watoto hutumia intaneti dhidi ya 58.9%–60.1% kitaifa [N56]; Indonesia 27.74% ya msingi hawatumii [N44]; Brazil matumizi shuleni yalishuka kutoka 51% hadi 37% [N58].',
+wNot:'Ambavyo bado havijulikani',wn1:'Bado hakuna mtu aliyemjaribu Titip na wanafunzi halisi. Takwimu hizi zinatoka kwenye zana nyingine.',
+wn2:'Kompyuta mpakato nje ya mtandao katika shule 102 za Honduras hazikupandisha alama [P12], wala jumbe zisizo na maelekezo [P4]. Mafunzo ya simu yalifaulu yakiwa na mwalimu [P20].',
+wn3:'Titip inamwonyesha mwalimu cha kufundisha tena, lakini haiwezi kulazimisha hatua hiyo.',wSrc:'Vyanzo',
+hero:'Masomo yanayosafiri bila intaneti',heroS:'Mwanafunzi aliye nyumbani bila mtandao bado anapata mazoezi. Mwalimu bado anajua cha kufundisha tena.',hTry:'Jaribu somo',how:'Inavyofanya kazi',
+h1t:'Andika',h1:'Mwalimu hujaza fomu moja: maandishi ya somo, maswali na dokezo fupi kwa kila swali.',
+h2t:'Pitisha',h2:'Faili moja dogo husafiri kutoka simu moja hadi nyingine kwa Bluetooth, WhatsApp au kadi ya kumbukumbu. Hakuna simu nyumbani? Chapisha karatasi.',
+h3t:'Pata mrejesho',h3:'Mwanafunzi hutuma msimbo mfupi kwa SMS au karatasi. Mwalimu huona kosa la kufundisha tena.',
+facts:'Anachohitaji mwanafunzi',kb:'{0} KB',f1:'Programu nzima na somo katika faili moja',f2:'Megabaiti za bando kufungua na kumaliza somo',f3:'Akaunti, majina au ufuatiliaji',
+tour:'Ziara ya dakika mbili',t1:'Fanya somo la mfano kama mwanafunzi',t2:'Tazama matokeo ya darasa la mfano',t3:'Badili swali moja na pakua faili la somo',
+honest:'Bado haijajaribiwa na wanafunzi halisi. README inaorodhesha kilichokaguliwa, kilichotabiriwa na utafiti nyuma ya muundo.',
+lesson:'Somo',nq:'Maswali {0}',listen:'Sikiliza',start:'Anza mazoezi',qOf:'Swali {0} kati ya {1}',retry:'Jaribu tena',check:'Kagua jibu',next:'Endelea',pick:'Chagua jibu kwanza.',
+right:'Sahihi.',wrong:'Bado. Jaribu jibu lingine.',hint:'Dokezo:',done:'Somo limekamilika',score:'Umepata {0} kati ya {1} sahihi katika jaribio la kwanza.',
+review:'Soma hizi tena',codeIs:'Msimbo wako wa matokeo',codeHelp:'Tuma msimbo huu kwa mwalimu kwa SMS au uandike kwenye karatasi. Hauna jina wala hauhitaji intaneti.',
+sms:'Tuma kwa SMS',again:'Mwanafunzi anayefuata',words:'Maana ya maneno',
+libS:'Masomo tayari. Fungua ujifunze au hariri nakala kutengeneza lako.',open:'Fungua',copy:'Hariri nakala',now:'Limefunguliwa',
+mHelp:'Andika somo mara moja. Pakua faili moja dogo na tuma kwa Bluetooth, WhatsApp au kadi. Linafunguka bila intaneti.',
+fTitle:'Kichwa cha somo',fLang:'Lugha ya somo',fBody:'Maandishi ya somo',fBodyH:'Acha mstari mmoja mtupu kati ya aya.',
+fGloss:'Maana ya maneno (hiari)',fGlossH:'Moja kwa mstari: neno = maana. Mwanafunzi anaweza kuligusa.',
+qN:'Swali {0}',fQ:'Swali',fAns:'Majibu. Chagua jibu sahihi.',ansN:'Jibu {0}',ansR:'Jibu {0} ndilo sahihi',delA:'Ondoa jibu {0}',delQ:'Futa swali {0}',
+addA:'Ongeza jibu',addQ:'Ongeza swali',fHint:'Dokezo baada ya jibu lisilo sahihi',fHintH:'Sentensi moja fupi.',
+use:'Jaribu kama mwanafunzi',dl:'Pakua faili la somo',share:'Shiriki faili la somo',print:'Chapisha karatasi',printH:'Karatasi ni kwa nyumba zisizo na simu.',
+ok:'Tayari: maswali {0}.',saved:'Imehifadhiwa {0} ({1} KB).',
+eTitle:'Weka kichwa cha somo.',eNoQ:'Ongeza angalau swali moja.',eQ:'Swali {0}: andika swali.',eCh:'Swali {0}: weka majibu 2 hadi 9 yaliyojaa.',eOne:'Swali {0}: chagua jibu sahihi.',
+rHelp:'Andika misimbo ya matokeo, moja kwa mstari. Kwa karatasi, andika namba za majibu kisha jumla, mf. 2132 8. Weka --- kati ya mizunguko miwili.',
+rFor:'Matokeo yanasomwa dhidi ya somo hili:',rLab:'Misimbo ya matokeo',tally:'Onyesha matokeo',demoB:'Jaza darasa la mfano',fake:'Takwimu za mfano za maonyesho. Hawa si wanafunzi halisi.',
+sN:'Wanafunzi',sPct:'Sahihi jaribio la kwanza',sUp:'Mabadiliko baada ya marudio',pts:'alama {0}',
+r1:'Mzunguko wa kwanza:',r2:'Mzunguko wa pili:',thF:'sahihi jaribio la kwanza',thW:'Kosa la kawaida zaidi',reteach:'Fundisha tena',fine:'Sawa',
+follow:'Tengeneza somo la marudio kutokana na maswali ya "Fundisha tena"',rBad:'Hazikuhesabiwa',
+wbad:'si msimbo halali',wother:'msimbo wa somo jingine',wtypo:'kosa la kuandika msimbo',
+saveR:'Hifadhi mzunguko huu',recS:'Chapisha karatasi ya darasa',recH:'Andika msimbo au namba na jumla za karatasi. Majina hayahitajiki.',
+savedT:'Mizunguko iliyohifadhiwa kwa somo hili',addR:'Weka kwenye kisanduku',delR:'Futa',csv:'Pakua jedwali (CSV)',nL:'wanafunzi {0}',
+hp1:'Kupitisha somo kwa simu nyingine',b1:'Bluetooth: fungua Faili, shikilia faili la somo, gusa Shiriki, chagua Bluetooth kisha simu nyingine.',
+b2:'WhatsApp: ambatisha kama Hati (Document), si picha. Hutumwa mara moja kisha hufunguka bila intaneti.',b3:'Kadi au waya: nakili faili kama picha au wimbo.',
+b4:'Hakuna simu nyumbani: kwenye Tengeneza, bonyeza Chapisha karatasi.',bN:'Majina ya menyu hutofautiana kati ya simu.',
+hp2:'Kufungua somo lililopokelewa',c1:'Gusa faili. Simu ikiuliza programu, chagua kivinjari kama Chrome.',
+c2:'Soma somo, kisha bonyeza Anza mazoezi. Gusa neno lililopigiwa mstari kuona maana.',c3:'Mwishoni, tuma msimbo kwa mwalimu kwa SMS au uandike kwenye karatasi.',
+hp3:'Faragha',p1:'Hakuna akaunti, jina wala ufuatiliaji.',p2:'Msimbo una kitambulisho cha somo na jibu la kwanza tu.',
+p3:'Mizunguko inayohifadhiwa hubaki kwenye kifaa hicho pekee.',p4:'Kwenye skrini kubwa hupakia fonti moja ya Google Fonts. Kwenye simu haiwasiliani na mtu yeyote.',
+pHow:'Zungushia jibu moja kwa kila swali. Kisha andika namba za majibu yako kwa mpangilio hapa chini, mfano: 2 1 3.',pAns:'Majibu yangu:',
+pSum:'Jumlisha namba za majibu yako. Jumla:',pKey:'Umemaliza? Geuza karatasi juu chini kukagua majibu.'},
+
+hi:{nHome:'अवलोकन',nLearn:'सीखें',nLib:'पाठ',nMake:'पाठ बनाएँ',nMakeS:'बनाएँ',nRes:'परिणाम',gLearner:'विद्यार्थी',gTeacher:'शिक्षक',gAbout:'परिचय',nWhy:'साक्ष्य',nHelp:'मदद',
+big:'बड़ा टेक्स्ट',menu:'मेनू लेबल दिखाएँ या छिपाएँ',dark:'गहरे उच्च-कंट्रास्ट रंग',off:'ऑफ़लाइन: अभी भी चलता है',
+whyS:'हर डिज़ाइन निर्णय किसी मापे गए आँकड़े पर आधारित है। पूरी सूची (29 शोध पत्र, 59 स्रोत) RESEARCH.md में है।',
+w1:'लोग मोबाइल नेटवर्क क्षेत्र में रहकर भी मोबाइल इंटरनेट उपयोग नहीं करते (38% उपयोग अंतराल), और ~30 करोड़ लोग बिना किसी नेटवर्क के (~3.4 अरब ऑफ़लाइन)।',
+w2:'उप-सहारा अफ्रीका (95% प/म, 88% पू/द) और दक्षिण एशिया (88%) तथा लैटिन अमेरिका (49%) के स्कूली बच्चों के घर पर इंटरनेट नहीं था (2020)।',
+w3:'भारत, केन्या, नेपाल, फ़िलीपींस और युगांडा के 16,936 छात्रों में फ़ोन/एसएमएस ट्यूटरिंग से सीखने में बढ़त; केवल एसएमएस का कोई असर नहीं था [P1]।',
+w4:'222 कक्षा अध्ययनों में अभ्यास प्रश्नोत्तरी से औसत लाभ। इसलिए हर पाठ में प्रश्न हैं।',
+w5:'केवल सही/गलत कहने के बजाय समझाकर दिए गए फीडबैक का प्रभाव। इसलिए गलत उत्तर पर संकेत दिखता है।',
+w6:'अफ्रीकी नमूना देशों के प्राथमिक छात्र न्यूनतम दक्षता तक पहुँचते हैं, जबकि ग्रामीण भारत के सरकारी स्कूलों की कक्षा 3 में 23.4% हैं [N55]।',
+wEx:'देशों के भीतर भी अंतर है: ग्रामीण पेरू में 20.5%–23.6% बनाम राष्ट्रीय 58.9%–60.1% [N56], इंडोनेशिया में 27.74% प्राथमिक छात्र इंटरनेट उपयोग नहीं करते [N44], ब्राज़ील में स्कूल पहुँच 51% से 37% हुई [N58]।',
+wNot:'जो अभी ज्ञात नहीं है',wn1:'Titip का परीक्षण अभी वास्तविक छात्रों पर नहीं हुआ है। ऊपर के आँकड़े अन्य उपकरणों के हैं।',
+wn2:'होंडुरास के 102 स्कूलों में ऑफ़लाइन टैबलेट से अंक नहीं बढ़े [P12], न केवल संदेश भेजने से [P4]। लैटिन अमेरिका में मानव शिक्षक के साथ फ़ोन ट्यूटरिंग सफल रही [P20]।',
+wn3:'Titip शिक्षक को बताता है कि क्या दोबारा पढ़ाना है, पर यह सुनिश्चित नहीं कर सकता।',wSrc:'स्रोत',
+hero:'बिना इंटरनेट चलने वाले पाठ',heroS:'घर पर इंटरनेट न होने पर भी विद्यार्थी अभ्यास कर सकते हैं। शिक्षक को पता रहता है कि क्या दोहराना है।',hTry:'पाठ आज़माएँ',how:'यह कैसे काम करता है',
+h1t:'लिखें',h1:'शिक्षक एक फ़ॉर्म भरता है: पाठ, प्रश्न और हर प्रश्न के लिए एक छोटा संकेत।',
+h2t:'आगे भेजें',h2:'एक छोटी फ़ाइल ब्लूटूथ, व्हाट्सऐप या मेमोरी कार्ड से एक फ़ोन से दूसरे फ़ोन में जाती है। घर पर फ़ोन नहीं? कार्यपत्रक प्रिंट करें।',
+h3t:'जवाब पाएँ',h3:'विद्यार्थी एसएमएस या कागज़ पर छोटा कोड भेजता है। शिक्षक देखता है कौन-सी गलती दोहरानी है।',
+facts:'विद्यार्थी को क्या चाहिए',kb:'{0} KB',f1:'पूरा ऐप और पाठ एक ही फ़ाइल में',f2:'पाठ खोलने और पूरा करने में खर्च डेटा (एमबी)',f3:'खाते, नाम या ट्रैकिंग',
+tour:'दो मिनट का दौरा',t1:'विद्यार्थी की तरह उदाहरण पाठ करें',t2:'काल्पनिक कक्षा के परिणाम देखें',t3:'एक प्रश्न बदलें और पाठ फ़ाइल डाउनलोड करें',
+honest:'अभी वास्तविक विद्यार्थियों पर जाँचा नहीं गया है। README में जाँचे गए तथ्य, अनुमान और शोध दर्ज हैं।',
+lesson:'पाठ',nq:'{0} प्रश्न',listen:'सुनें',start:'अभ्यास शुरू करें',qOf:'प्रश्न {0} / {1}',retry:'एक और प्रयास',check:'उत्तर जाँचें',next:'अगला',pick:'पहले एक उत्तर चुनें।',
+right:'सही।',wrong:'अभी नहीं। दूसरा उत्तर आज़माएँ।',hint:'संकेत:',done:'पाठ पूरा हुआ',score:'पहले प्रयास में {1} में से {0} सही।',
+review:'इन्हें फिर पढ़ें',codeIs:'आपका परिणाम कोड',codeHelp:'यह कोड शिक्षक को एसएमएस से भेजें या कागज़ पर लिखें। इसमें नाम नहीं है और इंटरनेट नहीं चाहिए।',
+sms:'एसएमएस से भेजें',again:'अगला विद्यार्थी',words:'शब्दों के अर्थ',
+libS:'तैयार पाठ। सीखने के लिए खोलें या अपनी प्रति संपादित करें।',open:'खोलें',copy:'प्रति संपादित करें',now:'अभी खुला है',
+mHelp:'पाठ एक बार लिखें। एक छोटी फ़ाइल डाउनलोड कर ब्लूटूथ, व्हाट्सऐप या मेमोरी कार्ड से भेजें। बिना इंटरनेट फ़ोन ब्राउज़र में खुलती है।',
+fTitle:'पाठ का शीर्षक',fLang:'पाठ की भाषा',fBody:'पाठ की सामग्री',fBodyH:'अनुच्छेदों के बीच एक खाली पंक्ति छोड़ें।',
+fGloss:'शब्दार्थ (वैकल्पिक)',fGlossH:'हर पंक्ति में एक: शब्द = अर्थ। विद्यार्थी पाठ में शब्द पर टैप कर सकते हैं।',
+qN:'प्रश्न {0}',fQ:'प्रश्न',fAns:'उत्तर। सही विकल्प चुनें।',ansN:'उत्तर {0}',ansR:'उत्तर {0} सही उत्तर है',delA:'उत्तर {0} हटाएँ',delQ:'प्रश्न {0} हटाएँ',
+addA:'उत्तर जोड़ें',addQ:'प्रश्न जोड़ें',fHint:'गलत उत्तर के बाद दिखने वाला संकेत',fHintH:'एक छोटा वाक्य।',
+use:'विद्यार्थी के रूप में आज़माएँ',dl:'पाठ फ़ाइल डाउनलोड करें',share:'पाठ फ़ाइल साझा करें',print:'कार्यपत्रक प्रिंट करें',printH:'बिना फ़ोन वाले घरों के लिए कार्यपत्रक।',
+ok:'तैयार: {0} प्रश्न।',saved:'सहेजा गया {0} ({1} KB)।',
+eTitle:'पाठ का शीर्षक लिखें।',eNoQ:'कम से कम एक प्रश्न जोड़ें।',eQ:'प्रश्न {0}: प्रश्न लिखें।',eCh:'प्रश्न {0}: 2 से 9 पूरे उत्तर दें।',eOne:'प्रश्न {0}: सही उत्तर चुनें।',
+rHelp:'विद्यार्थियों के कोड लिखें, हर पंक्ति में एक। कागज़ के लिए उत्तर संख्याएँ और योग लिखें, जैसे 2132 8। दो दौर की तुलना के लिए बीच में --- लिखें।',
+rFor:'परिणाम इस पाठ से पढ़े जा रहे हैं:',rLab:'परिणाम कोड',tally:'परिणाम दिखाएँ',demoB:'काल्पनिक कक्षा भरें',fake:'प्रदर्शन के लिए काल्पनिक डेटा। ये वास्तविक छात्र नहीं हैं।',
+sN:'विद्यार्थी',sPct:'पहले प्रयास में सही',sUp:'दोहराने के बाद बदलाव',pts:'{0} अंक',
+r1:'पहला दौर:',r2:'दूसरा दौर:',thF:'पहले प्रयास में सही',thW:'सबसे आम गलत उत्तर',reteach:'फिर पढ़ाएँ',fine:'ठीक',
+follow:'"फिर पढ़ाएँ" प्रश्नों से अगला पाठ बनाएँ',rBad:'गिना नहीं गया',
+wbad:'मान्य परिणाम कोड नहीं',wother:'दूसरे पाठ का कोड',wtypo:'कोड लिखने में त्रुटि',
+saveR:'यह दौर सहेजें',recS:'कक्षा रिकॉर्ड शीट प्रिंट करें',recH:'हर विद्यार्थी का कोड या कागज़ के अंक व योग लिखें। नाम जरूरी नहीं।',
+savedT:'इस पाठ के सहेजे गए दौर',addR:'बॉक्स में डालें',delR:'हटाएँ',csv:'तालिका डाउनलोड करें (CSV)',nL:'{0} विद्यार्थी',
+hp1:'दूसरे फ़ोन पर पाठ भेजना',b1:'ब्लूटूथ: फ़ाइल ऐप खोलें, पाठ फ़ाइल दबाकर रखें, साझा करें टैप करें, ब्लूटूथ चुनें और दूसरा फ़ोन चुनें।',
+b2:'व्हाट्सऐप: फ़ोटो नहीं, डॉक्यूमेंट के रूप में जोड़ें। एक बार भेजने पर बिना इंटरनेट खुलता है।',b3:'मेमोरी कार्ड या केबल: फ़ोटो की तरह कॉपी करें।',
+b4:'घर पर फ़ोन नहीं: बनाएँ में कार्यपत्रक प्रिंट करें दबाएँ।',bN:'फ़ोन के अनुसार मेनू नाम अलग हो सकते हैं।',
+hp2:'मिला हुआ पाठ खोलना',c1:'फ़ाइल पर टैप करें। ऐप पूछे तो Chrome जैसा ब्राउज़र चुनें।',
+c2:'पाठ पढ़ें और अभ्यास शुरू करें दबाएँ। अर्थ देखने के लिए रेखांकित शब्द पर टैप करें।',c3:'अंत में कोड एसएमएस या कागज़ से शिक्षक को भेजें।',
+hp3:'गोपनीयता',p1:'कोई खाता, नाम या ट्रैकिंग नहीं।',p2:'कोड में केवल पाठ आईडी और पहला उत्तर रहता है।',
+p3:'सहेजे गए दौर केवल उसी उपकरण पर रहते हैं।',p4:'बड़ी स्क्रीन पर एक Google फ़ॉन्ट लोड होता है; फ़ोन पर किसी से संपर्क नहीं होता।',
+pHow:'हर प्रश्न के एक उत्तर पर गोला लगाएँ। फिर नीचे अपने उत्तरों के नंबर क्रम से लिखें, जैसे: 2 1 3।',pAns:'मेरे उत्तर:',
+pSum:'अपने उत्तर नंबर जोड़ें। कुल योग:',pKey:'हो गया? उत्तर जाँचने के लिए पन्ना उल्टा करें।'},
+
+bn:{nHome:'সংক্ষিপ্তসার',nLearn:'শিখুন',nLib:'পাঠ',nMake:'পাঠ তৈরি',nMakeS:'তৈরি',nRes:'ফলাফল',gLearner:'শিক্ষার্থী',gTeacher:'শিক্ষক',gAbout:'সম্পর্কে',nWhy:'প্রমাণ',nHelp:'সহায়তা',
+big:'বড় লেখা',menu:'মেনু লেবেল দেখান বা লুকান',dark:'গাঢ় উচ্চ-কনট্রাস্ট রঙ',off:'অফলাইন: তবুও কাজ করে',
+whyS:'প্রতিটি নকশা-সিদ্ধান্ত অন্যদের মাপা তথ্যের ওপর ভিত্তি করে নেওয়া। সম্পূর্ণ তালিকা (২৯টি গবেষণা ও ৫৯টি উৎস) RESEARCH.md-এ রয়েছে।',
+w1:'মানুষ মোবাইল নেটওয়ার্ক এলাকায় থেকেও মোবাইল ইন্টারনেট ব্যবহার করেন না (৩৮% ব্যবহার-ব্যবধান), এবং ~৩০ কোটি নেটওয়ার্কের বাইরে (~৩.৪ বিলিয়ন অফলাইন)।',
+w2:'সাব-সাহারান আফ্রিকা (৯৫% প/ম, ৮৮% পূ/দ) ও দক্ষিণ এশিয়া (৮৮%) এবং লাতিন আমেরিকার (৪৯%) স্কুল-বয়সী শিশুদের বাড়িতে ইন্টারনেট ছিল না (২০২০)।',
+w3:'ভারত, কেনিয়া, নেপাল, ফিলিপাইন ও উগান্ডায় ১৬,৯৩৬ শিক্ষার্থীর মধ্যে ফোন/এসএমএস-ভিত্তিক শিক্ষায় অগ্রগতি; শুধু এসএমএসে কোনো ফল আসেনি [P1]।',
+w4:'২২২টি শ্রেণিকক্ষ গবেষণায় অনুশীলন কুইজ থেকে গড় উন্নতি। তাই প্রতিটি পাঠে প্রশ্ন রয়েছে।',
+w5:'শুধু ঠিক/ভুল বলার চেয়ে ব্যাখ্যাসহ ফিডব্যাকের প্রভাব। তাই ভুল উত্তরের পর ইঙ্গিত দেখানো হয়।',
+w6:'নমুনাভুক্ত আফ্রিকান দেশে প্রাথমিক শিক্ষার্থীরা ন্যূনতম দক্ষতা অর্জন করে, আর ভারতের গ্রামীণ সরকারি স্কুলে ৩য় শ্রেণির ২৩.৪% [N55]।',
+wEx:'দেশের ভেতরেও বৈষম্য আছে: পেরুর গ্রামে ২০.৫%–২৩.৬% বনাম জাতীয় ৫৮.৯%–৬০.১% [N56], ইন্দোনেশিয়ায় ২৭.৭৪% প্রাথমিক শিক্ষার্থী ইন্টারনেট ব্যবহার করে না [N44], ব্রাজিলে স্কুলে প্রবেশাধিকার ৫১% থেকে ৩৭%-এ নেমেছে [N58]।',
+wNot:'যা এখনো জানা যায়নি',wn1:'Titip এখনো প্রকৃত শিক্ষার্থীদের ওপর পরীক্ষা করা হয়নি। উপরের সংখ্যা অন্য যন্ত্র ও পরিবেশের।',
+wn2:'হন্ডুরাসের ১০২টি স্কুলে অফলাইন ট্যাবলেটে নম্বর বাড়েনি [P12], আর শুধু বার্তাতেও ফল আসেনি [P4]। মানব শিক্ষকের মাধ্যমে ফোন টিউটোরিং লাতিন আমেরিকায় কাজে দিয়েছে [P20]।',
+wn3:'Titip শিক্ষককে বলে কী আবার শেখাতে হবে, কিন্তু তা নিশ্চিত করতে পারে না।',wSrc:'উৎস',
+hero:'ইন্টারনেট ছাড়াই যে পাঠ পৌঁছায়',heroS:'বাড়িতে সংযোগ না থাকলেও শিক্ষার্থী অনুশীলন করতে পারে। শিক্ষকও জানতে পারেন কী আবার শেখাতে হবে।',hTry:'একটি পাঠ দেখুন',how:'যেভাবে কাজ করে',
+h1t:'লিখুন',h1:'শিক্ষক একটি ফর্ম পূরণ করেন: পাঠের লেখা, প্রশ্ন এবং প্রতিটির জন্য ছোট ইঙ্গিত।',
+h2t:'পৌঁছে দিন',h2:'একটি ছোট ফাইল ব্লুটুথ, হোয়াটসঅ্যাপ বা মেমোরি কার্ডে ফোন থেকে ফোনে যায়। বাড়িতে ফোন নেই? ওয়ার্কশিট প্রিন্ট করুন।',
+h3t:'ফলাফল জানুন',h3:'শিক্ষার্থী এসএমএস বা কাগজে ছোট কোড পাঠায়। শিক্ষক দেখেন কোন ভুলটি আবার শেখাতে হবে।',
+facts:'শিক্ষার্থীর যা লাগবে',kb:'{0} KB',f1:'পুরো অ্যাপ ও পাঠ একটি ফাইলেই',f2:'পাঠ খুলতে ও শেষ করতে ডেটা খরচ (এমবি)',f3:'অ্যাকাউন্ট, নাম বা ট্র্যাকিং',
+tour:'দুই মিনিটের পরিচিতি',t1:'শিক্ষার্থী হিসেবে নমুনা পাঠ করুন',t2:'কাল্পনিক শ্রেণির ফলাফল দেখুন',t3:'একটি প্রশ্ন বদলে পাঠ ফাইল ডাউনলোড করুন',
+honest:'এখনো প্রকৃত শিক্ষার্থীদের ওপর পরীক্ষা হয়নি। README-তে পরীক্ষিত অংশ, অনুমান এবং গবেষণা লেখা আছে।',
+lesson:'পাঠ',nq:'{0}টি প্রশ্ন',listen:'শুনুন',start:'অনুশীলন শুরু',qOf:'প্রশ্ন {0} / {1}',retry:'আরও একবার চেষ্টা',check:'উত্তর দেখুন',next:'পরবর্তী',pick:'আগে একটি উত্তর বেছে নিন।',
+right:'সঠিক।',wrong:'এখনো হয়নি। অন্য উত্তর দেখুন।',hint:'ইঙ্গিত:',done:'পাঠ শেষ',score:'প্রথম চেষ্টায় {1}টির মধ্যে {0}টি সঠিক।',
+review:'এগুলো আবার পড়ুন',codeIs:'তোমার ফলাফল কোড',codeHelp:'কোডটি শিক্ষককে এসএমএসে পাঠাও বা কাগজে লেখো। এতে নাম নেই এবং ইন্টারনেট লাগে না।',
+sms:'এসএমএসে পাঠান',again:'পরবর্তী শিক্ষার্থী',words:'শব্দের অর্থ',
+libS:'তৈরি করা পাঠ। শিখতে খুলুন অথবা নিজের পাঠ বানাতে একটি কপি সম্পাদনা করুন।',open:'খুলুন',copy:'কপি সম্পাদনা',now:'এখন খোলা',
+mHelp:'একবার পাঠ লিখুন। একটি ছোট ফাইল ডাউনলোড করে ব্লুটুথ, হোয়াটসঅ্যাপ বা মেমোরি কার্ডে দিন। ইন্টারনেট ছাড়াই ফোনে খোলে।',
+fTitle:'পাঠের শিরোনাম',fLang:'পাঠের ভাষা',fBody:'পাঠের লেখা',fBodyH:'অনুচ্ছেদের মাঝে একটি খালি লাইন রাখুন।',
+fGloss:'শব্দার্থ (ঐচ্ছিক)',fGlossH:'প্রতি লাইনে একটি: শব্দ = অর্থ। শিক্ষার্থী লেখায় শব্দটি স্পর্শ করতে পারবে।',
+qN:'প্রশ্ন {0}',fQ:'প্রশ্ন',fAns:'উত্তর। সঠিকটি নির্বাচন করুন।',ansN:'উত্তর {0}',ansR:'উত্তর {0} হলো সঠিক উত্তর',delA:'উত্তর {0} মুছুন',delQ:'প্রশ্ন {0} মুছুন',
+addA:'উত্তর যোগ করুন',addQ:'প্রশ্ন যোগ করুন',fHint:'ভুল উত্তরের পর দেখানো ইঙ্গিত',fHintH:'একটি ছোট বাক্য।',
+use:'শিক্ষার্থী হিসেবে দেখুন',dl:'পাঠ ফাইল ডাউনলোড',share:'পাঠ ফাইল শেয়ার',print:'ওয়ার্কশিট প্রিন্ট',printH:'ফোনহীন বাড়ির জন্য কাগজের ওয়ার্কশিট।',
+ok:'প্রস্তুত: {0}টি প্রশ্ন।',saved:'সংরক্ষিত {0} ({1} KB)।',
+eTitle:'পাঠের শিরোনাম দিন।',eNoQ:'অন্তত একটি প্রশ্ন যোগ করুন।',eQ:'প্রশ্ন {0}: প্রশ্নটি লিখুন।',eCh:'প্রশ্ন {0}: ২ থেকে ৯টি পূর্ণ উত্তর দিন।',eOne:'প্রশ্ন {0}: সঠিক উত্তর নির্বাচন করুন।',
+rHelp:'শিক্ষার্থীদের কোড প্রতি লাইনে একটি লিখুন। কাগজের উত্তরের জন্য নম্বর ও যোগফল লিখুন, যেমন 2132 8। দুই ধাপ তুলনায় মাঝে --- দিন।',
+rFor:'এই পাঠের সাপেক্ষে ফলাফল পড়া হচ্ছে:',rLab:'ফলাফল কোড',tally:'ফলাফল দেখান',demoB:'কাল্পনিক শ্রেণি পূরণ করুন',fake:'প্রদর্শনের জন্য কাল্পনিক তথ্য। এগুলো প্রকৃত শিক্ষার্থী নয়।',
+sN:'শিক্ষার্থী',sPct:'প্রথম চেষ্টায় সঠিক',sUp:'পুনরায় পড়ানোর পর পরিবর্তন',pts:'{0} পয়েন্ট',
+r1:'প্রথম ধাপ:',r2:'দ্বিতীয় ধাপ:',thF:'প্রথম চেষ্টায় সঠিক',thW:'সবচেয়ে সাধারণ ভুল',reteach:'আবার শেখান',fine:'ঠিক আছে',
+follow:'"আবার শেখান" প্রশ্ন দিয়ে পরবর্তী পাঠ তৈরি করুন',rBad:'গণনা হয়নি',
+wbad:'ফলাফল কোড নয়',wother:'অন্য পাঠের কোড',wtypo:'কোড লেখায় ভুল',
+saveR:'এই ধাপ সংরক্ষণ করুন',recS:'শ্রেণির রেকর্ড শিট প্রিন্ট',recH:'প্রতিটি কোড বা কাগজের নম্বর ও যোগফল লিখুন। নাম দরকার নেই।',
+savedT:'এই পাঠের সংরক্ষিত ধাপ',addR:'বক্সে দিন',delR:'মুছুন',csv:'স্প্রেডশিট ডাউনলোড (CSV)',nL:'{0} জন শিক্ষার্থী',
+hp1:'অন্য ফোনে পাঠ পাঠানো',b1:'ব্লুটুথ: ফাইলস অ্যাপ খুলে পাঠ ফাইলে চেপে ধরুন, শেয়ার ট্যাপ করে ব্লুটুথ ও অন্য ফোন বেছে নিন।',
+b2:'হোয়াটসঅ্যাপ: ছবি নয়, ডকুমেন্ট হিসেবে পাঠান। একবার পাঠালে ইন্টারনেট ছাড়াই খোলে।',b3:'মেমোরি কার্ড বা কেব্‌ল: ছবি বা গানের মতো কপি করুন।',
+b4:'বাড়িতে ফোন নেই: তৈরি মেনুতে ওয়ার্কশিট প্রিন্ট চাপুন।',bN:'ফোনভেদে মেনুর নাম ভিন্ন হতে পারে।',
+hp2:'পাওয়া পাঠ খোলা',c1:'ফাইলে ট্যাপ করুন। অ্যাপ জানতে চাইলে Chrome-এর মতো ব্রাউজার বেছে নিন।',
+c2:'পাঠ পড়ে অনুশীলন শুরু চাপুন। অর্থ দেখতে দাগ দেওয়া শব্দে ট্যাপ করুন।',c3:'শেষে কোডটি শিক্ষককে এসএমএসে পাঠান বা কাগজে লিখুন।',
+hp3:'গোপনীয়তা',p1:'কোনো অ্যাকাউন্ট, নাম বা ট্র্যাকিং নেই।',p2:'কোডে শুধু পাঠের আইডি ও প্রথম উত্তর থাকে।',
+p3:'সংরক্ষিত ধাপ শুধু ওই যন্ত্রেই থাকে।',p4:'বড় স্ক্রিনে Google Fonts থেকে একটি ফন্ট নেয়; ফোনে কারও সাথে যোগাযোগ করে না।',
+pHow:'প্রতি প্রশ্নের একটি উত্তরে গোল দাগ দাও। তারপর নিচের লাইনে ক্রম অনুযায়ী উত্তর নম্বর লেখো, যেমন: 2 1 3।',pAns:'আমার উত্তর:',
+pSum:'উত্তর নম্বরগুলো যোগ করো। মোট:',pKey:'শেষ? উত্তর মিলিয়ে দেখতে কাগজ উল্টে ধরো।'},
+
+ar:{nHome:'نظرة عامة',nLearn:'تعلّم',nLib:'الدروس',nMake:'إنشاء درس',nMakeS:'إنشاء',nRes:'النتائج',gLearner:'المتعلم',gTeacher:'المعلم',gAbout:'حول',nWhy:'الأدلة',nHelp:'مساعدة',
+big:'تكبير النص',menu:'إظهار أو إخفاء أسماء القائمة',dark:'ألوان داكنة عالية التباين',off:'دون اتصال: يعمل دائماً',
+whyS:'كل خيار تصميمي يستند إلى رقم قاسه آخرون. القائمة الكاملة (29 دراسة و59 مصدراً) في RESEARCH.md.',
+w1:'نسمة يعيشون ضمن تغطية الهاتف دون استخدام إنترنت الجوال (فجوة استخدام 38%)، إضافة إلى ~300 مليون بلا تغطية (~3.4 مليار بلا اتصال).',
+w2:'من الأطفال في سن المدرسة في أفريقيا جنوب الصحراء (95% غرب/وسط، 88% شرق/جنوب) وجنوب آسيا (88%)، و49% في أمريكا اللاتينية، بلا إنترنت منزلي (2020).',
+w3:'تحسّن التعلم لدى 16,936 طالباً في الهند وكينيا ونيبال والفلبين وأوغندا عبر دروس موجهة بالهاتف والرسائل؛ الرسائل وحدها لم تؤثر [P1].',
+w4:'متوسط الأثر لاختبارات التدريب عبر 222 دراسة صفية. لذلك يحتوي كل درس على أسئلة.',
+w5:'أثر التغذية الراجعة التفسيرية مقارنة بمجرد صواب/خطأ. لذلك يظهر تلميح بعد الخطأ.',
+w6:'من تلاميذ الابتدائي في دول أفريقية شملتها العينة يبلغون الحد الأدنى للكفاءة، مقابل 23.4% في الصف الثالث الريفي الحكومي بالهند [N55].',
+wEx:'الفجوات المحلية مستمرة: في ريف بيرو 20.5%–23.6% مقابل 58.9%–60.1% وطنياً [N56]، وفي إندونيسيا 27.74% بالابتدائي بلا إنترنت [N44]، وفي البرازيل تراجع الاتصال المدرسي من 51% إلى 37% [N58].',
+wNot:'ما لا نعرفه بعد',wn1:'لم يختبر أحد Titip مع متعلمين حقيقيين بعد. الأرقام أعلاه من أدوات وبيئات أخرى.',
+wn2:'منصة أقراص بلا اتصال في 102 مدرسة بهندوراس لم ترفع الدرجات [P12]، ولم تنفع التذكيرات السلبية [P4]. نجح التدريس الهاتفي في أمريكا اللاتينية بوجود معلم بشري [P20].',
+wn3:'يُظهر Titip للمعلم ما يحتاج لإعادة شرحه، لكنه لا يضمن حدوث ذلك.',wSrc:'المصادر',
+hero:'دروس تصل دون إنترنت',heroS:'المتعلم في بيت بلا اتصال يواصل التدريب، والمعلم يعرف ما يحتاج لإعادة الشرح.',hTry:'جرّب درساً',how:'كيف يعمل',
+h1t:'اكتب',h1:'يملأ المعلم نموذجاً واحداً: نص الدرس والأسئلة وتلميحاً قصيراً لكل سؤال.',
+h2t:'مرّر الملف',h2:'ملف صغير ينتقل من هاتف إلى هاتف عبر البلوتوث أو واتساب أو بطاقة ذاكرة. لا هاتف بالمنزل؟ اطبع الورقة.',
+h3t:'تلقَّ الرمز',h3:'يرسل المتعلم رمزاً قصيراً عبر SMS أو على الورق، فيرى المعلم الخطأ الذي يعيد شرحه.',
+facts:'ما يحتاجه المتعلم',kb:'{0} ك.ب',f1:'التطبيق كاملاً والدرس في ملف واحد',f2:'ميغابايت بيانات لفتح الدرس وإنهائه',f3:'حسابات أو أسماء أو تتبّع',
+tour:'جولة في دقيقتين',t1:'حلّ درس المثال كمتعلم',t2:'شاهد نتائج صف افتراضي',t3:'عدّل سؤالاً وحمّل ملف الدرس',
+honest:'لم يُختبر بعد مع متعلمين حقيقيين. يوضح README ما تم التحقق منه وما هو متوقع والبحث الداعم.',
+lesson:'الدرس',nq:'{0} أسئلة',listen:'استمع',start:'ابدأ التدريب',qOf:'السؤال {0} من {1}',retry:'محاولة أخرى',check:'تحقق من الإجابة',next:'التالي',pick:'اختر إجابة أولاً.',
+right:'صحيح.',wrong:'ليس بعد. جرّب إجابة أخرى.',hint:'تلميح:',done:'انتهى الدرس',score:'أجبت بشكل صحيح عن {0} من {1} من المحاولة الأولى.',
+review:'أعد قراءة هذا',codeIs:'رمز النتيجة الخاص بك',codeHelp:'أرسل هذا الرمز لمعلمك عبر SMS أو اكتبه على الورق. لا يحمل اسمك ولا يحتاج إنترنت.',
+sms:'أرسل عبر SMS',again:'المتعلم التالي',words:'معاني الكلمات',
+libS:'دروس جاهزة. افتح درساً للتعلّم أو عدّل نسخة لإنشاء درسك.',open:'فتح',copy:'تعديل نسخة',now:'مفتوح الآن',
+mHelp:'اكتب الدرس مرة واحدة. حمّل ملفاً صغيراً وشاركه عبر البلوتوث أو واتساب أو بطاقة ذاكرة. يفتح دون إنترنت.',
+fTitle:'عنوان الدرس',fLang:'لغة الدرس',fBody:'نص الدرس',fBodyH:'اترك سطراً فارغاً بين الفقرات.',
+fGloss:'معاني الكلمات (اختياري)',fGlossH:'سطر لكل كلمة: كلمة = معنى. ينقر المتعلم الكلمة في النص.',
+qN:'السؤال {0}',fQ:'السؤال',fAns:'الإجابات. اختر الإجابة الصحيحة.',ansN:'الإجابة {0}',ansR:'الإجابة {0} هي الصحيحة',delA:'حذف الإجابة {0}',delQ:'حذف السؤال {0}',
+addA:'إضافة إجابة',addQ:'إضافة سؤال',fHint:'تلميح يظهر بعد الخطأ',fHintH:'جملة واحدة قصيرة.',
+use:'جرّب كمتعلم',dl:'تحميل ملف الدرس',share:'مشاركة ملف الدرس',print:'طباعة ورقة العمل',printH:'ورقة العمل مخصصة للبيوت التي لا تملك هاتفاً.',
+ok:'جاهز: {0} أسئلة.',saved:'تم حفظ {0} ({1} ك.ب).',
+eTitle:'أضف عنواناً للدرس.',eNoQ:'أضف سؤالاً واحداً على الأقل.',eQ:'السؤال {0}: اكتب نص السؤال.',eCh:'السؤال {0}: أضف من 2 إلى 9 إجابات مملوءة.',eOne:'السؤال {0}: اختر الإجابة الصحيحة.',
+rHelp:'اكتب رموز النتائج، رمزاً في كل سطر. للورق اكتب أرقام الإجابات ثم المجموع، مثل 2132 8. ضع --- بين جولتين للمقارنة.',
+rFor:'تُقرأ النتائج وفق هذا الدرس:',rLab:'رموز النتائج',tally:'عرض النتائج',demoB:'تعبئة صف افتراضي',fake:'بيانات افتراضية للعرض فقط. هؤلاء ليسوا طلاباً حقيقيين.',
+sN:'المتعلمون',sPct:'صحيح من المحاولة الأولى',sUp:'التغيير بعد إعادة الشرح',pts:'{0} نقطة',
+r1:'الجولة الأولى:',r2:'الجولة الثانية:',thF:'صحيح من المرة الأولى',thW:'الخطأ الأكثر شيوعاً',reteach:'أعد الشرح',fine:'موافق',
+follow:'أنشئ درس متابعة من أسئلة «أعد الشرح»',rBad:'غير محسوبة',
+wbad:'ليس رمز نتيجة',wother:'رمز من درس آخر',wtypo:'خطأ في كتابة الرمز',
+saveR:'حفظ هذه الجولة',recS:'طباعة ورقة سجل الصف',recH:'دوّن رمز كل طالب أو أرقام الورقة والمجموع. لا حاجة للأسماء.',
+savedT:'الجولات المحفوظة لهذا الدرس',addR:'إدراج في الصندوق',delR:'حذف',csv:'تنزيل جدول (CSV)',nL:'{0} متعلمين',
+hp1:'تمرير درس لهاتف آخر',b1:'بلوتوث: افتح تطبيق الملفات، اضغط مطولاً على ملف الدرس، اختر مشاركة ثم بلوتوث ثم الهاتف الآخر.',
+b2:'واتساب: أرفق الملف كمستند لا كصورة. يُرسل مرة واحدة ويُفتح لاحقاً بلا إنترنت.',b3:'بطاقة ذاكرة أو كابل: انسخ الملف مثل أي صورة أو مقطع صوت.',
+b4:'لا هاتف في البيت: من إنشاء اختر طباعة ورقة العمل.',bN:'تختلف أسماء القوائم بين الهواتف.',
+hp2:'فتح درس وصلك',c1:'انقر على الملف. إن سألك الهاتف عن التطبيق، اختر متصفحاً مثل Chrome.',
+c2:'اقرأ الدرس ثم اضغط ابدأ التدريب. انقر على الكلمة المسطرة لمعرفة معناها.',c3:'في النهاية أرسل الرمز لمعلمك عبر SMS أو اكتبه على الورق.',
+hp3:'الخصوصية',p1:'بلا حساب ولا اسم ولا تتبّع.',p2:'يحمل الرمز معرف الدرس والإجابة الأولى فقط.',
+p3:'الجولات التي يحفظها المعلم تبقى على جهازه فقط.',p4:'على الشاشات الكبيرة يُحمّل خط واحد من Google Fonts. على الهاتف لا يتصل بأحد.',
+pHow:'ضع دائرة حول إجابة لكل سؤال، ثم اكتب أرقام إجاباتك بالترتيب في السطر أدناه، مثل: 2 1 3.',pAns:'إجاباتي:',
+pSum:'اجمع أرقام إجاباتك. المجموع:',pKey:'انتهيت؟ اقلب الورقة للتحقق من إجاباتك.'}
 };
 // Own line icons, 24px grid.
 var I={
@@ -582,17 +912,23 @@ dark:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 3v18M12 7l5 0M12 12h9M12 17h5',
 bulb:'M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z',
 help:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01'
 };
-var LANGS={en:'English',id:'Bahasa Indonesia',es:'Español',fr:'Français',pt:'Português',sw:'Kiswahili',hi:'हिन्दी',bn:'বাংলা'};
+var LANGS={en:'English',id:'Bahasa Indonesia',es:'Español',fr:'Français',pt:'Português',sw:'Kiswahili',hi:'हिन्दी',bn:'বাংলা',ar:'العربية'};
 // Each figure on the Evidence page: [value, text key, source id]. Sources: [id, citation, link].
-var WHY=[['2.2 billion','w1','N39'],['58%','w2','N40'],['2 in 3','w3','N42'],['g = 0.499','w4','P3'],['0.49 vs 0.05','w5','P5'],['0.12 SD','w6','P1']];
+var WHY=[['3.1 billion','w1','N52'],['88–95%','w2','N53'],['0.30–0.35 SD','w3','P2'],['g = 0.499','w4','P3'],['0.49 vs 0.05','w5','P5'],['~10.8%','w6','N54']];
 var SRCS=[
-['N44','Databoks, 25 Nov 2025, reporting BPS Statistik Pendidikan 2025 (students aged 5–23, March 2025).','https://databoks.katadata.co.id/en/technology-telecommunications/statistics/69251fd00425f/data-on-indonesian-students-using-mobile-phones-laptops-and-the-internet-in-2025'],
-['N39','ITU press release, 17 Nov 2025: Facts and Figures 2025.','https://www.itu.int/en/mediacentre/Pages/PR-2025-11-17-Facts-and-Figures.aspx'],
-['N40','TV Technology, 17 Nov 2025, reporting ITU Facts and Figures 2025.','https://www.tvtechnology.com/news/itu-6b-now-online-globally'],
-['N42','UN News, 1 Dec 2020, reporting the UNICEF–ITU report on children’s home internet access.','https://news.un.org/en/node/1078872'],
+['N52','GSMA (2025–2026). The State of Mobile Internet Connectivity.','https://www.gsma.com/somic/'],
+['N53','UNICEF & ITU (2020). How many children and young people have internet access at home?','https://www.unicef.org/reports/how-many-children-and-young-people-have-internet-access-at-home'],
+['N54','UNESCO GEM Report & African Union (2025). Spotlight on Africa: Lead for foundational learning.','https://www.unesco.org/gem-report/en/spotlight-africa'],
+['N55','Pratham (Jan 2025). ASER 2024: Annual Status of Education Report (Rural India).','https://asercentre.org/aser-2024/'],
+['N56','INEI Peru (2025). ENAHO Q1–Q2 2025: Acceso a internet en hogares.','https://www.gob.pe/institucion/inei/noticias/1045237-el-60-1-de-los-hogares-tiene-conexion-a-internet'],
+['N58','Cetic.br / NIC.br (2025). TIC Kids Online Brasil 2025.','https://cetic.br/pt/pesquisa/kids-online/'],
+['N44','Databoks, 25 Nov 2025, reporting BPS Statistik Pendidikan 2025 (Indonesia).','https://databoks.katadata.co.id/en/technology-telecommunications/statistics/69251fd00425f/data-on-indonesian-students-using-mobile-phones-laptops-and-the-internet-in-2025'],
+['P2','Angrist et al. (2026). Mobile education builds resilience during shocks in five countries. Nature, 657, 689–696.','https://doi.org/10.1038/s41586-026-10990-x'],
+['P1','Angrist, Bergman & Matsheng (2022). Experimental evidence on learning using low-tech when school is out. Nature Human Behaviour, 6(7), 941–950.','https://doi.org/10.1038/s41562-022-01381-z'],
+['P20','Albornoz et al. (2026). Remote tutoring in Latin America. Journal of Development Economics, 179, 103687.','https://doi.org/10.1016/j.jdeveco.2025.103687'],
 ['P3','Yang, Luo, Vadillo, Yu & Shanks (2021). Testing (quizzing) boosts classroom learning. Psychological Bulletin, 147(4), 399–435.','https://doi.org/10.1037/bul0000309'],
 ['P5','Van der Kleij, Feskens & Eggen (2015). Effects of feedback in a computer-based learning environment on students’ learning outcomes. Review of Educational Research, 85.','https://doi.org/10.3102/0034654314564881'],
-['P1','Angrist, Bergman & Matsheng (2022). Experimental evidence on learning using low-tech when school is out. Nature Human Behaviour, 6(7), 941–950.','https://doi.org/10.1038/s41562-022-01381-z'],
+['P4','Rodriguez-Segura (2022). EdTech in developing countries: A review of the evidence. The World Bank Research Observer, 37(2), 171–203.','https://doi.org/10.1093/wbro/lkab011'],
 ['P12','Barrera-Osorio & Zoido. Evaluating the impact of a tablet-based learning platform in Honduras. Innovations for Poverty Action.','https://poverty-action.org/impact-tablet-based-learning-platform-honduras']
 ];
 // Settings and saved rounds live in this browser only. Storage can be missing (private mode, some file viewers): everything still works without it.
@@ -616,7 +952,7 @@ try{canShare=!!(navigator.canShare&&navigator.canShare({files:[new File([''],'a.
 
 function $(id){return document.getElementById(id);}
 function t(k,a,b){return (T[ui][k]!=null?T[ui][k]:T.en[k]).replace('{0}',a).replace('{1}',b);} // missing key: English
-function c(s,L){return '<span lang="'+esc((L||lesson).lang)+'">'+esc(s)+'</span>';} // lesson content keeps its own language for screen readers
+function c(s,L){var g=(L||lesson).lang;return '<span lang="'+esc(g)+'"'+(g=='ar'?' dir="rtl"':'')+'>'+esc(s)+'</span>';} // lesson content keeps its own language and direction for screen readers
 function ic(n){return '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="'+I[n]+'"/></svg>';}
 function btn(act,key,cls,icon,attr){
   return '<button type="button" class="b '+cls+'" data-act="'+act+'"'+(attr||'')+'>'+(icon?ic(icon):'')+'<span>'+t(key)+'</span></button>';
@@ -833,12 +1169,13 @@ function results(){
   if(r.n){
     h+='<div class="list">';
     for(i=0;i<r.first.length;i++){
-      var w=r.wrong[i],top=topWrong(r,i),low=r.first[i]*2<r.n;
+      var w=r.wrong[i],top=topWrong(r,i),low=r.first[i]*2<r.n,wc='',j;
+      for(j=0;j<lesson.q[i].c.length;j++)if(j!=lesson.q[i].a&&w[j])wc+='<span class="chip" style="margin:.25rem .35rem 0 0">'+c(lesson.q[i].c[j])+': '+w[j]+'</span>';
       if(low)weak.push(i);
       h+='<div class="qrow"><div class="qt"><h3>'+(i+1)+'. '+c(lesson.q[i].q)+'</h3>'+
         '<p class="sm">'+t('thW')+': '+(top<0?'\u2013':'<strong>'+c(lesson.q[i].c[top])+'</strong> ('+w[top]+')')+'</p>'+
         '<p>'+(low?'<span class="chip bad">'+t('reteach')+'</span>'+(lesson.q[i].h?' <span class="sm">'+c(lesson.q[i].h)+'</span>':''):'<span class="chip good">\u2713 '+t('fine')+'</span>')+'</p></div>'+
-        '<div class="qm">'+(two?meter(r0,i,t('r1')):'')+meter(r,i,two?t('r2'):'')+'</div></div>';
+        '<div class="qm">'+(two?meter(r0,i,t('r1')):'')+meter(r,i,two?t('r2'):'')+(wc?'<p class="sm">'+wc+'</p>':'')+'</div></div>';
     }
     h+='</div>';
   }
@@ -893,6 +1230,7 @@ function view(v,quiet){
 }
 function applyLang(){
   document.documentElement.lang=ui;
+  document.documentElement.dir=(ui=='ar'?'rtl':'ltr');
   var e=document.querySelectorAll('[data-t]'),i;
   for(i=0;i<e.length;i++)e[i].textContent=t(e[i].getAttribute('data-t'));
   e=document.querySelectorAll('[data-al]');
