@@ -5,8 +5,9 @@ For the next agent or developer picking this up. Read this first, then README.md
 ## Status on 13 November 2026
 
 - Hackathon: AccessED Hacks, runs October 17 to November 20, 2026. Submission goes on Devpost.
-- App is upgraded globally (9 full UI languages + Arabic RTL, 11 ready-made primary lessons, Unicode glossary matching, per-choice distractor chips, global research evidence `P1`–`P29` / `N1`–`N59`). Baseline commit `239c5aa` exists locally on `master`.
-- Not done: re-deploying updated `index.html` + `site/index.html` to `titip.rofihosted.space`, real-user field test (protocol in TEST.md), pushing to public GitHub remote, recording demo video.
+- App is upgraded globally (9 full UI languages + Arabic RTL, 11 ready-made primary lessons, Unicode glossary matching, per-choice distractor chips, global research evidence `P1`–`P29` / `N1`–`N59`) and live at `https://titip.rofihosted.space/` (`29,312` bytes) and `/app/` (`151,727` bytes).
+- Public GitHub repo `https://github.com/rofiperlungoding/titip` pushed on `master`.
+- Not done: verifying Arabic RTL / per-choice error chips in Chrome, real-user field test (protocol in TEST.md), recording demo video.
 
 ## Files
 
@@ -47,8 +48,7 @@ Routes: `#/` overview, `#/learn`, `#/demo` (made-up results), plus the other pag
 
 ## Open work, in priority order
 
-1. Git push: commit local updates cleanly, then ask user before pushing to GitHub (`rofiperlungoding`).
-2. Re-deploy updated `index.html` and `site/index.html` to `titip.rofihosted.space` (ask before deploy/push), and verify Arabic RTL + distractor chips in Chrome.
+1. Chrome smoke check: verify Arabic RTL layout, per-choice distractor chips, and offline SW cache on the live 151,727-byte build.
 3. Field test (TEST.md, 30 min, 3 learners, 1 old phone). Record results honestly in TEST.md, update README Limits.
 4. Record demo video (< 3 min using DEMO.md).
 5. Native-teacher review of `es`/`fr`/`pt`/`sw`/`hi`/`bn`/`ar` UI + sample lessons; TalkBack & physical printer check.
