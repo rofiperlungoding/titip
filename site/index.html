@@ -650,33 +650,34 @@
                 <div class="grid">
                     <div class="card"><span class="num">1</span>
                         <h3>Write</h3>
-                        <p>The teacher fills in one form: the lesson text, multiple-choice questions, a one-sentence
-                            hint for each, and optional word meanings. Or copies one of 11 ready-made lessons.</p>
+                        <p>The teacher fills in one form: the lesson text, optional inline diagram and worked example,
+                            multiple-choice or typed-answer questions, hints, and word meanings. Or picks from 12
+                            ready-made lessons (including a TaRL numeracy diagnostic).</p>
                     </div>
                     <div class="card"><span class="num">2</span>
                         <h3>Pass it on</h3>
-                        <p>One file (~148 KB raw, ~52 KB gzipped) holds the whole app and the lesson. It goes by
-                            Bluetooth, WhatsApp or memory card and opens in any phone browser with no internet. No phone
-                            at home? Print the worksheet.</p>
+                        <p>One file (~177 KB raw, ~60 KB gzipped)—or a compact <code>TITIP1:</code> text code—passes by
+                            Bluetooth, WhatsApp, SMS or memory card and opens offline. No phone? Print full or 2-up
+                            half-paper slips.</p>
                     </div>
                     <div class="card"><span class="num">3</span>
                         <h3>Hear back</h3>
-                        <p>The learner gets a short code such as <strong>HI-1132-0</strong> and sends it by SMS or on
-                            paper. It holds no name. The teacher types the codes in and sees first-try accuracy, the top
-                            wrong answer, and per-choice error counts.</p>
+                        <p>The learner gets an estimated level band and short code such as <strong>HI-1132-0</strong>,
+                            or queues multiple siblings on one phone to send in one SMS. Results auto-group learners into
+                            TaRL Groups A, B and C alongside per-choice error counts.</p>
                     </div>
                 </div>
                 <div class="two">
                     <div>
                         <h3>For the learner</h3>
                         <ul class="tick">
-                            <li>Read the lesson, or press Listen to hear it in its own language</li>
-                            <li>Tap an underlined word (Latin, Devanagari, Bengali or Arabic script) to see what it
-                                means</li>
-                            <li>A wrong answer gives a hint and another try; missed questions come back once at the end
+                            <li>Inline diagrams, worked examples, and Listen audio in the lesson’s language</li>
+                            <li>Tap an underlined word (Latin, Devanagari, Bengali or Arabic script) for its meaning
                             </li>
-                            <li>Larger text and a dark high-contrast theme, remembered on the device</li>
-                            <li>Works by keyboard alone; feedback is never shown by colour only</li>
+                            <li>Typed answers show choices as scaffolding on retry; missed questions return once at the
+                                end</li>
+                            <li>Shared-phone queue lets multiple siblings finish and batch-send codes in one SMS</li>
+                            <li>Larger text, dark high-contrast theme, keyboard-only navigation, non-colour feedback</li>
                             <li>Full interface in 9 languages: English, Indonesian, Spanish, French, Portuguese,
                                 Swahili, Hindi, Bengali and Arabic (RTL)</li>
                         </ul>
@@ -684,13 +685,14 @@
                     <div>
                         <h3>For the teacher</h3>
                         <ul class="tick">
-                            <li>11 sample lessons across all 9 languages, editable and re-exportable</li>
-                            <li>Results per question: right on first try, most common wrong answer, and per-choice error
+                            <li>12 sample lessons (including TaRL diagnostic) with language &amp; topic filters</li>
+                            <li>Teacher TaRL Classroom Groups (A &lt;50%, B 50–79%, C 80–100%) and per-choice error
                                 chips</li>
-                            <li>One tap builds a follow-up lesson from the questions to teach again</li>
-                            <li>Compare a second round after teaching again, side by side</li>
-                            <li>Save rounds on the device, export a spreadsheet, print a class record sheet</li>
-                            <li>Printed worksheet with the answer key upside down at the foot</li>
+                            <li>Portable <code>TITIP1:</code> lesson text codes (copy/paste without sending files)</li>
+                            <li>One tap builds a follow-up lesson from weak questions; compare two rounds side by side
+                            </li>
+                            <li>Save rounds locally, export CSV, or print a 25-row class record sheet</li>
+                            <li>Single-page worksheet (upside-down key) or 2-up half-paper slips to save paper</li>
                         </ul>
                     </div>
                 </div>
@@ -768,10 +770,11 @@
                     </tr>
                     <tr>
                         <td><span class="tag c">Checked</span></td>
-                        <td><code>selfTest()</code> returns <code>ok</code> (including Hindi/Bengali/Arabic RTL glossary
-                            &amp; HTML-entity safety), all 11 sample lessons validate cleanly, all 9 UI languages share
-                            all 150 keys, and pure-ES5 checks pass. Desktop Chrome checks ran on the prior build;
-                            multi-language/RTL visuals await fresh browser/device verification.</td>
+                        <td><code>selfTest()</code> returns <code>ok</code> (including typed-answer fallback, TaRL bands,
+                            <code>TITIP1:</code> code packing, and Hindi/Bengali/Arabic RTL glossary tests), all 12 sample
+                            lessons validate cleanly, all 9 UI languages share all 191 keys, and pure-ES5 checks pass.
+                            Desktop Chrome checks ran on the prior build; new visuals and RTL wait for fresh browser/device
+                            verification.</td>
                     </tr>
                     <tr>
                         <td><span class="tag p">Predicted</span></td>

@@ -5,15 +5,15 @@ For the next agent or developer picking this up. Read this first, then README.md
 ## Status on 13 November 2026
 
 - Hackathon: AccessED Hacks, runs October 17 to November 20, 2026. Submission goes on Devpost.
-- App is upgraded globally (9 full UI languages + Arabic RTL, 11 ready-made primary lessons, Unicode glossary matching, per-choice distractor chips, global research evidence `P1`–`P29` / `N1`–`N59`) and live at `https://titip.rofihosted.space/` (`29,312` bytes) and `/app/` (`151,727` bytes).
+- App is upgraded with full feature bundle (9 UI languages + Arabic RTL, 12 lessons incl. TaRL Numeracy Diagnostic, language/topic filters, 5 inline SVG diagrams, worked examples, typed short-answer questions with choice fallback, learner TaRL bands + teacher TaRL Group A/B/C placement, shared-phone queue + batch SMS, offline `TITIP1:` text codes, and 2-up paper-saver worksheets) and live at `https://titip.rofihosted.space/` and `/app/` (`180,530` bytes raw / `61,152` bytes gzipped).
 - Public GitHub repo `https://github.com/rofiperlungoding/titip` pushed on `master`.
-- Not done: verifying Arabic RTL / per-choice error chips in Chrome, real-user field test (protocol in TEST.md), recording demo video.
+- Not done: verifying Arabic RTL / new interactive visuals in Chrome, real-user field test (protocol in TEST.md), recording demo video.
 
 ## Files
 
 | File | Role |
 |---|---|
-| `index.html` | The whole app: HTML, CSS, JS in one file (~148 KB raw, ~52 KB gzipped). Deployed as `/app/` |
+| `index.html` | The whole app: HTML, CSS, JS in one file (~177 KB raw, ~60 KB gzipped). Deployed as `/app/` |
 | `sw.js` | Service worker, network first with cache fallback. Deployed next to the app |
 | `site/index.html` | Landing page. Deployed as `/` |
 | `README.md` | Public project description |
@@ -38,17 +38,17 @@ Routes: `#/` overview, `#/learn`, `#/demo` (made-up results), plus the other pag
 
 ## Hard rules (do not break)
 
-1. One file, no dependencies, no build, no images. The downloaded lesson file is the app itself; kept compact (~148 KB raw, ~52 KB gzipped after full 9-language + 11-lesson support).
+1. One file, no dependencies, no build, no images. The downloaded lesson file is the app itself; kept compact (~177 KB raw, ~60 KB gzipped after full 9-language, 12-lesson, inline SVG, and TaRL grouping support).
 2. Old-browser JS only: no arrow functions, `let`/`const`, classes, template strings, spread. Target Android 4.4-era browsers.
 3. No outside requests on phones. The one Google Fonts load is wide screen + no Save-Data only.
 4. Accessibility: native controls only, every input labelled, feedback by symbol + words + live region, focus moves to new heading, works at 320 px, lesson content carries its `lang` (and `dir="rtl"` for `ar`).
 5. Honesty: never claim learning gains. Keep TEST.md's three categories (checked / predicted / made-up) separate. Any new number needs a source in RESEARCH.md. Made-up demo data stays labelled.
-6. Result codes hold no names. `Next learner` clears the screen.
+6. Result codes hold no names. `Next learner` clears the screen (and shared-phone queue can be cleared anytime).
 7. After any logic change: `selfTest()` returns `ok`, then update TEST.md's Checked table with date and method.
 
 ## Open work, in priority order
 
-1. Chrome smoke check: verify Arabic RTL layout, per-choice distractor chips, and offline SW cache on the live 151,727-byte build.
+1. Chrome smoke check: verify SVG diagrams, typed-input scaffold, shared-phone queue, TaRL groups, Arabic RTL layout, and offline SW cache on the live 180,530-byte build.
 3. Field test (TEST.md, 30 min, 3 learners, 1 old phone). Record results honestly in TEST.md, update README Limits.
 4. Record demo video (< 3 min using DEMO.md).
 5. Native-teacher review of `es`/`fr`/`pt`/`sw`/`hi`/`bn`/`ar` UI + sample lessons; TalkBack & physical printer check.

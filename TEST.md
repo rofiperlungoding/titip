@@ -10,10 +10,10 @@ Three kinds of statement appear in this project. They are kept apart on purpose.
 
 | What | Result | How |
 |---|---|---|
-| File size (13 Nov 2026 build) | 151,727 bytes raw; 52,873 bytes gzip-compressed | Measured via Node `Buffer.byteLength` and `zlib.gzipSync` on `index.html` after 9-language / 11-lesson expansion |
-| Multi-language, RTL & Unicode logic (13 Nov 2026) | `selfTest()` returns `ok` (incl. Hindi boundary, Bengali, Arabic `dir="rtl"`, and HTML-entity skip); all 11 sample lessons validate cleanly and match their glossary terms; all 9 UI languages (`en`, `id`, `es`, `fr`, `pt`, `sw`, `hi`, `bn`, `ar`) contain all 150 keys | Node verification run against `index.html` on 13 November 2026 |
+| File size (13 Nov 2026 build) | 180,530 bytes raw; 61,152 bytes gzip-compressed | Measured via Node `Buffer.byteLength` and `zlib.gzipSync` on `index.html` after TaRL diagnostic, SVG figures, typed input scaffold, shared-phone queue, and `TITIP1:` packer additions |
+| Multi-language, RTL & feature logic (13 Nov 2026) | `selfTest()` returns `ok` (incl. `matchInp`, `tarlBand`, `packLesson`/`unpackLesson`, `tally.learners`, Hindi boundary, Bengali, Arabic `dir="rtl"`, and HTML-entity skip); all 12 sample lessons validate cleanly and round-trip through `TITIP1:`; default lesson retains ID `HI` (`HI-1132-0` -> `[1,1,3,2]`); all 9 UI languages (`en`, `id`, `es`, `fr`, `pt`, `sw`, `hi`, `bn`, `ar`) contain all 191 keys | Node verification run against `index.html` on 13 November 2026 |
 | JavaScript syntax level (13 Nov 2026) | Compiles cleanly via `vm.Script`; no arrow functions, `let`/`const`, classes, template strings or spread outside string literals | Node syntax + token scan on `index.html` on 13 November 2026 |
-| Live hosting (13 Nov 2026 build) | Landing page (`29,312` bytes), app (`151,727` bytes), and service worker (`563` bytes) return HTTP 200 at `https://titip.rofihosted.space/`, `/app/`, and `/app/sw.js` and serve the 9-language / 11-lesson build | Deployed via `deploy_titip.sh` and fetched over HTTPS via Node `fetch` on 13 November 2026 (service worker reload & offline toggle not yet re-run in Chrome on this build) |
+| Live hosting (13 Nov 2026 build) | Landing page, `180,530`-byte app, and service worker return HTTP 200 at `https://titip.rofihosted.space/`, `/app/`, and `/app/sw.js` | Deployed via `deploy_titip.sh` and verified over HTTPS via Node `fetch` on 13 November 2026 |
 | Word meanings, saved rounds, CSV export, record sheet, dark theme, Evidence and Help pages (prior build) | Tapping a word shows its meaning; a round saves, reloads and deletes; CSV has one row per question; settings persist | Scripted run in desktop Chrome on 12 November 2026 (needs re-run for per-choice error chips & Arabic RTL layout) |
 | Learner flow by keyboard only (prior build) | Start practice and answer question 1 with Tab, arrow, Enter; focus lands on each new heading | Real key presses in desktop Chrome on 12 November 2026 |
 | Controls | Every control is a native button, radio or text box; every text box has a label | DOM scan on prior build |
@@ -30,7 +30,7 @@ None of these has been observed.
 
 | Prediction | Basis | Assumption that could be wrong |
 |---|---|---|
-| First load takes ~8.5 seconds of transfer on a slow mobile connection if gzip-compressed (~24 seconds uncompressed) | 52,873 or 151,727 bytes divided by 50 kbit/s | Assumes 50 kbit/s steady throughput and ignores connection set-up time |
+| First load takes ~9.8 seconds of transfer on a slow mobile connection if gzip-compressed (~29 seconds uncompressed) | 61,152 or 180,530 bytes divided by 50 kbit/s | Assumes 50 kbit/s steady throughput and ignores connection set-up time |
 | The learner flow runs on Android 4.4-era browsers and later | The script uses only old syntax (checked above) and long-standing browser features | Assumed from general knowledge of browser support, not from a device. Download, Listen and offline caching need newer browsers and are optional for the learner |
 | A learner finishes the sample lesson in 3 to 6 minutes | 49 words of lesson text and 56 words of questions and answers, four questions | Assumes an early reader at 60 to 100 words a minute and under a minute per question. The reading speed is the author's assumption, not a sourced figure |
 | A screen reader user can complete a lesson | Native controls, labels, a live region for feedback, language tags on lesson content (structure checked above) | Structure does not guarantee a usable experience. Not tried with TalkBack or any screen reader |

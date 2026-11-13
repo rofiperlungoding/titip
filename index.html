@@ -220,6 +220,15 @@ nav .dk{display:flex}
 [dir=rtl] .steps,[dir=rtl] .tour,[dir=rtl] .src,[dir=rtl] .rev ul{padding-left:0;padding-right:1.4rem}
 [dir=rtl] [lang]:not([lang=ar]){direction:ltr;unicode-bidi:isolate}
 @media (min-width:56em){[dir=rtl] nav{left:auto;right:0}[dir=rtl] nav i{margin:0 0 0 .85rem}[dir=rtl] main{margin:0 16rem 1rem 1rem}[dir=rtl] .mini main{margin-left:1rem;margin-right:4.5rem}}
+.fig{margin:1rem 0;padding:.75rem;border-radius:1rem;background:#eef3fb;text-align:center}
+.fig svg{max-width:100%;height:auto;display:block;margin:0 auto}
+.ex{padding:.75rem 1rem;border-radius:1rem;background:#e8f0fe;color:#0b57d0;font-weight:500;margin:.75rem 0}
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0}
+.filters select{padding:.55rem .85rem;border:1px solid #c4c7c5;border-radius:99rem;background:#fff;color:#1f1f1f;font:inherit;font-size:.9rem}
+.dark .fig{background:#18202f}
+.dark .ex{background:#0f2a52;color:#a8c7fa}
+.dark .filters select{background:#181a1f;color:#f1f3f4;border-color:#5e5e5e}
+@media print{#sheet .slips{display:block}#sheet .slip{page-break-inside:avoid;border-bottom:2px dashed #444;padding-bottom:.9rem;margin-bottom:.9rem}#sheet .slip:last-child{border-bottom:0;margin-bottom:0}#sheet .slip h2{font-size:1.15rem}}
 </style>
 </head>
 <body>
@@ -258,8 +267,8 @@ nav .dk{display:flex}
 </main>
 <div id="sheet"></div>
 
-<script id="lesson" type="application/json">{"title":"Fractions: half and quarter","lang":"en","text":["A fraction is a part of a whole thing.","Cut one cake into 2 equal parts. Each part is one half. We write it 1/2.","Cut one cake into 4 equal parts. Each part is one quarter. We write it 1/4.","Two quarters are the same as one half."],"q":[{"q":"You cut a cake into 2 equal parts. What is one part called?","c":["One quarter","One half","One whole"],"a":1,"h":"Half means 2 equal parts."},{"q":"Which piece of cake is bigger?","c":["1/2","1/4","They are the same"],"a":0,"h":"A cake cut into 4 parts has smaller pieces than a cake cut into 2 parts."},{"q":"How many quarters make one half?","c":["1","4","2"],"a":2,"h":"A quarter is 1 of 4 parts. A half is 2 of those 4 parts."},{"q":"There are 8 mangoes. You take half. How many mangoes do you take?","c":["2","4","6"],"a":1,"h":"Half means 2 equal groups. 8 mangoes make 2 groups of 4."}],"g":[["equal","the same size"],["whole","complete, with no part missing"]]}</script>
-<script id="library" type="application/json">[{"title":"Pecahan: setengah dan seperempat","lang":"id","text":["Pecahan adalah bagian dari satu benda utuh.","Potong satu kue menjadi 2 bagian sama besar. Tiap bagian disebut setengah. Kita menulisnya 1/2.","Potong satu kue menjadi 4 bagian sama besar. Tiap bagian disebut seperempat. Kita menulisnya 1/4.","Dua seperempat sama dengan satu setengah."],"q":[{"q":"Kamu memotong kue menjadi 2 bagian sama besar. Satu bagian disebut apa?","c":["Seperempat","Setengah","Satu utuh"],"a":1,"h":"Setengah berarti 2 bagian sama besar."},{"q":"Potongan kue mana yang lebih besar?","c":["1/2","1/4","Sama besar"],"a":0,"h":"Kue yang dipotong 4 punya potongan lebih kecil daripada kue yang dipotong 2."},{"q":"Berapa seperempat yang sama dengan setengah?","c":["1","4","2"],"a":2,"h":"Seperempat adalah 1 dari 4 bagian. Setengah adalah 2 dari 4 bagian itu."},{"q":"Ada 8 mangga. Kamu mengambil setengahnya. Berapa mangga yang kamu ambil?","c":["2","4","6"],"a":1,"h":"Setengah berarti 2 kelompok sama banyak. 8 mangga menjadi 2 kelompok berisi 4."}],"g":[["utuh","lengkap, tidak ada bagian yang hilang"],["sama besar","ukurannya sama"]]},{"title":"The water cycle","lang":"en","text":["Water moves around the Earth again and again. This is called the water cycle.","The sun heats water in the sea, rivers and lakes. The water turns into a gas called water vapour and rises into the air. This is evaporation.","High in the sky the air is cold. The vapour cools and turns into tiny drops of water. The drops make clouds. This is condensation.","When the drops get heavy, they fall as rain. The rain runs into rivers and back to the sea."],"q":[{"q":"What turns water into water vapour?","c":["The heat of the sun","The wind","The clouds"],"a":0,"h":"The sun heats the water, and the water rises as vapour."},{"q":"Water vapour cools and turns into tiny drops. What is this called?","c":["Evaporation","Condensation","Rain"],"a":1,"h":"Condensation makes clouds. Evaporation is when water rises as vapour."},{"q":"Why does rain fall from a cloud?","c":["The cloud gets hot","The sun pulls the water down","The drops of water get heavy"],"a":2,"h":"Small drops join together. Heavy drops fall."}]},{"title":"Bagian tumbuhan","lang":"id","text":["Tumbuhan punya beberapa bagian. Tiap bagian punya tugas sendiri.","Akar ada di dalam tanah. Akar menyerap air dari tanah.","Batang membawa air dari akar ke daun.","Daun membuat makanan untuk tumbuhan. Daun memakai cahaya matahari untuk membuat makanan itu."],"q":[{"q":"Bagian mana yang menyerap air dari tanah?","c":["Daun","Batang","Akar"],"a":2,"h":"Akar ada di dalam tanah, dekat dengan air."},{"q":"Apa tugas batang?","c":["Membawa air dari akar ke daun","Membuat makanan","Menyerap air dari tanah"],"a":0,"h":"Batang menghubungkan akar dengan daun."},{"q":"Apa yang dipakai daun untuk membuat makanan?","c":["Tanah","Cahaya matahari","Angin"],"a":1,"h":"Daun membuat makanan saat terkena cahaya matahari."}]},{"title":"El ciclo del agua","lang":"es","text":["El agua se mueve por la Tierra una y otra vez. Esto se llama el ciclo del agua.","El sol calienta el agua del mar, de los ríos y de los lagos. El agua se convierte en vapor y sube al aire. Esto es la evaporación.","Arriba en el cielo el aire está frío. El vapor se enfría y forma gotas muy pequeñas. Las gotas forman las nubes. Esto es la condensación.","Cuando las gotas pesan mucho, caen como lluvia. La lluvia vuelve a los ríos y al mar."],"q":[{"q":"¿Qué convierte el agua en vapor?","c":["El calor del sol","El viento","Las nubes"],"a":0,"h":"El sol calienta el agua y el agua sube como vapor."},{"q":"El vapor se enfría y forma gotas pequeñas. ¿Cómo se llama esto?","c":["La evaporación","La condensación","La lluvia"],"a":1,"h":"La condensación forma las nubes."},{"q":"¿Por qué cae la lluvia de una nube?","c":["La nube se calienta","El sol empuja el agua","Las gotas pesan mucho"],"a":2,"h":"Las gotas pequeñas se juntan. Las gotas pesadas caen."}],"g":[["vapor","agua en forma de gas"]]},{"title":"Les parties d'une plante","lang":"fr","text":["Une plante a plusieurs parties. Chaque partie a un rôle.","Les racines sont dans la terre. Elles prennent l'eau du sol.","La tige transporte l'eau des racines jusqu'aux feuilles.","Les feuilles fabriquent la nourriture de la plante. Elles utilisent la lumière du soleil."],"q":[{"q":"Quelle partie prend l'eau du sol ?","c":["Les feuilles","La tige","Les racines"],"a":2,"h":"Les racines sont dans la terre, près de l'eau."},{"q":"À quoi sert la tige ?","c":["Elle transporte l'eau vers les feuilles","Elle fabrique la nourriture","Elle prend l'eau du sol"],"a":0,"h":"La tige relie les racines aux feuilles."},{"q":"De quoi les feuilles ont-elles besoin pour fabriquer la nourriture ?","c":["De terre","De lumière du soleil","De vent"],"a":1,"h":"Les feuilles fabriquent la nourriture à la lumière du soleil."}],"g":[["tige","la partie entre les racines et les feuilles"]]},{"title":"Água limpa para beber","lang":"pt","text":["Nosso corpo precisa de água limpa todos os dias para ficar saudável.","A água suja pode carregar germes pequenos que causam dor de barriga e diarreia.","Podemos deixar a água mais segura ao filtrar e depois ferver até formar bolhas.","Guarde a água limpa em um recipiente tampado e lave as mãos com sabão antes de comer."],"q":[{"q":"Por que a água suja pode causar doenças?","c":["Porque é fria demais","Porque pode carregar germes pequenos","Porque não tem cor"],"a":1,"h":"Germes invisíveis na água suja causam dor de barriga."},{"q":"O que ajuda a matar os germes da água?","c":["Ferver a água até formar bolhas","Deixar o balde aberto no quintal","Misturar com areia"],"a":0,"h":"O calor da fervura elimina os germes."},{"q":"Como devemos guardar a água limpa em casa?","c":["Em um recipiente bem tampado","Em um prato raso","Perto do lixo"],"a":0,"h":"Tampar o recipiente evita que poeira e insetos entrem na água."}],"g":[["germes","seres minúsculos que podem causar doenças"],["ferver","aquecer um líquido até formar bolhas"]]},{"title":"Kugawanya sawa","lang":"sw","text":["Kugawanya maana yake ni kushiriki kitu katika mafungu yaliyo sawa.","Ukiwa na maembe 6 na watoto 2, kila mtoto anapata maembe 3. Tunaandika 6 ÷ 2 = 3.","Ukiwa na maembe 12 na watoto 3, kila mtoto anapata maembe 4.","Kushiriki kwa usawa kunasaidia kila mtu apate sehemu sawa."],"q":[{"q":"Kugawanya kunamaanisha nini?","c":["Kuchukua vyote wewe mwenyewe","Kushiriki katika mafungu yaliyo sawa","Kuficha vitu"],"a":1,"h":"Katika kugawanya, kila fungu linakuwa na idadi sawa."},{"q":"Una maembe 6 kwa watoto 2. Kila mtoto anapata mangapi?","c":["2","3","4"],"a":1,"h":"Gawa 6 katika mafungu 2 sawa: 3 na 3."},{"q":"Una penseli 12 kwa watoto 3. Kila mtoto anapata ngapi?","c":["3","4","6"],"a":1,"h":"Fungu 3 la 4 hufanya 12."}],"g":[["mafungu","vikundi vilivyo na idadi sawa"]]},{"title":"साफ़ पानी और साफ़ हाथ","lang":"hi","text":["स्वस्थ रहने के लिए हमें रोज़ साफ़ पानी पीना चाहिए।","गंदे पानी में छोटे कीटाणु हो सकते हैं जो पेट खराब कर सकते हैं।","पानी को उबालने से कीटाणु मर जाते हैं। पानी को ढके हुए बर्तन में रखें।","खाने से पहले और शौच के बाद साबुन से हाथ धोना ज़रूरी है।"],"q":[{"q":"गंदा पानी पीने से पेट क्यों खराब हो सकता है?","c":["उसमें कीटाणु हो सकते हैं","वह बहुत मीठा होता है","उसका रंग नीला होता है"],"a":0,"h":"कीटाणु बहुत छोटे होते हैं और बीमारी फैलाते हैं।"},{"q":"पीने के पानी से कीटाणु कैसे खत्म किए जा सकते हैं?","c":["पानी को उबालकर","पानी को खुला छोड़कर","पानी में मिट्टी मिलाकर"],"a":0,"h":"तेज़ गरम करने से कीटाणु मर जाते हैं।"},{"q":"साबुन से हाथ कब धोना चाहिए?","c":["सिर्फ़ रात को","खाने से पहले और शौच के बाद","कभी नहीं"],"a":1,"h":"खाने से पहले हाथ साफ़ रखने से कीटाणु अंदर नहीं जाते।"}],"g":[["कीटाणु","बहुत छोटे जीव जो बीमारी फैलाते हैं"],["उबालने","पानी को तेज़ गरम करके भाप बनाना"]]},{"title":"ভগ্নাংশ: অর্ধেক ও এক-চতুর্থাংশ","lang":"bn","text":["ভগ্নাংশ হলো একটি সম্পূর্ণ জিনিসের সমান অংশ।","একটি রুটি সমান ২ ভাগ করলে প্রতিটি ভাগকে অর্ধেক বলে। আমরা লিখি ১/২।","একটি রুটি সমান ৪ ভাগ করলে প্রতিটি ভাগকে এক-চতুর্থাংশ বলে। আমরা লিখি ১/৪।","দুটি এক-চতুর্থাংশ একসাথে করলে একটি অর্ধেক হয়।"],"q":[{"q":"একটি রুটি সমান ২ ভাগ করলে প্রতিটি ভাগ কী?","c":["এক-চতুর্থাংশ","অর্ধেক","সম্পূর্ণ"],"a":1,"h":"অর্ধেক মানে সমান ২ ভাগের ১ ভাগ।"},{"q":"কোন টুকরোটি বড়?","c":["১/২","১/৪","সমান"],"a":0,"h":"২ ভাগের টুকরো ৪ ভাগের টুকরোর চেয়ে বড় হয়।"},{"q":"কয়টি এক-চতুর্থাংশ মিলে একটি অর্ধেক হয়?","c":["১টি","৪টি","২টি"],"a":2,"h":"৪ ভাগের ২ ভাগ মানে অর্ধেক।"}],"g":[["ভগ্নাংশ","কোনো সম্পূর্ণ জিনিসের সমান অংশ"],["সম্পূর্ণ","পুরো জিনিস, কোনো অংশ কম নয়"]]},{"title":"أجزاء النبات","lang":"ar","text":["للنبات أجزاء مختلفة، ولكل جزء عمل مهم.","تعيش الجذور تحت التربة وتمتص الماء والغذاء من الأرض.","يحمل الساق الماء من الجذور إلى الأوراق.","تصنع الأوراق الغذاء للنبات باستخدام ضوء الشمس والماء والهواء."],"q":[{"q":"أي جزء من النبات يمتص الماء من التربة؟","c":["الأوراق","الساق","الجذور"],"a":2,"h":"الجذور توجد تحت الأرض قريباً من الماء."},{"q":"ما وظيفة الساق؟","c":["نقل الماء إلى الأوراق","صنع البذور","تثبيت النبات فقط"],"a":0,"h":"الساق يصل بين الجذور والأوراق."},{"q":"ماذا تحتاج الأوراق لصنع غذاء النبات؟","c":["الظلام","ضوء الشمس","الرمل"],"a":1,"h":"الأوراق تستخدم ضوء الشمس لصنع الغذاء."}],"g":[["الجذور","الجزء الموجود تحت التربة لامتصاص الماء"],["الساق","الجزء الذي ينقل الماء إلى الأوراق"]]}]</script>
+<script id="lesson" type="application/json">{"title":"Fractions: half and quarter","lang":"en","cat":"math","lvl":"L2 · 1/2","fig":"frac","ex":"1 cake ÷ 2 equal parts = 1/2 each","text":["A fraction is a part of a whole thing.","Cut one cake into 2 equal parts. Each part is one half. We write it 1/2.","Cut one cake into 4 equal parts. Each part is one quarter. We write it 1/4.","Two quarters are the same as one half."],"q":[{"q":"You cut a cake into 2 equal parts. What is one part called?","c":["One quarter","One half","One whole"],"a":1,"h":"Half means 2 equal parts."},{"q":"Which piece of cake is bigger?","c":["1/2","1/4","They are the same"],"a":0,"h":"A cake cut into 4 parts has smaller pieces than a cake cut into 2 parts."},{"q":"How many quarters make one half?","c":["1","4","2"],"a":2,"h":"A quarter is 1 of 4 parts. A half is 2 of those 4 parts."},{"q":"There are 8 mangoes. You take half. How many mangoes do you take?","c":["2","4","6"],"a":1,"type":"inp","h":"Half means 2 equal groups. 8 mangoes make 2 groups of 4."}],"g":[["equal","the same size"],["whole","complete, with no part missing"]]}</script>
+<script id="library" type="application/json">[{"title":"Pecahan: setengah dan seperempat","lang":"id","cat":"math","lvl":"L2 · 1/2","fig":"frac","ex":"1 kue ÷ 2 sama besar = 1/2 per bagian","text":["Pecahan adalah bagian dari satu benda utuh.","Potong satu kue menjadi 2 bagian sama besar. Tiap bagian disebut setengah. Kita menulisnya 1/2.","Potong satu kue menjadi 4 bagian sama besar. Tiap bagian disebut seperempat. Kita menulisnya 1/4.","Dua seperempat sama dengan satu setengah."],"q":[{"q":"Kamu memotong kue menjadi 2 bagian sama besar. Satu bagian disebut apa?","c":["Seperempat","Setengah","Satu utuh"],"a":1,"h":"Setengah berarti 2 bagian sama besar."},{"q":"Potongan kue mana yang lebih besar?","c":["1/2","1/4","Sama besar"],"a":0,"h":"Kue yang dipotong 4 punya potongan lebih kecil daripada kue yang dipotong 2."},{"q":"Berapa seperempat yang sama dengan setengah?","c":["1","4","2"],"a":2,"h":"Seperempat adalah 1 dari 4 bagian. Setengah adalah 2 dari 4 bagian itu."},{"q":"Ada 8 mangga. Kamu mengambil setengahnya. Berapa mangga yang kamu ambil?","c":["2","4","6"],"a":1,"type":"inp","h":"Setengah berarti 2 kelompok sama banyak. 8 mangga menjadi 2 kelompok berisi 4."}],"g":[["utuh","lengkap, tidak ada bagian yang hilang"],["sama besar","ukurannya sama"]]},{"title":"TaRL Numeracy Diagnostic","lang":"en","cat":"diag","lvl":"TaRL L1–L4","fig":"div","ex":"Step check: add (8+5) -> subtract (42-17) -> share (12÷3) -> word problem (24÷4)","text":["This short check places learners across four numeracy steps: addition, subtraction, equal sharing, and division word problems.","Try every step on your own first. Use the hint if a step feels stuck, then finish the retry at the end."],"q":[{"q":"Step 1 (Add): What is 8 + 5?","c":["12","13","14"],"a":1,"h":"Count on 5 from 8: 9, 10, 11, 12, 13."},{"q":"Step 2 (Subtract): What is 42 - 17?","c":["25","35","31"],"a":0,"h":"Take away 10 first (32), then take away 7 more."},{"q":"Step 3 (Share): 12 mangoes are shared equally among 3 children. How many does each child get?","c":["3","4","6"],"a":1,"h":"Make 3 equal groups from 12: 4 + 4 + 4 = 12."},{"q":"Step 4 (Divide): A class puts 24 books into 4 equal piles. How many books are in each pile?","c":["4","6","8"],"a":1,"type":"inp","h":"Share 24 equally into 4 piles: 4 × 6 = 24."}],"g":[["equally","every group has the same number"]]},{"title":"The water cycle","lang":"en","cat":"sci","lvl":"Upper Primary","fig":"water","ex":"Sun heats sea -> vapour rises -> cold air forms cloud drops -> heavy drops fall as rain","text":["Water moves around the Earth again and again. This is called the water cycle.","The sun heats water in the sea, rivers and lakes. The water turns into a gas called water vapour and rises into the air. This is evaporation.","High in the sky the air is cold. The vapour cools and turns into tiny drops of water. The drops make clouds. This is condensation.","When the drops get heavy, they fall as rain. The rain runs into rivers and back to the sea."],"q":[{"q":"What turns water into water vapour?","c":["The heat of the sun","The wind","The clouds"],"a":0,"h":"The sun heats the water, and the water rises as vapour."},{"q":"Water vapour cools and turns into tiny drops. What is this called?","c":["Evaporation","Condensation","Rain"],"a":1,"h":"Condensation makes clouds. Evaporation is when water rises as vapour."},{"q":"Why does rain fall from a cloud?","c":["The cloud gets hot","The sun pulls the water down","The drops of water get heavy"],"a":2,"h":"Small drops join together. Heavy drops fall."}]},{"title":"Bagian tumbuhan","lang":"id","cat":"sci","lvl":"SD · Dasar","fig":"plant","ex":"Akar (serap air) -> Batang (bawa air) -> Daun (buat makanan dari matahari)","text":["Tumbuhan punya beberapa bagian. Tiap bagian punya tugas sendiri.","Akar ada di dalam tanah. Akar menyerap air dari tanah.","Batang membawa air dari akar ke daun.","Daun membuat makanan untuk tumbuhan. Daun memakai cahaya matahari untuk membuat makanan itu."],"q":[{"q":"Bagian mana yang menyerap air dari tanah?","c":["Daun","Batang","Akar"],"a":2,"h":"Akar ada di dalam tanah, dekat dengan air."},{"q":"Apa tugas batang?","c":["Membawa air dari akar ke daun","Membuat makanan","Menyerap air dari tanah"],"a":0,"h":"Batang menghubungkan akar dengan daun."},{"q":"Apa yang dipakai daun untuk membuat makanan?","c":["Tanah","Cahaya matahari","Angin"],"a":1,"h":"Daun membuat makanan saat terkena cahaya matahari."}]},{"title":"El ciclo del agua","lang":"es","cat":"sci","lvl":"Primaria alta","fig":"water","ex":"Sol calienta mar -> sube vapor -> nubes frías -> lluvia vuelve al río","text":["El agua se mueve por la Tierra una y otra vez. Esto se llama el ciclo del agua.","El sol calienta el agua del mar, de los ríos y de los lagos. El agua se convierte en vapor y sube al aire. Esto es la evaporación.","Arriba en el cielo el aire está frío. El vapor se enfría y forma gotas muy pequeñas. Las gotas forman las nubes. Esto es la condensación.","Cuando las gotas pesan mucho, caen como lluvia. La lluvia vuelve a los ríos y al mar."],"q":[{"q":"¿Qué convierte el agua en vapor?","c":["El calor del sol","El viento","Las nubes"],"a":0,"h":"El sol calienta el agua y el agua sube como vapor."},{"q":"El vapor se enfría y forma gotas pequeñas. ¿Cómo se llama esto?","c":["La evaporación","La condensación","La lluvia"],"a":1,"h":"La condensación forma las nubes."},{"q":"¿Por qué cae la lluvia de una nube?","c":["La nube se calienta","El sol empuja el agua","Las gotas pesan mucho"],"a":2,"h":"Las gotas pequeñas se juntan. Las gotas pesadas caen."}],"g":[["vapor","agua en forma de gas"]]},{"title":"Les parties d'une plante","lang":"fr","cat":"sci","lvl":"Primaire","fig":"plant","ex":"Racines (eau) -> Tige (transporte l'eau) -> Feuilles (soleil -> nourriture)","text":["Une plante a plusieurs parties. Chaque partie a un rôle.","Les racines sont dans la terre. Elles prennent l'eau du sol.","La tige transporte l'eau des racines jusqu'aux feuilles.","Les feuilles fabriquent la nourriture de la plante. Elles utilisent la lumière du soleil."],"q":[{"q":"Quelle partie prend l'eau du sol ?","c":["Les feuilles","La tige","Les racines"],"a":2,"h":"Les racines sont dans la terre, près de l'eau."},{"q":"À quoi sert la tige ?","c":["Elle transporte l'eau vers les feuilles","Elle fabrique la nourriture","Elle prend l'eau du sol"],"a":0,"h":"La tige relie les racines aux feuilles."},{"q":"De quoi les feuilles ont-elles besoin pour fabriquer la nourriture ?","c":["De terre","De lumière du soleil","De vent"],"a":1,"h":"Les feuilles fabriquent la nourriture à la lumière du soleil."}],"g":[["tige","la partie entre les racines et les feuilles"]]},{"title":"Água limpa para beber","lang":"pt","cat":"wash","lvl":"Saúde · Básico","fig":"wash","ex":"Filtrar -> ferver (bolhas) -> tampar o pote -> lavar mãos com sabão","text":["Nosso corpo precisa de água limpa todos os dias para ficar saudável.","A água suja pode carregar germes pequenos que causam dor de barriga e diarreia.","Podemos deixar a água mais segura ao filtrar e depois ferver até formar bolhas.","Guarde a água limpa em um recipiente tampado e lave as mãos com sabão antes de comer."],"q":[{"q":"Por que a água suja pode causar doenças?","c":["Porque é fria demais","Porque pode carregar germes pequenos","Porque não tem cor"],"a":1,"h":"Germes invisíveis na água suja causam dor de barriga."},{"q":"O que ajuda a matar os germes da água?","c":["Ferver a água até formar bolhas","Deixar o balde aberto no quintal","Misturar com areia"],"a":0,"h":"O calor da fervura elimina os germes."},{"q":"Como devemos guardar a água limpa em casa?","c":["Em um recipiente bem tampado","Em um prato raso","Perto do lixo"],"a":0,"h":"Tampar o recipiente evita que poeira e insetos entrem na água."}],"g":[["germes","seres minúsculos que podem causar doenças"],["ferver","aquecer um líquido até formar bolhas"]]},{"title":"Kugawanya sawa","lang":"sw","cat":"math","lvl":"L2 · Gawio","fig":"div","ex":"Maembe 6 ÷ watoto 2 = 3 kila mtoto (mafungu sawa)","text":["Kugawanya maana yake ni kushiriki kitu katika mafungu yaliyo sawa.","Ukiwa na maembe 6 na watoto 2, kila mtoto anapata maembe 3. Tunaandika 6 ÷ 2 = 3.","Ukiwa na maembe 12 na watoto 3, kila mtoto anapata maembe 4.","Kushiriki kwa usawa kunasaidia kila mtu apate sehemu sawa."],"q":[{"q":"Kugawanya kunamaanisha nini?","c":["Kuchukua vyote wewe mwenyewe","Kushiriki katika mafungu yaliyo sawa","Kuficha vitu"],"a":1,"h":"Katika kugawanya, kila fungu linakuwa na idadi sawa."},{"q":"Una maembe 6 kwa watoto 2. Kila mtoto anapata mangapi?","c":["2","3","4"],"a":1,"h":"Gawa 6 katika mafungu 2 sawa: 3 na 3."},{"q":"Una penseli 12 kwa watoto 3. Kila mtoto anapata ngapi?","c":["3","4","6"],"a":1,"type":"inp","h":"Fungu 3 la 4 hufanya 12."}],"g":[["mafungu","vikundi vilivyo na idadi sawa"]]},{"title":"साफ़ पानी और साफ़ हाथ","lang":"hi","cat":"wash","lvl":"स्वच्छता · बुनियादी","fig":"wash","ex":"पानी उबालें -> बर्तन ढकें -> साबुन से हाथ धोएँ","text":["स्वस्थ रहने के लिए हमें रोज़ साफ़ पानी पीना चाहिए।","गंदे पानी में छोटे कीटाणु हो सकते हैं जो पेट खराब कर सकते हैं।","पानी को उबालने से कीटाणु मर जाते हैं। पानी को ढके हुए बर्तन में रखें।","खाने से पहले और शौच के बाद साबुन से हाथ धोना ज़रूरी है।"],"q":[{"q":"गंदा पानी पीने से पेट क्यों खराब हो सकता है?","c":["उसमें कीटाणु हो सकते हैं","वह बहुत मीठा होता है","उसका रंग नीला होता है"],"a":0,"h":"कीटाणु बहुत छोटे होते हैं और बीमारी फैलाते हैं।"},{"q":"पीने के पानी से कीटाणु कैसे खत्म किए जा सकते हैं?","c":["पानी को उबालकर","पानी को खुला छोड़कर","पानी में मिट्टी मिलाकर"],"a":0,"h":"तेज़ गरम करने से कीटाणु मर जाते हैं।"},{"q":"साबुन से हाथ कब धोना चाहिए?","c":["सिर्फ़ रात को","खाने से पहले और शौच के बाद","कभी नहीं"],"a":1,"h":"खाने से पहले हाथ साफ़ रखने से कीटाणु अंदर नहीं जाते।"}],"g":[["कीटाणु","बहुत छोटे जीव जो बीमारी फैलाते हैं"],["उबालने","पानी को तेज़ गरम करके भाप बनाना"]]},{"title":"ভগ্নাংশ: অর্ধেক ও এক-চতুর্থাংশ","lang":"bn","cat":"math","lvl":"L2 · ভগ্নাংশ","fig":"frac","ex":"১টি রুটি ÷ ২ সমান ভাগ = প্রতিটি ১/২","text":["ভগ্নাংশ হলো একটি সম্পূর্ণ জিনিসের সমান অংশ।","একটি রুটি সমান ২ ভাগ করলে প্রতিটি ভাগকে অর্ধেক বলে। আমরা লিখি ১/২।","একটি রুটি সমান ৪ ভাগ করলে প্রতিটি ভাগকে এক-চতুর্থাংশ বলে। আমরা লিখি ১/৪।","দুটি এক-চতুর্থাংশ একসাথে করলে একটি অর্ধেক হয়।"],"q":[{"q":"একটি রুটি সমান ২ ভাগ করলে প্রতিটি ভাগ কী?","c":["এক-চতুর্থাংশ","অর্ধেক","সম্পূর্ণ"],"a":1,"h":"অর্ধেক মানে সমান ২ ভাগের ১ ভাগ।"},{"q":"কোন টুকরোটি বড়?","c":["১/২","১/৪","সমান"],"a":0,"h":"২ ভাগের টুকরো ৪ ভাগের টুকরোর চেয়ে বড় হয়।"},{"q":"কয়টি এক-চতুর্থাংশ মিলে একটি অর্ধেক হয়?","c":["১টি","৪টি","২টি"],"a":2,"h":"৪ ভাগের ২ ভাগ মানে অর্ধেক।"}],"g":[["ভগ্নাংশ","কোনো সম্পূর্ণ জিনিসের সমান অংশ"],["সম্পূর্ণ","পুরো জিনিস, কোনো অংশ কম নয়"]]},{"title":"أجزاء النبات","lang":"ar","cat":"sci","lvl":"ابتدائي","fig":"plant","ex":"الجذور (تمتص الماء) ← الساق (ينقل) ← الأوراق (ضوء الشمس ← غذاء)","text":["للنبات أجزاء مختلفة، ولكل جزء عمل مهم.","تعيش الجذور تحت التربة وتمتص الماء والغذاء من الأرض.","يحمل الساق الماء من الجذور إلى الأوراق.","تصنع الأوراق الغذاء للنبات باستخدام ضوء الشمس والماء والهواء."],"q":[{"q":"أي جزء من النبات يمتص الماء من التربة؟","c":["الأوراق","الساق","الجذور"],"a":2,"h":"الجذور توجد تحت الأرض قريباً من الماء."},{"q":"ما وظيفة الساق؟","c":["نقل الماء إلى الأوراق","صنع البذور","تثبيت النبات فقط"],"a":0,"h":"الساق يصل بين الجذور والأوراق."},{"q":"ماذا تحتاج الأوراق لصنع غذاء النبات؟","c":["الظلام","ضوء الشمس","الرمل"],"a":1,"h":"الأوراق تستخدم ضوء الشمس لصنع الغذاء."}],"g":[["الجذور","الجزء الموجود تحت التربة لامتصاص الماء"],["الساق","الجزء الذي ينقل الماء إلى الأوراق"]]}]</script>
 
 <script>
 // Plain ES5 on purpose: must run on old phone browsers. No dependencies.
@@ -269,14 +278,19 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').repl
 // A draft is the same thing as the editor holds it: untrimmed, with the paragraphs in one string (body).
 // Optional g:[[word, meaning]] = words the learner can tap for a plain meaning.
 function fromLesson(L){
-  return {title:L.title,lang:L.lang,body:L.text.join('\n\n'),
+  var D={title:L.title,lang:L.lang,cat:L.cat||'',lvl:L.lvl||'',fig:L.fig||'',ex:L.ex||'',body:L.text.join('\n\n'),
     gloss:(L.g||[]).map(function(p){return p.join(' = ');}).join('\n'),
-    q:L.q.map(function(q){return {q:q.q,c:q.c.slice(),a:q.a,h:q.h};})};
+    q:L.q.map(function(q){return {q:q.q,c:q.c.slice(),a:q.a,h:q.h,type:q.type||''};})};
+  return D;
 }
 function toLesson(D){
   var L={title:D.title.trim(),lang:D.lang,
     text:D.body.split(/\n\s*\n/).map(function(p){return p.trim().replace(/\s+/g,' ');}).filter(function(p){return p;}),
-    q:D.q.map(function(q){return {q:q.q.trim(),c:q.c.map(function(s){return s.trim();}),a:q.a,h:q.h.trim()};})},g=[];
+    q:D.q.map(function(q){var o={q:q.q.trim(),c:q.c.map(function(s){return s.trim();}),a:q.a,h:q.h.trim()};if(q.type=='inp')o.type='inp';return o;})},g=[];
+  if(D.cat)L.cat=D.cat;
+  if((D.lvl||'').trim())L.lvl=D.lvl.trim();
+  if(D.fig)L.fig=D.fig;
+  if((D.ex||'').trim())L.ex=D.ex.trim();
   (D.gloss||'').split(/\r?\n/).forEach(function(s){
     var i=s.indexOf('='),w=s.slice(0,i).trim(),m=s.slice(i+1).trim();
     if(i>0&&w&&m)g.push([w,m]);
@@ -354,19 +368,42 @@ function readCode(L,s){
 }
 // first[j] = learners right on first pick; wrong[j][choice] = learners whose first pick was that wrong choice.
 function tally(L,text){
-  var r={n:0,first:[],wrong:[],bad:[]},lines=text.split(/\r?\n/),i,j;
+  var r={n:0,first:[],wrong:[],bad:[],learners:[]},lines=text.split(/\r?\n/),i,j,right;
   for(i=0;i<L.q.length;i++){r.first.push(0);r.wrong.push({});}
   for(i=0;i<lines.length;i++){
     if(!lines[i].trim())continue;
     var c=readCode(L,lines[i]);
     if(typeof c=='string'){r.bad.push([lines[i].trim(),c]);continue;}
-    r.n++;
+    r.n++;right=0;
     for(j=0;j<c.length;j++){
       var a=c[j]-1;
-      if(a==L.q[j].a)r.first[j]++;else r.wrong[j][a]=(r.wrong[j][a]||0)+1;
+      if(a==L.q[j].a){r.first[j]++;right++;}else r.wrong[j][a]=(r.wrong[j][a]||0)+1;
     }
+    r.learners.push({code:lines[i].trim(),ok:right,n:L.q.length});
   }
   return r;
+}
+function matchInp(q,raw){
+  var s=String(raw||'').trim().toLowerCase(),i,ok=q.c[q.a].trim().toLowerCase(),n=function(x){return x.replace(/[\s,]+/g,'');};
+  if(!s)return -1;
+  for(i=0;i<q.c.length;i++)if(n(q.c[i].trim().toLowerCase())==n(s))return i;
+  return n(s)==n(ok)?q.a:-2;
+}
+function tarlBand(ok,n){
+  var p=n?ok/n*100:0;
+  return p>=80?'lvl4':p>=50?'lvl3':p>=25?'lvl2':'lvl1';
+}
+function packLesson(L){
+  var j=JSON.stringify(L),b=unescape(encodeURIComponent(j));
+  return 'TITIP1:'+btoa(b);
+}
+function unpackLesson(s){
+  var m=String(s||'').trim();
+  if(m.indexOf('TITIP1:')!==0)return null;
+  try{
+    var d=JSON.parse(decodeURIComponent(escape(atob(m.slice(7).replace(/\s+/g,'')))));
+    return d&&d.title&&d.q&&d.q.length?d:null;
+  }catch(e){return null;}
 }
 // Share of all first picks that were right, 0 to 100.
 function classPct(r){
@@ -418,6 +455,11 @@ function selfTest(){
   ok(rich('تمتص الجذور الماء',GA)=='<span lang="ar" dir="rtl">تمتص <button type="button" class="term" data-act="term" data-n="0">الجذور</button> الماء</span>','arabic rtl glossary');
   ok(rich('a & b',{lang:'en',g:[['amp','x']]})=='<span lang="en">a &amp; b</span>','glossary skips HTML entities');
   ok(withRetries(L,[2,2]).join()=='0,1,1'&&withRetries(L,[2,1]).join()=='0,1','missed questions come back once');
+  ok(r.learners.length==2&&r.learners[0].ok==1&&r.learners[1].ok==2,'tally keeps learner scores');
+  var Q={c:['2','4','6'],a:1,type:'inp'};
+  ok(matchInp(Q,' 4 ')==1&&matchInp(Q,'5')==-2&&matchInp(Q,'')==-1,'matchInp matches choice, marks unknown wrong, flags empty');
+  ok(tarlBand(0,4)=='lvl1'&&tarlBand(1,4)=='lvl2'&&tarlBand(2,4)=='lvl3'&&tarlBand(4,4)=='lvl4','tarlBand');
+  var P=packLesson(L);ok(P.indexOf('TITIP1:')===0&&unpackLesson(P).title=='T'&&unpackLesson('bad')===null,'pack/unpack lesson');
   return 'ok';
 }
 
@@ -474,7 +516,13 @@ r1:'First round:',r2:'Second round:',thF:'right on first try',thW:'Most common w
 follow:'Make a follow-up lesson from the "Teach again" questions',rBad:'Not counted',
 wbad:'not a result code',wother:'code is from a different lesson',wtypo:'code has a typing mistake',
 pHow:'Circle one answer for each question. Then write your answer numbers in order on the line below, for example: 2 1 3.',pAns:'My answers:',
-pSum:'Add your answer numbers together. Total:',pKey:'Finished? Turn the page upside down to check your answers.'},
+pSum:'Add your answer numbers together. Total:',pKey:'Finished? Turn the page upside down to check your answers.',
+allL:'All languages',allC:'All topics',cDiag:'Diagnostic',cMath:'Numeracy',cRead:'Literacy',cSci:'Science',cWash:'Health',noLib:'No lessons match this filter.',
+exL:'Worked example',fType:'Type your answer:',typeL:'Typed answer first (shows choices on retry)',fCat:'Topic',fLvl:'Level tag (e.g. TaRL L1–L4)',fFig:'Diagram',fig0:'None',figFrac:'Fractions (1/2 vs 1/4)',figWater:'Water cycle',figPlant:'Plant parts',figWash:'Clean water & soap',figDiv:'Equal sharing',fEx:'Worked example (optional)',
+qSave:'Save to phone queue',qSaved:'Saved on this phone:',qSms:'Send all by SMS',qRes:'Open in Results',qClr:'Clear queue',
+band:'Level:',lvl1:'L1 · Beginning',lvl2:'L2 · Emerging',lvl3:'L3 · Building',lvl4:'L4 · Fluent',
+grpT:'TaRL Classroom Groups',grpA:'Group A (<50% · Concrete support)',grpB:'Group B (50–79% · Guided practice)',grpC:'Group C (80–100% · Ready to advance)',
+cpCode:'Copy text code',cpOk:'TITIP1: code copied. Paste in SMS or chat.',impB:'Import code',impP:'Paste TITIP1:... code',impBad:'Not a valid TITIP1: lesson code.',print2:'Print 2-up slips (half paper)'},
 
 id:{nWhy:'Bukti',nHelp:'Bantuan',gAbout:'Tentang',dark:'Warna gelap kontras tinggi',off:'Offline: tetap jalan',
 whyS:'Tiap pilihan rancangan berpijak pada angka yang diukur orang lain. Daftar lengkap, 29 paper dan 59 sumber global maupun nasional, ada di RESEARCH.md.',
@@ -526,7 +574,13 @@ r1:'Putaran pertama:',r2:'Putaran kedua:',thF:'benar pada percobaan pertama',thW
 follow:'Buat pelajaran lanjutan dari soal "Ajarkan lagi"',rBad:'Tidak terhitung',
 wbad:'bukan kode hasil',wother:'kode dari pelajaran lain',wtypo:'kode salah ketik',
 pHow:'Lingkari satu jawaban untuk tiap soal. Lalu tulis nomor jawabanmu berurutan di garis di bawah, contoh: 2 1 3.',pAns:'Jawaban saya:',
-pSum:'Jumlahkan semua nomor jawabanmu. Total:',pKey:'Sudah selesai? Balik kertas ini untuk memeriksa jawabanmu.'},
+pSum:'Jumlahkan semua nomor jawabanmu. Total:',pKey:'Sudah selesai? Balik kertas ini untuk memeriksa jawabanmu.',
+allL:'Semua bahasa',allC:'Semua topik',cDiag:'Diagnostik',cMath:'Numerasi',cRead:'Literasi',cSci:'Sains',cWash:'Kesehatan',noLib:'Belum ada materi yang cocok dengan filter ini.',
+exL:'Contoh pengerjaan',fType:'Ketik jawabanmu:',typeL:'Ketik jawaban dulu (pilihan muncul jika salah)',fCat:'Topik',fLvl:'Label level (mis. TaRL L1–L4)',fFig:'Diagram',fig0:'Tanpa diagram',figFrac:'Pecahan (1/2 vs 1/4)',figWater:'Siklus air',figPlant:'Bagian tumbuhan',figWash:'Air bersih & sabun',figDiv:'Pembagian sama rata',fEx:'Contoh pengerjaan (opsional)',
+qSave:'Simpan ke antrean HP',qSaved:'Tersimpan di HP ini:',qSms:'Kirim semua lewat SMS',qRes:'Buka di Hasil',qClr:'Kosongkan antrean',
+band:'Level:',lvl1:'L1 · Awal',lvl2:'L2 · Berkembang',lvl3:'L3 · Mantap',lvl4:'L4 · Mahir',
+grpT:'Pengelompokan Kelas (TaRL)',grpA:'Kelompok A (<50% · Pendampingan dasar)',grpB:'Kelompok B (50–79% · Latihan terbimbing)',grpC:'Kelompok C (80–100% · Siap lanjut)',
+cpCode:'Salin kode teks',cpOk:'Kode TITIP1: tersalin. Tempel di SMS atau chat.',impB:'Impor kode',impP:'Tempel kode TITIP1:...',impBad:'Kode pelajaran TITIP1: tidak valid.',print2:'Cetak 2-per-halaman (hemat kertas)'},
 
 es:{nHome:'Inicio',nLearn:'Aprender',nLib:'Lecciones',nMake:'Crear una lección',nMakeS:'Crear',nRes:'Resultados',gLearner:'Estudiante',gTeacher:'Docente',gAbout:'Acerca de',nWhy:'Evidencia',nHelp:'Ayuda',
 big:'Texto más grande',menu:'Mostrar u ocultar los nombres del menú',dark:'Colores oscuros de alto contraste',off:'Sin conexión: sigue funcionando',
@@ -577,7 +631,13 @@ c2:'Lee la lección y luego pulsa Empezar a practicar. Toca una palabra subrayad
 hp3:'Privacidad',p1:'Sin cuenta, sin nombre, sin rastreo.',p2:'Un código de resultado solo contiene un identificador de lección y la primera respuesta a cada pregunta.',
 p3:'Las rondas que guarda un docente se quedan en ese dispositivo.',p4:'En una pantalla ancha la página carga una fuente de Google Fonts. En un teléfono no contacta a nadie.',
 pHow:'Rodea con un círculo una respuesta en cada pregunta. Luego escribe los números de tus respuestas en orden en la línea de abajo, por ejemplo: 2 1 3.',pAns:'Mis respuestas:',
-pSum:'Suma los números de tus respuestas. Total:',pKey:'¿Terminaste? Da la vuelta a la hoja para comprobar tus respuestas.'},
+pSum:'Suma los números de tus respuestas. Total:',pKey:'¿Terminaste? Da la vuelta a la hoja para comprobar tus respuestas.',
+allL:'Todos los idiomas',allC:'Todos los temas',cDiag:'Diagnóstico',cMath:'Matemáticas',cRead:'Lectura',cSci:'Ciencias',cWash:'Salud',noLib:'Ninguna lección coincide con este filtro.',
+exL:'Ejemplo resuelto',fType:'Escribe tu respuesta:',typeL:'Respuesta escrita primero (muestra opciones al reintentar)',fCat:'Tema',fLvl:'Nivel (ej. TaRL L1–L4)',fFig:'Diagrama',fig0:'Ninguno',figFrac:'Fracciones (1/2 vs 1/4)',figWater:'Ciclo del agua',figPlant:'Partes de la planta',figWash:'Agua limpia y jabón',figDiv:'Reparto igual',fEx:'Ejemplo resuelto (opcional)',
+qSave:'Guardar en este teléfono',qSaved:'Guardados en este teléfono:',qSms:'Enviar todo por SMS',qRes:'Abrir en Resultados',qClr:'Vaciar lista',
+band:'Nivel:',lvl1:'L1 · Inicial',lvl2:'L2 · En proceso',lvl3:'L3 · Firme',lvl4:'L4 · Fluido',
+grpT:'Grupos de clase (TaRL)',grpA:'Grupo A (<50% · Apoyo base)',grpB:'Grupo B (50–79% · Práctica guiada)',grpC:'Grupo C (80–100% · Listo para avanzar)',
+cpCode:'Copiar código texto',cpOk:'Código TITIP1: copiado para SMS o chat.',impB:'Importar código',impP:'Pega código TITIP1:...',impBad:'No es un código TITIP1: válido.',print2:'Imprimir 2 por hoja'},
 
 fr:{nHome:'Accueil',nLearn:'Apprendre',nLib:'Leçons',nMake:'Créer une leçon',nMakeS:'Créer',nRes:'Résultats',gLearner:'Élève',gTeacher:'Enseignant',gAbout:'À propos',nWhy:'Preuves',nHelp:'Aide',
 big:'Texte plus grand',menu:'Afficher ou masquer les noms du menu',dark:'Couleurs sombres à fort contraste',off:'Hors ligne : ça marche quand même',
@@ -628,7 +688,13 @@ c2:'Lis la leçon, puis appuie sur Commencer l’exercice. Touche un mot soulign
 hp3:'Confidentialité',p1:'Pas de compte, pas de nom, pas de suivi.',p2:'Un code de résultat contient seulement un identifiant de leçon et la première réponse à chaque question.',
 p3:'Les séries qu’un enseignant enregistre restent sur cet appareil.',p4:'Sur un grand écran, la page charge une police depuis Google Fonts. Sur un téléphone, elle ne contacte personne.',
 pHow:'Entoure une réponse pour chaque question. Puis écris les numéros de tes réponses dans l’ordre sur la ligne ci-dessous, par exemple : 2 1 3.',pAns:'Mes réponses :',
-pSum:'Additionne les numéros de tes réponses. Total :',pKey:'Fini ? Retourne la feuille pour vérifier tes réponses.'},
+pSum:'Additionne les numéros de tes réponses. Total :',pKey:'Fini ? Retourne la feuille pour vérifier tes réponses.',
+allL:'Toutes les langues',allC:'Tous les thèmes',cDiag:'Diagnostic',cMath:'Calcul',cRead:'Lecture',cSci:'Sciences',cWash:'Santé',noLib:'Aucune leçon ne correspond à ce filtre.',
+exL:'Exemple guidé',fType:'Écris ta réponse :',typeL:'Réponse écrite d’abord (choix affichés au 2e essai)',fCat:'Thème',fLvl:'Niveau (ex. TaRL L1–L4)',fFig:'Schéma',fig0:'Aucun',figFrac:'Fractions (1/2 vs 1/4)',figWater:'Cycle de l’eau',figPlant:'Parties d’une plante',figWash:'Eau propre et savon',figDiv:'Partage égal',fEx:'Exemple guidé (optionnel)',
+qSave:'Enregistrer sur ce téléphone',qSaved:'Enregistrés sur ce téléphone :',qSms:'Tout envoyer par SMS',qRes:'Ouvrir dans Résultats',qClr:'Vider la file',
+band:'Niveau :',lvl1:'L1 · Débutant',lvl2:'L2 · Émergent',lvl3:'L3 · Solide',lvl4:'L4 · Maîtrisé',
+grpT:'Groupes de classe (TaRL)',grpA:'Groupe A (<50% · Soutien de base)',grpB:'Groupe B (50–79% · Pratique guidée)',grpC:'Groupe C (80–100% · Prêt à avancer)',
+cpCode:'Copier code texte',cpOk:'Code TITIP1: copié pour SMS ou chat.',impB:'Importer un code',impP:'Coller un code TITIP1:...',impBad:'Code TITIP1: invalide.',print2:'Imprimer 2 par page'},
 
 pt:{nHome:'Início',nLearn:'Aprender',nLib:'Lições',nMake:'Criar lição',nMakeS:'Criar',nRes:'Resultados',gLearner:'Estudante',gTeacher:'Docente',gAbout:'Sobre',nWhy:'Evidências',nHelp:'Ajuda',
 big:'Texto maior',menu:'Mostrar ou ocultar rótulos do menu',dark:'Cores escuras de alto contraste',off:'Sem internet: continua funcionando',
@@ -679,7 +745,13 @@ c2:'Leia a lição e toque Começar prática. Toque em palavras sublinhadas para
 hp3:'Privacidade',p1:'Sem conta, sem nome, sem rastreio.',p2:'O código guarda apenas o id da lição e a primeira resposta de cada pergunta.',
 p3:'As rodadas salvas pelo docente ficam apenas naquele aparelho.',p4:'Em tela grande carrega uma fonte do Google Fonts. No celular não contata ninguém.',
 pHow:'Circule uma resposta por pergunta. Depois escreva os números em ordem na linha abaixo, ex.: 2 1 3.',pAns:'Minhas respostas:',
-pSum:'Some os números das respostas. Total:',pKey:'Terminou? Vire a folha de cabeça para baixo para conferir.'},
+pSum:'Some os números das respostas. Total:',pKey:'Terminou? Vire a folha de cabeça para baixo para conferir.',
+allL:'Todos os idiomas',allC:'Todos os temas',cDiag:'Diagnóstico',cMath:'Matemática',cRead:'Leitura',cSci:'Ciências',cWash:'Saúde',noLib:'Nenhuma lição corresponde ao filtro.',
+exL:'Exemplo resolvido',fType:'Digite sua resposta:',typeL:'Resposta digitada primeiro (opções na 2ª tentativa)',fCat:'Tema',fLvl:'Nível (ex. TaRL L1–L4)',fFig:'Diagrama',fig0:'Nenhum',figFrac:'Frações (1/2 vs 1/4)',figWater:'Ciclo da água',figPlant:'Partes da planta',figWash:'Água limpa e sabão',figDiv:'Divisão igual',fEx:'Exemplo resolvido (opcional)',
+qSave:'Salvar na fila do celular',qSaved:'Salvos neste celular:',qSms:'Enviar tudo por SMS',qRes:'Abrir em Resultados',qClr:'Limpar fila',
+band:'Nível:',lvl1:'L1 · Inicial',lvl2:'L2 · Em progresso',lvl3:'L3 · Firme',lvl4:'L4 · Fluente',
+grpT:'Grupos de turma (TaRL)',grpA:'Grupo A (<50% · Apoio base)',grpB:'Grupo B (50–79% · Prática guiada)',grpC:'Grupo C (80–100% · Pronto para avançar)',
+cpCode:'Copiar código texto',cpOk:'Código TITIP1: copiado para SMS ou chat.',impB:'Importar código',impP:'Cole código TITIP1:...',impBad:'Código TITIP1: inválido.',print2:'Imprimir 2 por página'},
 
 sw:{nHome:'Muhtasari',nLearn:'Jifunze',nLib:'Masomo',nMake:'Tengeneza somo',nMakeS:'Tengeneza',nRes:'Matokeo',gLearner:'Mwanafunzi',gTeacher:'Mwalimu',gAbout:'Kuhusu',nWhy:'Ushahidi',nHelp:'Msaada',
 big:'Maandishi makubwa',menu:'Onyesha au ficha majina ya menyu',dark:'Rangi nyeusi yenye utofauti mkubwa',off:'Nje ya mtandao: linafanya kazi',
@@ -730,7 +802,13 @@ c2:'Soma somo, kisha bonyeza Anza mazoezi. Gusa neno lililopigiwa mstari kuona m
 hp3:'Faragha',p1:'Hakuna akaunti, jina wala ufuatiliaji.',p2:'Msimbo una kitambulisho cha somo na jibu la kwanza tu.',
 p3:'Mizunguko inayohifadhiwa hubaki kwenye kifaa hicho pekee.',p4:'Kwenye skrini kubwa hupakia fonti moja ya Google Fonts. Kwenye simu haiwasiliani na mtu yeyote.',
 pHow:'Zungushia jibu moja kwa kila swali. Kisha andika namba za majibu yako kwa mpangilio hapa chini, mfano: 2 1 3.',pAns:'Majibu yangu:',
-pSum:'Jumlisha namba za majibu yako. Jumla:',pKey:'Umemaliza? Geuza karatasi juu chini kukagua majibu.'},
+pSum:'Jumlisha namba za majibu yako. Jumla:',pKey:'Umemaliza? Geuza karatasi juu chini kukagua majibu.',
+allL:'Lugha zote',allC:'Mada zote',cDiag:'Upimaji',cMath:'Hisabati',cRead:'Kusoma',cSci:'Sayansi',cWash:'Afya',noLib:'Hakuna somo linalolingana na kichujio hiki.',
+exL:'Mfano wa jinsi ya kufanya',fType:'Andika jibu lako:',typeL:'Andika jibu kwanza (chaguo litaonekana ukikosea)',fCat:'Mada',fLvl:'Kiwango (mf. TaRL L1–L4)',fFig:'Mchoro',fig0:'Hakuna',figFrac:'Sehemu (1/2 vs 1/4)',figWater:'Mzunguko wa maji',figPlant:'Sehemu za mmea',figWash:'Maji safi na sabuni',figDiv:'Kugawanya sawa',fEx:'Mfano wa kazi (hiari)',
+qSave:'Hifadhi kwenye foleni ya simu',qSaved:'Zilizohifadhiwa kwenye simu hii:',qSms:'Tuma zote kwa SMS',qRes:'Fungua kwenye Matokeo',qClr:'Futa foleni',
+band:'Kiwango:',lvl1:'L1 · Mwanzo',lvl2:'L2 · Inakua',lvl3:'L3 · Imara',lvl4:'L4 · Hodari',
+grpT:'Makundi ya Darasa (TaRL)',grpA:'Kundi A (<50% · Msaada wa msingi)',grpB:'Kundi B (50–79% · Mazoezi elekezi)',grpC:'Kundi C (80–100% · Tayari kuendelea)',
+cpCode:'Nakili msimbo wa maandishi',cpOk:'Msimbo wa TITIP1: umenakiliwa kwa SMS/chat.',impB:'Ingiza msimbo',impP:'Bandika msimbo wa TITIP1:...',impBad:'Msimbo wa TITIP1: si sahihi.',print2:'Chapisha 2 kwa ukurasa'},
 
 hi:{nHome:'अवलोकन',nLearn:'सीखें',nLib:'पाठ',nMake:'पाठ बनाएँ',nMakeS:'बनाएँ',nRes:'परिणाम',gLearner:'विद्यार्थी',gTeacher:'शिक्षक',gAbout:'परिचय',nWhy:'साक्ष्य',nHelp:'मदद',
 big:'बड़ा टेक्स्ट',menu:'मेनू लेबल दिखाएँ या छिपाएँ',dark:'गहरे उच्च-कंट्रास्ट रंग',off:'ऑफ़लाइन: अभी भी चलता है',
@@ -781,7 +859,13 @@ c2:'पाठ पढ़ें और अभ्यास शुरू करे�
 hp3:'गोपनीयता',p1:'कोई खाता, नाम या ट्रैकिंग नहीं।',p2:'कोड में केवल पाठ आईडी और पहला उत्तर रहता है।',
 p3:'सहेजे गए दौर केवल उसी उपकरण पर रहते हैं।',p4:'बड़ी स्क्रीन पर एक Google फ़ॉन्ट लोड होता है; फ़ोन पर किसी से संपर्क नहीं होता।',
 pHow:'हर प्रश्न के एक उत्तर पर गोला लगाएँ। फिर नीचे अपने उत्तरों के नंबर क्रम से लिखें, जैसे: 2 1 3।',pAns:'मेरे उत्तर:',
-pSum:'अपने उत्तर नंबर जोड़ें। कुल योग:',pKey:'हो गया? उत्तर जाँचने के लिए पन्ना उल्टा करें।'},
+pSum:'अपने उत्तर नंबर जोड़ें। कुल योग:',pKey:'हो गया? उत्तर जाँचने के लिए पन्ना उल्टा करें।',
+allL:'सभी भाषाएँ',allC:'सभी विषय',cDiag:'जाँच (Diagnostic)',cMath:'गणित',cRead:'पठन',cSci:'विज्ञान',cWash:'स्वास्थ्य',noLib:'इस फ़िल्टर से कोई पाठ नहीं मिला।',
+exL:'हल किया उदाहरण',fType:'अपना उत्तर लिखें:',typeL:'पहले लिखकर उत्तर (गलती पर विकल्प दिखेंगे)',fCat:'विषय',fLvl:'स्तर (जैसे TaRL L1–L4)',fFig:'चित्र',fig0:'कोई नहीं',figFrac:'भिन्न (1/2 बनाम 1/4)',figWater:'जल चक्र',figPlant:'पौधे के भाग',figWash:'साफ़ पानी और साबुन',figDiv:'बराबर बँटवारा',fEx:'उदाहरण (वैकल्पिक)',
+qSave:'फ़ोन कतार में सहेजें',qSaved:'इस फ़ोन पर सहेजे गए:',qSms:'सब SMS से भेजें',qRes:'परिणाम में खोलें',qClr:'कतार खाली करें',
+band:'स्तर:',lvl1:'L1 · आरंभिक',lvl2:'L2 · उभरता हुआ',lvl3:'L3 · मज़बूत',lvl4:'L4 · दक्ष',
+grpT:'कक्षा समूह (TaRL)',grpA:'समूह A (<50% · बुनियादी सहारा)',grpB:'समूह B (50–79% · निर्देशित अभ्यास)',grpC:'समूह C (80–100% · आगे बढ़ने के लिए तैयार)',
+cpCode:'टेक्स्ट कोड कॉपी करें',cpOk:'TITIP1: कोड कॉपी हुआ। SMS या चैट में चिपकाएँ।',impB:'कोड आयात करें',impP:'TITIP1:... कोड चिपकाएँ',impBad:'यह मान्य TITIP1: पाठ कोड नहीं है।',print2:'प्रति पृष्ठ 2 पर्चियाँ प्रिंट करें'},
 
 bn:{nHome:'সংক্ষিপ্তসার',nLearn:'শিখুন',nLib:'পাঠ',nMake:'পাঠ তৈরি',nMakeS:'তৈরি',nRes:'ফলাফল',gLearner:'শিক্ষার্থী',gTeacher:'শিক্ষক',gAbout:'সম্পর্কে',nWhy:'প্রমাণ',nHelp:'সহায়তা',
 big:'বড় লেখা',menu:'মেনু লেবেল দেখান বা লুকান',dark:'গাঢ় উচ্চ-কনট্রাস্ট রঙ',off:'অফলাইন: তবুও কাজ করে',
@@ -832,7 +916,13 @@ c2:'পাঠ পড়ে অনুশীলন শুরু চাপুন। �
 hp3:'গোপনীয়তা',p1:'কোনো অ্যাকাউন্ট, নাম বা ট্র্যাকিং নেই।',p2:'কোডে শুধু পাঠের আইডি ও প্রথম উত্তর থাকে।',
 p3:'সংরক্ষিত ধাপ শুধু ওই যন্ত্রেই থাকে।',p4:'বড় স্ক্রিনে Google Fonts থেকে একটি ফন্ট নেয়; ফোনে কারও সাথে যোগাযোগ করে না।',
 pHow:'প্রতি প্রশ্নের একটি উত্তরে গোল দাগ দাও। তারপর নিচের লাইনে ক্রম অনুযায়ী উত্তর নম্বর লেখো, যেমন: 2 1 3।',pAns:'আমার উত্তর:',
-pSum:'উত্তর নম্বরগুলো যোগ করো। মোট:',pKey:'শেষ? উত্তর মিলিয়ে দেখতে কাগজ উল্টে ধরো।'},
+pSum:'উত্তর নম্বরগুলো যোগ করো। মোট:',pKey:'শেষ? উত্তর মিলিয়ে দেখতে কাগজ উল্টে ধরো।',
+allL:'সব ভাষা',allC:'সব বিষয়',cDiag:'মূল্যায়ন',cMath:'গণিত',cRead:'পড়া',cSci:'বিজ্ঞান',cWash:'স্বাস্থ্য',noLib:'এই ফিল্টারে কোনো পাঠ পাওয়া যায়নি।',
+exL:'উদাহরণ',fType:'তোমার উত্তর লেখো:',typeL:'আগে লিখে উত্তর (ভুল হলে বিকল্প দেখাবে)',fCat:'বিষয়',fLvl:'স্তর (যেমন TaRL L1–L4)',fFig:'চিত্র',fig0:'কিছুই না',figFrac:'ভগ্নাংশ (১/২ বনাম ১/৪)',figWater:'জলচক্র',figPlant:'উদ্ভিদের অংশ',figWash:'বিশুদ্ধ পানি ও সাবান',figDiv:'সমান ভাগ',fEx:'উদাহরণ (ঐচ্ছিক)',
+qSave:'ফোনের সারিতে সেভ করো',qSaved:'এই ফোনে সেভ করা:',qSms:'সবগুলো SMS-এ পাঠাও',qRes:'ফলাফলে খোলো',qClr:'সারি খালি করো',
+band:'স্তর:',lvl1:'L1 · শুরু',lvl2:'L2 · উন্নতি হচ্ছে',lvl3:'L3 · দৃঢ়',lvl4:'L4 · দক্ষ',
+grpT:'শ্রেণি দল (TaRL)',grpA:'দল A (<50% · মৌলিক সহায়তা)',grpB:'দল B (50–79% · নির্দেশিত অনুশীলন)',grpC:'দল C (80–100% · পরবর্তী স্তরের উপযুক্ত)',
+cpCode:'টেক্সট কোড কপি করো',cpOk:'TITIP1: কোড কপি হয়েছে। SMS বা চ্যাটে পেস্ট করো।',impB:'কোড আনো',impP:'TITIP1:... কোড পেস্ট করো',impBad:'এটি সঠিক TITIP1: পাঠ কোড নয়।',print2:'পৃষ্ঠায় ২টি করে প্রিন্ট করো'},
 
 ar:{nHome:'نظرة عامة',nLearn:'تعلّم',nLib:'الدروس',nMake:'إنشاء درس',nMakeS:'إنشاء',nRes:'النتائج',gLearner:'المتعلم',gTeacher:'المعلم',gAbout:'حول',nWhy:'الأدلة',nHelp:'مساعدة',
 big:'تكبير النص',menu:'إظهار أو إخفاء أسماء القائمة',dark:'ألوان داكنة عالية التباين',off:'دون اتصال: يعمل دائماً',
@@ -883,7 +973,13 @@ c2:'اقرأ الدرس ثم اضغط ابدأ التدريب. انقر على �
 hp3:'الخصوصية',p1:'بلا حساب ولا اسم ولا تتبّع.',p2:'يحمل الرمز معرف الدرس والإجابة الأولى فقط.',
 p3:'الجولات التي يحفظها المعلم تبقى على جهازه فقط.',p4:'على الشاشات الكبيرة يُحمّل خط واحد من Google Fonts. على الهاتف لا يتصل بأحد.',
 pHow:'ضع دائرة حول إجابة لكل سؤال، ثم اكتب أرقام إجاباتك بالترتيب في السطر أدناه، مثل: 2 1 3.',pAns:'إجاباتي:',
-pSum:'اجمع أرقام إجاباتك. المجموع:',pKey:'انتهيت؟ اقلب الورقة للتحقق من إجاباتك.'}
+pSum:'اجمع أرقام إجاباتك. المجموع:',pKey:'انتهيت؟ اقلب الورقة للتحقق من إجاباتك.',
+allL:'كل اللغات',allC:'كل المواد',cDiag:'تشخيصي',cMath:'حساب',cRead:'قراءة',cSci:'علوم',cWash:'صحة',noLib:'لا توجد دروس تطابق هذا الفلتر.',
+exL:'مثال محلول',fType:'اكتب إجابتك:',typeL:'إجابة مكتوبة أولاً (تظهر الخيارات عند الإعادة)',fCat:'المادة',fLvl:'المستوى (مثل TaRL L1–L4)',fFig:'رسم توضيحي',fig0:'بدون رسم',figFrac:'كسور (1/2 مقابل 1/4)',figWater:'دورة الماء',figPlant:'أجزاء النبات',figWash:'ماء نظيف وصابون',figDiv:'قسمة متساوية',fEx:'مثال محلول (اختياري)',
+qSave:'احفظ في قائمة الهاتف',qSaved:'المحفوظون على هذا الهاتف:',qSms:'أرسل الكل برسالة SMS',qRes:'افتح في النتائج',qClr:'مسح القائمة',
+band:'المستوى:',lvl1:'L1 · مبتدئ',lvl2:'L2 · متقدم',lvl3:'L3 · متمكن',lvl4:'L4 · متقن',
+grpT:'مجموعات الصف (TaRL)',grpA:'المجموعة A (<50% · دعم أساسي)',grpB:'المجموعة B (50–79% · تدريب موجّه)',grpC:'المجموعة C (80–100% · جاهز للمستوى التالي)',
+cpCode:'نسخ الرمز النصي',cpOk:'تم نسخ رمز TITIP1: للرسائل أو الدردشة.',impB:'استيراد رمز',impP:'الصق رمز TITIP1:...',impBad:'رمز TITIP1: غير صالح.',print2:'طباعة ورقتين في الصفحة'}
 };
 // Own line icons, 24px grid.
 var I={
@@ -911,6 +1007,13 @@ globe:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3
 dark:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 3v18M12 7l5 0M12 12h9M12 17h5',
 bulb:'M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z',
 help:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01'
+};
+var FIGS={
+frac:'<svg viewBox="0 0 280 96" width="280" height="96" aria-hidden="true"><circle cx="66" cy="48" r="34" fill="#c2e7ff" stroke="#0b57d0" stroke-width="2.5"/><path d="M66 14v68" stroke="#0b57d0" stroke-width="2.5"/><path d="M66 14a34 34 0 0 1 0 68z" fill="#0b57d0" opacity=".25"/><text x="48" y="53" font-size="13" font-weight="600" fill="#0b57d0">1/2</text><circle cx="204" cy="48" r="34" fill="#c2e7ff" stroke="#0b57d0" stroke-width="2.5"/><path d="M204 14v68M170 48h68" stroke="#0b57d0" stroke-width="2.5"/><path d="M204 14a34 34 0 0 1 34 34h-34z" fill="#0b57d0" opacity=".35"/><text x="211" y="39" font-size="12" font-weight="600" fill="#0b57d0">1/4</text></svg>',
+water:'<svg viewBox="0 0 280 96" width="280" height="96" aria-hidden="true"><circle cx="38" cy="24" r="14" fill="#fb8c00"/><path d="M10 80q70-8 140 0t120 0v14H10z" fill="#0b57d0" opacity=".25"/><path d="M66 72c0-18 14-18 14-36" fill="none" stroke="#0b57d0" stroke-width="2.5" stroke-dasharray="4 3"/><path d="M168 34c-12 0-18-16 2-20 8-8 26-6 30 6 14 2 14 14 0 14z" fill="#90caf9" stroke="#0b57d0" stroke-width="2"/><path d="M174 44v22M190 44v22M206 44v22" stroke="#0b57d0" stroke-width="2.5" stroke-linecap="round"/></svg>',
+plant:'<svg viewBox="0 0 280 96" width="280" height="96" aria-hidden="true"><path d="M20 68h240" stroke="#795548" stroke-width="3"/><path d="M140 68V24" stroke="#1e8e3e" stroke-width="4" stroke-linecap="round"/><ellipse cx="118" cy="40" rx="18" ry="8" transform="rotate(-20 118 40)" fill="#81c995" stroke="#146c2e" stroke-width="2"/><ellipse cx="162" cy="34" rx="18" ry="8" transform="rotate(20 162 34)" fill="#81c995" stroke="#146c2e" stroke-width="2"/><circle cx="140" cy="20" r="8" fill="#f9ab00"/><path d="M140 68c-8 12-22 16-32 22M140 68c0 14 2 18 0 24M140 68c10 12 20 16 30 22" fill="none" stroke="#795548" stroke-width="2.5" stroke-linecap="round"/></svg>',
+wash:'<svg viewBox="0 0 280 96" width="280" height="96" aria-hidden="true"><rect x="34" y="28" width="54" height="50" rx="6" fill="#c2e7ff" stroke="#0b57d0" stroke-width="2.5"/><path d="M28 28h66" stroke="#0b57d0" stroke-width="4" stroke-linecap="round"/><rect x="176" y="42" width="52" height="30" rx="10" fill="#fce8e6" stroke="#b3261e" stroke-width="2"/><circle cx="192" cy="26" r="6" fill="#c2e7ff" stroke="#0b57d0" stroke-width="2"/><circle cx="212" cy="20" r="8" fill="#c2e7ff" stroke="#0b57d0" stroke-width="2"/><path d="M116 52h36M144 44l10 8-10 8" fill="none" stroke="#146c2e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+div:'<svg viewBox="0 0 280 96" width="280" height="96" aria-hidden="true"><rect x="22" y="20" width="68" height="56" rx="10" fill="#e8f0fe" stroke="#0b57d0" stroke-width="2"/><circle cx="42" cy="38" r="6" fill="#0b57d0"/><circle cx="70" cy="38" r="6" fill="#0b57d0"/><circle cx="42" cy="58" r="6" fill="#0b57d0"/><circle cx="70" cy="58" r="6" fill="#0b57d0"/><rect x="106" y="20" width="68" height="56" rx="10" fill="#e8f0fe" stroke="#0b57d0" stroke-width="2"/><circle cx="126" cy="38" r="6" fill="#0b57d0"/><circle cx="154" cy="38" r="6" fill="#0b57d0"/><circle cx="126" cy="58" r="6" fill="#0b57d0"/><circle cx="154" cy="58" r="6" fill="#0b57d0"/><rect x="190" y="20" width="68" height="56" rx="10" fill="#e8f0fe" stroke="#0b57d0" stroke-width="2"/><circle cx="210" cy="38" r="6" fill="#0b57d0"/><circle cx="238" cy="38" r="6" fill="#0b57d0"/><circle cx="210" cy="58" r="6" fill="#0b57d0"/><circle cx="238" cy="58" r="6" fill="#0b57d0"/></svg>'
 };
 var LANGS={en:'English',id:'Bahasa Indonesia',es:'Español',fr:'Français',pt:'Português',sw:'Kiswahili',hi:'हिन्दी',bn:'বাংলা',ar:'العربية'};
 // Each figure on the Evidence page: [value, text key, source id]. Sources: [id, citation, link].
@@ -941,10 +1044,13 @@ var lesson=JSON.parse(document.getElementById('lesson').textContent);
 var handout=!!lesson.handout; // true in a file a teacher downloaded: open straight into the lesson
 delete lesson.handout;
 var LIB=[lesson].concat(JSON.parse(document.getElementById('library').textContent));
-var step=-1,picks=[],order=[]; // order = question indexes in practice order, missed ones appended once
+var step=-1,picks=[],order=[],tried={},savedQ=false; // order = question indexes in practice order, missed ones appended once
 var D=fromLesson(lesson); // the draft in the editor
 var weak=[]; // question indexes flagged "Teach again" in the last results
 var demo=false; // true while the results box holds the built-in made-up class
+var libF={lang:'',cat:''};
+var CATS={diag:'cDiag',math:'cMath',read:'cRead',sci:'cSci',wash:'cWash'};
+var FIGS_T={frac:'figFrac',water:'figWater',plant:'figPlant',wash:'figWash',div:'figDiv'};
 var cur='home';
 var canSpeak='speechSynthesis' in window&&'SpeechSynthesisUtterance' in window;
 var canShare=false;
@@ -980,23 +1086,33 @@ function showLearn(){
     listen=canSpeak?btn('listen','listen','x','listen'):'';
   if(step<0){
     h+='<span class="ov">'+t('lesson')+'</span><h2 tabindex="-1">'+c(L.title)+'</h2>'+
-      '<p style="margin-top:.6rem"><span class="chip">'+esc(LANGS[L.lang]||L.lang)+'</span> <span class="chip">'+t('nq',n)+'</span></p><div class="read">';
+      '<p style="margin-top:.6rem"><span class="chip">'+esc(LANGS[L.lang]||L.lang)+'</span> <span class="chip">'+t('nq',n)+'</span>'+
+      (L.lvl?' <span class="chip">'+c(L.lvl)+'</span>':'')+'</p>'+
+      (L.fig&&FIGS[L.fig]?'<div class="fig">'+FIGS[L.fig]+'</div>':'')+
+      (L.ex?'<div class="ex"><strong>'+t('exL')+':</strong> '+c(L.ex)+'</div>':'')+'<div class="read">';
     for(i=0;i<L.text.length;i++)h+='<p>'+rich(L.text[i],L)+'</p>';
     h+='</div><p id="def" class="fb" role="status"></p><div class="row" style="margin-top:1.75rem">'+btn('next','start','f','go',' id="next"')+listen+'</div>';
   }else if(step<order.length){
-    var q=L.q[order[step]];
+    var qi=order[step],q=L.q[qi];
     h+='<div class="pg" aria-hidden="true"><i style="width:'+Math.round(step/order.length*100)+'%"></i></div><form><fieldset>'+
       '<legend><h2 tabindex="-1"><span class="ov">'+(step<n?t('qOf',step+1,n):t('retry'))+'</span>'+c(q.q)+'</h2></legend>';
-    for(i=0;i<q.c.length;i++)h+='<label class="opt"><input type="radio" name="c" value="'+i+'"><span>'+c(q.c[i])+'</span></label>';
+    if(q.type=='inp'&&!tried[qi]){
+      h+='<label for="inpA">'+t('fType')+'</label><input type="text" id="inpA" autocomplete="off" style="margin-bottom:.75rem">';
+    }else{
+      for(i=0;i<q.c.length;i++)h+='<label class="opt"><input type="radio" name="c" value="'+i+'"><span>'+c(q.c[i])+'</span></label>';
+    }
     h+='</fieldset><p id="fb" class="fb" role="status"></p><div class="row">'+
       '<button id="chk" class="b f">'+ic('check')+'<span>'+t('check')+'</span></button>'+btn('next','next','f','go',' id="next"')+listen+'</div></form>';
   }else{
-    var first=0,rev='',code=makeCode(L,picks);
+    var first=0,rev='',code=makeCode(L,picks),gq=load('group.'+lessonId(L),[]);
     for(i=0;i<n;i++){if(picks[i]-1==L.q[i].a)first++;else rev+='<li>'+c(L.q[i].q)+(L.q[i].h?'<br><span class="sm">'+c(L.q[i].h)+'</span>':'')+'</li>';}
     h+='<div class="pg" aria-hidden="true"><i style="width:100%"></i></div><span class="ov">'+t('done')+'</span>'+
       '<h2 tabindex="-1">'+t('score',first,n)+'</h2>'+
+      '<p style="margin-top:.5rem"><span class="chip good">'+t('band')+' '+t(tarlBand(first,n))+'</span></p>'+
       '<div class="codebox"><span class="ov">'+t('codeIs')+'</span><p class="code">'+code+'</p><p class="sm">'+t('codeHelp')+'</p>'+
-      '<div class="row"><a class="b t" href="sms:?body='+code+'">'+ic('sms')+'<span>'+t('sms')+'</span></a></div></div>'+
+      '<div class="row"><a class="b t" href="sms:?body='+code+'">'+ic('sms')+'<span>'+t('sms')+'</span></a>'+
+      (!savedQ?btn('saveq','qSave','o','plus'):'<span class="chip good">\u2713 '+t('qSaved')+' '+gq.length+'</span>')+'</div></div>'+
+      (gq.length?'<div class="rev" style="margin-top:1rem"><h3>'+t('qSaved')+' ('+gq.length+')</h3><p class="code" style="font-size:1.1rem;word-break:break-all">'+esc(gq.join(' · '))+'</p><div class="row"><a class="b t" href="sms:?body='+encodeURIComponent(gq.join('\n'))+'">'+ic('sms')+'<span>'+t('qSms')+'</span></a>'+btn('resq','qRes','o','results')+btn('clrq','qClr','x','bin')+'</div></div>':'')+
       (rev?'<div class="rev"><h3>'+t('review')+'</h3><ul>'+rev+'</ul></div>':'')+
       '<div class="row" style="margin-top:1.75rem">'+btn('again','again','f','person')+'</div>';
   }
@@ -1006,14 +1122,28 @@ function showLearn(){
 function go(s){
   var i;
   if(canSpeak)speechSynthesis.cancel();
-  if(s<0){picks=[];order=[];for(i=0;i<lesson.q.length;i++){picks.push(0);order.push(i);}}
+  if(s<0){picks=[];order=[];tried={};savedQ=false;for(i=0;i<lesson.q.length;i++){picks.push(0);order.push(i);}}
   if(s==lesson.q.length&&order.length==s)order=withRetries(lesson,picks); // end of the first pass: queue the missed ones
   step=s;
   showLearn();
   $('learn').querySelector('h2').focus();
 }
 function answer(){
-  var qi=order[step],q=lesson.q[qi],r=$('learn').querySelector('input:checked'),fb=$('fb'),i;
+  var qi=order[step],q=lesson.q[qi],inp=$('inpA'),r=$('learn').querySelector('input:checked'),fb=$('fb'),i;
+  if(inp){
+    var idx=matchInp(q,inp.value);
+    if(idx==-1){fb.className='fb';fb.textContent=t('pick');return;}
+    if(!picks[qi])picks[qi]=(idx>=0?idx:(q.a+1)%q.c.length)+1;
+    if(idx==q.a){
+      fb.className='fb ok';fb.textContent='\u2713 '+t('right')+(q.h?' '+q.h:'');
+      inp.disabled=true;$('chk').hidden=true;$('next').hidden=false;$('next').focus();
+    }else{
+      tried[qi]=1;showLearn();
+      $('fb').className='fb no';$('fb').textContent='\u2717 '+t('wrong')+(q.h?' '+t('hint')+' '+q.h:'');
+      var fr=$('learn').querySelector('input');if(fr)fr.focus();
+    }
+    return;
+  }
   if(!r){fb.className='fb';fb.textContent=t('pick');return;}
   if(!picks[qi])picks[qi]=+r.value+1; // only the very first pick is kept
   if(+r.value==q.a){
@@ -1039,25 +1169,42 @@ function setLesson(L){ // one place where the current lesson changes
 }
 
 function showLib(){
-  var h=ph(t('nLib'),t('nLib'),t('libS'))+'<div class="grid">',i,L;
-  for(i=0;i<LIB.length;i++){
-    L=LIB[i];
+  var h=ph(t('nLib'),t('nLib'),t('libS'))+'<div class="filters"><select id="libLang" aria-label="'+t('allL')+'"><option value="">'+t('allL')+'</option>',i,L,cnt=0,idxs=[],k;
+  for(i in LANGS)h+='<option value="'+esc(i)+'"'+(libF.lang==i?' selected':'')+'>'+esc(LANGS[i])+'</option>';
+  h+='</select><select id="libCat" aria-label="'+t('allC')+'"><option value="">'+t('allC')+'</option>';
+  for(k in CATS)h+='<option value="'+k+'"'+(libF.cat==k?' selected':'')+'>'+t(CATS[k])+'</option>';
+  h+='</select></div><div class="row" style="margin:.25rem 0 .75rem"><input type="text" id="impTxt" placeholder="'+esc(t('impP'))+'" aria-label="'+esc(t('impP'))+'" style="flex:1;min-width:12rem;max-width:26rem">'+btn('imp','impB','o','plus')+'</div><p id="libMsg" class="fb"></p><div class="grid">';
+  for(i=0;i<LIB.length;i++)if(LIB[i].lang==ui)idxs.push(i);
+  for(i=0;i<LIB.length;i++)if(LIB[i].lang!=ui)idxs.push(i);
+  for(k=0;k<idxs.length;k++){
+    i=idxs[k];L=LIB[i];
+    if(libF.lang&&L.lang!=libF.lang)continue;
+    if(libF.cat&&(L.cat||'')!=libF.cat)continue;
+    cnt++;
     h+='<div class="tile"><p><span class="chip">'+esc(LANGS[L.lang]||L.lang)+'</span> <span class="chip">'+t('nq',L.q.length)+'</span>'+
+      (L.cat&&CATS[L.cat]?' <span class="chip">'+t(CATS[L.cat])+'</span>':'')+
+      (L.lvl?' <span class="chip">'+c(L.lvl,L)+'</span>':'')+
       (canon(L)==canon(lesson)?' <span class="chip now">'+t('now')+'</span>':'')+'</p><h4>'+c(L.title,L)+'</h4><p>'+c(L.text[0]||'',L)+'</p>'+
       '<div class="row">'+btn('open','open','f','go',' data-n="'+i+'"')+btn('copy','copy','x','make',' data-n="'+i+'"')+'</div></div>';
   }
-  $('lib').innerHTML=h+'</div>';
+  $('lib').innerHTML=h+(cnt?'':'<p class="sm">'+t('noLib')+'</p>')+'</div>';
 }
 
 // Lesson editor: a form over the draft D. Typing updates D in place; adding or removing rows re-renders.
 function showMake(){
   var h=ph(t('nMake'),t('nMake'),t('mHelp'))+'<div class="col"><div class="card">'+
     '<label for="fTitle">'+t('fTitle')+'</label><input type="text" id="fTitle" data-f="title" value="'+esc(D.title)+'">'+
-    '<label for="fLang">'+t('fLang')+'</label><select id="fLang" data-f="lang">',i,j,q,langs={};
+    '<label for="fLang">'+t('fLang')+'</label><select id="fLang" data-f="lang">',i,j,q,langs={},k;
   for(i in LANGS)langs[i]=LANGS[i];
   langs[D.lang]=langs[D.lang]||D.lang;
   for(i in langs)h+='<option value="'+esc(i)+'"'+(i==D.lang?' selected':'')+'>'+esc(langs[i])+'</option>';
-  h+='</select><label for="fBody">'+t('fBody')+'</label><textarea id="fBody" data-f="body" rows="7">'+esc(D.body)+'</textarea>'+
+  h+='</select><label for="fCat">'+t('fCat')+'</label><select id="fCat" data-f="cat"><option value="">\u2014</option>';
+  for(k in CATS)h+='<option value="'+k+'"'+(D.cat==k?' selected':'')+'>'+t(CATS[k])+'</option>';
+  h+='</select><label for="fLvl">'+t('fLvl')+'</label><input type="text" id="fLvl" data-f="lvl" value="'+esc(D.lvl||'')+'">'+
+    '<label for="fFig">'+t('fFig')+'</label><select id="fFig" data-f="fig"><option value="">'+t('fig0')+'</option>';
+  for(k in FIGS_T)h+='<option value="'+k+'"'+(D.fig==k?' selected':'')+'>'+t(FIGS_T[k])+'</option>';
+  h+='</select><label for="fEx">'+t('fEx')+'</label><input type="text" id="fEx" data-f="ex" value="'+esc(D.ex||'')+'">'+
+    '<label for="fBody">'+t('fBody')+'</label><textarea id="fBody" data-f="body" rows="7">'+esc(D.body)+'</textarea>'+
     '<p class="sm" style="margin-top:.35rem">'+t('fBodyH')+'</p>'+
     '<label for="fGloss">'+t('fGloss')+'</label><textarea id="fGloss" data-f="gloss" rows="3">'+esc(D.gloss||'')+'</textarea>'+
     '<p class="sm" style="margin-top:.35rem">'+t('fGlossH')+'</p></div>';
@@ -1065,6 +1212,7 @@ function showMake(){
     q=D.q[i];
     h+='<div class="card"><div class="hd"><h3>'+t('qN',i+1)+'</h3><button type="button" class="ib" data-act="delq" data-q="'+i+'" aria-label="'+t('delQ',i+1)+'">'+ic('bin')+'</button></div>'+
       '<label for="q'+i+'" style="margin-top:0">'+t('fQ')+'</label><input type="text" id="q'+i+'" data-f="q" data-q="'+i+'" value="'+esc(q.q)+'">'+
+      '<label style="display:flex;align-items:center;gap:.5rem;font-weight:400;margin-top:.75rem"><input type="checkbox" data-f="type" data-q="'+i+'"'+(q.type=='inp'?' checked':'')+'> <span>'+t('typeL')+'</span></label>'+
       '<fieldset><legend style="margin:1rem 0 .5rem">'+t('fAns')+'</legend>';
     for(j=0;j<q.c.length;j++)h+='<div class="ans"><input type="radio" name="a'+i+'" data-f="a" data-q="'+i+'" value="'+j+'"'+(j==q.a?' checked':'')+' aria-label="'+t('ansR',j+1)+'">'+
       '<input type="text" id="c'+i+'_'+j+'" data-f="c" data-q="'+i+'" data-c="'+j+'" value="'+esc(q.c[j])+'" aria-label="'+t('ansN',j+1)+'">'+
@@ -1073,7 +1221,7 @@ function showMake(){
       '<label for="h'+i+'">'+t('fHint')+'</label><input type="text" id="h'+i+'" data-f="h" data-q="'+i+'" value="'+esc(q.h)+'"><p class="sm" style="margin-top:.35rem">'+t('fHintH')+'</p></div>';
   }
   h+=btn('addq','addQ','t','plus',' id="addq"')+'<div class="card" style="margin-top:1.5rem;background:#f8fafd;border-color:#e1e3e1"><div id="msg" role="status"></div><div class="row">'+
-    btn('dl','dl','f','dl')+(canShare?btn('share','share','t','share'):'')+btn('use','use','o','go')+btn('print','print','o','print')+
+    btn('dl','dl','f','dl')+(canShare?btn('share','share','t','share'):'')+btn('use','use','o','go')+btn('cpcode','cpCode','o','share')+btn('print','print','o','print')+btn('print2','print2','o','print')+
     '</div><p class="sm" style="margin-top:.75rem">'+t('printH')+'</p></div></div>';
   $('make').innerHTML=h;
   status();
@@ -1084,6 +1232,7 @@ function edit(e){
   if(qi===null)D[f]=el.value;
   else if(f=='c')D.q[+qi].c[+el.getAttribute('data-c')]=el.value;
   else if(f=='a')D.q[+qi].a=+el.value;
+  else if(f=='type')D.q[+qi].type=el.checked?'inp':'';
   else D.q[+qi][f]=el.value;
   status();
 }
@@ -1167,6 +1316,15 @@ function results(){
       (two?stat((up>0?'+':'')+t('pts',up),t('sUp'),up>0?' up':''):'')+'</div>';
   weak=[];
   if(r.n){
+    var gA=[],gB=[],gC=[],ln,lp;
+    for(i=0;i<r.learners.length;i++){
+      ln=r.learners[i];lp=ln.n?Math.round(ln.ok/ln.n*100):0;
+      (lp<50?gA:lp<80?gB:gC).push(esc(ln.code)+' ('+ln.ok+'/'+ln.n+')');
+    }
+    h+='<div class="card" style="margin:1rem 0"><h3 style="margin-bottom:.5rem">'+t('grpT')+'</h3>'+
+      '<p class="sm"><strong>'+t('grpA')+':</strong> '+(gA.length?gA.length+' \u2014 '+gA.join(', '):'0')+'</p>'+
+      '<p class="sm"><strong>'+t('grpB')+':</strong> '+(gB.length?gB.length+' \u2014 '+gB.join(', '):'0')+'</p>'+
+      '<p class="sm"><strong>'+t('grpC')+':</strong> '+(gC.length?gC.length+' \u2014 '+gC.join(', '):'0')+'</p></div>';
     h+='<div class="list">';
     for(i=0;i<r.first.length;i++){
       var w=r.wrong[i],top=topWrong(r,i),low=r.first[i]*2<r.n,wc='',j;
@@ -1202,19 +1360,24 @@ function demoCodes(){ // made-up class of 12, two rounds: question 1 goes badly,
   }
   return o.join('\n');
 }
-function sheet(L){ // paper worksheet for a household with no phone; answers come back as plain numbers
-  var h='<h1>'+c(L.title,L)+'</h1>',i,j;
-  for(i=0;i<L.text.length;i++)h+='<p>'+c(L.text[i],L)+'</p>';
-  if(L.g){h+='<p><strong>'+t('words')+'</strong></p><ul>';for(i=0;i<L.g.length;i++)h+='<li>'+c(L.g[i][0]+' = '+L.g[i][1],L)+'</li>';h+='</ul>';}
-  h+='<p><strong>'+t('pHow')+'</strong></p><ol>';
+function sheet(L,twoUp){ // paper worksheet for a household with no phone; answers come back as plain numbers
+  var slip='<h1>'+c(L.title,L)+'</h1>',i,j;
+  if(L.ex)slip+='<p><strong>'+t('exL')+':</strong> '+c(L.ex,L)+'</p>';
+  for(i=0;i<L.text.length;i++)slip+='<p>'+c(L.text[i],L)+'</p>';
+  if(L.g){slip+='<p><strong>'+t('words')+'</strong></p><ul>';for(i=0;i<L.g.length;i++)slip+='<li>'+c(L.g[i][0]+' = '+L.g[i][1],L)+'</li>';slip+='</ul>';}
+  slip+='<p><strong>'+t('pHow')+'</strong></p><ol>';
   for(i=0;i<L.q.length;i++){
-    h+='<li>'+c(L.q[i].q,L)+'<ol>';
-    for(j=0;j<L.q[i].c.length;j++)h+='<li>'+c(L.q[i].c[j],L)+'</li>';
-    h+='</ol></li>';
+    slip+='<li>'+c(L.q[i].q,L)+'<ol>';
+    for(j=0;j<L.q[i].c.length;j++)slip+='<li>'+c(L.q[i].c[j],L)+'</li>';
+    slip+='</ol></li>';
   }
-  h+='</ol><p>'+t('pAns')+' ____________________</p><p>'+t('pSum')+' ______</p><p>'+t('pKey')+'</p><ol class="key">';
-  for(i=0;i<L.q.length;i++)h+='<li>'+(L.q[i].a+1)+(L.q[i].h?'. '+c(L.q[i].h,L):'')+'</li>'; // printed upside down: feedback without a phone
-  $('sheet').innerHTML=h+'</ol>';
+  slip+='</ol><p>'+t('pAns')+' ____________________</p><p>'+t('pSum')+' ______</p>';
+  if(!twoUp){
+    slip+='<p>'+t('pKey')+'</p><ol class="key">';
+    for(i=0;i<L.q.length;i++)slip+='<li>'+(L.q[i].a+1)+(L.q[i].h?'. '+c(L.q[i].h,L):'')+'</li>'; // printed upside down: feedback without a phone
+    slip+='</ol>';
+  }
+  $('sheet').innerHTML=twoUp?'<div class="slips"><div class="slip">'+slip+'</div><div class="slip">'+slip+'</div></div>':slip;
   window.print();
 }
 
@@ -1267,12 +1430,20 @@ document.addEventListener('click',function(e){
   else if(act=='listen')speak();
   else if(act=='next')go(step+1);
   else if(act=='again')go(-1);
+  else if(act=='saveq'){q=load('group.'+lessonId(lesson),[]);q.push(makeCode(lesson,picks));save('group.'+lessonId(lesson),q);savedQ=true;showLearn();}
+  else if(act=='clrq'){save('group.'+lessonId(lesson),[]);savedQ=false;showLearn();}
+  else if(act=='resq'){$('codes').value=load('group.'+lessonId(lesson),[]).join('\n');demo=false;view('res');results();$('out').focus();}
   else if(act=='open'){setLesson(LIB[+a.getAttribute('data-n')]);view('learn');}
   else if(act=='copy'){D=fromLesson(LIB[+a.getAttribute('data-n')]);showMake();view('make');}
+  else if(act=='imp'){
+    L=unpackLesson($('impTxt').value);
+    if(!L||validate(L).length){$('libMsg').className='fb no';$('libMsg').textContent=t('impBad');return;}
+    LIB.unshift(L);setLesson(L);view('learn');
+  }
   else if(act=='tally'){results();$('out').focus();}
   else if(act=='demo'){view('res',1);$('codes').value=demoCodes();demo=true;results();$('out').focus();}
   else if(act=='follow'){ // one tap from "these questions went badly" to a lesson the teacher can hand out
-    D=fromLesson({title:lesson.title+' 2',lang:lesson.lang,text:lesson.text,q:weak.map(function(i){return lesson.q[i];})});
+    D=fromLesson({title:lesson.title+' 2',lang:lesson.lang,cat:lesson.cat,lvl:lesson.lvl,fig:lesson.fig,ex:lesson.ex,text:lesson.text,q:weak.map(function(i){return lesson.q[i];})});
     showMake();view('make',1);$('fTitle').focus();
   }
   else if(act=='addq'){D.q.push({q:'',c:['',''],a:-1,h:''});showMake();$('q'+(D.q.length-1)).focus();}
@@ -1283,14 +1454,24 @@ document.addEventListener('click',function(e){
     q.a=q.a==ci?-1:q.a>ci?q.a-1:q.a; // keep the right-answer mark on the same answer
     showMake();$('c'+qi+'_'+Math.min(ci,q.c.length-1)).focus();
   }
-  else if(act=='use'||act=='dl'||act=='share'||act=='print'){
+  else if(act=='cpcode'){
+    L=status();if(!L){$('msg').scrollIntoView();return;}
+    var pc=packLesson(L);
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(pc)['catch'](function(){prompt('TITIP1',pc);});else prompt('TITIP1',pc);
+    $('msg').innerHTML='<p><span class="chip good">\u2713 '+esc(t('cpOk'))+'</span></p>';
+  }
+  else if(act=='use'||act=='dl'||act=='share'||act=='print'||act=='print2'){
     L=status();
     if(!L){$('msg').scrollIntoView();return;}
     setLesson(L); // the draft becomes the current lesson, so Results matches what was handed out
-    if(act=='print')sheet(L);else if(act=='use')view('learn');else download(L,act=='share');
+    if(act=='print'||act=='print2')sheet(L,act=='print2');else if(act=='use')view('learn');else download(L,act=='share');
   }
 });
 $('learn').addEventListener('submit',function(e){e.preventDefault();answer();});
+$('lib').addEventListener('change',function(e){
+  if(e.target.id=='libLang'){libF.lang=e.target.value;showLib();}
+  else if(e.target.id=='libCat'){libF.cat=e.target.value;showLib();}
+});
 $('make').addEventListener('input',edit);
 $('make').addEventListener('change',edit); // radios and selects on old browsers
 $('res').addEventListener('input',function(){demo=false;});
