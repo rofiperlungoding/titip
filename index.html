@@ -228,7 +228,20 @@ nav .dk{display:flex}
 .dark .fig{background:#18202f}
 .dark .ex{background:#0f2a52;color:#a8c7fa}
 .dark .filters select{background:#181a1f;color:#f1f3f4;border-color:#5e5e5e}
-@media print{#sheet .slips{display:block}#sheet .slip{page-break-inside:avoid;border-bottom:2px dashed #444;padding-bottom:.9rem;margin-bottom:.9rem}#sheet .slip:last-child{border-bottom:0;margin-bottom:0}#sheet .slip h2{font-size:1.15rem}}
+.lab{margin:1rem 0;padding:1rem;border-radius:1rem;background:#eef3fb;border:1px solid #c2e7ff}
+.lab svg{max-width:100%;height:auto;display:block;margin:0 auto}
+.lab .bar{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;justify-content:center;margin:.6rem 0}
+.lab .pill{padding:.4rem .75rem;border-radius:99rem;border:1px solid #0b57d0;background:#fff;color:#0b57d0;font:inherit;font-size:.85rem;font-weight:500;cursor:pointer}
+.lab .pill[aria-pressed=true]{background:#0b57d0;color:#fff}
+.lab .readout{margin-top:.5rem;padding:.55rem .75rem;border-radius:.75rem;background:#fff;color:#1f1f1f;font-weight:500;text-align:center}
+.fcard{margin:1rem 0;padding:1.5rem 1.25rem;min-height:9rem;border-radius:1rem;border:2px solid #0b57d0;background:#f8fafd;text-align:center;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%;font:inherit;color:inherit}
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin:.75rem 0 1rem}
+.dark .lab{background:#18202f;border-color:#2b4166}
+.dark .lab .pill{background:#181a1f;color:#a8c7fa;border-color:#5b8def}
+.dark .lab .pill[aria-pressed=true]{background:#a8c7fa;color:#082047;border-color:#a8c7fa}
+.dark .lab .readout{background:#111318;color:#f1f3f4}
+.dark .fcard{background:#181a1f;border-color:#a8c7fa;color:#f1f3f4}
+@media print{.lab,.tabs,#sheet .slips{page-break-inside:avoid}#sheet .slips{display:block}#sheet .slip{page-break-inside:avoid;border-bottom:2px dashed #444;padding-bottom:.9rem;margin-bottom:.9rem}#sheet .slip:last-child{border-bottom:0;margin-bottom:0}#sheet .slip h2{font-size:1.15rem}}
 </style>
 </head>
 <body>
@@ -405,6 +418,16 @@ function unpackLesson(s){
     return d&&d.title&&d.q&&d.q.length?d:null;
   }catch(e){return null;}
 }
+function fracInfo(n,d){
+  var dd=(d==2||d==4||d==8)?d:2,nn=Math.max(1,Math.min(dd,+n||1));
+  return {n:nn,d:dd,pct:Math.round(nn/dd*100),half:nn*2==dd,qtr:nn*4==dd};
+}
+function deckOf(L){
+  var o=[],g=L.g||[],i,q;
+  for(i=0;i<g.length;i++)o.push({kind:'g',front:g[i][0],back:g[i][1]});
+  for(i=0;i<(L.q||[]).length;i++){q=L.q[i];o.push({kind:'q',front:q.q,back:q.c[q.a]+(q.h?' \u2014 '+q.h:'')});}
+  return o;
+}
 // Share of all first picks that were right, 0 to 100.
 function classPct(r){
   var s=0,i;
@@ -460,6 +483,8 @@ function selfTest(){
   ok(matchInp(Q,' 4 ')==1&&matchInp(Q,'5')==-2&&matchInp(Q,'')==-1,'matchInp matches choice, marks unknown wrong, flags empty');
   ok(tarlBand(0,4)=='lvl1'&&tarlBand(1,4)=='lvl2'&&tarlBand(2,4)=='lvl3'&&tarlBand(4,4)=='lvl4','tarlBand');
   var P=packLesson(L);ok(P.indexOf('TITIP1:')===0&&unpackLesson(P).title=='T'&&unpackLesson('bad')===null,'pack/unpack lesson');
+  ok(fracInfo(2,4).half===true&&fracInfo(1,4).qtr===true&&fracInfo(1,2).pct==50,'fracInfo equivalence');
+  ok(deckOf(G).length===2&&deckOf(L).length===2,'deckOf builds glossary + question flashcards');
   return 'ok';
 }
 
@@ -522,7 +547,8 @@ exL:'Worked example',fType:'Type your answer:',typeL:'Typed answer first (shows 
 qSave:'Save to phone queue',qSaved:'Saved on this phone:',qSms:'Send all by SMS',qRes:'Open in Results',qClr:'Clear queue',
 band:'Level:',lvl1:'L1 · Beginning',lvl2:'L2 · Emerging',lvl3:'L3 · Building',lvl4:'L4 · Fluent',
 grpT:'TaRL Classroom Groups',grpA:'Group A (<50% · Concrete support)',grpB:'Group B (50–79% · Guided practice)',grpC:'Group C (80–100% · Ready to advance)',
-cpCode:'Copy text code',cpOk:'TITIP1: code copied. Paste in SMS or chat.',impB:'Import code',impP:'Paste TITIP1:... code',impBad:'Not a valid TITIP1: lesson code.',print2:'Print 2-up slips (half paper)'},
+cpCode:'Copy text code',cpOk:'TITIP1: code copied. Paste in SMS or chat.',impB:'Import code',impP:'Paste TITIP1:... code',impBad:'Not a valid TITIP1: lesson code.',print2:'Print 2-up slips (half paper)',
+mRead:'Lesson & Lab',mCards:'Flashcards',mQuiz:'Practice Quiz',labT:'Interactive Lab \u2014 tap controls below to explore',fCut:'Cut cake into:',fTake:'Pieces taken:',fEq2:'= 1/2 (one half!)',fEq4:'= 1/4 (one quarter!)',dTot:'Total items:',dGrp:'Equal groups:',dEach:'each',cFlip:'Flip card',cPrev:'Previous',cNext:'Next card',cKnow:'Got it \u2713',cFront:'Tap card or button to flip'},
 
 id:{nWhy:'Bukti',nHelp:'Bantuan',gAbout:'Tentang',dark:'Warna gelap kontras tinggi',off:'Offline: tetap jalan',
 whyS:'Tiap pilihan rancangan berpijak pada angka yang diukur orang lain. Daftar lengkap, 29 paper dan 59 sumber global maupun nasional, ada di RESEARCH.md.',
@@ -580,7 +606,8 @@ exL:'Contoh pengerjaan',fType:'Ketik jawabanmu:',typeL:'Ketik jawaban dulu (pili
 qSave:'Simpan ke antrean HP',qSaved:'Tersimpan di HP ini:',qSms:'Kirim semua lewat SMS',qRes:'Buka di Hasil',qClr:'Kosongkan antrean',
 band:'Level:',lvl1:'L1 · Awal',lvl2:'L2 · Berkembang',lvl3:'L3 · Mantap',lvl4:'L4 · Mahir',
 grpT:'Pengelompokan Kelas (TaRL)',grpA:'Kelompok A (<50% · Pendampingan dasar)',grpB:'Kelompok B (50–79% · Latihan terbimbing)',grpC:'Kelompok C (80–100% · Siap lanjut)',
-cpCode:'Salin kode teks',cpOk:'Kode TITIP1: tersalin. Tempel di SMS atau chat.',impB:'Impor kode',impP:'Tempel kode TITIP1:...',impBad:'Kode pelajaran TITIP1: tidak valid.',print2:'Cetak 2-per-halaman (hemat kertas)'},
+cpCode:'Salin kode teks',cpOk:'Kode TITIP1: tersalin. Tempel di SMS atau chat.',impB:'Impor kode',impP:'Tempel kode TITIP1:...',impBad:'Kode pelajaran TITIP1: tidak valid.',print2:'Cetak 2-per-halaman (hemat kertas)',
+mRead:'Materi & Lab',mCards:'Kartu Hafalan',mQuiz:'Latihan Soal',labT:'Lab Interaktif \u2014 ketuk tombol di bawah untuk mencoba',fCut:'Potong kue jadi:',fTake:'Bagian diambil:',fEq2:'= 1/2 (setengah!)',fEq4:'= 1/4 (seperempat!)',dTot:'Total benda:',dGrp:'Kelompok sama:',dEach:'per kelompok',cFlip:'Balik kartu',cPrev:'Sebelumnya',cNext:'Kartu berikutnya',cKnow:'Sudah paham \u2713',cFront:'Ketuk kartu atau tombol untuk membalik'},
 
 es:{nHome:'Inicio',nLearn:'Aprender',nLib:'Lecciones',nMake:'Crear una lección',nMakeS:'Crear',nRes:'Resultados',gLearner:'Estudiante',gTeacher:'Docente',gAbout:'Acerca de',nWhy:'Evidencia',nHelp:'Ayuda',
 big:'Texto más grande',menu:'Mostrar u ocultar los nombres del menú',dark:'Colores oscuros de alto contraste',off:'Sin conexión: sigue funcionando',
@@ -637,7 +664,8 @@ exL:'Ejemplo resuelto',fType:'Escribe tu respuesta:',typeL:'Respuesta escrita pr
 qSave:'Guardar en este teléfono',qSaved:'Guardados en este teléfono:',qSms:'Enviar todo por SMS',qRes:'Abrir en Resultados',qClr:'Vaciar lista',
 band:'Nivel:',lvl1:'L1 · Inicial',lvl2:'L2 · En proceso',lvl3:'L3 · Firme',lvl4:'L4 · Fluido',
 grpT:'Grupos de clase (TaRL)',grpA:'Grupo A (<50% · Apoyo base)',grpB:'Grupo B (50–79% · Práctica guiada)',grpC:'Grupo C (80–100% · Listo para avanzar)',
-cpCode:'Copiar código texto',cpOk:'Código TITIP1: copiado para SMS o chat.',impB:'Importar código',impP:'Pega código TITIP1:...',impBad:'No es un código TITIP1: válido.',print2:'Imprimir 2 por hoja'},
+cpCode:'Copiar código texto',cpOk:'Código TITIP1: copiado para SMS o chat.',impB:'Importar código',impP:'Pega código TITIP1:...',impBad:'No es un código TITIP1: válido.',print2:'Imprimir 2 por hoja',
+mRead:'Lección y Lab',mCards:'Tarjetas',mQuiz:'Práctica',labT:'Laboratorio interactivo \u2014 toca los controles',fCut:'Cortar pastel en:',fTake:'Partes tomadas:',fEq2:'= 1/2 (\u00a1un medio!)',fEq4:'= 1/4 (\u00a1un cuarto!)',dTot:'Total objetos:',dGrp:'Grupos iguales:',dEach:'cada uno',cFlip:'Voltear tarjeta',cPrev:'Anterior',cNext:'Siguiente',cKnow:'Lo s\u00e9 \u2713',cFront:'Toca para voltear'},
 
 fr:{nHome:'Accueil',nLearn:'Apprendre',nLib:'Leçons',nMake:'Créer une leçon',nMakeS:'Créer',nRes:'Résultats',gLearner:'Élève',gTeacher:'Enseignant',gAbout:'À propos',nWhy:'Preuves',nHelp:'Aide',
 big:'Texte plus grand',menu:'Afficher ou masquer les noms du menu',dark:'Couleurs sombres à fort contraste',off:'Hors ligne : ça marche quand même',
@@ -694,7 +722,8 @@ exL:'Exemple guidé',fType:'Écris ta réponse :',typeL:'Réponse écrite d’ab
 qSave:'Enregistrer sur ce téléphone',qSaved:'Enregistrés sur ce téléphone :',qSms:'Tout envoyer par SMS',qRes:'Ouvrir dans Résultats',qClr:'Vider la file',
 band:'Niveau :',lvl1:'L1 · Débutant',lvl2:'L2 · Émergent',lvl3:'L3 · Solide',lvl4:'L4 · Maîtrisé',
 grpT:'Groupes de classe (TaRL)',grpA:'Groupe A (<50% · Soutien de base)',grpB:'Groupe B (50–79% · Pratique guidée)',grpC:'Groupe C (80–100% · Prêt à avancer)',
-cpCode:'Copier code texte',cpOk:'Code TITIP1: copié pour SMS ou chat.',impB:'Importer un code',impP:'Coller un code TITIP1:...',impBad:'Code TITIP1: invalide.',print2:'Imprimer 2 par page'},
+cpCode:'Copier code texte',cpOk:'Code TITIP1: copié pour SMS ou chat.',impB:'Importer un code',impP:'Coller un code TITIP1:...',impBad:'Code TITIP1: invalide.',print2:'Imprimer 2 par page',
+mRead:'Leçon & Labo',mCards:'Cartes mémoire',mQuiz:'Quiz pratique',labT:'Labo interactif \u2014 touche les boutons pour explorer',fCut:'Couper le gâteau en :',fTake:'Parts prises :',fEq2:'= 1/2 (une moitié !)',fEq4:'= 1/4 (un quart !)',dTot:'Total objets :',dGrp:'Groupes égaux :',dEach:'chacun',cFlip:'Retourner la carte',cPrev:'Précédent',cNext:'Suivant',cKnow:'Compris \u2713',cFront:'Touche pour retourner'},
 
 pt:{nHome:'Início',nLearn:'Aprender',nLib:'Lições',nMake:'Criar lição',nMakeS:'Criar',nRes:'Resultados',gLearner:'Estudante',gTeacher:'Docente',gAbout:'Sobre',nWhy:'Evidências',nHelp:'Ajuda',
 big:'Texto maior',menu:'Mostrar ou ocultar rótulos do menu',dark:'Cores escuras de alto contraste',off:'Sem internet: continua funcionando',
@@ -751,7 +780,8 @@ exL:'Exemplo resolvido',fType:'Digite sua resposta:',typeL:'Resposta digitada pr
 qSave:'Salvar na fila do celular',qSaved:'Salvos neste celular:',qSms:'Enviar tudo por SMS',qRes:'Abrir em Resultados',qClr:'Limpar fila',
 band:'Nível:',lvl1:'L1 · Inicial',lvl2:'L2 · Em progresso',lvl3:'L3 · Firme',lvl4:'L4 · Fluente',
 grpT:'Grupos de turma (TaRL)',grpA:'Grupo A (<50% · Apoio base)',grpB:'Grupo B (50–79% · Prática guiada)',grpC:'Grupo C (80–100% · Pronto para avançar)',
-cpCode:'Copiar código texto',cpOk:'Código TITIP1: copiado para SMS ou chat.',impB:'Importar código',impP:'Cole código TITIP1:...',impBad:'Código TITIP1: inválido.',print2:'Imprimir 2 por página'},
+cpCode:'Copiar código texto',cpOk:'Código TITIP1: copiado para SMS ou chat.',impB:'Importar código',impP:'Cole código TITIP1:...',impBad:'Código TITIP1: inválido.',print2:'Imprimir 2 por página',
+mRead:'Lição e Lab',mCards:'Cartões',mQuiz:'Prática',labT:'Lab interativo \u2014 toque nos controles abaixo',fCut:'Cortar bolo em:',fTake:'Partes pegas:',fEq2:'= 1/2 (metade!)',fEq4:'= 1/4 (um quarto!)',dTot:'Total itens:',dGrp:'Grupos iguais:',dEach:'cada',cFlip:'Virar cartão',cPrev:'Anterior',cNext:'Próximo',cKnow:'Entendi \u2713',cFront:'Toque para virar'},
 
 sw:{nHome:'Muhtasari',nLearn:'Jifunze',nLib:'Masomo',nMake:'Tengeneza somo',nMakeS:'Tengeneza',nRes:'Matokeo',gLearner:'Mwanafunzi',gTeacher:'Mwalimu',gAbout:'Kuhusu',nWhy:'Ushahidi',nHelp:'Msaada',
 big:'Maandishi makubwa',menu:'Onyesha au ficha majina ya menyu',dark:'Rangi nyeusi yenye utofauti mkubwa',off:'Nje ya mtandao: linafanya kazi',
@@ -808,7 +838,8 @@ exL:'Mfano wa jinsi ya kufanya',fType:'Andika jibu lako:',typeL:'Andika jibu kwa
 qSave:'Hifadhi kwenye foleni ya simu',qSaved:'Zilizohifadhiwa kwenye simu hii:',qSms:'Tuma zote kwa SMS',qRes:'Fungua kwenye Matokeo',qClr:'Futa foleni',
 band:'Kiwango:',lvl1:'L1 · Mwanzo',lvl2:'L2 · Inakua',lvl3:'L3 · Imara',lvl4:'L4 · Hodari',
 grpT:'Makundi ya Darasa (TaRL)',grpA:'Kundi A (<50% · Msaada wa msingi)',grpB:'Kundi B (50–79% · Mazoezi elekezi)',grpC:'Kundi C (80–100% · Tayari kuendelea)',
-cpCode:'Nakili msimbo wa maandishi',cpOk:'Msimbo wa TITIP1: umenakiliwa kwa SMS/chat.',impB:'Ingiza msimbo',impP:'Bandika msimbo wa TITIP1:...',impBad:'Msimbo wa TITIP1: si sahihi.',print2:'Chapisha 2 kwa ukurasa'},
+cpCode:'Nakili msimbo wa maandishi',cpOk:'Msimbo wa TITIP1: umenakiliwa kwa SMS/chat.',impB:'Ingiza msimbo',impP:'Bandika msimbo wa TITIP1:...',impBad:'Msimbo wa TITIP1: si sahihi.',print2:'Chapisha 2 kwa ukurasa',
+mRead:'Somo na Maabara',mCards:'Kadi za Kumbukumbu',mQuiz:'Maswali ya Mazoezi',labT:'Maabara shirikishi \u2014 gusa vitufe kujaribu',fCut:'Kata keki vipande:',fTake:'Vipande vilivyochukuliwa:',fEq2:'= 1/2 (nusu!)',fEq4:'= 1/4 (robo!)',dTot:'Jumla ya vitu:',dGrp:'Mafungu sawa:',dEach:'kila fungu',cFlip:'Geuza kadi',cPrev:'Iliyopita',cNext:'Inayofuata',cKnow:'Nimeelewa \u2713',cFront:'Gusa kugeuza'},
 
 hi:{nHome:'अवलोकन',nLearn:'सीखें',nLib:'पाठ',nMake:'पाठ बनाएँ',nMakeS:'बनाएँ',nRes:'परिणाम',gLearner:'विद्यार्थी',gTeacher:'शिक्षक',gAbout:'परिचय',nWhy:'साक्ष्य',nHelp:'मदद',
 big:'बड़ा टेक्स्ट',menu:'मेनू लेबल दिखाएँ या छिपाएँ',dark:'गहरे उच्च-कंट्रास्ट रंग',off:'ऑफ़लाइन: अभी भी चलता है',
@@ -865,7 +896,8 @@ exL:'हल किया उदाहरण',fType:'अपना उत्तर
 qSave:'फ़ोन कतार में सहेजें',qSaved:'इस फ़ोन पर सहेजे गए:',qSms:'सब SMS से भेजें',qRes:'परिणाम में खोलें',qClr:'कतार खाली करें',
 band:'स्तर:',lvl1:'L1 · आरंभिक',lvl2:'L2 · उभरता हुआ',lvl3:'L3 · मज़बूत',lvl4:'L4 · दक्ष',
 grpT:'कक्षा समूह (TaRL)',grpA:'समूह A (<50% · बुनियादी सहारा)',grpB:'समूह B (50–79% · निर्देशित अभ्यास)',grpC:'समूह C (80–100% · आगे बढ़ने के लिए तैयार)',
-cpCode:'टेक्स्ट कोड कॉपी करें',cpOk:'TITIP1: कोड कॉपी हुआ। SMS या चैट में चिपकाएँ।',impB:'कोड आयात करें',impP:'TITIP1:... कोड चिपकाएँ',impBad:'यह मान्य TITIP1: पाठ कोड नहीं है।',print2:'प्रति पृष्ठ 2 पर्चियाँ प्रिंट करें'},
+cpCode:'टेक्स्ट कोड कॉपी करें',cpOk:'TITIP1: कोड कॉपी हुआ। SMS या चैट में चिपकाएँ।',impB:'कोड आयात करें',impP:'TITIP1:... कोड चिपकाएँ',impBad:'यह मान्य TITIP1: पाठ कोड नहीं है।',print2:'प्रति पृष्ठ 2 पर्चियाँ प्रिंट करें',
+mRead:'पाठ और प्रयोगशाला',mCards:'फ़्लैशकार्ड',mQuiz:'अभ्यास प्रश्न',labT:'इंटरैक्टिव लैब — नीचे बटन दबाकर देखें',fCut:'केक के टुकड़े:',fTake:'लिए गए टुकड़े:',fEq2:'= 1/2 (आधा!)',fEq4:'= 1/4 (चौथाई!)',dTot:'कुल वस्तुएँ:',dGrp:'बराबर समूह:',dEach:'प्रत्येक',cFlip:'कार्ड पलटें',cPrev:'पिछला',cNext:'अगला कार्ड',cKnow:'समझ गया ✓',cFront:'पलटने के लिए दबाएँ'},
 
 bn:{nHome:'সংক্ষিপ্তসার',nLearn:'শিখুন',nLib:'পাঠ',nMake:'পাঠ তৈরি',nMakeS:'তৈরি',nRes:'ফলাফল',gLearner:'শিক্ষার্থী',gTeacher:'শিক্ষক',gAbout:'সম্পর্কে',nWhy:'প্রমাণ',nHelp:'সহায়তা',
 big:'বড় লেখা',menu:'মেনু লেবেল দেখান বা লুকান',dark:'গাঢ় উচ্চ-কনট্রাস্ট রঙ',off:'অফলাইন: তবুও কাজ করে',
@@ -922,7 +954,8 @@ exL:'উদাহরণ',fType:'তোমার উত্তর লেখো:',t
 qSave:'ফোনের সারিতে সেভ করো',qSaved:'এই ফোনে সেভ করা:',qSms:'সবগুলো SMS-এ পাঠাও',qRes:'ফলাফলে খোলো',qClr:'সারি খালি করো',
 band:'স্তর:',lvl1:'L1 · শুরু',lvl2:'L2 · উন্নতি হচ্ছে',lvl3:'L3 · দৃঢ়',lvl4:'L4 · দক্ষ',
 grpT:'শ্রেণি দল (TaRL)',grpA:'দল A (<50% · মৌলিক সহায়তা)',grpB:'দল B (50–79% · নির্দেশিত অনুশীলন)',grpC:'দল C (80–100% · পরবর্তী স্তরের উপযুক্ত)',
-cpCode:'টেক্সট কোড কপি করো',cpOk:'TITIP1: কোড কপি হয়েছে। SMS বা চ্যাটে পেস্ট করো।',impB:'কোড আনো',impP:'TITIP1:... কোড পেস্ট করো',impBad:'এটি সঠিক TITIP1: পাঠ কোড নয়।',print2:'পৃষ্ঠায় ২টি করে প্রিন্ট করো'},
+cpCode:'টেক্সট কোড কপি করো',cpOk:'TITIP1: কোড কপি হয়েছে। SMS বা চ্যাটে পেস্ট করো।',impB:'কোড আনো',impP:'TITIP1:... কোড পেস্ট করো',impBad:'এটি সঠিক TITIP1: পাঠ কোড নয়।',print2:'পৃষ্ঠায় ২টি করে প্রিন্ট করো',
+mRead:'পাঠ ও ল্যাব',mCards:'ফ্ল্যাশকার্ড',mQuiz:'অনুশীলন কুইজ',labT:'ইন্টারঅ্যাক্টিভ ল্যাব — নিচের বোতাম চেপে দেখো',fCut:'কেক ভাগ করো:',fTake:'নেওয়া টুকরো:',fEq2:'= ১/২ (অর্ধেক!)',fEq4:'= ১/৪ (এক-চতুর্থাংশ!)',dTot:'মোট জিনিস:',dGrp:'সমান দল:',dEach:'প্রতি দলে',cFlip:'কার্ড উল্টাও',cPrev:'আগেরটি',cNext:'পরের কার্ড',cKnow:'বুঝেছি ✓',cFront:'উল্টাতে ট্যাপ করো'},
 
 ar:{nHome:'نظرة عامة',nLearn:'تعلّم',nLib:'الدروس',nMake:'إنشاء درس',nMakeS:'إنشاء',nRes:'النتائج',gLearner:'المتعلم',gTeacher:'المعلم',gAbout:'حول',nWhy:'الأدلة',nHelp:'مساعدة',
 big:'تكبير النص',menu:'إظهار أو إخفاء أسماء القائمة',dark:'ألوان داكنة عالية التباين',off:'دون اتصال: يعمل دائماً',
@@ -979,7 +1012,8 @@ exL:'مثال محلول',fType:'اكتب إجابتك:',typeL:'إجابة مك�
 qSave:'احفظ في قائمة الهاتف',qSaved:'المحفوظون على هذا الهاتف:',qSms:'أرسل الكل برسالة SMS',qRes:'افتح في النتائج',qClr:'مسح القائمة',
 band:'المستوى:',lvl1:'L1 · مبتدئ',lvl2:'L2 · متقدم',lvl3:'L3 · متمكن',lvl4:'L4 · متقن',
 grpT:'مجموعات الصف (TaRL)',grpA:'المجموعة A (<50% · دعم أساسي)',grpB:'المجموعة B (50–79% · تدريب موجّه)',grpC:'المجموعة C (80–100% · جاهز للمستوى التالي)',
-cpCode:'نسخ الرمز النصي',cpOk:'تم نسخ رمز TITIP1: للرسائل أو الدردشة.',impB:'استيراد رمز',impP:'الصق رمز TITIP1:...',impBad:'رمز TITIP1: غير صالح.',print2:'طباعة ورقتين في الصفحة'}
+cpCode:'نسخ الرمز النصي',cpOk:'تم نسخ رمز TITIP1: للرسائل أو الدردشة.',impB:'استيراد رمز',impP:'الصق رمز TITIP1:...',impBad:'رمز TITIP1: غير صالح.',print2:'طباعة ورقتين في الصفحة',
+mRead:'الدرس والمختبر',mCards:'بطاقات المراجعة',mQuiz:'اختبار تدريبي',labT:'المختبر التفاعلي — اضغط الأزرار للتجربة',fCut:'قسّم الكعكة إلى:',fTake:'الأجزاء المأخوذة:',fEq2:'= 1/2 (نصف!)',fEq4:'= 1/4 (ربع!)',dTot:'إجمالي العناصر:',dGrp:'مجموعات متساوية:',dEach:'لكل مجموعة',cFlip:'اقلب البطاقة',cPrev:'السابق',cNext:'البطاقة التالية',cKnow:'فهمتها ✓',cFront:'اضغط لقلب البطاقة'}
 };
 // Own line icons, 24px grid.
 var I={
@@ -1049,6 +1083,7 @@ var D=fromLesson(lesson); // the draft in the editor
 var weak=[]; // question indexes flagged "Teach again" in the last results
 var demo=false; // true while the results box holds the built-in made-up class
 var libF={lang:'',cat:''};
+var lab={fn:1,fd:2,dt:12,dg:3,ws:0,ps:0,hs:[1,0,0],mode:'read',ci:0,flip:false,known:{}};
 var CATS={diag:'cDiag',math:'cMath',read:'cRead',sci:'cSci',wash:'cWash'};
 var FIGS_T={frac:'figFrac',water:'figWater',plant:'figPlant',wash:'figWash',div:'figDiv'};
 var cur='home';
@@ -1070,9 +1105,74 @@ function ph(crumb,title,sub,actions,cls){
 }
 function stat(v,label,cls){return '<div class="tile"><p class="big'+(cls||'')+'">'+v+'</p><p>'+label+'</p></div>';}
 
+function renderLab(L){
+  var f=L&&L.fig;
+  if(!f||!FIGS[f])return '';
+  var s='<div class="lab" role="region" aria-label="'+t('labT')+'"><p class="sm" style="margin-bottom:.5rem"><strong>'+t('labT')+'</strong></p>',i,p='';
+  if(f=='frac'){
+    var info=fracInfo(lab.fn,lab.fd),cx=56,cy=50,r=36,endA=-Math.PI/2+2*Math.PI*info.n/info.d,
+      ex=(cx+r*Math.cos(endA)).toFixed(1),ey=(cy+r*Math.sin(endA)).toFixed(1);
+    s+='<svg viewBox="0 0 280 100" width="280" height="100" aria-hidden="true">';
+    if(info.n==info.d)s+='<circle cx="56" cy="50" r="36" fill="#0b57d0" fill-opacity=".35" stroke="#0b57d0" stroke-width="2.5"/>';
+    else s+='<circle cx="56" cy="50" r="36" fill="#fff" stroke="#0b57d0" stroke-width="2.5"/><path d="M56 50 L56 14 A36 36 0 '+(info.n*2>info.d?1:0)+' 1 '+ex+' '+ey+' Z" fill="#0b57d0" fill-opacity=".4"/>';
+    for(i=0;i<info.d;i++){
+      var a=-Math.PI/2+2*Math.PI*i/info.d;
+      s+='<line x1="56" y1="50" x2="'+(cx+r*Math.cos(a)).toFixed(1)+'" y2="'+(cy+r*Math.sin(a)).toFixed(1)+'" stroke="#0b57d0" stroke-width="1.5"/>';
+    }
+    var bw=148,sw=bw/info.d;
+    for(i=0;i<info.d;i++)s+='<rect x="'+(116+i*sw).toFixed(1)+'" y="28" width="'+sw.toFixed(1)+'" height="28" fill="'+(i<info.n?'#0b57d0':'#fff')+'" fill-opacity="'+(i<info.n?'.45':'1')+'" stroke="#0b57d0" stroke-width="1.5"/>';
+    s+='<line x1="'+(116+bw/2)+'" y1="18" x2="'+(116+bw/2)+'" y2="66" stroke="#146c2e" stroke-width="2" stroke-dasharray="3 2"/>';
+    s+='<text x="'+(116+bw/2)+'" y="80" text-anchor="middle" font-size="11" fill="#146c2e">1/2 = 50%</text></svg>';
+    s+='<div class="bar"><span class="sm">'+t('fCut')+'</span>';
+    [2,4,8].forEach(function(d){s+='<button type="button" class="pill" data-act="fcut" data-v="'+d+'" aria-pressed="'+(info.d==d)+'">\u00f7'+d+'</button>';});
+    s+='</div><div class="bar"><span class="sm">'+t('fTake')+'</span>';
+    for(i=1;i<=info.d;i++)s+='<button type="button" class="pill" data-act="fnum" data-v="'+i+'" aria-pressed="'+(info.n==i)+'">'+i+'</button>';
+    s+='</div><p class="readout" role="status">'+info.n+'/'+info.d+' ('+info.pct+'%) '+(info.half?t('fEq2'):info.qtr?t('fEq4'):'')+'</p>';
+  }else if(f=='div'){
+    var each=Math.floor(lab.dt/lab.dg),rem=lab.dt%lab.dg,gw=Math.floor(252/lab.dg)-6,j,gx;
+    s+='<svg viewBox="0 0 280 96" width="280" height="96" aria-hidden="true">';
+    for(i=0;i<lab.dg;i++){
+      gx=14+i*(gw+8);
+      s+='<rect x="'+gx+'" y="12" width="'+gw+'" height="66" rx="8" fill="#fff" stroke="#0b57d0" stroke-width="2"/>';
+      for(j=0;j<each;j++)s+='<circle cx="'+(gx+12+(j%4)*14)+'" cy="'+(26+Math.floor(j/4)*14)+'" r="4.5" fill="#0b57d0"/>';
+    }
+    for(i=0;i<rem;i++)s+='<circle cx="'+(24+i*14)+'" cy="88" r="4.5" fill="#b3261e"/>';
+    s+='</svg><div class="bar"><span class="sm">'+t('dTot')+'</span>';
+    [6,8,12,24].forEach(function(n){s+='<button type="button" class="pill" data-act="dtot" data-v="'+n+'" aria-pressed="'+(lab.dt==n)+'">'+n+'</button>';});
+    s+='</div><div class="bar"><span class="sm">'+t('dGrp')+'</span>';
+    [2,3,4].forEach(function(g){s+='<button type="button" class="pill" data-act="dgrp" data-v="'+g+'" aria-pressed="'+(lab.dg==g)+'">'+g+'</button>';});
+    s+='</div><p class="readout" role="status">'+lab.dt+' \u00f7 '+lab.dg+' = '+each+' '+t('dEach')+(rem?' (+'+rem+')':'')+'</p>';
+  }else if(f=='water'){
+    var wpts=[[38,24],[74,52],[184,26],[190,56]],wp=wpts[lab.ws%4];
+    s+='<svg viewBox="0 0 280 96" width="280" height="96" aria-hidden="true"><circle cx="38" cy="24" r="14" fill="#fb8c00"/><path d="M10 80q70-8 140 0t120 0v14H10z" fill="#0b57d0" fill-opacity=".25"/><path d="M66 72c0-18 14-18 14-36" fill="none" stroke="#0b57d0" stroke-width="2.5" stroke-dasharray="4 3"/><path d="M168 34c-12 0-18-16 2-20 8-8 26-6 30 6 14 2 14 14 0 14z" fill="#90caf9" stroke="#0b57d0" stroke-width="2"/><path d="M174 44v22M190 44v22M206 44v22" stroke="#0b57d0" stroke-width="2.5" stroke-linecap="round"/><circle cx="'+wp[0]+'" cy="'+wp[1]+'" r="18" fill="none" stroke="#b3261e" stroke-width="3"/></svg>';
+    s+='<div class="bar">';
+    ['1','2','3','4'].forEach(function(n,idx){s+='<button type="button" class="pill" data-act="wstep" data-v="'+idx+'" aria-pressed="'+(lab.ws==idx)+'">#'+n+'</button>';});
+    p=L.text[Math.min(lab.ws,L.text.length-1)]||'';
+    s+='</div><p class="readout" role="status">'+c(p,L)+'</p>';
+  }else if(f=='plant'){
+    var py=[80,46,32][lab.ps%3];
+    s+='<svg viewBox="0 0 280 96" width="280" height="96" aria-hidden="true"><path d="M20 68h240" stroke="#795548" stroke-width="3"/><path d="M140 68V24" stroke="#1e8e3e" stroke-width="4" stroke-linecap="round"/><ellipse cx="118" cy="40" rx="18" ry="8" transform="rotate(-20 118 40)" fill="#81c995" stroke="#146c2e" stroke-width="2"/><ellipse cx="162" cy="34" rx="18" ry="8" transform="rotate(20 162 34)" fill="#81c995" stroke="#146c2e" stroke-width="2"/><circle cx="140" cy="20" r="8" fill="#f9ab00"/><path d="M140 68c-8 12-22 16-32 22M140 68c0 14 2 18 0 24M140 68c10 12 20 16 30 22" fill="none" stroke="#795548" stroke-width="2.5" stroke-linecap="round"/><circle cx="140" cy="'+py+'" r="16" fill="none" stroke="#b3261e" stroke-width="3"/></svg>';
+    s+='<div class="bar">';
+    for(i=0;i<3;i++)s+='<button type="button" class="pill" data-act="pstep" data-v="'+i+'" aria-pressed="'+(lab.ps==i)+'">#'+(i+1)+'</button>';
+    p=L.text[Math.min(lab.ps+1,L.text.length-1)]||L.text[0]||'';
+    s+='</div><p class="readout" role="status">'+c(p,L)+'</p>';
+  }else if(f=='wash'){
+    var germs=Math.max(0,3-(lab.hs[0]?1:0)-(lab.hs[1]?1:0)-(lab.hs[2]?1:0));
+    s+='<svg viewBox="0 0 280 96" width="280" height="96" aria-hidden="true"><rect x="34" y="28" width="54" height="50" rx="6" fill="#c2e7ff" stroke="#0b57d0" stroke-width="2.5"/>'+(lab.hs[1]?'<path d="M28 28h66" stroke="#0b57d0" stroke-width="4" stroke-linecap="round"/>':'')+(lab.hs[0]?'<circle cx="52" cy="58" r="4" fill="#fff"/><circle cx="68" cy="48" r="5" fill="#fff"/>':'')+'<rect x="176" y="42" width="52" height="30" rx="10" fill="#fce8e6" stroke="#b3261e" stroke-width="2"/>'+(lab.hs[2]?'<circle cx="192" cy="26" r="6" fill="#c2e7ff" stroke="#0b57d0" stroke-width="2"/><circle cx="212" cy="20" r="8" fill="#c2e7ff" stroke="#0b57d0" stroke-width="2"/>':'')+'</svg>';
+    s+='<div class="bar">';
+    for(i=0;i<3;i++)s+='<button type="button" class="pill" data-act="hstep" data-v="'+i+'" aria-pressed="'+!!lab.hs[i]+'">#'+(i+1)+' '+(lab.hs[i]?'\u2713':'')+'</button>';
+    p=L.text[Math.min(germs==0?L.text.length-1:germs,L.text.length-1)]||'';
+    s+='</div><p class="readout" role="status">'+(germs==0?'\u2713 ':'')+c(p,L)+'</p>';
+  }
+  return s+'</div>';
+}
+function refreshLab(){var b=$(cur=='home'?'homeLab':'labBox');if(b)b.innerHTML=renderLab(lesson);}
 function showHome(){
   var s=[['make','h1t','h1'],['phone','h2t','h2'],['sms','h3t','h3']],i,
     h=ph(t('nHome'),t('hero'),t('heroS'),vbtn('learn','hTry','f','go')+vbtn('make','nMake','t','make'),' hero');
+  h+='<div class="card" style="margin:1.25rem 0"><div class="bar" style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.5rem">';
+  [0,2,3,4].forEach(function(idx){if(LIB[idx])h+='<button type="button" class="b '+(canon(LIB[idx])==canon(lesson)?'f':'x')+'" data-act="labpick" data-n="'+idx+'">'+c(LIB[idx].title,LIB[idx])+'</button>';});
+  h+='</div><div id="homeLab">'+renderLab(lesson)+'</div><div class="row" style="margin-top:.75rem">'+vbtn('learn','hTry','t','go')+'</div></div>';
   h+='<h3 class="sec">'+t('how')+'</h3><div class="grid">';
   for(i=0;i<3;i++)h+='<div class="tile"><span class="num">'+(i+1)+'</span>'+ic(s[i][0])+'<h4>'+t(s[i][1])+'</h4><p>'+t(s[i][2])+'</p></div>';
   h+='</div><h3 class="sec">'+t('facts')+'</h3><div class="grid">'+stat(t('kb',Math.ceil(SRC.length/1024)),t('f1'))+stat('0',t('f2'))+stat('0',t('f3'))+'</div>'+
@@ -1082,13 +1182,29 @@ function showHome(){
 }
 
 function showLearn(){
-  var L=lesson,n=L.q.length,h='<div class="col"><p class="crumb">Titip <span aria-hidden="true">/</span> '+t('nLearn')+'</p>',i,
-    listen=canSpeak?btn('listen','listen','x','listen'):'';
+  var L=lesson,n=L.q.length,deck=deckOf(L),h='<div class="col"><p class="crumb">Titip <span aria-hidden="true">/</span> '+t('nLearn')+'</p>',i,
+    listen=canSpeak?btn('listen','listen','x','listen'):'',kc=0;
+  for(i in lab.known)if(lab.known[i])kc++;
+  h+='<div class="tabs">'+
+    '<button type="button" class="b '+(lab.mode=='read'?'t':'o')+'" data-act="lmode" data-v="read">'+t('mRead')+'</button>'+
+    (deck.length?'<button type="button" class="b '+(lab.mode=='cards'?'t':'o')+'" data-act="lmode" data-v="cards">'+t('mCards')+' ('+deck.length+')</button>':'')+
+    '<button type="button" class="b '+(lab.mode=='quiz'?'t':'o')+'" data-act="lmode" data-v="quiz">'+t('mQuiz')+' ('+n+')</button></div>';
+  if(lab.mode=='cards'&&deck.length){
+    var idx=((lab.ci%deck.length)+deck.length)%deck.length,card=deck[idx];
+    h+='<span class="ov">'+t('mCards')+' · '+(idx+1)+' / '+deck.length+'</span><h2 tabindex="-1">'+c(L.title)+'</h2>'+
+      '<p style="margin-top:.5rem"><span class="chip'+(lab.known[idx]?' good':'')+'">'+kc+' / '+deck.length+' '+t('cKnow')+'</span></p>'+
+      '<button type="button" class="fcard" data-act="flip" aria-pressed="'+lab.flip+'">'+
+      '<span class="ov">'+(lab.flip?t('hint'):t('cFront'))+'</span>'+
+      '<p style="font-size:1.25rem;font-weight:600;margin:.5rem 0">'+c(lab.flip?card.back:card.front,L)+'</p></button>'+
+      '<div class="row">'+btn('cprev','cPrev','o')+btn('flip','cFlip','t')+btn('cknow','cKnow',lab.known[idx]?'f':'o','check')+btn('cnext','cNext','f','go')+'</div>';
+    $('learn').innerHTML=h+'</div>';
+    return;
+  }
   if(step<0){
     h+='<span class="ov">'+t('lesson')+'</span><h2 tabindex="-1">'+c(L.title)+'</h2>'+
       '<p style="margin-top:.6rem"><span class="chip">'+esc(LANGS[L.lang]||L.lang)+'</span> <span class="chip">'+t('nq',n)+'</span>'+
       (L.lvl?' <span class="chip">'+c(L.lvl)+'</span>':'')+'</p>'+
-      (L.fig&&FIGS[L.fig]?'<div class="fig">'+FIGS[L.fig]+'</div>':'')+
+      '<div id="labBox">'+renderLab(L)+'</div>'+
       (L.ex?'<div class="ex"><strong>'+t('exL')+':</strong> '+c(L.ex)+'</div>':'')+'<div class="read">';
     for(i=0;i<L.text.length;i++)h+='<p>'+rich(L.text[i],L)+'</p>';
     h+='</div><p id="def" class="fb" role="status"></p><div class="row" style="margin-top:1.75rem">'+btn('next','start','f','go',' id="next"')+listen+'</div>';
@@ -1102,7 +1218,8 @@ function showLearn(){
       for(i=0;i<q.c.length;i++)h+='<label class="opt"><input type="radio" name="c" value="'+i+'"><span>'+c(q.c[i])+'</span></label>';
     }
     h+='</fieldset><p id="fb" class="fb" role="status"></p><div class="row">'+
-      '<button id="chk" class="b f">'+ic('check')+'<span>'+t('check')+'</span></button>'+btn('next','next','f','go',' id="next"')+listen+'</div></form>';
+      '<button id="chk" class="b f">'+ic('check')+'<span>'+t('check')+'</span></button>'+btn('next','next','f','go',' id="next"')+listen+'</div></form>'+
+      (L.fig&&FIGS[L.fig]?'<div id="labBox">'+renderLab(L)+'</div>':'');
   }else{
     var first=0,rev='',code=makeCode(L,picks),gq=load('group.'+lessonId(L),[]);
     for(i=0;i<n;i++){if(picks[i]-1==L.q[i].a)first++;else rev+='<li>'+c(L.q[i].q)+(L.q[i].h?'<br><span class="sm">'+c(L.q[i].h)+'</span>':'')+'</li>';}
@@ -1122,7 +1239,8 @@ function showLearn(){
 function go(s){
   var i;
   if(canSpeak)speechSynthesis.cancel();
-  if(s<0){picks=[];order=[];tried={};savedQ=false;for(i=0;i<lesson.q.length;i++){picks.push(0);order.push(i);}}
+  if(s<0){picks=[];order=[];tried={};savedQ=false;lab.mode='read';for(i=0;i<lesson.q.length;i++){picks.push(0);order.push(i);}}
+  else lab.mode='quiz';
   if(s==lesson.q.length&&order.length==s)order=withRetries(lesson,picks); // end of the first pass: queue the missed ones
   step=s;
   showLearn();
@@ -1163,9 +1281,9 @@ function speak(){
   u.lang=lesson.lang;speechSynthesis.speak(u);
 }
 function setLesson(L){ // one place where the current lesson changes
-  lesson=L;demo=false;weak=[];
+  lesson=L;demo=false;weak=[];lab.mode='read';lab.ci=0;lab.flip=false;lab.known={};
   $('pickT').textContent=L.title;
-  go(-1);showLib();showRes();
+  go(-1);showHome();showLib();showRes();
 }
 
 function showLib(){
@@ -1430,6 +1548,19 @@ document.addEventListener('click',function(e){
   else if(act=='listen')speak();
   else if(act=='next')go(step+1);
   else if(act=='again')go(-1);
+  else if(act=='labpick'){setLesson(LIB[+a.getAttribute('data-n')]);}
+  else if(act=='fcut'){lab.fd=+a.getAttribute('data-v');if(lab.fn>lab.fd)lab.fn=lab.fd;refreshLab();}
+  else if(act=='fnum'){lab.fn=+a.getAttribute('data-v');refreshLab();}
+  else if(act=='dtot'){lab.dt=+a.getAttribute('data-v');refreshLab();}
+  else if(act=='dgrp'){lab.dg=+a.getAttribute('data-v');refreshLab();}
+  else if(act=='wstep'){lab.ws=+a.getAttribute('data-v');refreshLab();}
+  else if(act=='pstep'){lab.ps=+a.getAttribute('data-v');refreshLab();}
+  else if(act=='hstep'){var hi=+a.getAttribute('data-v');lab.hs[hi]=lab.hs[hi]?0:1;refreshLab();}
+  else if(act=='lmode'){var lm=a.getAttribute('data-v');if(lm=='quiz'&&step<0){go(0);return;}lab.mode=lm;if(lm=='read')step=-1;showLearn();}
+  else if(act=='flip'){lab.flip=!lab.flip;showLearn();}
+  else if(act=='cprev'){lab.ci--;lab.flip=false;showLearn();}
+  else if(act=='cnext'){lab.ci++;lab.flip=false;showLearn();}
+  else if(act=='cknow'){var dn=deckOf(lesson).length,ci=((lab.ci%dn)+dn)%dn;lab.known[ci]=!lab.known[ci];lab.ci++;lab.flip=false;showLearn();}
   else if(act=='saveq'){q=load('group.'+lessonId(lesson),[]);q.push(makeCode(lesson,picks));save('group.'+lessonId(lesson),q);savedQ=true;showLearn();}
   else if(act=='clrq'){save('group.'+lessonId(lesson),[]);savedQ=false;showLearn();}
   else if(act=='resq'){$('codes').value=load('group.'+lessonId(lesson),[]).join('\n');demo=false;view('res');results();$('out').focus();}
