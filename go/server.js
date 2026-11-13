@@ -13,7 +13,9 @@ const PORT = +process.env.PORT || 8093;
 const WEB = path.resolve(process.env.WEB || path.join(__dirname, '..', 'web'));
 const DATA = path.resolve(process.env.DATA || path.join(__dirname, 'data'));
 const KEY = process.env.GEMINI_API_KEY || '';
-const MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+// First model that answers wins; the next is tried on an error or a timeout.
+const MODELS = (process.env.GEMINI_MODELS || 'gemini-3.5-flash-lite,gemini-flash-lite-latest,gemini-3.1-flash-lite,gemini-3.8-flash').split(',').map((m) => m.trim()).filter(Boolean);
+const MODEL = MODELS[0];
 fs.mkdirSync(DATA, { recursive: true });
 
 // ---------- small helpers ----------
@@ -107,29 +109,26 @@ function cleanLesson(L) {
 // ---------- Gemini ----------
 async function gemini(system, user, schema, temperature = 0.4) {
   if (!KEY) fail(503, 'The AI helper is not set up on this server.');
-  const body = {
-    systemInstruction: { parts: [{ text: system }] },
-    contents: [{ role: 'user', parts: [{ text: user }] }],
-    generationConfig: { temperature, responseMimeType: 'application/json', responseSchema: schema, maxOutputTokens: 4096, thinkingConfig: { thinkingBudget: 0 } },
-    safetySettings: ['HARASSMENT', 'HATE_SPEECH', 'SEXUALLY_EXPLICIT', 'DANGEROUS_CONTENT'].map((c) => ({ category: 'HARM_CATEGORY_' + c, threshold: 'BLOCK_LOW_AND_ABOVE' })),
-  };
-  const ctl = new AbortController();
-  const timer = setTimeout(() => ctl.abort(), 30000);
-  try {
-    const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
-      method: 'POST', signal: ctl.signal,
-      headers: { 'content-type': 'application/json', 'x-goog-api-key': KEY },
-      body: JSON.stringify(body),
-    });
-    const j = await r.json();
-    const text = j && j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts && j.candidates[0].content.parts.map((p) => p.text || '').join('');
-    if (!r.ok || !text) { console.log('gemini error', r.status, JSON.stringify(j).slice(0, 300)); fail(502, 'The AI helper could not answer. Please try again.'); }
-    return JSON.parse(text);
-  } catch (e) {
-    if (e instanceof HttpError) throw e;
-    console.log('gemini exception', e.message);
-    fail(502, 'The AI helper could not answer. Please try again.');
-  } finally { clearTimeout(timer); }
+  for (const model of MODELS) {
+    const body = {
+      systemInstruction: { parts: [{ text: system }] },
+      contents: [{ role: 'user', parts: [{ text: user }] }],
+      generationConfig: { temperature, responseMimeType: 'application/json', responseSchema: schema, maxOutputTokens: 8192, thinkingConfig: /gemini-2/.test(model) ? { thinkingBudget: 0 } : { thinkingLevel: 'low' } },
+      safetySettings: ['HARASSMENT', 'HATE_SPEECH', 'SEXUALLY_EXPLICIT', 'DANGEROUS_CONTENT'].map((c) => ({ category: 'HARM_CATEGORY_' + c, threshold: 'BLOCK_LOW_AND_ABOVE' })),
+    };
+    try {
+      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+        method: 'POST', signal: AbortSignal.timeout(20000),
+        headers: { 'content-type': 'application/json', 'x-goog-api-key': KEY },
+        body: JSON.stringify(body),
+      });
+      const j = await r.json();
+      const text = j && j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts && j.candidates[0].content.parts.map((p) => p.text || '').join('');
+      if (!r.ok || !text) { console.log('gemini error', model, r.status, JSON.stringify(j).slice(0, 200)); continue; }
+      return JSON.parse(text);
+    } catch (e) { console.log('gemini exception', model, e.message); }
+  }
+  fail(503, 'The AI helper could not answer. Please try again.');
 }
 const S = (props, req) => ({ type: 'OBJECT', properties: props, required: req || Object.keys(props) });
 const STR = { type: 'STRING' }, INT = { type: 'INTEGER' };
@@ -227,7 +226,9 @@ function stats(c) {
 async function aiAnalyse(c) {
   const st = stats(c), L = c.lesson;
   if (!st.n) fail(400, 'No answers yet.');
-  const lines = st.per.map((p, i) => `Q${i + 1}: ${p.q} | right first try ${p.first}/${p.n} | common wrong: ${p.top.map((t) => `"${t[0]}" x${t[1]}`).join(', ') || 'none'}${p.open.length ? ' | open answers scored ' + p.open.map((o) => o.score).join(',') : ''}`).join('\n');
+  const lines = st.per.map((p, i) => p.type === 'open'
+    ? `Q${i + 1} (open answer, scored 0-2 by AI, not right/wrong): ${p.q} | scores ${p.open.map((o) => (o.score == null ? '?' : o.score)).join(',')} | sample answers: ${p.open.slice(0, 6).map((o) => `"${o.text}"`).join('; ')}`
+    : `Q${i + 1}: ${p.q} | right first try ${p.first}/${p.n} | common wrong: ${p.top.map((t) => `"${t[0]}" x${t[1]}`).join(', ') || 'none'}`).join('\n');
   const out = await gemini(
     SAFE + ' You help a teacher decide what to reteach. Base every statement only on the numbers given. Do not invent learners or numbers.',
     `Lesson: ${L.title} (${LANGS[L.lang] || 'English'})\nLesson text: ${L.text.join(' ')}\nClass results (${st.n} learners):\n${lines}\n\nReturn in ${LANGS[L.lang] || 'English'}: "summary" (2 sentences), "misconceptions" (up to 3: what learners seem to believe and which question shows it), "plan" (3 short steps to reteach tomorrow, 5 minutes each), and "followup": 3 new multiple-choice questions that target those misconceptions (3 choices, "a" = correct index, "h" = one-sentence hint).`,
@@ -405,6 +406,6 @@ const server = http.createServer((req, res) => {
     }
   });
 });
-if (require.main === module) server.listen(PORT, '127.0.0.1', () => console.log(`titip on 127.0.0.1:${PORT}, web=${WEB}, ai=${KEY ? MODEL : 'off'}`));
+if (require.main === module) server.listen(PORT, '127.0.0.1', () => console.log(`titip on 127.0.0.1:${PORT}, web=${WEB}, ai=${KEY ? MODELS.join('>') : 'off'}`));
 
 module.exports = { cleanLesson, stats, demoClass };

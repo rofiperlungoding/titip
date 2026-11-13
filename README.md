@@ -86,6 +86,10 @@ To check the logic, open the browser console and run `selfTest()`. It returns `o
 - The result code records the first answer picked for each question. It does not record later tries.
 - Titip tells the teacher what to reteach. It cannot make that happen.
 
+## Titip Go (online companion)
+
+`/go/` adds Google Gemini for teachers who have a connection: AI lesson drafts, an AI reading of class results with follow-up questions, hints written for a learner's own wrong answer, and graded open answers. Teachers use a class code and PIN; learners use the code and a nickname. Server: `go/server.js` (Node, no dependencies). The offline app does not depend on it. Judges: one-click demo at https://titip.rofihosted.space/go/.
+
 ## Credits
 
 - Built during AccessED Hacks (October 17 to November 20, 2026). No pre-existing code.
