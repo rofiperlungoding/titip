@@ -68,7 +68,9 @@ jobs:
       - name: Check public URLs
         run: |
           for p in / /app/ /app/sw.js; do curl -fsS -o /dev/null -w "%{http_code} $p\n" "https://titip.rofihosted.space$p"; done
-          curl -fsS "https://titip.rofihosted.space/status.json?t=$(date +%s)"
+          s=$(curl -fsS "https://titip.rofihosted.space/status.json?t=$(date +%s)"); echo "$s"
+          echo "$s" | grep -q "\"state\":\"live\",\"sha\":\"$GITHUB_SHA\"" || { echo "public site is not serving $GITHUB_SHA"; exit 1; }
+          curl -fsS "https://titip.rofihosted.space/app/?t=$(date +%s)" | cmp -s - index.html || { echo "public /app/ differs from this commit"; exit 1; }
       - name: Mark failed
         if: failure()
         run: ssh live "fail $GITHUB_SHA" || true
